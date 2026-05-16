@@ -133,7 +133,7 @@ def main() -> None:
         if g and g.volume >= MIN_EVENT_VOLUME
     ]
     selected = select_balanced(groups)
-    _LLM = llm_enabled()  # True only if GEMINI_API_KEY secret is set
+    _LLM = llm_enabled()  # True only if LLM_API_KEY secret is set (card-free Groq/etc.)
 
     events_out = []
     for i, g in enumerate(selected):
@@ -173,7 +173,7 @@ def main() -> None:
                 )
             time.sleep(0.4)
             # Subordinate, fail-open. Tier B (Gemini) only on the top 6 events
-            # and only if GEMINI_API_KEY secret exists; else keyless Tier A.
+            # and only if LLM_API_KEY secret exists; else keyless Tier A.
             context = build_context(g.title, news, use_llm=_LLM and i < 3)
 
         events_out.append(

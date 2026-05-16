@@ -5,7 +5,8 @@ Honesty contract (enforced in code, not comments):
   number on this product. This layer only says "what is being discussed".
 - Tier A (default, keyless, £0): deterministic surface of real Google News
   headlines already fetched — zero synthesis, zero hallucination risk.
-- Tier B (optional, GEMINI_API_KEY secret): a 1-sentence sourced summary; any
+- Tier B (optional, LLM_API_KEY secret; card-free Groq/OpenRouter etc.,
+  OpenAI-compatible): a 1-sentence sourced summary; any
   output containing odds/verdict/forecast language is REJECTED and we fall
   back to Tier A. Tier A is always the floor.
 - Must never raise into the pipeline; never block snapshot/ledger/QEST.
@@ -21,12 +22,15 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
-GEMINI_MODEL = "gemini-2.0-flash-lite"  # most generous free-tier limits
-GEMINI_CALL_GAP_S = 4.5  # space calls to respect free-tier RPM
-GEMINI_URL = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    f"{GEMINI_MODEL}:generateContent"
-)
+# Provider-agnostic, OpenAI-compatible. Works with any card-free free
+# provider (Groq default; OpenRouter, etc.) via env overrides — NO Google,
+# NO billing profile. Configure with repo secret LLM_API_KEY (+ optional
+# LLM_API_BASE / LLM_MODEL).
+# `or default` (not get(k, default)) so an empty env (unset GitHub var still
+# injects "") falls back correctly.
+LLM_API_BASE = os.environ.get("LLM_API_BASE") or "https://api.groq.com/openai/v1"
+LLM_MODEL = os.environ.get("LLM_MODEL") or "llama-3.3-70b-versatile"
+LLM_CALL_GAP_S = 4.0  # space calls to respect free-tier RPM
 REQUEST_TIMEOUT_S = 12
 
 # If a Tier-B summary contains any of these, it is rejected (honesty guard).
@@ -82,12 +86,14 @@ STATS: dict[str, int] = {
 _RATE_LIMITED = False
 
 
-def _gemini(event_title: str, headlines: list[dict]) -> str | None:
+def _llm(event_title: str, headlines: list[dict]) -> str | None:
+    """OpenAI-compatible chat completion (Groq default; any compatible
+    provider via LLM_API_BASE/LLM_MODEL). Card-free. Never raises out."""
     global _RATE_LIMITED
     if _RATE_LIMITED:
         STATS["skipped_ratelimited"] += 1
         return None
-    key = os.environ.get("GEMINI_API_KEY")
+    key = os.environ.get("LLM_API_KEY")
     if not key:
         STATS["no_key"] += 1
         return None
@@ -106,44 +112,40 @@ def _gemini(event_title: str, headlines: list[dict]) -> str | None:
     )
     body = json.dumps(
         {
-            "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"maxOutputTokens": 256, "temperature": 0.2},
+            "model": LLM_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": 256,
+            "temperature": 0.2,
         }
     ).encode()
     req = urllib.request.Request(
-        f"{GEMINI_URL}?key={key}",
+        f"{LLM_API_BASE.rstrip('/')}/chat/completions",
         data=body,
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {key}",
+        },
         method="POST",
     )
-    time.sleep(GEMINI_CALL_GAP_S)  # space calls under free-tier RPM
+    time.sleep(LLM_CALL_GAP_S)  # space calls under free-tier RPM
     try:
         with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_S) as r:
             data = json.loads(r.read().decode("utf-8"))
     except (urllib.error.URLError, TimeoutError, ValueError) as exc:
-        # HTTP status only (e.g. 400/403/404/429) — never the key or body.
+        # HTTP status only (e.g. 400/401/429) — never the key or body.
         code = getattr(exc, "code", "net")
         STATS[f"http_{code}"] = STATS.get(f"http_{code}", 0) + 1
         STATS["http_error"] += 1
         if code == 429:  # quota hit — stop further calls this run
             _RATE_LIMITED = True
         return None
-    # Robust parse: scan all candidates/parts for the first text payload.
     text = ""
-    for cand in (data.get("candidates") or []):
-        for part in ((cand.get("content") or {}).get("parts") or []):
-            if isinstance(part.get("text"), str) and part["text"].strip():
-                text = part["text"].strip()
-                break
-        if text:
-            break
+    try:
+        choice = (data.get("choices") or [{}])[0]
+        text = ((choice.get("message") or {}).get("content") or "").strip()
+    except (IndexError, AttributeError):
+        text = ""
     if not text:
-        fr = ""
-        try:
-            fr = (data.get("candidates") or [{}])[0].get("finishReason", "")
-        except (IndexError, AttributeError):
-            fr = ""
-        STATS[f"empty_{fr or 'none'}"] = STATS.get(f"empty_{fr or 'none'}", 0) + 1
         STATS["empty"] += 1
         return None
     if _BANNED.search(text):  # honesty guard -> caller falls back to Tier A
@@ -159,7 +161,7 @@ def build_context(
     """Tier B if enabled+clean, else Tier A floor, else None. Never raises."""
     try:
         if use_llm:
-            s = _gemini(event_title, headlines)
+            s = _llm(event_title, headlines)
             if s:
                 return {
                     "summary": s,
@@ -173,4 +175,4 @@ def build_context(
 
 
 def llm_enabled() -> bool:
-    return bool(os.environ.get("GEMINI_API_KEY"))
+    return bool(os.environ.get("LLM_API_KEY"))

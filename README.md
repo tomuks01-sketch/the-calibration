@@ -24,19 +24,23 @@ cd web && python -m http.server 8000
 | `src/generate_snapshot.py` | Builds `web/data.json` |
 | `web/` | Static dashboard (no build step — free GitHub Pages / Vercel) |
 
-## Optional: AI context (Gemini, free tier)
+## Optional: AI context (card-free, free tier)
 
 Per-market context works with zero setup using keyless Google News (Tier A).
-To upgrade to AI-summarised sourced context (Tier B), add a free key:
+To upgrade to AI-summarised sourced context (Tier B), add a free,
+**no-credit-card** API key (OpenAI-compatible). Recommended: **Groq**.
 
-1. Create a free Gemini API key at Google AI Studio.
+1. Sign up free at console.groq.com (no credit card) → create an API key.
+   (Or any OpenAI-compatible card-free provider, e.g. openrouter.ai.)
 2. GitHub repo → Settings → Secrets and variables → Actions → New repository
-   secret. Name it exactly `GEMINI_API_KEY`, paste the key, save.
-3. Done. The 30-min workflow auto-detects it next run (top 6 events only,
-   cost-capped). No key = stays on Tier A silently.
+   secret. Name it exactly `LLM_API_KEY`, paste the key, save.
+3. (Only if NOT using Groq) add repo *Variables* `LLM_API_BASE` and
+   `LLM_MODEL` for your provider. Groq needs neither.
+4. Done. The 30-min workflow auto-detects it next run (top 3 events,
+   spaced, stops on rate-limit). No key = stays on Tier A silently.
 
 AI context is always a sourced, qualitative summary — never a probability,
-verdict or forecast (those would be rejected and fall back to Tier A).
+verdict or forecast (those are rejected and fall back to Tier A).
 
 ## Signals (descriptive, not advice)
 
