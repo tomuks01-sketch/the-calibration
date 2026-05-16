@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Scoreboard — a public, scored, append-only prediction ledger</title>
+<meta name="description" content="Every model call is timestamped and Brier-scored when its market resolves, then kept forever — wins and losses. Snapshot-scoped, not an edge claim." />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<article class="brief">
+  <a class="back" href="../">← Polymarket Insight terminal</a>
+  <p class="kicker">The Scoreboard</p>
+  <h1>Scored in the open — <em>wins and losses, kept forever</em></h1>
+  <p class="standfirst">A transparent baseline model logs a call when it
+  diverges from the crowd. Each call is timestamped now and Brier-scored when
+  its market resolves. Nothing is deleted. This is an honesty instrument, not
+  an edge claim.</p>
+
+  <div id="sb" class="sb">loading…</div>
+
+  <h2>Every call (newest first)</h2>
+  <div id="entries" class="sb-entries">loading…</div>
+
+  <p class="disclaimer">Baseline statistical model (mean-reversion on weekly
+  move, documented in <code>src/model.py</code>) — not AI, not advice, not an
+  edge claim. Brier is <b>snapshot-scoped</b>: calls are only logged for
+  markets in the top-volume snapshot at call time, which is not a random
+  sample. Lower Brier is better. Raw data is public:
+  <a href="../ledger.json">ledger.json</a> ·
+  <a href="../scoreboard.json">scoreboard.json</a>. Not financial advice.</p>
+
+  <a class="back" href="../briefs/">The Crowd Signal — briefs →</a>
+</article>
+
+<script>
+function pctBrier(v){ return v === null || v === undefined ? "—" : v.toFixed(4); }
+async function load(){
+  let sb, led;
+  try {
+    sb = await (await fetch("../scoreboard.json",{cache:"no-store"})).json();
+    led = await (await fetch("../ledger.json",{cache:"no-store"})).json();
+  } catch(e){
+    document.getElementById("sb").innerHTML = "Could not load scoreboard data.";
+    return;
+  }
+  const c = sb.counts;
+  let headline;
+  if (sb.confidence === "none") {
+    headline = `<p class="sb-note">Not enough resolved calls yet for a
+      meaningful score (${c.resolved} resolved). The record is accumulating in
+      public — that is the point.</p>`;
+  } else {
+    const flag = sb.confidence === "low"
+      ? `<span class="sb-warn">low N — treat as noisy</span>` : "";
+    headline = `<div class="sb-grid">
+      <div><b>${pctBrier(sb.snapshotScopedModelBrier)}</b><span>model Brier ${flag}</span></div>
+      <div><b>${pctBrier(sb.snapshotScopedCrowdBrier)}</b><span>crowd Brier (same calls)</span></div>
+      <div><b>${sb.skillVsCrowd>0?"+":""}${pctBrier(sb.skillVsCrowd)}</b><span>skill vs crowd</span></div>
+    </div>`;
+  }
+  document.getElementById("sb").innerHTML =
+    `<div class="sb-counts">
+       <span><b>${c.resolved}</b> resolved</span>
+       <span><b>${c.pending}</b> pending</span>
+       <span><b>${c.void}</b> void</span>
+       <span>model <b>${sb.modelVersion}</b></span>
+     </div>${headline}
+     <p class="sb-sample">${sb.sampleNote}</p>`;
+
+  const order = {RESOLVED:0, PENDING:1, VOID:2};
+  const rows = [...led.entries].sort((a,b)=>
+    (order[a.status]-order[b.status]) || (b.openedAt||"").localeCompare(a.openedAt||""));
+  document.getElementById("entries").innerHTML = rows.length ? rows.map(e=>{
+    const res = e.status==="RESOLVED"
+      ? `outcome ${e.resolvedOutcome} · model ${pctBrier(e.modelBrier)} · crowd ${pctBrier(e.marketBrier)}`
+      : (e.status==="VOID" ? (e.voidReason||"void") : "awaiting resolution");
+    return `<div class="sb-row ${e.status.toLowerCase()}">
+      <div class="sb-q">${escapeHtml(e.question)}</div>
+      <div class="sb-meta">
+        <span class="st">${e.status}</span>
+        <span>model ${(e.modelProb*100).toFixed(0)}% vs crowd ${(e.crowdProbAtCallTime*100).toFixed(0)}%</span>
+        <span>${e.divergencePp>0?"+":""}${e.divergencePp}pp</span>
+        <span>${(e.openedAt||"").slice(0,10)}</span>
+        <span>${res}</span>
+      </div></div>`;
+  }).join("") : `<p class="sb-note">No calls logged yet.</p>`;
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+load();
+</script>
+</body>
+</html>

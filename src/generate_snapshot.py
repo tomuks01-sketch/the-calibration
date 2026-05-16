@@ -21,8 +21,11 @@ from fetch_markets import (
     is_binary,
 )
 from crypto import build_cross_signals, fetch_macro
+from ledger import load_ledger, open_calls, resolve_pending, save_ledger
+from model import evaluate
 from news import fetch_headlines, topic_from_question
 from price_history import fetch_price_move, move_flags, parse_token_ids
+from scoreboard import write as write_scoreboard
 
 OUTPUT = Path(__file__).resolve().parent.parent / "web" / "data.json"
 
@@ -66,6 +69,11 @@ def summarize_event_outcomes(group) -> list[dict]:
                 "label": outcome_label(m),
                 "price": round(p, 4),
                 "weekChange": round(_coerce_float(m.get("oneWeekPriceChange")), 4),
+                "conditionId": str(m.get("conditionId") or ""),
+                "marketId": str(m.get("id") or ""),
+                "question": str(m.get("question") or "")[:140],
+                "liquidity": _coerce_float(m.get("liquidity")),
+                "volume": _coerce_float(m.get("volume")),
             }
         )
     rows.sort(key=lambda r: r["price"], reverse=True)
@@ -219,6 +227,46 @@ def main() -> None:
     print(
         f"Wrote {OUTPUT} ({len(events_out)} events, "
         f"{len(categories)} categories: {', '.join(categories)})"
+    )
+
+    # ---- Model + append-only public ledger + scoreboard ----
+    candidates = []
+    for e in events_out:
+        outs = e.get("outcomes") or []
+        if not outs:
+            continue
+        lead = outs[0]
+        mc = evaluate(
+            market_prob=lead.get("price"),
+            week_change=lead.get("weekChange"),
+            liquidity=lead.get("liquidity"),
+            days_to_resolution=e.get("daysToResolution"),
+            condition_id=lead.get("conditionId"),
+        )
+        if mc.is_call:
+            candidates.append(
+                {
+                    "conditionId": lead["conditionId"],
+                    "marketId": lead.get("marketId", ""),
+                    "eventSlug": e.get("slug", ""),
+                    "eventTitle": e.get("title", ""),
+                    "category": e.get("category", ""),
+                    "question": lead.get("question") or e.get("title", ""),
+                    "modelProb": mc.model_prob,
+                    "marketProb": mc.market_prob,
+                    "divergence": mc.divergence,
+                }
+            )
+
+    ledger = load_ledger()
+    opened = open_calls(ledger, candidates)
+    resolved, voided = resolve_pending(ledger)
+    save_ledger(ledger)
+    sb = write_scoreboard(ledger)
+    print(
+        f"Ledger: +{opened} opened, {resolved} resolved, {voided} void | "
+        f"scoreboard: {sb['counts']['resolved']} resolved, "
+        f"confidence={sb['confidence']}"
     )
 
 

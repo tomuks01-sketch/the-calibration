@@ -1,0 +1,17 @@
+{
+  "generatedFrom": "web/ledger.json",
+  "modelVersion": "baseline-v1",
+  "sampleNote": "Snapshot-scoped: calls are logged only for markets present in the top-volume snapshot at call time. This is NOT a random sample of all Polymarket markets; the Brier figures are 'snapshot-scoped' and must be read with that selection caveat.",
+  "counts": {
+    "resolved": 0,
+    "pending": 2,
+    "void": 0,
+    "total": 2
+  },
+  "confidence": "none",
+  "snapshotScopedModelBrier": null,
+  "snapshotScopedCrowdBrier": null,
+  "skillVsCrowd": null,
+  "calibration": [],
+  "disclaimer": "Baseline statistical model, not advice, not an edge claim. Brier is snapshot-scoped (selection caveat above). Lower Brier is better; skill = crowd Brier - model Brier (positive = model beat the crowd on this scoped sample)."
+}

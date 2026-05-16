@@ -30,14 +30,23 @@ jobs:
       - name: Generate snapshot
         run: python src/generate_snapshot.py
 
+      - name: Validate JSON before commit
+        run: |
+          python -c "import json; json.load(open('web/data.json'))"
+          python -c "import json,glob,sys; [json.load(open(f)) for f in ['web/ledger.json','web/scoreboard.json']+glob.glob('web/ledger-archive/*.json')]"
+          echo "JSON OK"
+
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet -- web/data.json; then
-            git add web/data.json
-            git commit -m "chore: refresh data snapshot"
+          git add web/data.json web/ledger.json web/scoreboard.json web/ledger-archive
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh snapshot + ledger"
+            # Fail loud on rebase conflict — never silently overwrite the
+            # append-only ledger of a concurrent run.
+            git pull --rebase -X theirs origin main
             git push
           else
-            echo "No data change — nothing to commit."
+            echo "No change — nothing to commit."
           fi
