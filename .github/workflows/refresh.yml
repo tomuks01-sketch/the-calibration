@@ -29,6 +29,9 @@ jobs:
 
       - name: Generate snapshot
         run: python src/generate_snapshot.py
+        env:
+          # Optional: enables Tier B (Gemini) context. Absent secret => Tier A.
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Validate JSON before commit
         run: |
