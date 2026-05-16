@@ -297,6 +297,16 @@ body::before {
 .macro .regime.risk-on { color: var(--up); background: oklch(76% 0.16 155 / 0.12); }
 .macro .regime.risk-off { color: var(--down); background: oklch(66% 0.18 25 / 0.12); }
 .macro .regime.neutral, .macro .regime.unknown { color: var(--muted); background: var(--s2); }
+.macro .topcoins {
+  flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.65rem 1rem; margin-top: 0.5rem; padding-top: 0.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+.macro .topcoins .mlabel { flex-basis: 100%; }
+.macro .topcoins .tc { display: inline-flex; align-items: baseline; gap: 0.35rem; }
+.macro .topcoins .tc i {
+  font-style: normal; font-size: 0.66rem; color: oklch(55% 0.02 264);
+}
 
 /* ---------- Shared site nav (restrained luxury) ---------- */
 .sitenav {

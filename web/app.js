@@ -130,13 +130,23 @@ function renderMacro() {
       : `<b class="${v > 0 ? "up" : v < 0 ? "down" : "flat"}">${v > 0 ? "+" : ""}${v.toFixed(1)}${suf}</b>`;
   const usd = (v) =>
     v === null || v === undefined ? "—" : "$" + Intl.NumberFormat("en-US").format(Math.round(v));
-  el.innerHTML =
+  let html =
     `<span class="mlabel">Market context · not a signal</span>` +
     `<span>BTC ${usd(m.btcUsd)} ${sign(m.btcChange24h, "%")}</span>` +
     `<span>ETH ${usd(m.ethUsd)} ${sign(m.ethChange24h, "%")}</span>` +
     `<span>Crypto mcap ${sign(m.totalMcapChange24h, "%")} 24h</span>` +
     `<span>BTC dom ${m.btcDominance != null ? m.btcDominance.toFixed(1) + "%" : "—"}</span>` +
     `<span class="regime ${m.regime}">${m.regime}</span>`;
+
+  const top = m.topCoins || [];
+  if (top.length) {
+    html += `<div class="topcoins"><span class="mlabel">Top 10 by mcap · 24h / 7d · context, not advice</span>` +
+      top.map((c) =>
+        `<span class="tc">${escapeHtml(c.symbol)} ${sign(c.change24h, "%")}` +
+        `<i>${c.change7d == null ? "" : (c.change7d > 0 ? "+" : "") + c.change7d.toFixed(1) + "% 7d"}</i></span>`
+      ).join("") + `</div>`;
+  }
+  el.innerHTML = html;
 }
 
 function renderTicker() {

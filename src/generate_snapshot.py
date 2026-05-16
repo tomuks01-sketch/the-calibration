@@ -20,7 +20,7 @@ from fetch_markets import (
     fetch_active_events,
     is_binary,
 )
-from crypto import build_cross_signals, fetch_macro
+from crypto import build_cross_signals, fetch_macro, fetch_top_coins
 from ledger import load_ledger, open_calls, resolve_pending, save_ledger
 from model import evaluate
 from news import fetch_headlines, topic_from_question
@@ -206,6 +206,7 @@ def main() -> None:
         "totalMcapUsd": macro.total_mcap_usd,
         "totalMcapChange24h": macro.total_mcap_change_24h,
         "btcDominance": macro.btc_dominance,
+        "topCoins": fetch_top_coins(),
         "crossSignals": build_cross_signals(macro, events_out),
     }
 

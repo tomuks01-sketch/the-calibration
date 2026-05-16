@@ -20,7 +20,15 @@ COINGECKO_SIMPLE_URL = (
     "&include_24hr_change=true&include_market_cap=true"
 )
 COINGECKO_GLOBAL_URL = "https://api.coingecko.com/api/v3/global"
+COINGECKO_MARKETS_URL = (
+    "https://api.coingecko.com/api/v3/coins/markets"
+    "?vs_currency=usd&order=market_cap_desc&per_page=20&page=1"
+    "&price_change_percentage=24h,7d"
+)
 REQUEST_TIMEOUT_S = 20
+TOP_N = 10
+# Pegged assets are excluded from the *movement* list (always ~0%, noise).
+_STABLES = {"usdt", "usdc", "dai", "fdusd", "usde", "tusd", "usds", "pyusd"}
 
 
 @dataclass(frozen=True)
@@ -49,6 +57,35 @@ def _f(v: object) -> float | None:
         return round(float(v), 4)
     except (TypeError, ValueError):
         return None
+
+
+def fetch_top_coins() -> list[dict]:
+    """Top non-stablecoin coins by market cap with 24h/7d move.
+
+    Read-only context only — NOT a price forecast and NOT trading advice.
+    Degrades to [] on any failure (caller hides the strip)."""
+    try:
+        rows = _get(COINGECKO_MARKETS_URL)
+    except (urllib.error.URLError, TimeoutError, ValueError, KeyError):
+        return []
+    if not isinstance(rows, list):
+        return []
+    out: list[dict] = []
+    for r in rows:
+        sym = str(r.get("symbol") or "").lower()
+        if sym in _STABLES:
+            continue
+        out.append(
+            {
+                "symbol": sym.upper(),
+                "price": _f(r.get("current_price")),
+                "change24h": _f(r.get("price_change_percentage_24h")),
+                "change7d": _f(r.get("price_change_percentage_7d_in_currency")),
+            }
+        )
+        if len(out) >= TOP_N:
+            break
+    return out
 
 
 def classify_regime(
