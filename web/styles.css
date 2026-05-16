@@ -276,6 +276,28 @@ body::before {
 @keyframes fup { 0% { background: oklch(76% 0.16 155 / 0.18); } 100% { background: var(--glass); } }
 @keyframes fdn { 0% { background: oklch(66% 0.18 25 / 0.18); } 100% { background: var(--glass); } }
 
+/* ---------- Macro context strip (subordinate) ---------- */
+.macro {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;
+  margin: 0 0 1.1rem; padding: 0.5rem 0.85rem;
+  border: 1px solid var(--line-soft); border-radius: 10px;
+  background: oklch(20% 0.02 264 / 0.5);
+  font-family: var(--mono); font-size: 0.74rem; color: var(--muted);
+}
+.macro .mlabel {
+  text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem;
+  color: oklch(58% 0.02 264);
+}
+.macro b { color: var(--text); font-weight: 700; }
+.macro b.up { color: var(--up); } .macro b.down { color: var(--down); } .macro b.flat { color: var(--muted); }
+.macro .regime {
+  margin-left: auto; text-transform: uppercase; letter-spacing: 0.08em;
+  font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 6px;
+}
+.macro .regime.risk-on { color: var(--up); background: oklch(76% 0.16 155 / 0.12); }
+.macro .regime.risk-off { color: var(--down); background: oklch(66% 0.18 25 / 0.12); }
+.macro .regime.neutral, .macro .regime.unknown { color: var(--muted); background: var(--s2); }
+
 /* ---------- Brief (editorial) ---------- */
 .brief {
   max-width: 720px; margin: 0 auto; padding: 1rem 0 3rem;
@@ -311,6 +333,17 @@ body::before {
 .brief .archive a { color: var(--text); text-decoration: none; font-weight: 600; }
 .brief .archive a:hover { color: var(--champagne); }
 .brief .archive span { color: var(--muted); font-family: var(--mono); font-size: 0.8rem; flex-shrink: 0; }
+.brief .xsignal {
+  margin: 1.6rem 0; padding: 1rem 1.1rem;
+  border: 1px solid var(--line-soft); border-left: 3px solid var(--sapphire);
+  border-radius: 10px; background: oklch(20% 0.02 264 / 0.5);
+}
+.brief .xs-label {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--sapphire); margin-bottom: 0.4rem;
+}
+.brief .xsignal p { margin-bottom: 0.5rem; font-size: 0.95rem; }
+.brief .xs-note { color: var(--muted); font-size: 0.8rem !important; font-style: italic; margin-bottom: 0 !important; }
 .brief .disclaimer {
   margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--line);
   font-size: 0.82rem; color: var(--muted); font-style: italic;

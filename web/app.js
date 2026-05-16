@@ -54,6 +54,7 @@ function paint(initial) {
     `Snapshot ${ageMin} min old · ${gen.toLocaleString("en-US", { timeStyle: "short" })}`;
   gEl.classList.toggle("stale", ageMin > 40);
   renderKpis(initial);
+  renderMacro();
   renderTicker();
   renderCategoryChips();
   const y = window.scrollY;
@@ -116,6 +117,26 @@ function countUp(el, target) {
     if (p < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
+}
+
+function renderMacro() {
+  const el = document.getElementById("macro");
+  const m = DATA.macro;
+  if (!m || !m.available) { el.hidden = true; return; }
+  el.hidden = false;
+  const sign = (v, suf) =>
+    v === null || v === undefined
+      ? "—"
+      : `<b class="${v > 0 ? "up" : v < 0 ? "down" : "flat"}">${v > 0 ? "+" : ""}${v.toFixed(1)}${suf}</b>`;
+  const usd = (v) =>
+    v === null || v === undefined ? "—" : "$" + Intl.NumberFormat("en-US").format(Math.round(v));
+  el.innerHTML =
+    `<span class="mlabel">Market context · not a signal</span>` +
+    `<span>BTC ${usd(m.btcUsd)} ${sign(m.btcChange24h, "%")}</span>` +
+    `<span>ETH ${usd(m.ethUsd)} ${sign(m.ethChange24h, "%")}</span>` +
+    `<span>Crypto mcap ${sign(m.totalMcapChange24h, "%")} 24h</span>` +
+    `<span>BTC dom ${m.btcDominance != null ? m.btcDominance.toFixed(1) + "%" : "—"}</span>` +
+    `<span class="regime ${m.regime}">${m.regime}</span>`;
 }
 
 function renderTicker() {

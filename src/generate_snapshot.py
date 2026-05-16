@@ -20,6 +20,7 @@ from fetch_markets import (
     fetch_active_events,
     is_binary,
 )
+from crypto import build_cross_signals, fetch_macro
 from news import fetch_headlines, topic_from_question
 from price_history import fetch_price_move, move_flags, parse_token_ids
 
@@ -183,6 +184,23 @@ def main() -> None:
             }
         )
 
+    # Subordinate macro-context layer (2 read-only calls, end of run, never
+    # blocks the prediction-market board; degrades silently to available=False).
+    time.sleep(0.5)
+    macro = fetch_macro()
+    macro_block = {
+        "available": macro.available,
+        "regime": macro.regime,
+        "btcUsd": macro.btc_usd,
+        "ethUsd": macro.eth_usd,
+        "btcChange24h": macro.btc_change_24h,
+        "ethChange24h": macro.eth_change_24h,
+        "totalMcapUsd": macro.total_mcap_usd,
+        "totalMcapChange24h": macro.total_mcap_change_24h,
+        "btcDominance": macro.btc_dominance,
+        "crossSignals": build_cross_signals(macro, events_out),
+    }
+
     categories = sorted({e["category"] for e in events_out})
     snapshot = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
@@ -193,6 +211,7 @@ def main() -> None:
         "categories": categories,
         "eventCount": len(events_out),
         "events": events_out,
+        "macro": macro_block,
     }
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
