@@ -193,6 +193,17 @@ function leadBlock(e) {
   </div>`;
 }
 
+function modelLine(e) {
+  const m = e.model;
+  if (!m || m.prob == null) return "";
+  const pct = (m.prob * 100).toFixed(0);
+  const st = m.status === "RESOLVED" ? "resolved & scored" : "logged & being scored";
+  // Honest framing: a transparent statistical baseline, NOT AI/edge/advice.
+  // Shown only because this exact call is in the public ledger (falsifiable).
+  return `<p class="modelline">Statistical baseline-${escapeHtml(m.version)}: <b>${pct}%</b>
+    · not AI, not advice, unproven · this call is <a href="scoreboard/">${st} →</a></p>`;
+}
+
 function eventCard(e) {
   const bars = (e.outcomes || [])
     .map((o) => {
@@ -246,6 +257,7 @@ function eventCard(e) {
       <span>Resolves <b>${days}</b></span>
     </div>
     <div class="flags">${flags}</div>
+    ${modelLine(e)}
     <div class="news"><h4>Related headlines · Google News (keyword-matched, not curated)</h4>${news}</div>
   </article>`;
 }

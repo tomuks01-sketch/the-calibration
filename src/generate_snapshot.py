@@ -210,27 +210,11 @@ def main() -> None:
         "crossSignals": build_cross_signals(macro, events_out),
     }
 
-    categories = sorted({e["category"] for e in events_out})
-    snapshot = {
-        "generatedAt": datetime.now(timezone.utc).isoformat(),
-        "disclaimer": (
-            "Analytics only. Observable market state + news context. "
-            "Not predictions, not betting advice. No wallet access."
-        ),
-        "categories": categories,
-        "eventCount": len(events_out),
-        "events": events_out,
-        "macro": macro_block,
-    }
-
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
-    print(
-        f"Wrote {OUTPUT} ({len(events_out)} events, "
-        f"{len(categories)} categories: {', '.join(categories)})"
-    )
-
     # ---- Model + append-only public ledger + scoreboard ----
+    # Done BEFORE writing data.json so each event can carry the model number
+    # ONLY when it corresponds to a real (open/scored) ledger entry — never an
+    # unfalsifiable public claim. Skeptic guardrail: terminal model display is
+    # strictly a mirror of the ledger.
     candidates = []
     for e in events_out:
         outs = e.get("outcomes") or []
@@ -264,10 +248,45 @@ def main() -> None:
     resolved, voided = resolve_pending(ledger)
     save_ledger(ledger)
     sb = write_scoreboard(ledger)
+
+    # Mirror the ledger onto events: attach model block ONLY where a ledger
+    # entry exists for the lead market's conditionId (falsifiable + scored).
+    by_cid = {e["conditionId"]: e for e in ledger["entries"] if e.get("conditionId")}
+    annotated = 0
+    for ev in events_out:
+        outs = ev.get("outcomes") or []
+        if not outs:
+            continue
+        entry = by_cid.get(outs[0].get("conditionId"))
+        if entry:
+            ev["model"] = {
+                "version": entry["modelVersion"],
+                "prob": entry["modelProb"],
+                "status": entry["status"],
+                "openedAt": entry["openedAt"],
+            }
+            annotated += 1
+
+    categories = sorted({e["category"] for e in events_out})
+    snapshot = {
+        "generatedAt": datetime.now(timezone.utc).isoformat(),
+        "disclaimer": (
+            "Analytics only. Observable market state + news context. "
+            "Not predictions, not betting advice. No wallet access."
+        ),
+        "categories": categories,
+        "eventCount": len(events_out),
+        "events": events_out,
+        "macro": macro_block,
+    }
+
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
     print(
-        f"Ledger: +{opened} opened, {resolved} resolved, {voided} void | "
-        f"scoreboard: {sb['counts']['resolved']} resolved, "
-        f"confidence={sb['confidence']}"
+        f"Wrote {OUTPUT} ({len(events_out)} events, "
+        f"{len(categories)} categories) | Ledger: +{opened} opened, "
+        f"{resolved} resolved, {voided} void, {annotated} events mirror a "
+        f"ledger entry | scoreboard confidence={sb['confidence']}"
     )
 
 
