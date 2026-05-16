@@ -346,6 +346,12 @@ body::before {
 .sb-grid b { display: block; font-family: var(--mono); font-size: 1.6rem; font-weight: 800; color: var(--champagne); }
 .sb-grid span { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 .sb-warn { color: var(--down); text-transform: none; letter-spacing: 0; }
+.sb-pledge {
+  margin: 1.2rem 0; padding: 0.85rem 1rem;
+  border: 1px solid oklch(86% 0.06 92 / 0.35); border-left: 3px solid var(--champagne);
+  border-radius: 10px; background: oklch(86% 0.06 92 / 0.07);
+  font-size: 0.92rem; font-weight: 600; color: var(--text);
+}
 .sb-note { color: var(--muted); font-style: italic; padding: 1rem 0; }
 .sb-sample { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-top: 0.8rem; border-left: 2px solid var(--line); padding-left: 0.7rem; }
 .sb-entries { display: grid; gap: 0.5rem; }
