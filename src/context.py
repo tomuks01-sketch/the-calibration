@@ -70,15 +70,26 @@ def _tier_a(headlines: list[dict]) -> dict | None:
     }
 
 
+# Keyless, content-free diagnostics so we can see WHY Tier B fell back
+# without ever logging the key or any model text.
+STATS: dict[str, int] = {
+    "attempt": 0, "ok": 0, "banned": 0, "http_error": 0,
+    "empty": 0, "no_key": 0, "no_headlines": 0,
+}
+
+
 def _gemini(event_title: str, headlines: list[dict]) -> str | None:
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
+        STATS["no_key"] += 1
         return None
     heads = "; ".join(
         str(h.get("title") or "")[:140] for h in headlines[:5] if h.get("title")
     )
     if not heads:
+        STATS["no_headlines"] += 1
         return None
+    STATS["attempt"] += 1
     prompt = (
         "In ONE neutral sentence, summarise only what current news coverage is "
         "DISCUSSING about this topic. Describe coverage, do not assess outcome. "
@@ -88,7 +99,7 @@ def _gemini(event_title: str, headlines: list[dict]) -> str | None:
     body = json.dumps(
         {
             "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"maxOutputTokens": 120, "temperature": 0.2},
+            "generationConfig": {"maxOutputTokens": 256, "temperature": 0.2},
         }
     ).encode()
     req = urllib.request.Request(
@@ -100,13 +111,34 @@ def _gemini(event_title: str, headlines: list[dict]) -> str | None:
     try:
         with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_S) as r:
             data = json.loads(r.read().decode("utf-8"))
-        text = (
-            data["candidates"][0]["content"]["parts"][0]["text"].strip()
-        )
-    except (urllib.error.URLError, TimeoutError, ValueError, KeyError, IndexError):
+    except (urllib.error.URLError, TimeoutError, ValueError) as exc:
+        # HTTP status only (e.g. 400/403/404) — never the key or body.
+        code = getattr(exc, "code", "net")
+        STATS[f"http_{code}"] = STATS.get(f"http_{code}", 0) + 1
+        STATS["http_error"] += 1
         return None
-    if not text or _BANNED.search(text):  # honesty guard -> caller falls back
+    # Robust parse: scan all candidates/parts for the first text payload.
+    text = ""
+    for cand in (data.get("candidates") or []):
+        for part in ((cand.get("content") or {}).get("parts") or []):
+            if isinstance(part.get("text"), str) and part["text"].strip():
+                text = part["text"].strip()
+                break
+        if text:
+            break
+    if not text:
+        fr = ""
+        try:
+            fr = (data.get("candidates") or [{}])[0].get("finishReason", "")
+        except (IndexError, AttributeError):
+            fr = ""
+        STATS[f"empty_{fr or 'none'}"] = STATS.get(f"empty_{fr or 'none'}", 0) + 1
+        STATS["empty"] += 1
         return None
+    if _BANNED.search(text):  # honesty guard -> caller falls back to Tier A
+        STATS["banned"] += 1
+        return None
+    STATS["ok"] += 1
     return text[:300]
 
 

@@ -22,6 +22,7 @@ from fetch_markets import (
 )
 from crypto import build_cross_signals, fetch_macro, fetch_top_coins
 from ledger import load_ledger, open_calls, resolve_pending, save_ledger
+from context import STATS as CONTEXT_STATS
 from context import build_context, llm_enabled
 from model import MODEL_VERSION, evaluate
 from news import fetch_headlines, topic_from_question
@@ -311,6 +312,8 @@ def main() -> None:
         f"({len(ledger['entries'])} tracked in ledger) | "
         f"scoreboard confidence={sb['confidence']}"
     )
+    ctx_diag = {k: v for k, v in CONTEXT_STATS.items() if v}
+    print(f"Context Tier-B diagnostics (keyless, no content): {ctx_diag}")
 
 
 if __name__ == "__main__":
