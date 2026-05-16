@@ -91,6 +91,13 @@ body::before {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.5); opacity: 0.4; }
 }
+.briefs-link {
+  display: inline-block; color: var(--champagne); text-decoration: none;
+  font-size: 0.8rem; font-weight: 650; border: 1px solid oklch(86% 0.06 92 / 0.35);
+  background: oklch(86% 0.06 92 / 0.08); padding: 0.35rem 0.7rem; border-radius: 999px;
+  transition: background .2s var(--ease);
+}
+.briefs-link:hover { background: oklch(86% 0.06 92 / 0.16); }
 .meta { font-size: 0.76rem; color: var(--muted); font-family: var(--mono); }
 .meta.stale { color: var(--hot); }
 
@@ -268,6 +275,46 @@ body::before {
 .flash-down { animation: fdn .5s var(--ease) 1; }
 @keyframes fup { 0% { background: oklch(76% 0.16 155 / 0.18); } 100% { background: var(--glass); } }
 @keyframes fdn { 0% { background: oklch(66% 0.18 25 / 0.18); } 100% { background: var(--glass); } }
+
+/* ---------- Brief (editorial) ---------- */
+.brief {
+  max-width: 720px; margin: 0 auto; padding: 1rem 0 3rem;
+}
+.brief .back {
+  display: inline-block; color: var(--sapphire); text-decoration: none;
+  font-size: 0.82rem; font-family: var(--mono); margin: 0.4rem 0 1.6rem;
+}
+.brief .back:hover { color: var(--champagne); }
+.brief .kicker {
+  font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--champagne);
+}
+.brief h1 {
+  font-size: clamp(1.7rem, 1.1rem + 2.6vw, 2.6rem); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.15; margin: 0.5rem 0 0.9rem;
+}
+.brief h1 em { font-style: normal; color: var(--sapphire); }
+.brief .standfirst { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; }
+.brief h2 {
+  font-size: 1.15rem; font-weight: 750; letter-spacing: -0.015em;
+  margin: 2rem 0 0.5rem; color: var(--text);
+}
+.brief p { margin-bottom: 0.9rem; font-size: 1rem; }
+.brief b { color: var(--champagne); font-family: var(--mono); font-weight: 700; }
+.brief ul { margin: 0.5rem 0 1rem 1.1rem; display: grid; gap: 0.4rem; }
+.brief li { font-size: 0.98rem; }
+.brief .archive { list-style: none; margin-left: 0; }
+.brief .archive li {
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: 0.8rem 0; border-bottom: 1px solid var(--line-soft);
+}
+.brief .archive a { color: var(--text); text-decoration: none; font-weight: 600; }
+.brief .archive a:hover { color: var(--champagne); }
+.brief .archive span { color: var(--muted); font-family: var(--mono); font-size: 0.8rem; flex-shrink: 0; }
+.brief .disclaimer {
+  margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  font-size: 0.82rem; color: var(--muted); font-style: italic;
+}
 
 @media (max-width: 760px) { .kpis { grid-template-columns: repeat(2, 1fr); } .board { grid-template-columns: 1fr; } }
 
