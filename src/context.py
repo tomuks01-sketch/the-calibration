@@ -16,11 +16,13 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-2.0-flash-lite"  # most generous free-tier limits
+GEMINI_CALL_GAP_S = 4.5  # space calls to respect free-tier RPM
 GEMINI_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
     f"{GEMINI_MODEL}:generateContent"
@@ -74,11 +76,17 @@ def _tier_a(headlines: list[dict]) -> dict | None:
 # without ever logging the key or any model text.
 STATS: dict[str, int] = {
     "attempt": 0, "ok": 0, "banned": 0, "http_error": 0,
-    "empty": 0, "no_key": 0, "no_headlines": 0,
+    "empty": 0, "no_key": 0, "no_headlines": 0, "skipped_ratelimited": 0,
 }
+# Once the free tier 429s in a run, stop hammering it (wastes time, no value).
+_RATE_LIMITED = False
 
 
 def _gemini(event_title: str, headlines: list[dict]) -> str | None:
+    global _RATE_LIMITED
+    if _RATE_LIMITED:
+        STATS["skipped_ratelimited"] += 1
+        return None
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         STATS["no_key"] += 1
@@ -108,14 +116,17 @@ def _gemini(event_title: str, headlines: list[dict]) -> str | None:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
+    time.sleep(GEMINI_CALL_GAP_S)  # space calls under free-tier RPM
     try:
         with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_S) as r:
             data = json.loads(r.read().decode("utf-8"))
     except (urllib.error.URLError, TimeoutError, ValueError) as exc:
-        # HTTP status only (e.g. 400/403/404) — never the key or body.
+        # HTTP status only (e.g. 400/403/404/429) — never the key or body.
         code = getattr(exc, "code", "net")
         STATS[f"http_{code}"] = STATS.get(f"http_{code}", 0) + 1
         STATS["http_error"] += 1
+        if code == 429:  # quota hit — stop further calls this run
+            _RATE_LIMITED = True
         return None
     # Robust parse: scan all candidates/parts for the first text payload.
     text = ""

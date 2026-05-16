@@ -174,7 +174,7 @@ def main() -> None:
             time.sleep(0.4)
             # Subordinate, fail-open. Tier B (Gemini) only on the top 6 events
             # and only if GEMINI_API_KEY secret exists; else keyless Tier A.
-            context = build_context(g.title, news, use_llm=_LLM and i < 6)
+            context = build_context(g.title, news, use_llm=_LLM and i < 3)
 
         events_out.append(
             {
