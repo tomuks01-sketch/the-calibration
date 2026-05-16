@@ -298,6 +298,35 @@ body::before {
 .macro .regime.risk-off { color: var(--down); background: oklch(66% 0.18 25 / 0.12); }
 .macro .regime.neutral, .macro .regime.unknown { color: var(--muted); background: var(--s2); }
 
+/* ---------- Shared site nav (restrained luxury) ---------- */
+.sitenav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; max-width: 720px; margin: 0 auto; padding: 0.9rem 0 0.8rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.sitenav::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent,
+    oklch(86% 0.06 92 / 0.5), transparent);
+}
+.sitenav .wm {
+  font-family: var(--mono); font-size: 0.82rem; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--champagne);
+  text-decoration: none;
+}
+.sitenav .wm span { color: var(--muted); font-weight: 600; }
+.sitenav nav { display: flex; gap: 1.3rem; }
+.sitenav nav a {
+  font-size: 0.78rem; color: var(--muted); text-decoration: none;
+  letter-spacing: 0.04em; transition: color .2s var(--ease);
+}
+.sitenav nav a:hover, .sitenav nav a[aria-current="page"] { color: var(--text); }
+.sitenav nav a[aria-current="page"] { color: var(--champagne); }
+@media (max-width: 560px) {
+  .sitenav { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+
 /* ---------- Scoreboard ---------- */
 .sb { margin: 1.4rem 0; }
 .sb-counts { display: flex; flex-wrap: wrap; gap: 1.2rem; font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }
