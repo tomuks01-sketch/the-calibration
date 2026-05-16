@@ -32,7 +32,8 @@ jobs:
         env:
           # Optional Tier B context. Card-free provider (Groq default, or any
           # OpenAI-compatible e.g. OpenRouter). Absent key => Tier A only.
-          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          # Accept either secret name (no rename needed by the user).
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY || secrets.GROQCLOUD_API_KEY }}
           LLM_API_BASE: ${{ vars.LLM_API_BASE }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
 
