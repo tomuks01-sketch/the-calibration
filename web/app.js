@@ -197,11 +197,20 @@ function modelLine(e) {
   const m = e.model;
   if (!m || m.prob == null) return "";
   const pct = (m.prob * 100).toFixed(0);
-  const st = m.status === "RESOLVED" ? "resolved & scored" : "logged & being scored";
-  // Honest framing: a transparent statistical baseline, NOT AI/edge/advice.
-  // Shown only because this exact call is in the public ledger (falsifiable).
-  return `<p class="modelline">Statistical baseline-${escapeHtml(m.version)}: <b>${pct}%</b>
-    · not AI, not advice, unproven · this call is <a href="scoreboard/">${st} →</a></p>`;
+  const ver = escapeHtml(m.version);
+  // QEST = Quantitative Estimate: a documented mean-reversion baseline.
+  // NOT AI, NOT advice. Honest two-state framing:
+  //  - tracked: a real divergence call, in the public scored ledger.
+  //  - untracked: model agrees with the crowd — NO edge claim, NOT scored.
+  if (m.tracked) {
+    const st = m.status === "RESOLVED" ? "resolved & scored" : "logged & being scored";
+    return `<p class="modelline"><b>QEST ${pct}%</b> · diverges ${m.divergencePp > 0 ? "+" : ""}${m.divergencePp}pp from the crowd
+      · documented mean-reversion baseline ${ver}, not AI/advice · this call is
+      <a href="scoreboard/">${st} →</a></p>`;
+  }
+  return `<p class="modelline modelline-flat"><b>QEST ${pct}%</b> · in line with the crowd
+    (${m.divergencePp > 0 ? "+" : ""}${m.divergencePp}pp) · documented baseline ${ver},
+    not AI/advice · not a tracked call, no edge claimed</p>`;
 }
 
 function eventCard(e) {

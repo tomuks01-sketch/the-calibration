@@ -22,7 +22,7 @@ from fetch_markets import (
 )
 from crypto import build_cross_signals, fetch_macro, fetch_top_coins
 from ledger import load_ledger, open_calls, resolve_pending, save_ledger
-from model import evaluate
+from model import MODEL_VERSION, evaluate
 from news import fetch_headlines, topic_from_question
 from price_history import fetch_price_move, move_flags, parse_token_ids
 from scoreboard import write as write_scoreboard
@@ -249,23 +249,38 @@ def main() -> None:
     save_ledger(ledger)
     sb = write_scoreboard(ledger)
 
-    # Mirror the ledger onto events: attach model block ONLY where a ledger
-    # entry exists for the lead market's conditionId (falsifiable + scored).
+    # Attach QEST to every ELIGIBLE market for visibility. Two honest states:
+    #  - tracked=True : |div|>=4pp, a real divergence call in the public ledger
+    #    (falsifiable + Brier-scored).
+    #  - tracked=False: model agrees with the crowd (<4pp); shown transparently
+    #    as "in line, not a tracked call, no edge claimed" — NOT a ledger entry
+    #    (skeptic guardrail: never pad the scored ledger with agreement calls).
     by_cid = {e["conditionId"]: e for e in ledger["entries"] if e.get("conditionId")}
     annotated = 0
     for ev in events_out:
         outs = ev.get("outcomes") or []
         if not outs:
             continue
-        entry = by_cid.get(outs[0].get("conditionId"))
-        if entry:
-            ev["model"] = {
-                "version": entry["modelVersion"],
-                "prob": entry["modelProb"],
-                "status": entry["status"],
-                "openedAt": entry["openedAt"],
-            }
-            annotated += 1
+        lead = outs[0]
+        mc = evaluate(
+            market_prob=lead.get("price"),
+            week_change=lead.get("weekChange"),
+            liquidity=lead.get("liquidity"),
+            days_to_resolution=ev.get("daysToResolution"),
+            condition_id=lead.get("conditionId"),
+        )
+        if not mc.eligible:
+            continue
+        entry = by_cid.get(lead.get("conditionId"))
+        ev["model"] = {
+            "name": "QEST",
+            "version": MODEL_VERSION,
+            "prob": mc.model_prob,
+            "divergencePp": round((mc.divergence or 0) * 100, 1),
+            "tracked": bool(entry),
+            "status": entry["status"] if entry else None,
+        }
+        annotated += 1
 
     categories = sorted({e["category"] for e in events_out})
     snapshot = {
@@ -285,8 +300,9 @@ def main() -> None:
     print(
         f"Wrote {OUTPUT} ({len(events_out)} events, "
         f"{len(categories)} categories) | Ledger: +{opened} opened, "
-        f"{resolved} resolved, {voided} void, {annotated} events mirror a "
-        f"ledger entry | scoreboard confidence={sb['confidence']}"
+        f"{resolved} resolved, {voided} void | {annotated} events show QEST "
+        f"({len(ledger['entries'])} tracked in ledger) | "
+        f"scoreboard confidence={sb['confidence']}"
     )
 
 
