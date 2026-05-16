@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Polymarket Insight — probability &amp; signal terminal</title>
+<meta name="description" content="Read-only analytics terminal for Polymarket: live probability, odds, momentum and the news driving every market — politics, crypto, sports, finance and more." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="aurora" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="dot" aria-hidden="true"></span>
+    <div>
+      <h1>Polymarket <em>Insight</em></h1>
+      <p class="tagline">Live probability, odds &amp; momentum — the world's markets, read-only.</p>
+    </div>
+  </div>
+  <div class="status">
+    <span class="live" aria-hidden="true"><i></i> LIVE</span>
+    <span id="generated" class="meta">loading…</span>
+  </div>
+</header>
+
+<div id="refresh-status" role="status" aria-live="polite" class="sr-only"></div>
+
+<div class="ticker" id="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
+
+<section class="kpis" id="kpis" aria-label="Market overview"></section>
+
+<nav class="filters" id="categories" aria-label="Category filters"></nav>
+<nav class="filters subtle" id="signals" aria-label="Signal filters">
+  <button class="chip is-active" data-flag="all">All signals</button>
+  <button class="chip" data-flag="moving-now">⚡ Moving now</button>
+  <button class="chip" data-flag="big-move-24h">▲ Up 24h</button>
+  <button class="chip" data-flag="big-drop-24h">▼ Down 24h</button>
+  <button class="chip" data-flag="high-attention">🔥 High attention</button>
+  <button class="chip" data-flag="resolves-soon">⏱ Resolving soon</button>
+</nav>
+
+<main id="board" class="board"></main>
+
+<footer class="footnote">
+  <p><strong>Analytics only.</strong> Public, read-only data and news context.
+  No predictions, no betting advice, no wallet access. Probability and odds
+  reflect what the market is currently pricing — edge is the trader's job.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

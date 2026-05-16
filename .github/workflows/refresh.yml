@@ -1,0 +1,43 @@
+name: Refresh data snapshot
+
+# Keeps web/data.json fresh without a live server. Runs on a schedule,
+# regenerates the snapshot from public read-only APIs, commits if changed.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # every 30 minutes (UTC)
+  workflow_dispatch: {}       # allow manual run from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-snapshot
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate snapshot
+        run: python src/generate_snapshot.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- web/data.json; then
+            git add web/data.json
+            git commit -m "chore: refresh data snapshot"
+            git push
+          else
+            echo "No data change — nothing to commit."
+          fi
