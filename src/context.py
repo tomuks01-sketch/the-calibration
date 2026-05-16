@@ -123,6 +123,8 @@ def _llm(event_title: str, headlines: list[dict]) -> str | None:
         data=body,
         headers={
             "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "the-calibration/1.0 (+https://github.com)",
             "Authorization": f"Bearer {key}",
         },
         method="POST",
@@ -138,9 +140,15 @@ def _llm(event_title: str, headlines: list[dict]) -> str | None:
         STATS[f"http_{code}"] = STATS.get(f"http_{code}", 0) + 1
         STATS["http_error"] += 1
         try:
-            err = json.loads(exc.read().decode("utf-8")).get("error", {})
-            tag = str(err.get("code") or err.get("type") or "")[:40]
-            tag = re.sub(r"[^a-zA-Z0-9_]", "_", tag) or "unknown"
+            raw = exc.read().decode("utf-8", "replace")[:200]
+            try:
+                tag = str(
+                    json.loads(raw).get("error", {}).get("code") or "json"
+                )[:40]
+            except (ValueError, AttributeError, TypeError):
+                # non-JSON body (e.g. WAF/CDN HTML block) — first words only
+                tag = (raw.strip().split("\n", 1)[0] or "empty")[:40]
+            tag = re.sub(r"[^a-zA-Z0-9_]", "_", tag) or "empty"
             STATS[f"err_{tag}"] = STATS.get(f"err_{tag}", 0) + 1
         except (AttributeError, ValueError, TypeError):
             pass
