@@ -1,4 +1,4 @@
-# Polymarket Insight — Build Plan
+# The Calibration — Build Plan
 
 ## Honest framing
 

@@ -1,4 +1,4 @@
-# Polymarket Insight
+# The Calibration
 
 Read-only analytics terminal for Polymarket: price / volume / liquidity signals
 and the news driving each market. **Analytics, not predictions or betting
