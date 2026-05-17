@@ -77,5 +77,11 @@ def build(ledger: dict) -> dict:
 
 def write(ledger: dict) -> dict:
     sb = build(ledger)
-    OUT.write_text(json.dumps(sb, indent=2), encoding="utf-8")
+    # Atomic write (same pattern as ledger.save_ledger): never leave a
+    # half-written scoreboard.json if the process is killed mid-write.
+    text = json.dumps(sb, indent=2)
+    json.loads(text)  # validate before swap
+    tmp = OUT.with_suffix(".json.tmp")
+    tmp.write_text(text, encoding="utf-8")
+    tmp.replace(OUT)
     return sb

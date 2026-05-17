@@ -11,6 +11,7 @@ Analytics only — observable market state, never predictions or betting advice.
 from __future__ import annotations
 
 import json
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -136,8 +137,17 @@ def main() -> None:
     selected = select_balanced(groups)
     _LLM = llm_enabled()  # True only if LLM_API_KEY secret is set (card-free Groq/etc.)
 
+    # Wall-clock budget: bound total enrichment so a slow upstream API can
+    # never let this run overlap the next 30-min scheduled slot. Fail-open —
+    # events already built are kept; remaining ones are simply dropped.
+    enrich_deadline = time.monotonic() + 240.0
+
     events_out = []
     for i, g in enumerate(selected):
+        if time.monotonic() > enrich_deadline:
+            print(f"WARN budget: stopped after {len(events_out)} events "
+                  f"(240s wall-clock cap hit)", file=sys.stderr)
+            break
         outcomes = summarize_event_outcomes(g)
         movers = pick_movers(outcomes)
         binary = g.market_count == 1 and outcomes and is_binary(g.markets[0])

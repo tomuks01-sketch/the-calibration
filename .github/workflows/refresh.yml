@@ -50,9 +50,11 @@ jobs:
           git add web/data.json web/ledger.json web/scoreboard.json web/ledger-archive
           if ! git diff --cached --quiet; then
             git commit -m "chore: refresh snapshot + ledger"
-            # Fail loud on rebase conflict — never silently overwrite the
-            # append-only ledger of a concurrent run.
-            git pull --rebase -X theirs origin main
+            # Plain rebase, NO -X strategy: a conflict on the append-only
+            # ledger must FAIL loudly (job errors), never auto-resolve and
+            # silently drop entries from a concurrent run. Collisions are
+            # already rare (concurrency group serialises scheduled runs).
+            git pull --rebase origin main
             git push
           else
             echo "No change — nothing to commit."
