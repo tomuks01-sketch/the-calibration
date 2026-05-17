@@ -54,6 +54,7 @@ function paint(initial) {
     `Snapshot ${ageMin} min old · ${gen.toLocaleString("en-US", { timeStyle: "short" })}`;
   gEl.classList.toggle("stale", ageMin > 40);
   renderKpis(initial);
+  renderEditorial();
   renderMacro();
   renderTicker();
   renderCategoryChips();
@@ -117,6 +118,36 @@ function countUp(el, target) {
     if (p < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
+}
+
+// Editorial hybrid front: Scoreboard pulse + latest brief hero.
+// Each block fails open — on any error it stays hidden, board still works.
+async function renderEditorial() {
+  try {
+    const sb = await (await fetch("scoreboard.json", { cache: "no-store" })).json();
+    const c = sb && sb.counts;
+    if (c) {
+      const el = document.getElementById("sb-pulse");
+      el.innerHTML =
+        `<span class="lbl">The Scoreboard</span> ` +
+        `<b>${c.resolved}</b> resolved · <b>${c.pending}</b> open · ` +
+        `<b>${c.void}</b> void · model <b>${escapeHtml(sb.modelVersion || "—")}</b>` +
+        ` <span class="go">audit →</span>`;
+      el.hidden = false;
+    }
+  } catch (_) { /* fail-open: pulse stays hidden */ }
+  try {
+    const b = await (await fetch("briefs/latest.json", { cache: "no-store" })).json();
+    if (b && b.title && b.url) {
+      const el = document.getElementById("latest-brief");
+      el.innerHTML =
+        `<p class="lb-kicker">The Crowd Signal · latest</p>` +
+        `<h2>${escapeHtml(b.title)}</h2>` +
+        (b.standfirst ? `<p class="lb-sf">${escapeHtml(b.standfirst)}</p>` : "") +
+        `<a class="lb-go" href="${safeUrl(b.url)}">Read the brief →</a>`;
+      el.hidden = false;
+    }
+  } catch (_) { /* fail-open: brief hero stays hidden */ }
 }
 
 function renderMacro() {

@@ -300,6 +300,47 @@ body::before {
 @keyframes fup { 0% { background: oklch(76% 0.16 155 / 0.18); } 100% { background: var(--glass); } }
 @keyframes fdn { 0% { background: oklch(66% 0.18 25 / 0.18); } 100% { background: var(--glass); } }
 
+/* ---------- Editorial hybrid front ---------- */
+#editorial { margin: 1.3rem 0 0.6rem; display: grid; gap: 0.7rem; }
+#editorial[hidden] { display: none; }
+.sb-pulse {
+  display: block; text-decoration: none;
+  font-family: var(--mono); font-size: 0.78rem; color: var(--muted);
+  background: var(--glass); border: 1px solid var(--line-soft);
+  border-radius: 10px; padding: 0.55rem 0.9rem;
+  transition: border-color .2s var(--ease);
+}
+.sb-pulse:hover { border-color: var(--champagne); color: var(--text); }
+.sb-pulse .lbl {
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--champagne);
+  font-weight: 700; margin-right: 0.5rem;
+}
+.sb-pulse b { color: var(--text); }
+.sb-pulse .go { color: var(--sapphire); float: right; }
+.latest-brief {
+  background: linear-gradient(135deg,
+    oklch(22% 0.03 264 / 0.9), oklch(19% 0.02 264 / 0.9));
+  border: 1px solid var(--line-soft); border-left: 3px solid var(--champagne);
+  border-radius: 14px; padding: 1.3rem 1.5rem;
+}
+.latest-brief .lb-kicker {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--champagne); margin-bottom: 0.4rem;
+}
+.latest-brief h2 {
+  font-size: clamp(1.15rem, 0.9rem + 1.3vw, 1.7rem); font-weight: 750;
+  letter-spacing: -0.02em; line-height: 1.2; color: var(--text);
+}
+.latest-brief .lb-sf {
+  color: var(--muted); margin: 0.5rem 0 0.8rem; font-size: 0.92rem;
+  max-width: 60ch;
+}
+.latest-brief .lb-go {
+  font-family: var(--mono); font-size: 0.82rem; color: var(--sapphire);
+  text-decoration: none; font-weight: 650;
+}
+.latest-brief .lb-go:hover { color: var(--champagne); }
+
 /* ---------- Macro context strip (subordinate) ---------- */
 .macro {
   display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;
