@@ -293,6 +293,19 @@ body::before {
 .news a span { color: var(--muted); font-size: 0.72rem; flex-shrink: 0; }
 .news .none { color: var(--muted); font-size: 0.8rem; font-style: italic; }
 
+.about {
+  margin-top: 2.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: 0.92rem; line-height: 1.6; max-width: 70ch;
+}
+.about h2 {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--champagne); margin: 1.2rem 0 0.4rem; font-weight: 700;
+}
+.about p { margin-bottom: 0.4rem; }
+.about ul { list-style: none; display: grid; gap: 0.35rem; }
+.about a { color: var(--sapphire); text-decoration: none; }
+.about a:hover { color: var(--champagne); }
+
 .footnote { margin-top: 2.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8rem; }
 
 .flash-up { animation: fup .5s var(--ease) 1; }
