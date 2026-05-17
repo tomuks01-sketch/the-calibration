@@ -1,0 +1,9 @@
+{
+  "_rule": "A cross-venue pair may ONLY appear here after a human verifies the two contracts are materially identical: same underlying event, same threshold, and resolution windows within 14 days, with comparable resolution sources. Auto/fuzzy matching is forbidden. Code refuses to display any pair not in 'pairs'. Empty is the honest default until a pair is vetted.",
+  "_schema": {
+    "polymarket": "conditionId (exact market) + verbatim title",
+    "kalshi": "ticker (exact market) + verbatim title",
+    "note": "one sentence stating why the two are materially equivalent"
+  },
+  "pairs": []
+}

@@ -56,6 +56,7 @@ function paint(initial) {
   renderKpis(initial);
   renderEditorial();
   renderMacro();
+  renderKalshi();
   renderCategoryChips();
   const y = window.scrollY;
   const focusInBoard = document.activeElement &&
@@ -147,6 +148,22 @@ async function renderEditorial() {
       el.hidden = false;
     }
   } catch (_) { /* fail-open: brief hero stays hidden */ }
+}
+
+// Kalshi shown as a SEPARATE venue — explicitly NOT compared/paired with
+// Polymarket (different contracts/terms). Hides if no data (fail-open).
+function renderKalshi() {
+  const el = document.getElementById("kalshi");
+  const k = (DATA && DATA.kalshi) || [];
+  if (!k.length) { el.hidden = true; return; }
+  el.hidden = false;
+  el.innerHTML =
+    `<span class="mlabel">Kalshi · separate venue — own contracts, NOT a Polymarket comparison</span>` +
+    k.map((r) =>
+      `<span class="kx" title="${escAttr(r.title)} (closes ${escAttr(r.closeDate)})">` +
+      `${escapeHtml(r.series)} <b>${Number.isFinite(r.impliedPct) ? r.impliedPct : "—"}%</b></span>`
+    ).join("") +
+    `<span class="kx-src">Kalshi public API · read-only</span>`;
 }
 
 function renderMacro() {

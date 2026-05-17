@@ -344,6 +344,9 @@ body::before {
   gap: 0.65rem 1rem; margin-top: 0.5rem; padding-top: 0.5rem;
   border-top: 1px solid var(--line-soft);
 }
+.kalshi .kx { display: inline-flex; gap: 0.3rem; align-items: baseline; }
+.kalshi .kx b { color: var(--text); font-weight: 700; }
+.kalshi .kx-src { color: oklch(55% 0.02 264); font-size: 0.66rem; margin-left: auto; }
 .macro .topcoins .mlabel { flex-basis: 100%; }
 .macro .topcoins .tc { display: inline-flex; align-items: baseline; gap: 0.35rem; }
 .macro .topcoins .tc i {

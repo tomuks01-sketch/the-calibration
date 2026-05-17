@@ -21,6 +21,7 @@ from fetch_markets import (
     is_binary,
 )
 from crypto import build_cross_signals, fetch_macro, fetch_top_coins
+from kalshi import fetch_kalshi_macro
 from ledger import load_ledger, open_calls, resolve_pending, save_ledger
 from context import STATS as CONTEXT_STATS
 from context import build_context, llm_enabled
@@ -301,6 +302,7 @@ def main() -> None:
         "eventCount": len(events_out),
         "events": events_out,
         "macro": macro_block,
+        "kalshi": fetch_kalshi_macro(),
     }
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
