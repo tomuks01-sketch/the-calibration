@@ -248,15 +248,21 @@ function modelLine(e) {
   // NOT AI, NOT advice. Honest two-state framing:
   //  - tracked: a real divergence call, in the public scored ledger.
   //  - untracked: model agrees with the crowd — NO edge claim, NOT scored.
-  if (m.tracked) {
-    const st = m.status === "RESOLVED" ? "resolved & scored" : "logged & being scored";
-    return `<p class="modelline"><b>QEST ${pct}%</b> · diverges ${m.divergencePp > 0 ? "+" : ""}${m.divergencePp}pp from the crowd
-      · documented mean-reversion baseline ${ver}, not AI/advice · this call is
-      <a href="scoreboard/">${st} →</a></p>`;
-  }
-  return `<p class="modelline modelline-flat"><b>QEST ${pct}%</b> · in line with the crowd
-    (${m.divergencePp > 0 ? "+" : ""}${m.divergencePp}pp) · documented baseline ${ver},
-    not AI/advice · not a tracked call, no edge claimed</p>`;
+  const crowd = e.leadPrice == null ? null : Math.round(e.leadPrice * 100);
+  const dv = Number(m.divergencePp) || 0;
+  const dpp = `${dv > 0 ? "+" : ""}${dv}pp`;
+  const tail = m.tracked
+    ? `<a href="scoreboard/">${m.status === "RESOLVED" ? "resolved & scored →" : "logged & being scored →"}</a>`
+    : `in line · not a tracked call, no edge claimed`;
+  // Two INDEPENDENT readings side by side so the reader judges for themselves.
+  // No third "Google %" — news has no probability (shown as context only).
+  const cls = "compare" + (m.tracked ? "" : " compare-flat");
+  return `<div class="${cls}">
+      <span class="cmp"><i>Crowd · Polymarket</i><b>${crowd == null ? "—" : crowd + "%"}</b></span>
+      <span class="cmp"><i>QEST · baseline ${ver}</i><b>${pct}%</b></span>
+      <span class="cmp cmp-d"><i>difference</i><b>${dpp}</b></span>
+      <span class="cmp-note">two independent readings · QEST not AI, not advice · ${tail}</span>
+    </div>`;
 }
 
 function eventCard(e) {

@@ -233,8 +233,31 @@ body::before {
 .modelline b { color: var(--champagne); }
 .modelline-flat { opacity: 0.72; }
 .modelline-flat b { color: var(--muted); }
-.modelline a { color: var(--sapphire); text-decoration: none; }
-.modelline a:hover { color: var(--champagne); }
+
+/* Crowd vs QEST — two independent readings side by side */
+.compare {
+  margin-top: 0.6rem; display: flex; flex-wrap: wrap; align-items: stretch;
+  gap: 0.5rem; font-family: var(--mono);
+}
+.compare .cmp {
+  display: flex; flex-direction: column; gap: 0.15rem;
+  padding: 0.4rem 0.7rem; border: 1px solid var(--line-soft);
+  border-radius: 9px; background: oklch(20% 0.02 264 / 0.5);
+}
+.compare .cmp i {
+  font-style: normal; font-size: 0.62rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.compare .cmp b { font-size: 1rem; font-weight: 800; color: var(--text); }
+.compare .cmp.cmp-d b { color: var(--champagne); }
+.compare .cmp-note {
+  align-self: center; font-size: 0.66rem; color: var(--muted);
+  flex: 1 1 12rem; line-height: 1.4;
+}
+.compare .cmp-note a { color: var(--sapphire); text-decoration: none; }
+.compare .cmp-note a:hover { color: var(--champagne); }
+.compare-flat { opacity: 0.7; }
+.compare-flat .cmp.cmp-d b { color: var(--muted); }
 
 .ctxline {
   margin-top: 0.6rem; font-size: 0.78rem; color: var(--text);
