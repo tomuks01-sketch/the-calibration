@@ -256,12 +256,24 @@ function modelLine(e) {
     : `in line · not a tracked call, no edge claimed`;
   // Two INDEPENDENT readings side by side so the reader judges for themselves.
   // No third "Google %" — news has no probability (shown as context only).
-  const cls = "compare" + (m.tracked ? "" : " compare-flat");
+  const cls = "cmpviz" + (m.tracked ? "" : " cmpviz-flat");
+  const cw = crowd == null ? 0 : Math.max(0, Math.min(100, crowd));
+  const qw = Math.max(0, Math.min(100, Number(pct)));
+  // Two INDEPENDENT readings on one 0–100% scale so the gap is visible at a
+  // glance. Same honest numbers as before — no third source, no new claim.
   return `<div class="${cls}">
-      <span class="cmp"><i>Crowd · Polymarket</i><b>${crowd == null ? "—" : crowd + "%"}</b></span>
-      <span class="cmp"><i>QEST · baseline ${ver}</i><b>${pct}%</b></span>
-      <span class="cmp cmp-d"><i>difference</i><b>${dpp}</b></span>
-      <span class="cmp-note">two independent readings · QEST not AI, not advice · ${tail}</span>
+      <div class="cv-row">
+        <span class="cv-lab">Crowd · Polymarket</span>
+        <span class="cv-track"><i style="width:${cw}%"></i></span>
+        <span class="cv-val">${crowd == null ? "—" : cw + "%"}</span>
+      </div>
+      <div class="cv-row">
+        <span class="cv-lab">QEST · baseline ${ver}</span>
+        <span class="cv-track q"><i style="width:${qw}%"></i></span>
+        <span class="cv-val">${pct}%</span>
+      </div>
+      <p class="cv-note"><b>${dpp}</b> difference · two independent readings ·
+        QEST not AI, not advice · ${tail}</p>
     </div>`;
 }
 
