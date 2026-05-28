@@ -3,26 +3,26 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Calibration — probability &amp; signal terminal</title>
-<meta name="description" content="Read-only analytics terminal for Polymarket: live probability, odds, momentum and the news driving every market — politics, crypto, sports, finance and more." />
+<title>The Calibration — a scored prediction-market terminal</title>
+<meta name="description" content="A read-only Polymarket terminal with a public, append-only Scoreboard: every divergence call we make is timestamped and Brier-scored when its market resolves. Honest editorial briefs, no betting advice." />
 <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/the-calibration/favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://tomuks01-sketch.github.io/the-calibration/" />
   <meta name="robots" content="index, follow" />
   <meta property="og:site_name" content="The Calibration" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="The Calibration — probability &amp; signal terminal" />
-  <meta property="og:description" content="Read-only analytics terminal for Polymarket: live probability, odds, momentum and the news driving every market — politics, crypto, sports, finance and more." />
+  <meta property="og:title" content="The Calibration — a scored prediction-market terminal" />
+  <meta property="og:description" content="A read-only Polymarket terminal with a public, append-only Scoreboard: every divergence call we make is timestamped and Brier-scored when its market resolves." />
   <meta property="og:url" content="https://tomuks01-sketch.github.io/the-calibration/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Calibration — probability &amp; signal terminal" />
-  <meta name="twitter:description" content="Read-only analytics terminal for Polymarket: live probability, odds, momentum and the news driving every market — politics, crypto, sports, finance and more." />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "The Calibration", "url": "https://tomuks01-sketch.github.io/the-calibration/", "description": "Read-only analytics terminal for Polymarket: live probability, odds, momentum and the news driving every market \u2014 politics, crypto, sports, finance and more."}</script>
+  <meta name="twitter:title" content="The Calibration — a scored prediction-market terminal" />
+  <meta name="twitter:description" content="A read-only Polymarket terminal with a public, append-only Scoreboard: every divergence call we make is timestamped and Brier-scored when its market resolves." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "The Calibration", "url": "https://tomuks01-sketch.github.io/the-calibration/", "description": "A read-only Polymarket terminal with a public, append-only Scoreboard: every divergence call we make is timestamped and Brier-scored when its market resolves."}</script>
 </head>
 <body>
 <div class="aurora" aria-hidden="true"></div>
 
-<header class="sitenav">
+<header class="sitenav wide">
   <a class="wm" href="./">THE <span>CALIBRATION</span></a>
   <nav>
     <a href="./" aria-current="page">Terminal</a>
@@ -36,7 +36,7 @@
     <span class="dot" aria-hidden="true"></span>
     <div>
       <h1>The <em>Calibration</em></h1>
-      <p class="tagline">Delayed-snapshot probability, odds &amp; momentum — Polymarket public data, read-only.</p>
+      <p class="tagline">Prediction-market analytics with a track record. Every divergence call is logged, timestamped, and Brier-scored when its market resolves &mdash; wins and losses kept on the record forever.</p>
     </div>
   </div>
   <p class="snapmeta">
@@ -60,39 +60,20 @@
 <nav class="filters" id="categories" aria-label="Category filters"></nav>
 <nav class="filters subtle" id="signals" aria-label="Signal filters">
   <button class="chip is-active" data-flag="all">All signals</button>
-  <button class="chip" data-flag="moving-now">⚡ Moving now</button>
-  <button class="chip" data-flag="big-move-24h">▲ Up 24h</button>
-  <button class="chip" data-flag="big-drop-24h">▼ Down 24h</button>
-  <button class="chip" data-flag="high-attention">🔥 High attention</button>
-  <button class="chip" data-flag="resolves-soon">⏱ Resolving soon</button>
+  <button class="chip" data-flag="moving-now">Moving now</button>
+  <button class="chip" data-flag="big-move-24h">&uarr; Up 24h</button>
+  <button class="chip" data-flag="big-drop-24h">&darr; Down 24h</button>
+  <button class="chip" data-flag="high-attention">High attention</button>
+  <button class="chip" data-flag="resolves-soon">Resolving soon</button>
 </nav>
 
 <main id="board" class="board"></main>
 
 <section class="about" aria-label="About The Calibration">
-  <h2>What this is</h2>
-  <p><strong>The Calibration</strong> reads prediction markets so you can see
-  what the crowd actually expects — and holds itself to account. It pairs a
-  read-only terminal of live Polymarket probabilities with two things almost
-  no one else publishes: short editorial <a href="briefs/">Crowd Signal
-  briefs</a> that describe what repriced and why it matters, and a public,
-  append-only <a href="scoreboard/">Scoreboard</a> where a transparent
-  baseline model's calls are Brier-scored when markets resolve — wins and
-  losses kept forever. Analytics only: no predictions, no betting advice.</p>
-  <h2>Recent briefs</h2>
-  <ul>
-    <li><a href="briefs/2026-05-16-005.html">#005 — A conviction cools, oil gets repriced</a></li>
-    <li><a href="briefs/2026-05-16-004.html">#004 — Convictions vs dismissals (and we start scoring ourselves)</a></li>
-    <li><a href="briefs/2026-05-16-003.html">#003 — The crowd is pricing disruption, not collapse</a></li>
-    <li><a href="briefs/">Full brief archive →</a></li>
-  </ul>
+  <p class="about-kicker">Why this exists</p>
+  <p>Most prediction-market dashboards re-display the same public odds. This one adds two things you can audit. A public <a href="scoreboard/">Scoreboard</a> where a transparent baseline model's calls are Brier-scored the moment their markets resolve &mdash; wins and losses kept on the record forever. And short <a href="briefs/">Crowd Signal</a> briefs that describe what the crowd actually repriced, and why it mattered.</p>
+  <p class="about-foot">Analytics only. Public, read-only data. No predictions, no betting advice, no wallet access.</p>
 </section>
-
-<footer class="footnote">
-  <p><strong>Analytics only.</strong> Public, read-only data and news context.
-  No predictions, no betting advice, no wallet access. Probability and odds
-  reflect what the market is currently pricing — edge is the trader's job.</p>
-</footer>
 
 <script src="app.js"></script>
 </body>

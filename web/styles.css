@@ -289,19 +289,26 @@ body::before {
 .news .none { color: var(--muted); font-size: 0.8rem; font-style: italic; }
 
 .about {
-  margin-top: 2.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
-  color: var(--muted); font-size: 0.92rem; line-height: 1.6; max-width: 70ch;
+  margin-top: 3rem; padding: 1.6rem 0 0; border-top: 1px solid var(--line);
+  font-size: 0.96rem; line-height: 1.65; max-width: 62ch;
 }
-.about h2 {
-  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--champagne); margin: 1.2rem 0 0.4rem; font-weight: 700;
+.about .about-kicker {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--champagne); margin: 0 0 0.7rem;
+  font-weight: 700;
 }
-.about p { margin-bottom: 0.4rem; }
-.about ul { list-style: none; display: grid; gap: 0.35rem; }
-.about a { color: var(--sapphire); text-decoration: none; }
-.about a:hover { color: var(--champagne); }
-
-.footnote { margin-top: 2.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8rem; }
+.about p { color: var(--text); margin: 0 0 0.7rem; }
+.about .about-foot {
+  margin-top: 1.3rem; padding-top: 0.85rem;
+  border-top: 1px dashed var(--line-soft);
+  color: var(--muted); font-size: 0.82rem;
+}
+.about a {
+  color: var(--sapphire); text-decoration: none;
+  border-bottom: 1px solid oklch(70% 0.16 250 / 0.3);
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.about a:hover { color: var(--champagne); border-color: var(--champagne); }
 
 .flash-up { animation: fup .5s var(--ease) 1; }
 .flash-down { animation: fdn .5s var(--ease) 1; }
@@ -412,6 +419,18 @@ body::before {
 @media (max-width: 560px) {
   .sitenav { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
+/* Homepage nav spans the full content column so it aligns with the
+   1280px masthead / board, instead of floating off-centre at 720px. */
+.sitenav.wide { max-width: none; }
+/* Archive list stacks date under title on narrow screens so neither squishes. */
+@media (max-width: 560px) {
+  .brief .archive li { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding: 0.95rem 0; }
+  .brief .archive .ar-date { padding-left: calc(2.6rem + 0.95rem); }
+}
+.brief .archive a:focus-visible,
+.about a:focus-visible {
+  outline: 2px solid var(--sapphire); outline-offset: 3px; border-radius: 3px;
+}
 
 /* ---------- Scoreboard ---------- */
 .sb { margin: 1.4rem 0; }
@@ -466,14 +485,34 @@ body::before {
 .brief b { color: var(--champagne); font-family: var(--mono); font-weight: 700; }
 .brief ul { margin: 0.5rem 0 1rem 1.1rem; display: grid; gap: 0.4rem; }
 .brief li { font-size: 0.98rem; }
-.brief .archive { list-style: none; margin-left: 0; }
+/* Brief archive — intentional editorial list, not a sitemap UL */
+.brief .archive { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0; }
 .brief .archive li {
-  display: flex; justify-content: space-between; gap: 1rem;
-  padding: 0.8rem 0; border-bottom: 1px solid var(--line-soft);
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1.2rem; padding: 1.05rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  transition: border-color .25s var(--ease);
 }
-.brief .archive a { color: var(--text); text-decoration: none; font-weight: 600; }
-.brief .archive a:hover { color: var(--champagne); }
-.brief .archive span { color: var(--muted); font-family: var(--mono); font-size: 0.8rem; flex-shrink: 0; }
+.brief .archive li:first-child { border-top: 1px solid var(--line-soft); }
+.brief .archive li:hover { border-bottom-color: var(--champagne); }
+.brief .archive a {
+  display: inline-flex; align-items: baseline; gap: 0.95rem; flex: 1;
+  color: var(--text); text-decoration: none;
+}
+.brief .archive .ar-num {
+  font-family: var(--mono); font-size: 0.82rem; font-weight: 800;
+  color: var(--champagne); letter-spacing: 0.04em; flex-shrink: 0;
+  min-width: 2.6rem;
+}
+.brief .archive .ar-title {
+  font-size: 1rem; font-weight: 600; letter-spacing: -0.01em;
+  transition: color .2s var(--ease);
+}
+.brief .archive a:hover .ar-title { color: var(--champagne); }
+.brief .archive .ar-date {
+  color: var(--muted); font-family: var(--mono); font-size: 0.74rem;
+  flex-shrink: 0; letter-spacing: 0.04em;
+}
 .brief .xsignal {
   margin: 1.6rem 0; padding: 1rem 1.1rem;
   border: 1px solid var(--line-soft); border-left: 3px solid var(--sapphire);
