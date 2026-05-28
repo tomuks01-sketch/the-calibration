@@ -120,11 +120,12 @@ function countUp(el, target) {
   requestAnimationFrame(step);
 }
 
-// Editorial hybrid front: Scoreboard pulse + latest brief hero.
-// Each block fails open — on any error it stays hidden, board still works.
+// Editorial hybrid front: Scoreboard pulse + latest brief hero + hero stats.
+// Each block fails open — on any error it stays hidden / unfilled, board still works.
 async function renderEditorial() {
+  let sb = null;
   try {
-    const sb = await (await fetch("scoreboard.json", { cache: "no-store" })).json();
+    sb = await (await fetch("scoreboard.json", { cache: "no-store" })).json();
     const c = sb && sb.counts;
     if (c) {
       const el = document.getElementById("sb-pulse");
@@ -148,6 +149,23 @@ async function renderEditorial() {
       el.hidden = false;
     }
   } catch (_) { /* fail-open: brief hero stays hidden */ }
+  // Hero stats — fill from whatever we have. Per-item fail-open: missing
+  // values stay as the placeholder em-dash. No fabrication.
+  const hs = document.getElementById("hero-stats");
+  if (hs) {
+    const set = (k, v) => {
+      if (v === undefined || v === null) return;
+      const el = hs.querySelector(`[data-stat="${k}"]`);
+      if (el) el.textContent = v;
+    };
+    const c = sb && sb.counts;
+    if (c) {
+      set("resolved", c.resolved);
+      set("pending", c.pending);
+    }
+    if (sb && sb.modelVersion) set("model", sb.modelVersion);
+    if (DATA && Array.isArray(DATA.events)) set("events", DATA.events.length);
+  }
 }
 
 // Kalshi shown as a SEPARATE venue — explicitly NOT compared/paired with
