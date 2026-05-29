@@ -35,7 +35,7 @@
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-copy">
-      <p class="hero-tag">Prediction-market analytics, scored in public</p>
+      <p class="hero-tag"><span class="hero-tag-dot"></span>Prediction-market analytics, scored in public</p>
       <h1>Markets don't lie.<br/><em>Calibration is what proves it.</em></h1>
       <p class="hero-sub">A read-only Polymarket terminal with a public, append-only Scoreboard. Every divergence our baseline model calls is timestamped and Brier-scored the moment its market resolves &mdash; wins and losses kept on the record forever.</p>
       <div class="hero-cta">
@@ -58,14 +58,32 @@
         <span class="node n3"></span>
         <span class="node n4"></span>
         <span class="node n5"></span>
-        <svg class="grid-svg" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="grid-svg" viewBox="0 0 200 200" preserveAspectRatio="none">
           <defs>
-            <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse">
+            <pattern id="pattern-calibration-grid" width="20" height="20" patternUnits="userSpaceOnUse">
               <path d="M 20 0 L 0 0 0 20" fill="none" stroke="oklch(70% 0.16 250 / 0.18)" stroke-width="0.5"/>
             </pattern>
           </defs>
-          <rect width="200" height="200" fill="url(#g)"/>
+          <rect width="200" height="200" fill="url(#pattern-calibration-grid)"/>
         </svg>
+      </div>
+      <div class="terminal-panel">
+        <div class="tp-head">
+          <span class="tp-dot"></span><span class="tp-dot"></span><span class="tp-dot"></span>
+          <span class="tp-title">QEST · live divergence</span>
+          <span class="tp-pill">tracked</span>
+        </div>
+        <div class="tp-row">
+          <span class="tp-lab">CROWD</span>
+          <span class="tp-bar"><i style="width:71%"></i></span>
+          <span class="tp-val">71%</span>
+        </div>
+        <div class="tp-row">
+          <span class="tp-lab">QEST</span>
+          <span class="tp-bar q"><i style="width:66%"></i></span>
+          <span class="tp-val">66%</span>
+        </div>
+        <p class="tp-foot"><span class="tp-d">&minus;5.3pp</span> &middot; Fed cuts 2026 &middot; <span class="tp-link">logged &amp; being scored</span></p>
       </div>
     </div>
   </div>
@@ -76,31 +94,73 @@
     <p class="mod-num">01 / Edge</p>
     <h3>Calibrated calls</h3>
     <p>A transparent baseline model logs every divergence from crowd pricing. Brier-scored at market resolution. Append-only. Wrong calls stay in the record forever &mdash; not deleted, not reworded.</p>
+    <div class="mod-screen" aria-hidden="true">
+      <div class="ms-row"><span class="ms-lab">CROWD</span><span class="ms-bar"><i style="width:71%"></i></span><span class="ms-val">71%</span></div>
+      <div class="ms-row"><span class="ms-lab">QEST</span><span class="ms-bar q"><i style="width:66%"></i></span><span class="ms-val">66%</span></div>
+      <span class="ms-caption">&minus;5.3pp &middot; logged &middot; scored on resolution</span>
+    </div>
     <a href="scoreboard/" class="mod-link">The Scoreboard &rarr;</a>
   </article>
   <article class="mod">
     <p class="mod-num">02 / Read</p>
     <h3>Crowd Signal briefs</h3>
     <p>Short, regular editorial on what the crowd just repriced and why it matters. Calls made in briefs land on the same scored ledger as the model's. Editorial accountability, not predictions.</p>
+    <div class="mod-screen mod-screen-read" aria-hidden="true">
+      <span class="ms-kicker">CROWD SIGNAL &middot; latest</span>
+      <span class="ms-headline">Short reads, scored against the same ledger</span>
+      <span class="ms-meta">no predictions &middot; honest follow-through</span>
+    </div>
     <a href="briefs/" class="mod-link">The briefs &rarr;</a>
   </article>
   <article class="mod">
     <p class="mod-num">03 / Model</p>
     <h3>QEST baseline</h3>
     <p>A documented mean-reversion model named openly so you can audit it. Not &ldquo;AI&rdquo;. Not an edge claim. A reproducible benchmark whose full source is in the public repo &mdash; check it yourself.</p>
+    <div class="mod-screen mod-screen-model" aria-hidden="true">
+      <code class="ms-code"><span class="ms-key">REVERSION</span> = <span class="ms-val-c">0.35</span></code>
+      <code class="ms-code"><span class="ms-key">DIVERGENCE_FLOOR</span> = <span class="ms-val-c">0.04</span></code>
+      <code class="ms-code"><span class="ms-comment"># baseline-v1 &middot; src/model.py</span></code>
+    </div>
     <a href="https://github.com/tomuks01-sketch/the-calibration/blob/main/src/model.py" class="mod-link" target="_blank" rel="noopener">Model source &rarr;</a>
   </article>
 </section>
 
-<section class="calibration" aria-label="Calibration pulse">
-  <div class="cal-head">
-    <p class="cal-kicker">The Scoreboard pulse</p>
-    <h2>Where the calibration record stands now</h2>
-    <p class="cal-sub">A live snapshot of open calls, resolved calls, and the latest editorial read. Updated every 30 minutes by an unattended GitHub Action &mdash; the same cron that refreshes the terminal below.</p>
+<section class="proof" aria-label="Live calibration proof">
+  <div class="proof-head">
+    <p class="proof-kicker">Live &middot; calibration record</p>
+    <h2>What the ledger actually says, right now</h2>
+    <p class="proof-sub">Live counts and the calls currently being scored. Nothing manufactured &mdash; every number pulled from the public <a href="ledger.json">ledger.json</a> as the cron updates it.</p>
   </div>
-  <div class="cal-grid">
-    <a id="sb-pulse" class="sb-pulse" href="scoreboard/" hidden></a>
-    <article id="latest-brief" class="latest-brief" hidden></article>
+  <div class="proof-grid">
+
+    <article class="pr-panel pr-status" aria-label="Scoreboard pulse">
+      <p class="pr-kicker">Scoreboard pulse</p>
+      <a id="sb-pulse" class="sb-pulse" href="scoreboard/" hidden></a>
+      <div class="pr-status-grid" id="pr-status-grid">
+        <div><span class="pr-big" data-stat="resolved">—</span><span class="pr-lab">Resolved</span></div>
+        <div><span class="pr-big" data-stat="pending">—</span><span class="pr-lab">Pending</span></div>
+        <div><span class="pr-big" data-stat="void">—</span><span class="pr-lab">Void</span></div>
+        <div><span class="pr-big" data-stat="confidence">—</span><span class="pr-lab">Confidence</span></div>
+      </div>
+      <p class="pr-foot">Confidence stays <em>none</em> until &ge; 10 resolved. The wait is the honesty.</p>
+    </article>
+
+    <article class="pr-panel pr-calls" aria-label="Open calls being scored">
+      <p class="pr-kicker">Open calls being scored</p>
+      <ul id="proof-open-calls" class="pr-calls-list">
+        <li class="pr-skel">loading…</li>
+      </ul>
+      <p class="pr-foot">Pulled from <a href="ledger.json">ledger.json</a>. Each call is timestamped and Brier-scored at resolution.</p>
+    </article>
+
+    <article class="pr-panel pr-div" aria-label="Divergence map">
+      <p class="pr-kicker">Divergence map &middot; QEST &minus; Crowd</p>
+      <div id="proof-divergence" class="pr-div-chart"><p class="pr-skel">loading…</p></div>
+      <p class="pr-foot">One bar per open call. Left = QEST below crowd. Right = QEST above. Width = gap in pp.</p>
+    </article>
+
+    <article id="latest-brief" class="latest-brief pr-panel pr-brief" hidden></article>
+
   </div>
 </section>
 

@@ -55,6 +55,7 @@ function paint(initial) {
   gEl.classList.toggle("stale", ageMin > 40);
   renderKpis(initial);
   renderEditorial();
+  renderProof();
   renderMacro();
   renderKalshi();
   renderCategoryChips();
@@ -165,6 +166,82 @@ async function renderEditorial() {
     }
     if (sb && sb.modelVersion) set("model", sb.modelVersion);
     if (DATA && Array.isArray(DATA.events)) set("events", DATA.events.length);
+  }
+}
+
+// Live calibration proof: scoreboard pulse panel + open calls list +
+// divergence chart. All driven by the public ledger/scoreboard JSON.
+// Per-panel fail-open: a missing file leaves placeholders, never fakes data.
+async function renderProof() {
+  // ----- Scoreboard status grid (4 cells: resolved / pending / void / confidence)
+  try {
+    const sb = await (await fetch("scoreboard.json", { cache: "no-store" })).json();
+    const c = sb && sb.counts;
+    const grid = document.getElementById("pr-status-grid");
+    if (grid && c) {
+      const set = (k, v) => {
+        const el = grid.querySelector(`[data-stat="${k}"]`);
+        if (el && v !== undefined && v !== null) el.textContent = v;
+      };
+      set("resolved", c.resolved);
+      set("pending", c.pending);
+      set("void", c.void);
+      set("confidence", sb.confidence || "none");
+    }
+  } catch (_) { /* fail-open */ }
+
+  // ----- Open calls list + divergence chart from the public ledger
+  let led;
+  try {
+    led = await (await fetch("ledger.json", { cache: "no-store" })).json();
+  } catch (_) {
+    return; // panels keep their skeleton state
+  }
+  const open = (led.entries || []).filter((e) => e.status === "PENDING");
+
+  const callsEl = document.getElementById("proof-open-calls");
+  if (callsEl) {
+    callsEl.innerHTML = open.length
+      ? open.slice(0, 5).map((e) => {
+          const cp = Math.round((e.crowdProbAtCallTime || 0) * 100);
+          const mp = Math.round((e.modelProb || 0) * 100);
+          const dv = Number(e.divergencePp) || 0;
+          const sgn = dv > 0 ? "+" : "";
+          const dir = dv >= 0 ? "up" : "dn";
+          const q = escapeHtml((e.question || e.eventTitle || "—").slice(0, 110));
+          return `<li>
+              <div class="pc-q">${q}</div>
+              <div class="pc-meta">
+                <span><b>${cp}%</b> crowd</span>
+                <span><b>${mp}%</b> qest</span>
+                <span class="pc-dv pc-dv-${dir}">${sgn}${dv}pp</span>
+              </div>
+            </li>`;
+        }).join("")
+      : `<li class="pr-skel">No open calls right now &mdash; ledger is empty.</li>`;
+  }
+
+  const divEl = document.getElementById("proof-divergence");
+  if (divEl) {
+    if (!open.length) {
+      divEl.innerHTML = `<p class="pr-skel">No open calls right now.</p>`;
+    } else {
+      const max = Math.max(6, ...open.map((e) => Math.abs(Number(e.divergencePp) || 0)));
+      divEl.innerHTML = open.map((e) => {
+        const dv = Number(e.divergencePp) || 0;
+        const w = (Math.abs(dv) / max) * 50; // half-axis percentage
+        const dir = dv >= 0 ? "right" : "left";
+        const q = escAttr((e.question || "—").slice(0, 60));
+        const sgn = dv > 0 ? "+" : "";
+        return `<div class="pd-row" title="${q}">
+            <span class="pd-axis">
+              <span class="pd-mid"></span>
+              <span class="pd-bar pd-${dir}" style="width:${w}%"></span>
+            </span>
+            <span class="pd-val">${sgn}${dv}pp</span>
+          </div>`;
+      }).join("");
+    }
   }
 }
 
