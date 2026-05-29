@@ -1,21 +1,32 @@
 :root {
-  --bg: oklch(16% 0.018 264);
-  --s1: oklch(20% 0.022 264);
-  --s2: oklch(24% 0.026 263);
-  --glass: oklch(19% 0.02 264 / 0.86);
-  --line: oklch(38% 0.03 264 / 0.5);
-  --line-soft: oklch(34% 0.025 264 / 0.4);
-  --text: oklch(96% 0.008 264);
-  --muted: oklch(64% 0.018 264);
-  --champagne: oklch(86% 0.06 92);
-  --sapphire: oklch(70% 0.16 250);
-  --up: oklch(76% 0.16 155);
-  --down: oklch(66% 0.18 25);
+  /* Graphite terminal surface stack — Bloomberg-serious, near-neutral,
+     a whisper of cool blue so it reads as "instrument" not "black box". */
+  --bg: oklch(15% 0.012 260);
+  --s1: oklch(19% 0.014 260);
+  --s2: oklch(23% 0.016 259);
+  --glass: oklch(18% 0.013 260 / 0.88);
+  --panel: oklch(20% 0.014 260 / 0.92);
+  --panel-top: oklch(24% 0.018 260 / 0.92);  /* top of a graphite gradient */
+  --line: oklch(40% 0.02 260 / 0.55);
+  --line-soft: oklch(34% 0.016 260 / 0.42);
+  --hair: oklch(46% 0.02 260 / 0.28);        /* hairline grid rules */
+  --text: oklch(95% 0.006 260);
+  --muted: oklch(63% 0.014 260);
+  --faint: oklch(52% 0.012 260);
+  /* Accents — restrained. Amber is the single warm "live" signal
+     (Bloomberg lineage); sapphire stays for crowd data; champagne now
+     only for premium emphasis, used sparingly. */
+  --amber: oklch(80% 0.13 75);
+  --champagne: oklch(86% 0.05 88);
+  --sapphire: oklch(70% 0.14 248);
+  --up: oklch(76% 0.15 155);
+  --down: oklch(67% 0.17 27);
   --warn: oklch(84% 0.13 85);
-  --hot: oklch(70% 0.2 30);
-  --glow: oklch(70% 0.18 250 / 0.35);
+  --hot: oklch(72% 0.18 40);
+  --glow: oklch(70% 0.14 248 / 0.3);
+  --glow-amber: oklch(80% 0.13 75 / 0.35);
   --space: clamp(1rem, 0.6rem + 1.4vw, 2rem);
-  --radius: 18px;
+  --radius: 14px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, "Cascadia Mono", Consolas, monospace;
   font-synthesis: none;
@@ -47,19 +58,30 @@ body::before {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");
 }
 
-/* aurora mesh — transform-animated layer (compositor only) */
+/* Terminal backdrop — a faint hairline instrument grid + two restrained
+   signal-field glows. Reads as a graphite control surface, not an aurora.
+   Two stacked layers: fixed grid (static, credible) + slow-drifting glow. */
 .aurora {
-  position: fixed; inset: -30%; z-index: -1; pointer-events: none;
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(40% 40% at 25% 30%, oklch(70% 0.16 250 / 0.16) 0%, transparent 70%),
-    radial-gradient(38% 38% at 78% 22%, oklch(86% 0.06 92 / 0.10) 0%, transparent 70%),
-    radial-gradient(45% 45% at 60% 80%, oklch(60% 0.14 290 / 0.13) 0%, transparent 70%);
-  filter: blur(60px);
-  animation: drift 44s linear infinite;
+    linear-gradient(oklch(46% 0.02 260 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(46% 0.02 260 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px, 44px 44px;
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 80%);
+}
+.aurora::before {
+  content: ""; position: fixed; inset: -30%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(38% 38% at 22% 18%, oklch(70% 0.14 248 / 0.13) 0%, transparent 70%),
+    radial-gradient(34% 34% at 82% 12%, oklch(80% 0.13 75 / 0.07) 0%, transparent 70%),
+    radial-gradient(42% 42% at 62% 88%, oklch(60% 0.12 270 / 0.09) 0%, transparent 70%);
+  filter: blur(70px);
+  animation: drift 52s linear infinite;
 }
 @keyframes drift {
   0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(3%, -2%, 0) scale(1.08); }
+  50% { transform: translate3d(2%, -1.5%, 0) scale(1.06); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
@@ -82,20 +104,46 @@ body::before {
   font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
   padding-bottom: 0.2rem; align-self: flex-end;
 }
-.snapmeta .live { color: var(--muted); font-weight: 700; letter-spacing: 0.08em; }
+.snapmeta .live {
+  position: relative; color: var(--amber); font-weight: 700;
+  letter-spacing: 0.12em; padding-left: 0.85rem;
+}
+.snapmeta .live::before {
+  content: ""; position: absolute; left: 0; top: 50%;
+  width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%;
+  background: var(--amber); box-shadow: 0 0 0 0 var(--glow-amber);
+  animation: livePulse 2.4s var(--ease) infinite;
+}
+@keyframes livePulse {
+  0%   { box-shadow: 0 0 0 0 oklch(80% 0.13 75 / 0.5); }
+  70%  { box-shadow: 0 0 0 7px oklch(80% 0.13 75 / 0); }
+  100% { box-shadow: 0 0 0 0 oklch(80% 0.13 75 / 0); }
+}
 .snapmeta #generated.stale { color: var(--hot); }
+.snapmeta #generated.stale ~ .live,
+.stale-wrap .live { color: var(--hot); }
 
 /* ---------- KPIs ---------- */
-.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 1rem 0; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin: 1rem 0; }
 .kpi {
-  background: var(--glass); -webkit-backdrop-filter: blur(10px) saturate(140%);
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, var(--panel-top), var(--panel));
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
   backdrop-filter: blur(10px) saturate(140%);
-  border: 1px solid var(--line-soft); border-radius: var(--radius);
-  padding: 1rem 1.15rem; box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.05);
+  border: 1px solid var(--line-soft); border-radius: 12px;
+  padding: 0.95rem 1.1rem;
+  box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.05), 0 12px 28px -20px oklch(8% 0.03 260 / 0.8);
 }
+.kpi::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+  background: var(--faint);
+}
+.kpi.accent::before { background: var(--amber); box-shadow: 0 0 12px var(--glow-amber); }
+.kpi.up::before { background: var(--up); }
+.kpi.sap::before { background: var(--sapphire); }
 .kpi .v { font-size: clamp(1.3rem, 1rem + 1.4vw, 2rem); font-weight: 800; letter-spacing: -0.03em; font-family: var(--mono); font-variant-numeric: tabular-nums; }
-.kpi .l { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
-.kpi.accent .v { color: var(--champagne); }
+.kpi .l { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.25rem; }
+.kpi.accent .v { color: var(--amber); }
 .kpi.up .v { color: var(--up); }
 .kpi.sap .v { color: var(--sapphire); }
 
@@ -110,7 +158,11 @@ body::before {
 }
 .filters.subtle .chip { font-size: 0.75rem; padding: 0.3rem 0.72rem; }
 .chip:hover { color: var(--text); border-color: var(--muted); }
-.chip.is-active { background: var(--champagne); color: oklch(20% 0.02 92); border-color: var(--champagne); font-weight: 700; }
+.chip.is-active {
+  background: linear-gradient(180deg, oklch(84% 0.13 78), var(--amber));
+  color: oklch(20% 0.04 75); border-color: var(--amber); font-weight: 800;
+  box-shadow: 0 0 14px var(--glow-amber);
+}
 .chip:focus-visible, .news a:focus-visible {
   outline: 2px solid var(--sapphire); outline-offset: 3px;
 }
@@ -121,15 +173,17 @@ body::before {
 
 .event {
   position: relative;
-  background: var(--glass);
+  background: linear-gradient(180deg, var(--panel-top), var(--panel));
   -webkit-backdrop-filter: blur(11px) saturate(150%);
   backdrop-filter: blur(11px) saturate(150%);
-  border: 1px solid var(--line-soft); border-radius: var(--radius);
-  padding: 1.2rem 1.3rem; display: flex; flex-direction: column;
-  box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.06);
+  border: 1px solid var(--line-soft); border-radius: 13px;
+  padding: 1.15rem 1.25rem; display: flex; flex-direction: column;
+  box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.06), 0 16px 36px -26px oklch(8% 0.03 260 / 0.85);
   transform-style: preserve-3d; will-change: transform;
   transition: transform .12s var(--ease), border-color .25s var(--ease);
 }
+/* graphite top hairline — instrument seam */
+.event > .ehead { position: relative; }
 .event::after {
   content: ""; position: absolute; inset: 0; border-radius: var(--radius);
   box-shadow: 0 22px 50px -22px oklch(8% 0.05 264 / 0.95), 0 0 36px var(--glow);
@@ -616,13 +670,13 @@ body::before {
 .lattice {
   position: relative; width: 100%; height: 100%;
   transform-style: preserve-3d;
-  transform: rotateX(58deg) rotateZ(0deg);
-  animation: latticeSpin 42s linear infinite;
-  will-change: transform;
+  transform: rotateX(60deg) rotateZ(0deg);
+  animation: latticeSpin 80s linear infinite;
+  will-change: transform; opacity: 0.9;
 }
 @keyframes latticeSpin {
-  from { transform: rotateX(58deg) rotateZ(0deg); }
-  to   { transform: rotateX(58deg) rotateZ(360deg); }
+  from { transform: rotateX(60deg) rotateZ(0deg); }
+  to   { transform: rotateX(60deg) rotateZ(360deg); }
 }
 .lattice .grid-svg {
   position: absolute; inset: 12%; width: 76%; height: 76%;
@@ -1170,6 +1224,47 @@ body::before {
 @media (max-width: 560px) {
   .pr-status-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
   .terminal-panel { display: none; }
+}
+
+/* ============================================================
+   TERMINAL MOOD — live/refresh states, skeletons, scanability
+   ============================================================ */
+
+/* Refreshing: the live dot speeds up + a thin progress seam under masthead */
+body.is-refreshing .snapmeta .live::before { animation-duration: 0.9s; }
+body.is-refreshing .snapmeta .live { color: var(--up); }
+
+/* Skeleton shimmer for any loading/empty placeholder */
+.pr-skel, .empty {
+  position: relative; overflow: hidden;
+}
+.pr-skel::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent,
+              oklch(100% 0 0 / 0.05), transparent);
+  transform: translateX(-100%); animation: skel 1.6s var(--ease) infinite;
+}
+@keyframes skel { to { transform: translateX(100%); } }
+
+/* Divergence rows reveal on load (chart-reveal motion) */
+.pd-row { animation: pdReveal .5s var(--ease) both; }
+.pd-row:nth-child(2) { animation-delay: .06s; }
+.pd-row:nth-child(3) { animation-delay: .12s; }
+.pd-row:nth-child(4) { animation-delay: .18s; }
+.pd-row:nth-child(5) { animation-delay: .24s; }
+@keyframes pdReveal { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* Live tag on signature panels */
+.pr-kicker .pr-live {
+  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--up); margin-left: 0.45rem; vertical-align: middle;
+  box-shadow: 0 0 8px oklch(76% 0.15 155 / 0.6);
+  animation: livePulse 2.4s var(--ease) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pr-skel::after, .pd-row, .pr-kicker .pr-live,
+  body.is-refreshing .snapmeta .live::before { animation: none !important; }
 }
 
 @media (max-width: 760px) { .kpis { grid-template-columns: repeat(2, 1fr); } .board { grid-template-columns: 1fr; } }

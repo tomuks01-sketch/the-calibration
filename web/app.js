@@ -19,11 +19,13 @@ async function fetchData() {
 }
 
 async function load(initial) {
+  document.body.classList.add("is-refreshing");
   try {
     const next = await fetchData();
     DATA = next;
     backoff = REFRESH_MS;
     paint(initial);
+    document.body.classList.remove("is-refreshing");
     announce(initial ? "Dashboard loaded" : "Dashboard updated");
     document.getElementById("generated").classList.remove("stale");
   } catch (err) {
@@ -35,6 +37,7 @@ async function load(initial) {
       document.getElementById("generated").classList.add("stale");
       backoff = Math.min(backoff * 2, 300000);
     }
+    document.body.classList.remove("is-refreshing");
   }
   setTimeout(() => load(false), backoff);
 }
