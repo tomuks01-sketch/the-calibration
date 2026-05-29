@@ -4,8 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Calibration — a scored prediction-market terminal</title>
-<meta name="description" content="A read-only Polymarket terminal with a public, append-only Scoreboard: every divergence call we make is timestamped and Brier-scored when its market resolves. Honest editorial briefs, no betting advice." />
+<meta name="description" content="A read-only Polymarket terminal with a public, append-only Scoreboard: every divergence call is timestamped and Brier-scored when its market resolves. Honest editorial briefs, no betting advice." />
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="home.css" />
   <link rel="icon" href="/the-calibration/favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://tomuks01-sketch.github.io/the-calibration/" />
   <meta name="robots" content="index, follow" />
@@ -19,162 +20,97 @@
   <meta name="twitter:description" content="A read-only Polymarket terminal with a public, append-only Scoreboard. Every divergence call is timestamped and Brier-scored when its market resolves." />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "The Calibration", "url": "https://tomuks01-sketch.github.io/the-calibration/", "description": "A read-only Polymarket terminal with a public, append-only Scoreboard. Every divergence call is timestamped and Brier-scored when its market resolves."}</script>
 </head>
-<body>
-<div class="aurora" aria-hidden="true"></div>
+<body class="home">
 
-<header class="sitenav wide">
-  <a class="wm" href="./">THE <span>CALIBRATION</span></a>
-  <nav>
+<!-- ============ COMMAND RAIL ============ -->
+<header class="tx-rail">
+  <a class="tx-wm" href="./">THE&nbsp;<span>CALIBRATION</span></a>
+  <div class="tx-rail-meta">
+    <span class="tx-rail-state"><span class="tx-pulse-dot"></span>DELAYED</span>
+    <span id="generated" class="tx-rail-snap">loading…</span>
+  </div>
+  <nav class="tx-rail-nav">
     <a href="./" aria-current="page">Terminal</a>
     <a href="briefs/">Briefs</a>
     <a href="scoreboard/">Scoreboard</a>
+    <a href="#system">How</a>
     <a href="#bench">Roadmap</a>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <p class="hero-tag"><span class="hero-tag-dot"></span>Prediction-market analytics, scored in public</p>
-      <h1>Markets don't lie.<br/><em>Calibration is what proves it.</em></h1>
-      <p class="hero-sub">A read-only Polymarket terminal with a public, append-only Scoreboard. Every divergence our baseline model calls is timestamped and Brier-scored the moment its market resolves &mdash; wins and losses kept on the record forever.</p>
-      <div class="hero-cta">
-        <a href="#terminal" class="cta primary">Open the live terminal</a>
-        <a href="scoreboard/" class="cta ghost">See the Scoreboard &rarr;</a>
-      </div>
-      <div class="hero-stats" id="hero-stats" aria-label="Live state">
-        <div><span class="hs-v" data-stat="resolved">—</span><span class="hs-l">Resolved calls</span></div>
-        <div><span class="hs-v" data-stat="pending">—</span><span class="hs-l">Open calls</span></div>
-        <div><span class="hs-v" data-stat="events">—</span><span class="hs-l">Live events</span></div>
-        <div><span class="hs-v" data-stat="model">—</span><span class="hs-l">Model</span></div>
-      </div>
+<!-- ============ HERO — full-bleed calibration field ============ -->
+<section class="tx-hero">
+  <canvas id="hero-canvas" class="tx-hero-canvas" aria-hidden="true"></canvas>
+  <div class="tx-hero-scrim" aria-hidden="true"></div>
+  <div class="tx-hero-inner">
+    <p class="tx-eyebrow"><span class="tx-eyebrow-tick"></span>Prediction-market analytics · scored in public</p>
+    <h1 class="tx-h1">The crowd sets the price.<br/><em>We keep the score.</em></h1>
+    <p class="tx-lede">A read-only Polymarket terminal with a public, append-only ledger. Every time our baseline model diverges from the crowd, the call is timestamped and Brier-scored the moment its market resolves — wins and losses kept on the record forever.</p>
+    <div class="tx-hero-cta">
+      <a href="#terminal" class="tx-btn primary">Open the terminal</a>
+      <a href="scoreboard/" class="tx-btn ghost">Audit the Scoreboard →</a>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <canvas id="hero-canvas" class="hero-canvas"></canvas>
-      <div class="lattice">
-        <div class="rings"><i></i><i></i><i></i></div>
-        <span class="orb"></span>
-        <span class="node n1"></span>
-        <span class="node n2"></span>
-        <span class="node n3"></span>
-        <span class="node n4"></span>
-        <span class="node n5"></span>
-        <svg class="grid-svg" viewBox="0 0 200 200" preserveAspectRatio="none">
-          <defs>
-            <pattern id="pattern-calibration-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="oklch(70% 0.16 250 / 0.18)" stroke-width="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="200" height="200" fill="url(#pattern-calibration-grid)"/>
-        </svg>
-      </div>
-      <div class="terminal-panel">
-        <div class="tp-head">
-          <span class="tp-dot"></span><span class="tp-dot"></span><span class="tp-dot"></span>
-          <span class="tp-title">QEST · live divergence</span>
-          <span class="tp-pill">tracked</span>
-        </div>
-        <div class="tp-row">
-          <span class="tp-lab">CROWD</span>
-          <span class="tp-bar"><i style="width:71%"></i></span>
-          <span class="tp-val">71%</span>
-        </div>
-        <div class="tp-row">
-          <span class="tp-lab">QEST</span>
-          <span class="tp-bar q"><i style="width:66%"></i></span>
-          <span class="tp-val">66%</span>
-        </div>
-        <p class="tp-foot"><span class="tp-d">&minus;5.3pp</span> &middot; Fed cuts 2026 &middot; <span class="tp-link">logged &amp; being scored</span></p>
-      </div>
+    <div class="tx-hero-readout" id="hero-stats" aria-label="Live state">
+      <div><span class="hs-v" data-stat="resolved">—</span><span class="hs-l">Resolved</span></div>
+      <div><span class="hs-v" data-stat="pending">—</span><span class="hs-l">Open calls</span></div>
+      <div><span class="hs-v" data-stat="events">—</span><span class="hs-l">Live events</span></div>
+      <div><span class="hs-v" data-stat="model">—</span><span class="hs-l">Model</span></div>
     </div>
   </div>
 </section>
 
-<section class="modules" aria-label="What this terminal does differently">
-  <article class="mod">
-    <p class="mod-num">01 / Edge</p>
-    <h3>Calibrated calls</h3>
-    <p>A transparent baseline model logs every divergence from crowd pricing. Brier-scored at market resolution. Append-only. Wrong calls stay in the record forever &mdash; not deleted, not reworded.</p>
-    <div class="mod-screen" aria-hidden="true">
-      <div class="ms-row"><span class="ms-lab">CROWD</span><span class="ms-bar"><i style="width:71%"></i></span><span class="ms-val">71%</span></div>
-      <div class="ms-row"><span class="ms-lab">QEST</span><span class="ms-bar q"><i style="width:66%"></i></span><span class="ms-val">66%</span></div>
-      <span class="ms-caption">&minus;5.3pp &middot; logged &middot; scored on resolution</span>
+<!-- ============ SIGNATURE LIVE RAIL — 3 dense panels ============ -->
+<section class="tx-live" aria-label="Live calibration record">
+  <article class="tx-panel">
+    <div class="tx-panel-bar">
+      <span class="tx-panel-tag">SCOREBOARD · PULSE</span>
+      <span class="tx-live-dot" title="updated every 30 min by cron"></span>
     </div>
-    <a href="scoreboard/" class="mod-link">The Scoreboard &rarr;</a>
-  </article>
-  <article class="mod">
-    <p class="mod-num">02 / Read</p>
-    <h3>Crowd Signal briefs</h3>
-    <p>Short, regular editorial on what the crowd just repriced and why it matters. Calls made in briefs land on the same scored ledger as the model's. Editorial accountability, not predictions.</p>
-    <div class="mod-screen mod-screen-read" aria-hidden="true">
-      <span class="ms-kicker">CROWD SIGNAL &middot; latest</span>
-      <span class="ms-headline">Short reads, scored against the same ledger</span>
-      <span class="ms-meta">no predictions &middot; honest follow-through</span>
-    </div>
-    <a href="briefs/" class="mod-link">The briefs &rarr;</a>
-  </article>
-  <article class="mod">
-    <p class="mod-num">03 / Model</p>
-    <h3>QEST baseline</h3>
-    <p>A documented mean-reversion model named openly so you can audit it. Not &ldquo;AI&rdquo;. Not an edge claim. A reproducible benchmark whose full source is in the public repo &mdash; check it yourself.</p>
-    <div class="mod-screen mod-screen-model" aria-hidden="true">
-      <code class="ms-code"><span class="ms-key">REVERSION</span> = <span class="ms-val-c">0.35</span></code>
-      <code class="ms-code"><span class="ms-key">DIVERGENCE_FLOOR</span> = <span class="ms-val-c">0.04</span></code>
-      <code class="ms-code"><span class="ms-comment"># baseline-v1 &middot; src/model.py</span></code>
-    </div>
-    <a href="https://github.com/tomuks01-sketch/the-calibration/blob/main/src/model.py" class="mod-link" target="_blank" rel="noopener">Model source &rarr;</a>
-  </article>
-</section>
-
-<section class="proof" aria-label="Live calibration proof">
-  <div class="proof-head">
-    <p class="proof-kicker">Live &middot; calibration record</p>
-    <h2>What the ledger actually says, right now</h2>
-    <p class="proof-sub">Live counts and the calls currently being scored. Nothing manufactured &mdash; every number pulled from the public <a href="ledger.json">ledger.json</a> as the cron updates it.</p>
-  </div>
-  <div class="proof-grid">
-
-    <article class="pr-panel pr-status" aria-label="Scoreboard pulse">
-      <p class="pr-kicker">Scoreboard pulse<span class="pr-live"></span></p>
-      <a id="sb-pulse" class="sb-pulse" href="scoreboard/" hidden></a>
-      <div class="pr-status-grid" id="pr-status-grid">
-        <div><span class="pr-big" data-stat="resolved">—</span><span class="pr-lab">Resolved</span></div>
-        <div><span class="pr-big" data-stat="pending">—</span><span class="pr-lab">Pending</span></div>
-        <div><span class="pr-big" data-stat="void">—</span><span class="pr-lab">Void</span></div>
-        <div><span class="pr-big" data-stat="confidence">—</span><span class="pr-lab">Confidence</span></div>
+    <div class="tx-panel-body">
+      <div class="tx-status-grid" id="pr-status-grid">
+        <div><span class="tx-stat" data-stat="resolved">—</span><span class="tx-stat-l">Resolved</span></div>
+        <div><span class="tx-stat" data-stat="pending">—</span><span class="tx-stat-l">Pending</span></div>
+        <div><span class="tx-stat" data-stat="void">—</span><span class="tx-stat-l">Void</span></div>
+        <div><span class="tx-stat" data-stat="confidence">—</span><span class="tx-stat-l">Confidence</span></div>
       </div>
-      <p class="pr-foot">Confidence stays <em>none</em> until &ge; 10 resolved. The wait is the honesty.</p>
-    </article>
+      <a id="sb-pulse" class="sb-pulse tx-pulse-line" href="scoreboard/" hidden></a>
+      <p class="tx-panel-foot">Confidence stays <em>none</em> until ≥10 resolved. The wait is the honesty.</p>
+    </div>
+  </article>
 
-    <article class="pr-panel pr-calls" aria-label="Open calls being scored">
-      <p class="pr-kicker">Open calls being scored</p>
-      <ul id="proof-open-calls" class="pr-calls-list">
-        <li class="pr-skel">loading…</li>
-      </ul>
-      <p class="pr-foot">Pulled from <a href="ledger.json">ledger.json</a>. Each call is timestamped and Brier-scored at resolution.</p>
-    </article>
+  <article class="tx-panel">
+    <div class="tx-panel-bar">
+      <span class="tx-panel-tag">DIVERGENCE MAP · QEST − CROWD</span>
+      <span class="tx-live-dot"></span>
+    </div>
+    <div class="tx-panel-body">
+      <div id="proof-divergence" class="tx-div-chart"><p class="tx-skel">loading…</p></div>
+      <p class="tx-panel-foot">One bar per open call. Left = QEST below crowd · right = above. Width = gap in pp.</p>
+    </div>
+  </article>
 
-    <article class="pr-panel pr-div" aria-label="Divergence map">
-      <p class="pr-kicker">Divergence map &middot; QEST &minus; Crowd<span class="pr-live"></span></p>
-      <div id="proof-divergence" class="pr-div-chart"><p class="pr-skel">loading…</p></div>
-      <p class="pr-foot">One bar per open call. Left = QEST below crowd. Right = QEST above. Width = gap in pp.</p>
-    </article>
-
-    <article id="latest-brief" class="latest-brief pr-panel pr-brief" hidden></article>
-
-  </div>
+  <article class="tx-panel">
+    <div class="tx-panel-bar">
+      <span class="tx-panel-tag">OPEN CALLS · BEING SCORED</span>
+      <span class="tx-live-dot"></span>
+    </div>
+    <div class="tx-panel-body">
+      <ul id="proof-open-calls" class="tx-calls"><li class="tx-skel">loading…</li></ul>
+      <p class="tx-panel-foot">From the public <a href="ledger.json">ledger.json</a> — timestamped, scored at resolution.</p>
+    </div>
+  </article>
 </section>
 
-<section id="terminal" class="terminal-section">
-  <div class="ts-head">
-    <p class="ts-kicker">Live terminal</p>
-    <h2>The board</h2>
-    <p class="ts-sub">Top-volume Polymarket events, round-robin balanced across categories so no topic dominates. Every eligible card shows crowd pricing and the QEST baseline side by side &mdash; the gap is the call.</p>
-    <p class="snapmeta">
-      <span class="live" title="Data is a snapshot refreshed periodically — not real-time">DELAYED</span>
-      &middot; <span id="generated">loading…</span>
-    </p>
+<!-- ============ THE TERMINAL — primary surface ============ -->
+<section id="terminal" class="tx-board-section">
+  <div class="tx-section-head">
+    <div>
+      <p class="tx-section-tag">LIVE TERMINAL</p>
+      <h2 class="tx-h2">The board</h2>
+    </div>
+    <p class="tx-section-sub">Top-volume Polymarket events, round-robin balanced across categories. Every eligible card shows crowd pricing against the QEST baseline — the gap is the call.</p>
   </div>
+
   <div id="refresh-status" role="status" aria-live="polite" class="sr-only"></div>
 
   <section class="kpis" id="kpis" aria-label="Market overview"></section>
@@ -185,59 +121,79 @@
   <nav class="filters subtle" id="signals" aria-label="Signal filters">
     <button class="chip is-active" data-flag="all">All signals</button>
     <button class="chip" data-flag="moving-now">Moving now</button>
-    <button class="chip" data-flag="big-move-24h">&uarr; Up 24h</button>
-    <button class="chip" data-flag="big-drop-24h">&darr; Down 24h</button>
+    <button class="chip" data-flag="big-move-24h">↑ Up 24h</button>
+    <button class="chip" data-flag="big-drop-24h">↓ Down 24h</button>
     <button class="chip" data-flag="high-attention">High attention</button>
     <button class="chip" data-flag="resolves-soon">Resolving soon</button>
   </nav>
 
-  <main id="board" class="board"></main>
+  <main class="board" id="board"></main>
 </section>
 
-<section id="bench" class="bench" aria-label="On the bench">
-  <div class="bench-head">
-    <p class="bench-kicker">On the bench</p>
-    <h2>What gets built next</h2>
-    <p class="bench-sub">Honest roadmap. Nothing on this page is sold yet &mdash; the audience comes first, the features follow it. Listed in the order they actually make sense to build.</p>
+<!-- ============ LATEST BRIEF — editorial dock ============ -->
+<section class="tx-brief-dock" aria-label="Latest brief">
+  <article id="latest-brief" class="latest-brief tx-brief" hidden></article>
+</section>
+
+<!-- ============ SYSTEM — how it works, as terminal spec rows ============ -->
+<section id="system" class="tx-system" aria-label="How the terminal works">
+  <div class="tx-section-head">
+    <div>
+      <p class="tx-section-tag">SYSTEM</p>
+      <h2 class="tx-h2">Three moving parts. All auditable.</h2>
+    </div>
   </div>
-  <ol class="bench-list">
+  <ol class="tx-spec">
     <li>
-      <span class="bn-stage">Next</span>
-      <div>
-        <h3>Calibration alerts</h3>
-        <p>Email or webhook when a market diverges from the QEST baseline by &gt;4pp, or when a tracked ledger call resolves. Replaces refreshing the terminal manually.</p>
+      <span class="tx-spec-no">01</span>
+      <div class="tx-spec-body">
+        <h3>The ledger <span class="tx-spec-edge">edge</span></h3>
+        <p>A transparent baseline model logs every divergence from crowd pricing. Append-only, Brier-scored at resolution. Wrong calls stay forever — not deleted, not reworded.</p>
       </div>
+      <a class="tx-spec-link" href="scoreboard/">Scoreboard →</a>
     </li>
     <li>
-      <span class="bn-stage">Soon</span>
-      <div>
-        <h3>Saved setups</h3>
-        <p>Personal watchlists of markets you care about, with your own calibration view. Reuses the existing model output &mdash; no new scoring fabricated.</p>
+      <span class="tx-spec-no">02</span>
+      <div class="tx-spec-body">
+        <h3>The briefs <span class="tx-spec-edge">read</span></h3>
+        <p>Short, regular editorial on what the crowd just repriced and why. Calls made in briefs land on the same scored ledger. Accountability, not predictions.</p>
       </div>
+      <a class="tx-spec-link" href="briefs/">Briefs →</a>
     </li>
     <li>
-      <span class="bn-stage">Later</span>
-      <div>
-        <h3>Historical calibration export</h3>
-        <p>Full append-only ledger as CSV / JSON. Already public as <a href="ledger.json">ledger.json</a>; this just packages it for analysts.</p>
+      <span class="tx-spec-no">03</span>
+      <div class="tx-spec-body">
+        <h3>QEST <span class="tx-spec-edge">model</span></h3>
+        <p>A documented mean-reversion baseline, named openly. Not “AI”, not an edge claim — a reproducible benchmark whose full source is in the public repo. Check it.</p>
       </div>
-    </li>
-    <li>
-      <span class="bn-stage">Later</span>
-      <div>
-        <h3>Read-only data API</h3>
-        <p>Programmatic access to the calibrated snapshot. Built only when there are people asking for it &mdash; not before.</p>
-      </div>
+      <a class="tx-spec-link" href="https://github.com/tomuks01-sketch/the-calibration/blob/main/src/model.py" target="_blank" rel="noopener">model.py →</a>
     </li>
   </ol>
-  <p class="bench-foot">No pricing page yet. This product earns paid tiers when it has an audience to charge &mdash; not before. Until then everything you see is free, public, and source-visible.</p>
 </section>
 
-<section class="about" aria-label="About The Calibration">
-  <p class="about-kicker">Why this exists</p>
-  <p>Most prediction-market dashboards re-display the same public odds. This one adds two things you can audit. A public <a href="scoreboard/">Scoreboard</a> where a transparent baseline model's calls are Brier-scored the moment their markets resolve &mdash; wins and losses kept on the record forever. And short <a href="briefs/">Crowd Signal</a> briefs that describe what the crowd actually repriced, and why it mattered.</p>
-  <p class="about-foot">Analytics only. Public, read-only data. No predictions, no betting advice, no wallet access.</p>
+<!-- ============ ON THE BENCH — honest roadmap ============ -->
+<section id="bench" class="tx-bench" aria-label="On the bench">
+  <div class="tx-section-head">
+    <div>
+      <p class="tx-section-tag">ON THE BENCH</p>
+      <h2 class="tx-h2">What gets built next</h2>
+    </div>
+    <p class="tx-section-sub">Honest roadmap. Nothing here is sold yet — the audience comes first, the features follow. Listed in the order they actually make sense to build.</p>
+  </div>
+  <div class="tx-bench-grid">
+    <article class="tx-bench-card"><span class="tx-stage next">NEXT</span><h3>Calibration alerts</h3><p>Email or webhook when a market diverges from QEST by &gt;4pp, or when a tracked call resolves.</p></article>
+    <article class="tx-bench-card"><span class="tx-stage soon">SOON</span><h3>Saved setups</h3><p>Personal watchlists with your own calibration view. Reuses existing model output — nothing fabricated.</p></article>
+    <article class="tx-bench-card"><span class="tx-stage later">LATER</span><h3>Calibration export</h3><p>Full ledger as CSV / JSON. Already public as <a href="ledger.json">ledger.json</a>; this packages it.</p></article>
+    <article class="tx-bench-card"><span class="tx-stage later">LATER</span><h3>Read-only API</h3><p>Programmatic access to the calibrated snapshot. Built only when people ask — not before.</p></article>
+  </div>
+  <p class="tx-bench-foot">No pricing page yet. This earns paid tiers when it has an audience to charge — not before. Until then everything is free, public, and source-visible.</p>
 </section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="tx-foot">
+  <p class="tx-foot-lead">Most prediction-market dashboards re-display the same public odds. This one keeps a public, auditable record of when a transparent model disagreed with the crowd — and what happened next.</p>
+  <p class="tx-foot-fine">Analytics only. Public, read-only data. No predictions, no betting advice, no wallet access. © The Calibration.</p>
+</footer>
 
 <script src="hero-canvas.js"></script>
 <script src="app.js"></script>
