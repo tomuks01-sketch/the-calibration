@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- Source card for the social share image (1200x630). Screenshotted to
+     og-image.png; not linked in the site nav. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { margin:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; overflow:hidden; }
+  body {
+    --void:#06070a; --amber:#ffb45c; --amber2:#ff9e3d; --ink:#eceef2; --dim:#9aa3b0; --faint:#8a939f;
+    position:relative; background:var(--void); color:var(--ink);
+    font-family:"Archivo",system-ui,sans-serif;
+    padding:74px 80px; display:flex; flex-direction:column; justify-content:space-between;
+  }
+  /* engineering grid + corner radial */
+  body::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      linear-gradient(rgba(150,170,200,0.05) 1px, transparent 1px) 0 0 / 100% 54px,
+      linear-gradient(90deg, rgba(150,170,200,0.05) 1px, transparent 1px) 0 0 / 54px 100%,
+      radial-gradient(80% 120% at 88% 0%, #11161f 0%, var(--void) 58%); }
+  /* calibration sphere motif, right side */
+  .orbwrap { position:absolute; right:-60px; top:50%; transform:translateY(-50%); width:560px; height:560px; z-index:0; opacity:0.9; }
+  .ring { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); border-radius:50%; }
+  .r1 { width:520px; height:520px; border:1px solid rgba(127,168,216,0.22); }
+  .r2 { width:360px; height:360px; border:1px solid rgba(255,180,92,0.30); box-shadow:0 0 60px rgba(255,180,92,0.10); }
+  .r3 { width:200px; height:200px; border:1px solid rgba(95,211,160,0.30); }
+  .core { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:120px; height:120px; border-radius:50%;
+    background:radial-gradient(circle at 38% 32%, #fff 0%, var(--amber) 38%, rgba(255,158,61,0.4) 72%, transparent 100%);
+    box-shadow:0 0 80px rgba(255,180,92,0.6), 0 0 180px rgba(255,180,92,0.35); }
+  .dot { position:absolute; border-radius:50%; }
+  .d1 { width:9px;height:9px; background:var(--amber); left:28%; top:20%; box-shadow:0 0 14px var(--amber); }
+  .d2 { width:8px;height:8px; background:var(--steel,#7fa8d8); right:18%; top:30%; box-shadow:0 0 12px #7fa8d8; }
+  .d3 { width:9px;height:9px; background:#5fd3a0; left:24%; bottom:24%; box-shadow:0 0 14px #5fd3a0; }
+
+  .top { position:relative; z-index:2; display:flex; align-items:center; gap:14px; }
+  .wm { font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:23px; letter-spacing:0.34em; text-transform:uppercase; color:var(--amber); }
+  .wm span { color:var(--dim); }
+  .badge { font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:0.18em; text-transform:uppercase; color:var(--faint); border:1px solid rgba(255,180,92,0.3); border-radius:6px; padding:5px 10px; }
+
+  .mid { position:relative; z-index:2; max-width:760px; }
+  .eyebrow { font-family:"IBM Plex Mono",monospace; font-size:16px; letter-spacing:0.2em; text-transform:uppercase; color:var(--amber); margin-bottom:22px; display:flex; align-items:center; gap:12px; }
+  .eyebrow i { width:34px; height:1px; background:var(--amber); display:inline-block; }
+  h1 { font-weight:900; font-size:78px; line-height:0.96; letter-spacing:-0.045em; }
+  h1 .a { background:linear-gradient(180deg,#fff,#c4c9d2); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  h1 .b { background:linear-gradient(180deg,var(--amber),var(--amber2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  .bottom { position:relative; z-index:2; display:flex; align-items:flex-end; justify-content:space-between; gap:30px; }
+  .stats { display:flex; gap:46px; }
+  .stat .v { font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:30px; color:var(--amber); letter-spacing:-0.02em; }
+  .stat .l { font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); margin-top:4px; }
+  .url { font-family:"IBM Plex Mono",monospace; font-size:18px; color:var(--dim); letter-spacing:0.04em; }
+</style>
+</head>
+<body>
+  <div class="orbwrap">
+    <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+    <span class="core"></span>
+    <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+  </div>
+
+  <div class="top">
+    <span class="wm">THE&nbsp;<span>CALIBRATION</span></span>
+    <span class="badge">scored in public</span>
+  </div>
+
+  <div class="mid">
+    <p class="eyebrow"><i></i>Prediction-market analytics terminal</p>
+    <h1><span class="a">The crowd sets the price.</span><br/><span class="b">We keep the score.</span></h1>
+  </div>
+
+  <div class="bottom">
+    <div class="stats">
+      <div class="stat"><div class="v">append-only</div><div class="l">public ledger</div></div>
+      <div class="stat"><div class="v">Brier-scored</div><div class="l">at resolution</div></div>
+      <div class="stat"><div class="v">baseline-v1</div><div class="l">open-source model</div></div>
+    </div>
+    <div class="url">tomuks01-sketch.github.io/the-calibration</div>
+  </div>
+</body>
+</html>
