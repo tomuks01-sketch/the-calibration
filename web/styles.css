@@ -511,6 +511,33 @@ body::before {
   outline: 2px solid var(--sapphire); outline-offset: 3px; border-radius: 3px;
 }
 
+/* ---------- Brief prev/next nav ---------- */
+.brief-nav {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;
+  margin: 2.6rem 0 1.4rem;
+}
+.brief-nav a {
+  display: flex; flex-direction: column; gap: 0.28rem;
+  padding: 0.95rem 1.15rem; border: 1px solid var(--line-soft); border-radius: 12px;
+  background: linear-gradient(180deg, var(--panel-top), var(--panel));
+  text-decoration: none; transition: border-color .2s var(--ease), transform .2s var(--ease);
+}
+.brief-nav a:hover { border-color: var(--amber); transform: translateY(-2px); }
+.brief-nav a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+.brief-nav .bn-next { text-align: right; }
+.brief-nav a span {
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--amber);
+}
+.brief-nav a b { color: var(--text); font-weight: 650; font-size: 0.92rem; line-height: 1.25; }
+.brief-nav .bn-prev:only-child { grid-column: 1 / -1; justify-self: start; max-width: 52%; }
+.brief-nav .bn-next:only-child { grid-column: 1 / -1; justify-self: end; max-width: 52%; }
+@media (max-width: 560px) {
+  .brief-nav { grid-template-columns: 1fr; }
+  .brief-nav .bn-next { text-align: left; }
+  .brief-nav a:only-child { max-width: none; }
+}
+
 /* ---------- Scoreboard ---------- */
 .sb { margin: 1.4rem 0; }
 .sb-counts { display: flex; flex-wrap: wrap; gap: 1.2rem; font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }

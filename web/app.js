@@ -202,6 +202,26 @@ async function renderProof() {
   }
   const open = (led.entries || []).filter((e) => e.status === "PENDING");
 
+  // Honest "awaiting first resolution" status — real ledger data only, no
+  // fabricated countdown (the ledger carries no market close date). Shows the
+  // age of the oldest still-open call while nothing has resolved yet.
+  const ageEl = document.getElementById("pr-age");
+  if (ageEl) {
+    const resolvedN = (led.entries || []).filter((e) => e.status === "RESOLVED").length;
+    const opens = open.map((e) => e.openedAt).filter(Boolean).sort();
+    const t0 = opens.length ? new Date(opens[0]).getTime() : NaN;
+    if (resolvedN === 0 && !Number.isNaN(t0)) {
+      const days = Math.max(0, Math.floor((Date.now() - t0) / 86400000));
+      ageEl.textContent =
+        `First call still open — oldest opened ${days}d ago, awaiting the first resolution.`;
+      ageEl.hidden = false;
+    } else {
+      // malformed/absent date or a call has resolved → hide rather than
+      // ever render "NaNd ago" or a stale "awaiting" claim.
+      ageEl.hidden = true;
+    }
+  }
+
   const callsEl = document.getElementById("proof-open-calls");
   if (callsEl) {
     callsEl.innerHTML = open.length

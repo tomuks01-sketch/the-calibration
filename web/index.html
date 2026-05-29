@@ -158,6 +158,12 @@
 .bignum.amber { color: var(--amber); }
 .statlab { font-size:0.62rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.14em; }
 .tx-pulse-line { display:none; }
+.pr-age { font-family:var(--mono); font-size:0.78rem; color:var(--amber); line-height:1.4;
+  padding:0.55rem 0.7rem; border:1px solid rgba(255,180,92,0.22); border-radius:9px;
+  background:rgba(255,180,92,0.06); display:flex; align-items:center; gap:0.5rem; }
+.pr-age::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--amber); flex:none;
+  box-shadow:0 0 10px var(--amber); animation:pulseRing 2.4s ease-out infinite; }
+@media (prefers-reduced-motion: reduce){ .pr-age::before{ animation:none; } }
 
 .divchart { display:grid; gap:0.42rem; }
 .divchart .pd-row { display:grid; grid-template-columns:1fr 3.4rem; align-items:center; gap:0.5rem; }
@@ -296,6 +302,7 @@
         <div><span class="bignum" data-stat="confidence">—</span><span class="statlab">Confidence</span></div>
       </div>
       <a id="sb-pulse" class="sb-pulse tx-pulse-line" href="scoreboard/" hidden></a>
+      <p class="pr-age" id="pr-age" hidden></p>
       <p class="pfoot">Confidence stays <em>none</em> until ≥10 resolved. The wait is the honesty.</p>
     </div>
   </article>
