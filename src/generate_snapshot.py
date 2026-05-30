@@ -352,6 +352,19 @@ def main() -> None:
     }
 
     _atomic_write_json(OUTPUT, snapshot)
+
+    # Feature store (P1) — normalised crowd+baseline features per asset into
+    # web/features.json (fs-v1). Fully fail-open: a feature-store error must
+    # never break the live data.json snapshot we just wrote.
+    try:
+        from features.store import build_records, write_features
+
+        records = build_records(events_out, (macro_block or {}).get("topCoins") or [])
+        write_features(records, OUTPUT.parent / "features.json", snapshot["generatedAt"])
+        print(f"Wrote feature store ({len(records)} records) -> features.json")
+    except Exception as exc:  # noqa: BLE001 — fail-open by design
+        print(f"WARN feature-store: skipped ({type(exc).__name__}: {exc})", file=sys.stderr)
+
     print(
         f"Wrote {OUTPUT} ({len(events_out)} events, "
         f"{len(categories)} categories) | Ledger: +{opened} opened, "
