@@ -1,16 +1,16 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-05-30T18:02:41.443625+00:00",
+  "generatedAt": "2026-05-30T19:48:00.716867+00:00",
   "records": [
     {
-      "assetId": "30615",
+      "assetId": "30829",
       "kind": "PM_MULTI",
-      "title": "World Cup Winner ",
-      "category": "Soccer",
-      "horizonDays": 50.2,
+      "title": "Democratic Presidential Nominee 2028",
+      "category": "World Elections",
+      "horizonDays": 891.2,
       "crowd": {
-        "prob": 0.1675,
+        "prob": 0.2345,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -19,11 +19,11 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.17,
-        "gapVsCrowd": 0.002,
+        "prob": null,
+        "gapVsCrowd": null,
         "signalQuality": "insufficient",
         "source": "model.py",
-        "available": true
+        "available": false
       },
       "regime": {
         "descriptive": {
@@ -43,13 +43,13 @@
       "composite": null
     },
     {
-      "assetId": "30829",
+      "assetId": "33506",
       "kind": "PM_MULTI",
-      "title": "Democratic Presidential Nominee 2028",
-      "category": "World Elections",
-      "horizonDays": 891.2,
+      "title": "UEFA Champions League Winner ",
+      "category": "Soccer",
+      "horizonDays": 0.2,
       "crowd": {
-        "prob": 0.2345,
+        "prob": 0.9995,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -97,8 +97,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.726,
-        "gapVsCrowd": 0.021,
+        "prob": 0.754,
+        "gapVsCrowd": 0.049,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -175,7 +175,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6744,
+        "prob": 0.6747,
         "gapVsCrowd": -0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -238,13 +238,52 @@
       "composite": null
     },
     {
+      "assetId": "507693",
+      "kind": "PM_MULTI",
+      "title": "Paris Saint-Germain FC vs. Arsenal FC",
+      "category": "Games",
+      "horizonDays": -0.2,
+      "crowd": {
+        "prob": 1.0,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive"
+      },
+      "composite": null
+    },
+    {
       "assetId": "101772",
       "kind": "PM_MULTI",
       "title": "Fed Decision in June?",
       "category": "Economic Policy",
       "horizonDays": 17.2,
       "crowd": {
-        "prob": 0.9805,
+        "prob": 0.9815,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -331,8 +370,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.145,
-        "gapVsCrowd": 0.0,
+        "prob": 0.1485,
+        "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -359,7 +398,7 @@
       "kind": "PM_MULTI",
       "title": "What price will Bitcoin hit in May?",
       "category": "Bitcoin",
-      "horizonDays": 1.4,
+      "horizonDays": 1.3,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -398,7 +437,7 @@
       "kind": "PM_MULTI",
       "title": "What will WTI Crude Oil (WTI) hit in May 2026?",
       "category": "Finance",
-      "horizonDays": 1.0,
+      "horizonDays": 0.9,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -478,7 +517,7 @@
       "category": "Sports",
       "horizonDays": 7.2,
       "crowd": {
-        "prob": 0.374,
+        "prob": 0.3755,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -487,7 +526,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2667,
+        "prob": 0.2681,
         "gapVsCrowd": -0.107,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -515,9 +554,9 @@
       "kind": "PM_MULTI",
       "title": "MicroStrategy sells any Bitcoin by ___ ?",
       "category": "Economy",
-      "horizonDays": 215.5,
+      "horizonDays": 215.4,
       "crowd": {
-        "prob": 0.88,
+        "prob": 0.885,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -526,8 +565,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8538,
-        "gapVsCrowd": -0.026,
+        "prob": 0.8553,
+        "gapVsCrowd": -0.03,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -589,52 +628,13 @@
       "composite": null
     },
     {
-      "assetId": "507693",
-      "kind": "PM_MULTI",
-      "title": "Paris Saint-Germain FC vs. Arsenal FC",
-      "category": "Games",
-      "horizonDays": -0.1,
-      "crowd": {
-        "prob": 0.965,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive"
-      },
-      "composite": null
-    },
-    {
       "assetId": "0x518a5b030b205706b8ffe6bbad9bd3de59548348e5c0471827f5de21e513333c",
       "kind": "PM_BINARY",
       "title": "Strait of Hormuz traffic returns to normal by end of May?",
       "category": "transit",
       "horizonDays": 0.2,
       "crowd": {
-        "prob": 0.0025,
+        "prob": 0.004,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -673,7 +673,7 @@
       "category": "Foreign Policy",
       "horizonDays": 214.2,
       "crowd": {
-        "prob": 0.0655,
+        "prob": 0.0665,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -682,8 +682,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0665,
-        "gapVsCrowd": 0.001,
+        "prob": 0.0669,
+        "gapVsCrowd": 0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -712,7 +712,7 @@
       "category": "Business",
       "horizonDays": 214.2,
       "crowd": {
-        "prob": 0.675,
+        "prob": 0.676,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -721,7 +721,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.686,
+        "prob": 0.6867,
         "gapVsCrowd": 0.011,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -799,8 +799,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6715,
-        "gapVsCrowd": -0.004,
+        "prob": 0.7083,
+        "gapVsCrowd": 0.033,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -838,7 +838,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2628,
+        "prob": 0.2632,
         "gapVsCrowd": 0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -877,8 +877,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2325,
-        "gapVsCrowd": 0.018,
+        "prob": 0.2255,
+        "gapVsCrowd": 0.011,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
