@@ -11,6 +11,7 @@ let activeSignal = "all";
 let prevLead = {};        // event id -> last leadPrice (for change flash)
 let backoff = REFRESH_MS;
 let lastGen = null;       // last generatedAt seen — pulse only on a NEW snapshot
+let activeQuery = "";     // board free-text search
 let activePlace = "all";  // geopolitics lens filter
 let PLACES = null;        // place_allowlist.json (transparent country tagging)
 let MAP_READY = false;    // world.svg injected
@@ -572,11 +573,21 @@ function eventCard(e) {
   </article>`;
 }
 
+// Free-text match over the fields a reader would search: question, category,
+// and the visible outcome labels. Pure filter on real data — no new claim.
+function matchesQuery(e, q) {
+  q = q.toLowerCase();
+  if ((e.title || "").toLowerCase().includes(q)) return true;
+  if ((e.category || "").toLowerCase().includes(q)) return true;
+  return (e.outcomes || []).some((o) => (o.label || "").toLowerCase().includes(q));
+}
+
 function render() {
   let list = DATA.events;
   if (activeCategory !== "all") list = list.filter((e) => e.category === activeCategory);
   if (activeSignal !== "all") list = list.filter((e) => (e.flags || []).includes(activeSignal));
   if (activePlace !== "all") list = list.filter((e) => eventPlace(e) === activePlace);
+  if (activeQuery) list = list.filter((e) => matchesQuery(e, activeQuery));
   document.getElementById("board").innerHTML = list.length
     ? list.map(eventCard).join("")
     : `<p class="empty">No events match this filter right now.</p>`;
@@ -678,6 +689,22 @@ if (mapEl) {
   });
   mapEl.addEventListener("pointerleave", () => { if (tip) tip.hidden = true; });
 }
+
+const searchEl = document.getElementById("board-search");
+if (searchEl) {
+  searchEl.addEventListener("input", () => {
+    activeQuery = searchEl.value.trim();
+    render();
+    bindTilt();
+  });
+}
+// "/" focuses the board search (skip when already typing in a field).
+document.addEventListener("keydown", (ev) => {
+  if (ev.key !== "/") return;
+  const t = ev.target;
+  if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+  if (searchEl) { ev.preventDefault(); searchEl.focus(); }
+});
 
 loadPlaces();
 loadWorldMap();
