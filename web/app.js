@@ -13,13 +13,71 @@ let backoff = REFRESH_MS;
 let lastGen = null;       // last generatedAt seen — pulse only on a NEW snapshot
 let activePlace = "all";  // geopolitics lens filter
 let PLACES = null;        // place_allowlist.json (transparent country tagging)
+let MAP_READY = false;    // world.svg injected
 
 /* ---------- geopolitics "by place" lens (honest, allowlist-driven) ---------- */
 async function loadPlaces() {
   try {
     const res = await fetch("./place_allowlist.json", { cache: "no-store" });
-    if (res.ok) { PLACES = await res.json(); if (DATA) renderPlaceChips(); }
+    if (res.ok) { PLACES = await res.json(); if (DATA) { renderPlaceChips(); paintMap(); } }
   } catch (_) { /* fail-open: the place row stays hidden, board unaffected */ }
+}
+
+// Self-hosted world map (Natural Earth, public domain — no CDN). Inject once.
+async function loadWorldMap() {
+  const host = document.getElementById("worldmap");
+  if (!host) return;
+  try {
+    const res = await fetch("./world.svg", { cache: "force-cache" });
+    if (!res.ok) return;
+    host.innerHTML = await res.text();
+    MAP_READY = true;
+    paintMap();
+  } catch (_) { /* fail-open: the map block stays hidden */ }
+}
+
+// Real event count per place — single source of truth for chips AND map.
+function placeCounts() {
+  const counts = {};
+  if (!PLACES || !PLACES.places || !DATA) return counts;
+  (DATA.events || []).forEach((e) => {
+    const c = eventPlace(e);
+    if (c && PLACES.places[c]) counts[c] = (counts[c] || 0) + 1;
+  });
+  return counts;
+}
+
+// Centralised place selection — keeps board, chips and map in sync.
+function setPlace(code) {
+  activePlace = code;
+  render();
+  renderPlaceChips();
+  paintMap();
+  bindTilt();
+}
+
+function paintMap() {
+  if (!MAP_READY) return;
+  const wrap = document.getElementById("geomap");
+  const host = document.getElementById("worldmap");
+  if (!host) return;
+  const counts = placeCounts();
+  if (!Object.keys(counts).length) { if (wrap) wrap.hidden = true; return; }
+  if (wrap) wrap.hidden = false;
+  host.querySelectorAll("path").forEach((p) => {
+    const iso = (p.id || "").replace("c-", "");
+    const n = counts[iso] || 0;
+    p.classList.toggle("has", n > 0);
+    p.classList.toggle("sel", activePlace !== "all" && iso === activePlace);
+    if (n > 0) {
+      const nm = (PLACES.places[iso] && PLACES.places[iso].name) || iso;
+      p.setAttribute("role", "button");
+      p.setAttribute("tabindex", "0");
+      p.setAttribute("aria-label", `${nm}: ${n} market${n === 1 ? "" : "s"}`);
+    } else {
+      p.removeAttribute("role"); p.removeAttribute("tabindex"); p.removeAttribute("aria-label");
+    }
+  });
 }
 
 // One country per event, ONLY via the vetted allowlist. No confident match → null.
@@ -39,11 +97,7 @@ function renderPlaceChips() {
   const row = document.querySelector(".place-row");
   if (!wrap) return;
   if (!PLACES || !DATA || !PLACES.places) { if (row) row.hidden = true; return; }
-  const counts = {};
-  (DATA.events || []).forEach((e) => {
-    const c = eventPlace(e);
-    if (c && PLACES.places[c]) counts[c] = (counts[c] || 0) + 1;
-  });
+  const counts = placeCounts();
   const codes = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
   if (!codes.length) { if (row) row.hidden = true; return; }
   // If the active place dropped out of this snapshot, fall back to "all".
@@ -125,6 +179,7 @@ function paint(initial) {
   renderKalshi();
   renderCategoryChips();
   renderPlaceChips();
+  paintMap();
   const y = window.scrollY;
   const focusInBoard = document.activeElement &&
     document.getElementById("board").contains(document.activeElement);
@@ -585,13 +640,30 @@ if (placesEl) {
   placesEl.addEventListener("click", (ev) => {
     const b = ev.target.closest(".chip");
     if (!b) return;
-    document.querySelectorAll("#places .chip").forEach((c) => c.classList.remove("is-active"));
-    b.classList.add("is-active");
-    activePlace = b.dataset.place;
-    render();
-    bindTilt();
+    setPlace(b.dataset.place);
+  });
+}
+
+// World map: click / keyboard-activate a highlighted country to filter.
+const mapEl = document.getElementById("worldmap");
+if (mapEl) {
+  const fromPath = (target) => {
+    const p = target.closest && target.closest("path");
+    if (!p) return null;
+    const iso = (p.id || "").replace("c-", "");
+    return placeCounts()[iso] ? iso : null;
+  };
+  mapEl.addEventListener("click", (ev) => {
+    const iso = fromPath(ev.target);
+    if (iso) setPlace(iso === activePlace ? "all" : iso);
+  });
+  mapEl.addEventListener("keydown", (ev) => {
+    if (ev.key !== "Enter" && ev.key !== " ") return;
+    const iso = fromPath(ev.target);
+    if (iso) { ev.preventDefault(); setPlace(iso === activePlace ? "all" : iso); }
   });
 }
 
 loadPlaces();
+loadWorldMap();
 load(true);

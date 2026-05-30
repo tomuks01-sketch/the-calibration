@@ -191,6 +191,22 @@
 #places .chip .flag { margin-right:0.4rem; font-size:0.95em; }
 #places .chip .pcount { font-family:var(--mono); font-size:0.72em; opacity:0.6; margin-left:0.4rem; }
 #places .chip.is-active .pcount { opacity:0.85; }
+
+/* world map — self-hosted SVG (Natural Earth, public domain), no CDN */
+.geomap { margin:0.4rem 0 1.4rem; }
+.geomap[hidden]{ display:none; }
+.worldmap { width:100%; max-width:780px; margin:0 auto;
+  background:radial-gradient(120% 90% at 50% 0%, rgba(255,180,92,0.05), transparent 60%); }
+.worldmap svg { width:100%; height:auto; display:block; }
+.worldsvg path { fill:rgba(150,170,200,0.06); stroke:rgba(150,170,200,0.10); stroke-width:0.4;
+  transition:fill .2s, filter .2s; }
+.worldsvg path.has { fill:rgba(255,180,92,0.32); cursor:pointer; }
+.worldsvg path.has:hover, .worldsvg path.has:focus-visible { fill:rgba(255,180,92,0.62); outline:none;
+  filter:drop-shadow(0 0 4px rgba(255,180,92,0.55)); }
+.worldsvg path.sel { fill:var(--amber); filter:drop-shadow(0 0 5px rgba(255,180,92,0.7)); }
+.geomap-cap { text-align:center; font-family:var(--mono); font-size:0.68rem; color:var(--ink-faint);
+  margin-top:0.55rem; line-height:1.4; }
+@media (max-width:560px){ .worldmap{ max-width:none; } }
 @media (prefers-reduced-motion: reduce){ .refresh-scan i{ display:none; } }
 
 .divchart { display:grid; gap:0.42rem; }
@@ -379,6 +395,11 @@
       <button class="chip" data-flag="resolves-soon">Resolving soon</button>
     </nav>
   </div>
+  <div class="geomap" id="geomap" hidden>
+    <div id="worldmap" class="worldmap"></div>
+    <p class="geomap-cap">Amber = live single-country markets · click a country to filter the board · grey = no single-country market right now (multi-country &amp; global markets stay untagged).</p>
+  </div>
+
   <main class="board" id="board"></main>
 </section>
 
