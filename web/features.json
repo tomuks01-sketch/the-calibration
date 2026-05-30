@@ -1,16 +1,55 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-05-30T21:56:52.925675+00:00",
+  "generatedAt": "2026-05-30T22:57:17.083269+00:00",
   "records": [
+    {
+      "assetId": "30615",
+      "kind": "PM_MULTI",
+      "title": "World Cup Winner ",
+      "category": "Soccer",
+      "horizonDays": 50.0,
+      "crowd": {
+        "prob": 0.1675,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.17,
+        "gapVsCrowd": 0.002,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive"
+      },
+      "composite": null
+    },
     {
       "assetId": "30829",
       "kind": "PM_MULTI",
       "title": "Democratic Presidential Nominee 2028",
       "category": "World Elections",
-      "horizonDays": 891.1,
+      "horizonDays": 891.0,
       "crowd": {
-        "prob": 0.2345,
+        "prob": 0.2505,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -24,84 +63,6 @@
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive"
-      },
-      "composite": null
-    },
-    {
-      "assetId": "33506",
-      "kind": "PM_MULTI",
-      "title": "UEFA Champions League Winner ",
-      "category": "Soccer",
-      "horizonDays": 0.1,
-      "crowd": {
-        "prob": 0.9995,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive"
-      },
-      "composite": null
-    },
-    {
-      "assetId": "357807",
-      "kind": "PM_MULTI",
-      "title": "US x Iran permanent peace deal by...?",
-      "category": "Iran",
-      "horizonDays": 214.1,
-      "crowd": {
-        "prob": 0.705,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.7645,
-        "gapVsCrowd": 0.059,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
       },
       "regime": {
         "descriptive": {
@@ -125,7 +86,7 @@
       "kind": "PM_MULTI",
       "title": "Brazil Presidential Election",
       "category": "Brazil",
-      "horizonDays": 126.1,
+      "horizonDays": 126.0,
       "crowd": {
         "prob": 0.405,
         "spread": null,
@@ -164,7 +125,7 @@
       "kind": "PM_MULTI",
       "title": "Venezuela leader end of 2026?",
       "category": "Trump-Machado",
-      "horizonDays": 214.1,
+      "horizonDays": 214.0,
       "crowd": {
         "prob": 0.6765,
         "spread": null,
@@ -175,7 +136,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6742,
+        "prob": 0.6749,
         "gapVsCrowd": -0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -203,7 +164,7 @@
       "kind": "PM_MULTI",
       "title": "Next French Presidential Election",
       "category": "Elections",
-      "horizonDays": 334.1,
+      "horizonDays": 334.0,
       "crowd": {
         "prob": 0.235,
         "spread": null,
@@ -238,11 +199,50 @@
       "composite": null
     },
     {
+      "assetId": "504099",
+      "kind": "PM_MULTI",
+      "title": "Iran ceasefire continues through...?",
+      "category": "Iran",
+      "horizonDays": null,
+      "crowd": {
+        "prob": 1.0,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive"
+      },
+      "composite": null
+    },
+    {
       "assetId": "507693",
       "kind": "PM_MULTI",
       "title": "Paris Saint-Germain FC vs. Arsenal FC",
       "category": "Games",
-      "horizonDays": -0.2,
+      "horizonDays": -0.3,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -281,7 +281,7 @@
       "kind": "PM_MULTI",
       "title": "Fed Decision in June?",
       "category": "Economic Policy",
-      "horizonDays": 17.1,
+      "horizonDays": 17.0,
       "crowd": {
         "prob": 0.9805,
         "spread": null,
@@ -320,7 +320,7 @@
       "kind": "PM_MULTI",
       "title": "Kharg Island no longer under Iranian control by...?",
       "category": "Khamenei",
-      "horizonDays": -59.9,
+      "horizonDays": -60.0,
       "crowd": {
         "prob": 0.045,
         "spread": null,
@@ -359,7 +359,7 @@
       "kind": "PM_MULTI",
       "title": "Will the US confirm that aliens exist by...?",
       "category": "Culture",
-      "horizonDays": 214.1,
+      "horizonDays": 214.0,
       "crowd": {
         "prob": 0.145,
         "spread": null,
@@ -398,7 +398,7 @@
       "kind": "PM_MULTI",
       "title": "What price will Bitcoin hit in May?",
       "category": "Bitcoin",
-      "horizonDays": 1.3,
+      "horizonDays": 1.2,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -476,7 +476,7 @@
       "kind": "PM_BINARY",
       "title": "Will the Iranian regime fall by May 31?",
       "category": "Iran Regime",
-      "horizonDays": 0.1,
+      "horizonDays": 0.0,
       "crowd": {
         "prob": 0.0005,
         "spread": null,
@@ -515,9 +515,9 @@
       "kind": "PM_MULTI",
       "title": "2026 Men's French Open Winner",
       "category": "Sports",
-      "horizonDays": 7.1,
+      "horizonDays": 7.0,
       "crowd": {
-        "prob": 0.377,
+        "prob": 0.375,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -526,7 +526,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2697,
+        "prob": 0.2684,
         "gapVsCrowd": -0.107,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -556,7 +556,7 @@
       "category": "Economy",
       "horizonDays": 215.3,
       "crowd": {
-        "prob": 0.895,
+        "prob": 0.915,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -565,8 +565,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8618,
-        "gapVsCrowd": -0.033,
+        "prob": 0.8765,
+        "gapVsCrowd": -0.039,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -593,9 +593,9 @@
       "kind": "PM_BINARY",
       "title": "Will Trump acquire Greenland before 2027?",
       "category": "Denmark",
-      "horizonDays": 214.1,
+      "horizonDays": 214.0,
       "crowd": {
-        "prob": 0.067,
+        "prob": 0.0665,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -604,7 +604,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0677,
+        "prob": 0.0672,
         "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -632,7 +632,7 @@
       "kind": "PM_BINARY",
       "title": "Strait of Hormuz traffic returns to normal by end of May?",
       "category": "transit",
-      "horizonDays": 0.1,
+      "horizonDays": 0.0,
       "crowd": {
         "prob": 0.0025,
         "spread": null,
@@ -671,9 +671,9 @@
       "kind": "PM_BINARY",
       "title": "Will China invade Taiwan by end of 2026?",
       "category": "Foreign Policy",
-      "horizonDays": 214.1,
+      "horizonDays": 214.0,
       "crowd": {
-        "prob": 0.066,
+        "prob": 0.0665,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -682,8 +682,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0665,
-        "gapVsCrowd": 0.001,
+        "prob": 0.0669,
+        "gapVsCrowd": 0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -710,7 +710,7 @@
       "kind": "PM_MULTI",
       "title": "How many Fed rate cuts in 2026?",
       "category": "Business",
-      "horizonDays": 214.1,
+      "horizonDays": 214.0,
       "crowd": {
         "prob": 0.6745,
         "spread": null,
@@ -721,8 +721,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6833,
-        "gapVsCrowd": 0.009,
+        "prob": 0.6812,
+        "gapVsCrowd": 0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -749,7 +749,7 @@
       "kind": "PM_MULTI",
       "title": "Starmer out by...?",
       "category": "Starmer",
-      "horizonDays": -150.4,
+      "horizonDays": -150.5,
       "crowd": {
         "prob": 0.685,
         "spread": null,
@@ -788,9 +788,9 @@
       "kind": "PM_MULTI",
       "title": "Trump announces US blockade of Hormuz lifted by...?",
       "category": "Strait of Hormuz",
-      "horizonDays": 30.1,
+      "horizonDays": 30.0,
       "crowd": {
-        "prob": 0.67,
+        "prob": 0.675,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -799,7 +799,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7173,
+        "prob": 0.7223,
         "gapVsCrowd": 0.047,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -827,7 +827,7 @@
       "kind": "PM_MULTI",
       "title": "MLB World Series Champion 2026",
       "category": "MLB",
-      "horizonDays": 154.1,
+      "horizonDays": 154.0,
       "crowd": {
         "prob": 0.255,
         "spread": null,
@@ -838,7 +838,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2633,
+        "prob": 0.2632,
         "gapVsCrowd": 0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -866,7 +866,7 @@
       "kind": "PM_MULTI",
       "title": "US obtains Iranian enriched uranium by...?",
       "category": "Trump",
-      "horizonDays": 214.1,
+      "horizonDays": 214.0,
       "crowd": {
         "prob": 0.215,
         "spread": null,
@@ -877,8 +877,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2255,
-        "gapVsCrowd": 0.011,
+        "prob": 0.2185,
+        "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -905,7 +905,7 @@
       "kind": "PM_MULTI",
       "title": "F1 Constructors' Champion",
       "category": "Formula 1",
-      "horizonDays": 189.1,
+      "horizonDays": 189.0,
       "crowd": {
         "prob": 0.875,
         "spread": null,
