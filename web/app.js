@@ -11,6 +11,52 @@ let activeSignal = "all";
 let prevLead = {};        // event id -> last leadPrice (for change flash)
 let backoff = REFRESH_MS;
 let lastGen = null;       // last generatedAt seen — pulse only on a NEW snapshot
+let activePlace = "all";  // geopolitics lens filter
+let PLACES = null;        // place_allowlist.json (transparent country tagging)
+
+/* ---------- geopolitics "by place" lens (honest, allowlist-driven) ---------- */
+async function loadPlaces() {
+  try {
+    const res = await fetch("./place_allowlist.json", { cache: "no-store" });
+    if (res.ok) { PLACES = await res.json(); if (DATA) renderPlaceChips(); }
+  } catch (_) { /* fail-open: the place row stays hidden, board unaffected */ }
+}
+
+// One country per event, ONLY via the vetted allowlist. No confident match → null.
+function eventPlace(e) {
+  if (!PLACES || !e) return null;
+  const byCat = PLACES.byCategory || {};
+  if (e.category && byCat[e.category]) return byCat[e.category];
+  const byKw = PLACES.byTitleKeyword || {};
+  for (const kw in byKw) {
+    if (e.title && e.title.indexOf(kw) !== -1) return byKw[kw];
+  }
+  return null;
+}
+
+function renderPlaceChips() {
+  const wrap = document.getElementById("places");
+  const row = document.querySelector(".place-row");
+  if (!wrap) return;
+  if (!PLACES || !DATA || !PLACES.places) { if (row) row.hidden = true; return; }
+  const counts = {};
+  (DATA.events || []).forEach((e) => {
+    const c = eventPlace(e);
+    if (c && PLACES.places[c]) counts[c] = (counts[c] || 0) + 1;
+  });
+  const codes = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+  if (!codes.length) { if (row) row.hidden = true; return; }
+  // If the active place dropped out of this snapshot, fall back to "all".
+  if (activePlace !== "all" && !codes.includes(activePlace)) activePlace = "all";
+  if (row) row.hidden = false;
+  const chip = (place, label, count, flag) =>
+    `<button class="chip${place === activePlace ? " is-active" : ""}" data-place="${escAttr(place)}">` +
+    (flag ? `<span class="flag">${flag}</span>` : "") + escapeHtml(label) +
+    (count != null ? `<span class="pcount">${count}</span>` : "") + `</button>`;
+  wrap.innerHTML =
+    chip("all", "All places", null, "") +
+    codes.map((c) => chip(c, PLACES.places[c].name, counts[c], PLACES.places[c].flag)).join("");
+}
 
 /* ---------- data ---------- */
 async function fetchData() {
@@ -78,6 +124,7 @@ function paint(initial) {
   renderMacro();
   renderKalshi();
   renderCategoryChips();
+  renderPlaceChips();
   const y = window.scrollY;
   const focusInBoard = document.activeElement &&
     document.getElementById("board").contains(document.activeElement);
@@ -474,6 +521,7 @@ function render() {
   let list = DATA.events;
   if (activeCategory !== "all") list = list.filter((e) => e.category === activeCategory);
   if (activeSignal !== "all") list = list.filter((e) => (e.flags || []).includes(activeSignal));
+  if (activePlace !== "all") list = list.filter((e) => eventPlace(e) === activePlace);
   document.getElementById("board").innerHTML = list.length
     ? list.map(eventCard).join("")
     : `<p class="empty">No events match this filter right now.</p>`;
@@ -532,4 +580,18 @@ document.getElementById("signals").addEventListener("click", (ev) => {
   bindTilt();
 });
 
+const placesEl = document.getElementById("places");
+if (placesEl) {
+  placesEl.addEventListener("click", (ev) => {
+    const b = ev.target.closest(".chip");
+    if (!b) return;
+    document.querySelectorAll("#places .chip").forEach((c) => c.classList.remove("is-active"));
+    b.classList.add("is-active");
+    activePlace = b.dataset.place;
+    render();
+    bindTilt();
+  });
+}
+
+loadPlaces();
 load(true);

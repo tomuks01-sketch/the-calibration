@@ -1,0 +1,33 @@
+{
+  "_rule": "A category or title keyword maps to a place ONLY after a human confirms the event is materially about ONE country. Multi-country, regional, global-tournament, and asset-class events stay UNMAPPED on purpose. No fuzzy/auto inference. Unmapped is the honest default — the board never invents a location.",
+  "places": {
+    "IR": { "name": "Iran", "flag": "🇮🇷" },
+    "BR": { "name": "Brazil", "flag": "🇧🇷" },
+    "FR": { "name": "France", "flag": "🇫🇷" },
+    "DK": { "name": "Denmark", "flag": "🇩🇰" },
+    "GB": { "name": "United Kingdom", "flag": "🇬🇧" },
+    "US": { "name": "United States", "flag": "🇺🇸" },
+    "VE": { "name": "Venezuela", "flag": "🇻🇪" }
+  },
+  "byCategory": {
+    "Iran": "IR",
+    "Iran Regime": "IR",
+    "Khamenei": "IR",
+    "Brazil": "BR",
+    "Denmark": "DK",
+    "Starmer": "GB",
+    "Economic Policy": "US",
+    "Business": "US",
+    "Trump-Machado": "VE"
+  },
+  "byTitleKeyword": {
+    "French Presidential Election": "FR",
+    "Iranian enriched uranium": "IR"
+  },
+  "_unmapped": [
+    "Soccer", "World Elections", "Culture", "Bitcoin", "Finance",
+    "Commodities", "Economy", "Sports", "MLB", "Formula 1",
+    "Foreign Policy", "transit", "Strait of Hormuz", "Trump", "Elections",
+    "Politics", "Awards", "Israel"
+  ]
+}

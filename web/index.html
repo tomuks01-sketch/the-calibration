@@ -181,6 +181,16 @@
 .filterbar::after { content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
   background:linear-gradient(90deg, transparent, var(--hair, rgba(150,170,200,0.12)), transparent); }
 @media (max-width:680px){ .filterbar{ position:static; -webkit-backdrop-filter:none; backdrop-filter:none; } }
+
+/* geopolitics "by place" lens */
+.place-row { display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; margin:0.1rem 0 0.5rem; }
+.place-row[hidden] { display:none; }
+.place-row__label { font-family:var(--mono); font-size:0.66rem; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--amber); cursor:help; white-space:nowrap; }
+#places.place-chips { margin:0; }
+#places .chip .flag { margin-right:0.4rem; font-size:0.95em; }
+#places .chip .pcount { font-family:var(--mono); font-size:0.72em; opacity:0.6; margin-left:0.4rem; }
+#places .chip.is-active .pcount { opacity:0.85; }
 @media (prefers-reduced-motion: reduce){ .refresh-scan i{ display:none; } }
 
 .divchart { display:grid; gap:0.42rem; }
@@ -356,6 +366,10 @@
   <div id="kalshi" class="macro kalshi" hidden></div>
   <div class="filterbar">
     <nav class="filters" id="categories" aria-label="Category filters"></nav>
+    <div class="place-row" hidden>
+      <span class="place-row__label" title="Place tags are a hand-checked map of single-country events. Multi-country, regional and global markets (World Cup, Strait of Hormuz, China–Taiwan, Bitcoin) are intentionally left untagged so nothing is mislabeled.">Where the crowd is pricing now</span>
+      <div id="places" class="filters place-chips" aria-label="Filter by place"></div>
+    </div>
     <nav class="filters subtle" id="signals" aria-label="Signal filters">
       <button class="chip is-active" data-flag="all">All signals</button>
       <button class="chip" data-flag="moving-now">Moving now</button>
