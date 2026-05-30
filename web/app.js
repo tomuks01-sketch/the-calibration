@@ -10,6 +10,7 @@ let activeCategory = "all";
 let activeSignal = "all";
 let prevLead = {};        // event id -> last leadPrice (for change flash)
 let backoff = REFRESH_MS;
+let lastGen = null;       // last generatedAt seen — pulse only on a NEW snapshot
 
 /* ---------- data ---------- */
 async function fetchData() {
@@ -26,6 +27,11 @@ async function load(initial) {
     backoff = REFRESH_MS;
     paint(initial);
     document.body.classList.remove("is-refreshing");
+    // One-shot amber scan ONLY when a genuinely new snapshot arrived —
+    // never on identical re-fetches (honest: don't signal "updated" if it isn't).
+    const gen = next && next.generatedAt;
+    if (!initial && gen && gen !== lastGen) pulseRefresh();
+    lastGen = gen || lastGen;
     announce(initial ? "Dashboard loaded" : "Dashboard updated");
     document.getElementById("generated").classList.remove("stale");
   } catch (err) {
@@ -46,6 +52,16 @@ function announce(msg) {
   const el = document.getElementById("refresh-status");
   el.textContent = msg;
   setTimeout(() => { el.textContent = ""; }, 4000);
+}
+
+// Restart the one-shot top scan-line animation (remove → reflow → add).
+function pulseRefresh() {
+  if (REDUCED) return;
+  const el = document.getElementById("refresh-scan");
+  if (!el) return;
+  el.classList.remove("run");
+  void el.offsetWidth;            // force reflow so the animation can re-trigger
+  el.classList.add("run");
 }
 
 /* ---------- paint ---------- */
