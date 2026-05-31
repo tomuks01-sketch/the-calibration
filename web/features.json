@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-05-30T22:57:17.083269+00:00",
+  "generatedAt": "2026-05-31T00:00:33.601661+00:00",
   "records": [
     {
       "assetId": "30615",
@@ -43,13 +43,13 @@
       "composite": null
     },
     {
-      "assetId": "30829",
+      "assetId": "31552",
       "kind": "PM_MULTI",
-      "title": "Democratic Presidential Nominee 2028",
+      "title": "Presidential Election Winner 2028",
       "category": "World Elections",
       "horizonDays": 891.0,
       "crowd": {
-        "prob": 0.2505,
+        "prob": 0.1835,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -136,7 +136,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6749,
+        "prob": 0.6747,
         "gapVsCrowd": -0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -204,45 +204,6 @@
       "title": "Iran ceasefire continues through...?",
       "category": "Iran",
       "horizonDays": null,
-      "crowd": {
-        "prob": 1.0,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive"
-      },
-      "composite": null
-    },
-    {
-      "assetId": "507693",
-      "kind": "PM_MULTI",
-      "title": "Paris Saint-Germain FC vs. Arsenal FC",
-      "category": "Games",
-      "horizonDays": -0.3,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -437,7 +398,7 @@
       "kind": "PM_MULTI",
       "title": "What will WTI Crude Oil (WTI) hit in May 2026?",
       "category": "Finance",
-      "horizonDays": 0.8,
+      "horizonDays": 0.7,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -476,7 +437,7 @@
       "kind": "PM_BINARY",
       "title": "Will the Iranian regime fall by May 31?",
       "category": "Iran Regime",
-      "horizonDays": 0.0,
+      "horizonDays": -0.0,
       "crowd": {
         "prob": 0.0005,
         "spread": null,
@@ -511,52 +472,13 @@
       "composite": null
     },
     {
-      "assetId": "139020",
-      "kind": "PM_MULTI",
-      "title": "2026 Men's French Open Winner",
-      "category": "Sports",
-      "horizonDays": 7.0,
-      "crowd": {
-        "prob": 0.375,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.2684,
-        "gapVsCrowd": -0.107,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive"
-      },
-      "composite": null
-    },
-    {
       "assetId": "16167",
       "kind": "PM_MULTI",
       "title": "MicroStrategy sells any Bitcoin by ___ ?",
       "category": "Economy",
-      "horizonDays": 215.3,
+      "horizonDays": 215.2,
       "crowd": {
-        "prob": 0.915,
+        "prob": 0.895,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -565,8 +487,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8765,
-        "gapVsCrowd": -0.039,
+        "prob": 0.8635,
+        "gapVsCrowd": -0.031,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -632,7 +554,7 @@
       "kind": "PM_BINARY",
       "title": "Strait of Hormuz traffic returns to normal by end of May?",
       "category": "transit",
-      "horizonDays": 0.0,
+      "horizonDays": -0.0,
       "crowd": {
         "prob": 0.0025,
         "spread": null,
@@ -673,7 +595,7 @@
       "category": "Foreign Policy",
       "horizonDays": 214.0,
       "crowd": {
-        "prob": 0.0665,
+        "prob": 0.066,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -682,8 +604,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0669,
-        "gapVsCrowd": 0.0,
+        "prob": 0.0665,
+        "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -799,8 +721,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7223,
-        "gapVsCrowd": 0.047,
+        "prob": 0.7275,
+        "gapVsCrowd": 0.052,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -838,7 +760,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2632,
+        "prob": 0.2631,
         "gapVsCrowd": 0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -868,7 +790,7 @@
       "category": "Trump",
       "horizonDays": 214.0,
       "crowd": {
-        "prob": 0.215,
+        "prob": 0.205,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -877,7 +799,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2185,
+        "prob": 0.2085,
         "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -916,11 +838,89 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8645,
-        "gapVsCrowd": -0.011,
+        "prob": 0.8662,
+        "gapVsCrowd": -0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive"
+      },
+      "composite": null
+    },
+    {
+      "assetId": "125877",
+      "kind": "PM_MULTI",
+      "title": "Will Crude Oil (CL) hit__ by end of June?",
+      "category": "Commodities",
+      "horizonDays": 30.8,
+      "crowd": {
+        "prob": 1.0,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive"
+      },
+      "composite": null
+    },
+    {
+      "assetId": "517606",
+      "kind": "PM_MULTI",
+      "title": "US announces new Iran agreement/ceasefire extension by...?",
+      "category": "Politics",
+      "horizonDays": null,
+      "crowd": {
+        "prob": 0.675,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
       },
       "regime": {
         "descriptive": {
