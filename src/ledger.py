@@ -94,12 +94,35 @@ def _existing_condition_ids(ledger: dict) -> set[str]:
     return {e["conditionId"] for e in ledger["entries"] if e.get("conditionId")}
 
 
+def _composite_at_open(market_prob: float, model_prob: float, weights: dict) -> dict | None:
+    """Record what the composite said at call time (for FUTURE scoring). The
+    SCORED number stays modelProb (QEST) — this is logged alongside, never
+    promoted, until the composite earns its own resolved track record."""
+    try:
+        from composite import composite_signal
+
+        rec = {
+            "crowd": {"prob": market_prob, "available": True},
+            "baseline": {"prob": model_prob, "available": True},
+        }
+        return composite_signal(rec, weights)
+    except Exception:  # noqa: BLE001 — fail-open: composite never blocks a call
+        return None
+
+
 def open_calls(ledger: dict, candidates: list[dict]) -> int:
     """candidates: dicts with conditionId, marketId, question, eventSlug,
     eventTitle, category, modelProb, marketProb, divergence. Dedup by
     conditionId (one entry per market, ever)."""
     seen = _existing_condition_ids(ledger)
     opened = 0
+    try:
+        from weights import load_weights
+
+        _weights = load_weights(LEDGER.parent / "weights.json")
+    except Exception as exc:  # noqa: BLE001
+        _weights = None
+        print(f"WARN ledger: weights load failed, composite skipped ({exc})", file=sys.stderr)
     for c in candidates:
         cid = c.get("conditionId")
         if not cid or cid in seen:
@@ -108,6 +131,10 @@ def open_calls(ledger: dict, candidates: list[dict]) -> int:
         call_id = hashlib.sha1(
             f"{cid}:{_utcdate(opened_at)}".encode()
         ).hexdigest()[:16]
+        comp = (
+            _composite_at_open(c["marketProb"], c["modelProb"], _weights)
+            if _weights else None
+        )
         ledger["entries"].append(
             {
                 "callId": call_id,
@@ -128,6 +155,13 @@ def open_calls(ledger: dict, candidates: list[dict]) -> int:
                 "modelBrier": None,
                 "marketBrier": None,
                 "voidReason": None,
+                # Composite logged for FUTURE scoring (nullable; scored number
+                # stays modelProb until the composite is promoted). Old entries
+                # without these keys read as null — back-compatible.
+                "compositeProbAtCallTime": comp["prob"] if comp else None,
+                "compositeWeightsVersion": comp["weightsVersion"] if comp else None,
+                "compositeContributions": comp["contributions"] if comp else None,
+                "featuresSnapshotRef": None,
             }
         )
         seen.add(cid)
