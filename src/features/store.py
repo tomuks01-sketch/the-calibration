@@ -16,6 +16,7 @@ from assets import Asset, from_coin, from_event
 from composite import composite_signal
 from features.baseline import baseline_features
 from features.crowd import crowd_features
+from features.pressure import pressure_features
 from weights import default_weights
 
 SCHEMA_VERSION = "fs-v1"
@@ -38,7 +39,7 @@ def build_record(asset: Asset, crowd: dict, baseline: dict) -> dict:
             "adjustmentCandidate": {"tilt": None, "applied": False},
         },
         # repricing is descriptive only — never folded into an outcome prob.
-        "pressure": {"available": False, "class": "descriptive"},
+        "pressure": pressure_features(asset),
         # composite is filled in P2; left None so nothing reads as a forecast.
         "composite": None,
     }
