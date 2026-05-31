@@ -370,6 +370,28 @@ def main() -> None:
         "kalshi": fetch_kalshi_macro(),
     }
 
+    # Surface a compact DESCRIPTIVE "pressure" view on events that are actually
+    # moving / unsettled (the early-repricing signal). Descriptive only — never
+    # a forecast, never an outcome probability. Pure, no network; fail-open.
+    try:
+        from assets import from_event
+        from features.pressure import pressure_features
+
+        for e in events_out:
+            p = pressure_features(from_event(e))
+            if p.get("available") and (
+                p.get("suddenMove") or p.get("overheated") or p.get("preResolutionVol")
+            ):
+                e["pressure"] = {
+                    "suddenMove": p["suddenMove"],
+                    "overheated": p["overheated"],
+                    "infoEventNear": p["infoEventNear"],
+                    "preResolutionVol": p["preResolutionVol"],
+                    "move24hPp": p["move24hPp"],
+                }
+    except Exception as pexc:  # noqa: BLE001
+        print(f"WARN pressure-attach: skipped ({type(pexc).__name__}: {pexc})", file=sys.stderr)
+
     _atomic_write_json(OUTPUT, snapshot)
 
     # Feature store (P1) — normalised crowd+baseline features per asset into

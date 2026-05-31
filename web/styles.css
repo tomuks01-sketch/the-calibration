@@ -279,6 +279,11 @@ body::before {
 .flag.moving-now, .flag.big-move-24h { color: var(--up); border-color: oklch(76% 0.16 155 / 0.4); background: oklch(76% 0.16 155 / 0.1); }
 .flag.big-drop-24h { color: var(--down); border-color: oklch(66% 0.18 25 / 0.4); background: oklch(66% 0.18 25 / 0.1); }
 
+/* Repricing pressure — DESCRIPTIVE "what's moving now", never a forecast */
+.pressure { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.55rem; }
+.pr-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+.pr-chip { font-size: 0.68rem; color: var(--text); background: oklch(80% 0.13 75 / 0.1); border: 1px solid oklch(80% 0.13 75 / 0.32); border-radius: 6px; padding: 0.12rem 0.45rem; }
+
 
 /* Crowd vs QEST — two readings on ONE 0–100% scale, gap visible at a glance */
 .cmpviz {

@@ -514,6 +514,26 @@ function modelLine(e) {
     </div>`;
 }
 
+// Descriptive "repricing pressure" — what's moving / unsettled NOW. Never a
+// forecast, never an outcome probability (mirrors features.json pressure).
+function pressureLine(e) {
+  const p = e.pressure;
+  if (!p) return "";
+  const chips = [];
+  if (p.preResolutionVol) chips.push("unsettled before resolution");
+  if (p.overheated) chips.push("priced near-certain");
+  if (p.suddenMove) {
+    const m = p.move24hPp;
+    chips.push(`moving now ${m > 0 ? "+" : ""}${m}pp/24h`);
+  } else if (p.infoEventNear) {
+    chips.push("resolves soon");
+  }
+  if (!chips.length) return "";
+  return `<p class="pressure" title="Descriptive: current market conditions, not a prediction of the outcome.">` +
+    `<span class="pr-tag">Repricing pressure</span>` +
+    chips.map((c) => `<span class="pr-chip">${escapeHtml(c)}</span>`).join("") + `</p>`;
+}
+
 function eventCard(e) {
   const bars = (e.outcomes || [])
     .map((o) => {
@@ -567,6 +587,7 @@ function eventCard(e) {
       <span>Resolves <b>${days}</b></span>
     </div>
     <div class="flags">${flags}</div>
+    ${pressureLine(e)}
     ${modelLine(e)}
     ${contextLine(e)}
     <div class="news"><h4>Related headlines · Google News (keyword-matched, not curated)</h4>${news}</div>
