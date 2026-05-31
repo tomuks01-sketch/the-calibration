@@ -358,10 +358,15 @@ def main() -> None:
     # never break the live data.json snapshot we just wrote.
     try:
         from features.store import build_records, write_features
+        from weights import load_weights
 
-        records = build_records(events_out, (macro_block or {}).get("topCoins") or [])
+        w = load_weights(OUTPUT.parent / "weights.json")
+        records = build_records(
+            events_out, (macro_block or {}).get("topCoins") or [], w
+        )
         write_features(records, OUTPUT.parent / "features.json", snapshot["generatedAt"])
-        print(f"Wrote feature store ({len(records)} records) -> features.json")
+        comps = sum(1 for r in records if r.get("composite"))
+        print(f"Wrote feature store ({len(records)} records, {comps} composites) -> features.json")
     except Exception as exc:  # noqa: BLE001 — fail-open by design
         print(f"WARN feature-store: skipped ({type(exc).__name__}: {exc})", file=sys.stderr)
 

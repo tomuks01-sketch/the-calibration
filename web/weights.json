@@ -1,0 +1,14 @@
+{
+  "weightsVersion": "w-v1",
+  "calibrated": false,
+  "note": "Fixed documented prior — NOT fitted to outcomes (SIGNAL_SPEC.md §4). The composite is an uncalibrated mixture, never a validated forecast; it never replaces the crowd or QEST numbers, and the scored ledger number stays QEST until the composite earns a resolved track record. regimeAdjustment weight is 0.0: the crypto regime adjustment is computed as a candidate but contributes nothing until calibrated.",
+  "weights": {
+    "crowd": 0.7,
+    "baseline": 0.2,
+    "regimeAdjustment": 0.0
+  },
+  "scales": {
+    "gap": 0.15,
+    "fundingZ": 2.0
+  }
+}

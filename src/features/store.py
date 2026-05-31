@@ -13,8 +13,10 @@ import json
 from pathlib import Path
 
 from assets import Asset, from_coin, from_event
+from composite import composite_signal
 from features.baseline import baseline_features
 from features.crowd import crowd_features
+from weights import default_weights
 
 SCHEMA_VERSION = "fs-v1"
 WEIGHTS_VERSION = "w-v1"
@@ -42,7 +44,10 @@ def build_record(asset: Asset, crowd: dict, baseline: dict) -> dict:
     }
 
 
-def build_records(events: list[dict], coins: list[dict]) -> list[dict]:
+def build_records(
+    events: list[dict], coins: list[dict], weights: dict | None = None
+) -> list[dict]:
+    w = weights if isinstance(weights, dict) else default_weights()
     records: list[dict] = []
     for e in events or []:
         a = from_event(e)
@@ -50,6 +55,10 @@ def build_records(events: list[dict], coins: list[dict]) -> list[dict]:
     for c in coins or []:
         a = from_coin(c)
         records.append(build_record(a, crowd_features(a), baseline_features(a)))
+    # P2: fill the composite for each record (None where there's no crowd
+    # anchor, e.g. crypto). Weights are the documented prior until calibrated.
+    for rec in records:
+        rec["composite"] = composite_signal(rec, w)
     return records
 
 
