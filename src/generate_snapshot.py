@@ -304,6 +304,25 @@ def main() -> None:
     save_ledger(ledger)
     sb = write_scoreboard(ledger)
 
+    # Calibration status (P6) — LOG ONLY. We never auto-overwrite weights.json:
+    # promoting fitted weights is a deliberate milestone (N>=30) to review, not
+    # a silent cron mutation. Until then this just reports progress toward the
+    # gate so the operator can see it approaching.
+    try:
+        from weights import calibrate_from_ledger
+
+        _cal = calibrate_from_ledger(ledger)
+        if _cal.get("calibrated"):
+            print(
+                f"CALIBRATION READY: {_cal['note']} -> {_cal['weights']} "
+                f"(fittedBrier={_cal.get('fittedBrier')}). Review before promoting weights.json.",
+                file=sys.stderr,
+            )
+        else:
+            print(f"Calibration {_cal.get('note')}")
+    except Exception as cexc:  # noqa: BLE001
+        print(f"WARN calibrate: skipped ({type(cexc).__name__}: {cexc})", file=sys.stderr)
+
     # Attach QEST to every ELIGIBLE market for visibility. Two honest states:
     #  - tracked=True : |div|>=4pp, a real divergence call in the public ledger
     #    (falsifiable + Brier-scored).

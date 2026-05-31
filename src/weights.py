@@ -48,3 +48,66 @@ def load_weights(path: str | Path | None = None) -> dict:
         return data if _valid(data) else default_weights()
     except (OSError, ValueError):
         return default_weights()
+
+
+MIN_CALIBRATION_N = 30
+
+
+def calibrate_from_ledger(ledger: dict, min_n: int = MIN_CALIBRATION_N) -> dict:
+    """Refit the composite weights from RESOLVED outcomes by minimising Brier,
+    using the SAME composite_signal used in production. Honesty gate: below
+    ``min_n`` resolved calls, return the documented prior UNCHANGED — never fit
+    on thin data (SIGNAL_SPEC.md §4/§6). At/above the gate, grid-search the
+    crowd/baseline split and bump the weightsVersion so old calls keep theirs.
+    """
+    from datetime import datetime, timezone
+
+    from composite import composite_signal
+
+    resolved = [
+        e for e in ledger.get("entries", [])
+        if e.get("status") == "RESOLVED"
+        and isinstance(e.get("modelProb"), (int, float))
+        and isinstance(e.get("crowdProbAtCallTime"), (int, float))
+        and e.get("resolvedOutcome") in (0, 1)
+    ]
+    n = len(resolved)
+    prior = default_weights()
+    if n < min_n:
+        prior["calibrated"] = False
+        prior["note"] = f"insufficient N ({n}/{min_n}) — prior unchanged, not fitted to outcomes"
+        prior["resolvedN"] = n
+        return prior
+
+    def _brier(w_crowd: float) -> float:
+        cand = {
+            "weightsVersion": "fit",
+            "calibrated": True,
+            "weights": {"crowd": w_crowd, "baseline": round(1.0 - w_crowd, 4), "regimeAdjustment": 0.0},
+        }
+        sq = []
+        for e in resolved:
+            rec = {
+                "crowd": {"prob": e["crowdProbAtCallTime"], "available": True},
+                "baseline": {"prob": e["modelProb"], "available": True},
+            }
+            c = composite_signal(rec, cand)
+            if c is not None:
+                sq.append((c["prob"] - e["resolvedOutcome"]) ** 2)
+        return sum(sq) / len(sq) if sq else float("inf")
+
+    best_w, best_b = 0.5, float("inf")
+    for i in range(0, 21):              # crowd weight 0.00 .. 1.00 step 0.05
+        wc = round(i * 0.05, 2)
+        b = _brier(wc)
+        if b < best_b:
+            best_b, best_w = b, wc
+
+    out = default_weights()
+    out["weights"] = {"crowd": best_w, "baseline": round(1.0 - best_w, 4), "regimeAdjustment": 0.0}
+    out["calibrated"] = True
+    out["weightsVersion"] = "w-cal-" + datetime.now(timezone.utc).strftime("%Y%m%d")
+    out["note"] = f"fitted to {n} resolved outcomes by Brier minimisation"
+    out["fittedN"] = n
+    out["fittedBrier"] = round(best_b, 6)
+    return out
