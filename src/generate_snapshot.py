@@ -364,9 +364,19 @@ def main() -> None:
         records = build_records(
             events_out, (macro_block or {}).get("topCoins") or [], w
         )
+        # P3: enrich crypto records with descriptive derivatives regime
+        # (Binance fapi, keyless). Inner fail-open: a regime error must not
+        # drop the feature store (which itself must not drop data.json).
+        try:
+            from features.crypto_regime import enrich_regime
+
+            enrich_regime(records)
+        except Exception as rexc:  # noqa: BLE001
+            print(f"WARN regime: skipped ({type(rexc).__name__}: {rexc})", file=sys.stderr)
         write_features(records, OUTPUT.parent / "features.json", snapshot["generatedAt"])
         comps = sum(1 for r in records if r.get("composite"))
-        print(f"Wrote feature store ({len(records)} records, {comps} composites) -> features.json")
+        regimes = sum(1 for r in records if (r.get("regime") or {}).get("descriptive", {}).get("available"))
+        print(f"Wrote feature store ({len(records)} records, {comps} composites, {regimes} regimes) -> features.json")
     except Exception as exc:  # noqa: BLE001 — fail-open by design
         print(f"WARN feature-store: skipped ({type(exc).__name__}: {exc})", file=sys.stderr)
 
