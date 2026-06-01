@@ -1,10 +1,13 @@
 "use strict";
 /* The Calibration — Crypto Pulse (honest descriptive analytics).
  *
- * HARD RULE: this dashboard NEVER predicts price direction and NEVER shows a
- * fabricated "chance to go up". Every signal is a DESCRIPTION of observable
- * market data (price changes, volume, volatility from the real 7d series).
- * No forecasts, no advice, no edge claims.
+ * HARD RULE: this dashboard NEVER shows a FABRICATED or unfalsifiable number.
+ * The descriptive signals DESCRIBE observable data (price changes, volume,
+ * volatility). The 24h forecast (probUp + volatility band, SIGNAL_SPEC §9) IS
+ * shown — but ONLY because every forecast is logged at the time it's made and
+ * automatically scored 24h later vs a random-walk baseline (web/crypto_ledger
+ * .json + crypto_scoreboard.json). It is always labelled unproven, never a
+ * point "% change", never advice or an edge claim.
  *
  * Data: CoinGecko public API (keyless, CORS-ok), with a committed snapshot
  * (markets.json) as an offline / rate-limit fallback. Swapping in another
@@ -217,6 +220,8 @@ function detail(c, d) {
     metric("Market cap", fmtBig(c.mcap), "rank #" + (c.rank ?? "—")),
   ].join("");
   const reg = regimeMetrics(c.symbol);
+  const fx = forecastMetrics(c.symbol);
+  const trackNote = forecastTrackNote();
   // Liquidations + on-chain stay honestly unavailable (no keyless source).
   // Funding / OI / basis are REAL now if the feature store loaded for this coin.
   const missingItems = ["Liquidations", "On-chain flows"];
@@ -229,6 +234,9 @@ function detail(c, d) {
       <p class="d-why">${esc(d.why)}</p>
     </div>
     <div class="d-right">
+      ${fx ? `<p class="d-h">Our 24h forecast <span class="d-h-note">(unproven · scored vs random walk)</span></p>
+      <div class="metrics">${fx}</div>
+      <p class="fx-note">${trackNote}</p>` : ""}
       <p class="d-h">Observed metrics</p>
       <div class="metrics">${real}</div>
       ${reg ? `<p class="d-h">Derivatives · live <span class="d-h-note">(Binance perps, keyless)</span></p><div class="metrics">${reg}</div>` : ""}
@@ -254,6 +262,62 @@ async function loadRegime() {
     });
     REGIME = map;
   } catch (_) { /* fail-open: detail shows derivatives as unavailable */ }
+}
+
+let FORECAST = {};        // symbol -> latest OPEN forecast (probUp, bandPct, sigmaPct)
+let FORECAST_META = null; // crypto_scoreboard.json (the random-walk-scored track record)
+
+// Join the public crypto-forecast ledger (cfx-v1) + its scoreboard. Same-origin
+// fetch; fail-open so the panel simply omits the forecast if unavailable.
+async function loadForecast() {
+  try {
+    const r = await fetch("../crypto_ledger.json", { cache: "no-store" });
+    if (r.ok) {
+      const cl = await r.json();
+      const map = {};
+      (cl.entries || []).forEach((e) => {
+        if (e.status === "OPEN" && e.symbol && e.probUp != null) {
+          const prev = map[e.symbol];
+          if (!prev || e.openedAt > prev.openedAt) map[e.symbol] = e;
+        }
+      });
+      FORECAST = map;
+    }
+  } catch (_) { /* fail-open */ }
+  try {
+    const r2 = await fetch("../crypto_scoreboard.json", { cache: "no-store" });
+    if (r2.ok) FORECAST_META = await r2.json();
+  } catch (_) { /* fail-open */ }
+}
+
+// Our 24h read: probUp + 80% volatility band. Falsifiable + publicly scored
+// (SIGNAL_SPEC §9). NEVER a point "% change"; the band is a volatility range.
+function forecastMetrics(symbol) {
+  const f = FORECAST[symbol];
+  if (!f || f.probUp == null || f.bandPct == null) return null;
+  const up = Math.round(f.probUp * 1000) / 10;          // e.g. 47.7
+  const note = f.sigmaPct != null
+    ? "from " + Number(f.sigmaPct).toFixed(2) + "% daily vol"
+    : "80% volatility band";
+  return metric("24h up-probability", up + "%", "vs a 50% coin-flip baseline")
+    + metric("24h range (80%)", "±" + Number(f.bandPct).toFixed(2) + "%", note);
+}
+
+// Honest one-liner on the live track record (N-gated, vs random walk).
+function forecastTrackNote() {
+  const m = FORECAST_META;
+  if (!m || !m.counts) return "Logged now &amp; auto-scored after 24h. Track record building.";
+  const n = m.counts.resolved || 0;
+  if ((m.confidence || "none") === "none")
+    return "Track record not yet meaningful — " + n +
+           " resolved (auto-scored vs a random-walk baseline; honest by design).";
+  const dir = m.direction || {}, band = m.band || {};
+  const skill = dir.skillVsRandomWalk;
+  const cov = band.coverageRate;
+  return "Scored: " + n + " resolved · direction skill vs coin-flip " +
+    (skill == null ? "—" : (skill > 0 ? "+" : "") + skill) +
+    " · band coverage " +
+    (cov == null ? "—" : Math.round(cov * 100) + "% (target 80%)") + ".";
 }
 
 function render(data) {
@@ -293,8 +357,13 @@ document.addEventListener("keydown", (ev) => {
 
 async function start() {
   await loadRegime();
+  await loadForecast();
   render(await fetchMarkets());
   // light auto-refresh every 90s (descriptive data only; no alerts/sound)
-  setInterval(async () => { await loadRegime(); render(await fetchMarkets()); }, 90000);
+  setInterval(async () => {
+    await loadRegime();
+    await loadForecast();
+    render(await fetchMarkets());
+  }, 90000);
 }
 start();
