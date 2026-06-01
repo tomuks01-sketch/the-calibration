@@ -126,6 +126,8 @@ table.coins thead th.rk, table.coins thead th.nm { text-align: left; }
   color: var(--amber); margin: 0 0 0.55rem; }
 .d-h-note { color: var(--ink-faint); text-transform: none; letter-spacing: 0; }
 .fx-note { font-size: 0.7rem; line-height: 1.45; color: var(--ink-faint); margin: -0.5rem 0 1.1rem; }
+.track-wrap { margin-top: clamp(1.5rem, 1rem + 2vw, 2.5rem); }
+.track-note { grid-column: 1 / -1; font-size: 0.74rem; line-height: 1.5; color: var(--ink-faint); margin: 0.3rem 0 0; }
 .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.6rem;
   margin-bottom: 1.1rem; }
 .m { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.6rem 0.7rem; border: 1px solid var(--hair);

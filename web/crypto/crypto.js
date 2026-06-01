@@ -320,6 +320,38 @@ function forecastTrackNote() {
     (cov == null ? "—" : Math.round(cov * 100) + "% (target 80%)") + ".";
 }
 
+// Public crypto-forecast track record (cs-v1) — scored vs random walk, N-gated.
+// Honest by design: shows "not yet meaningful" until enough forecasts resolve,
+// and shows skill even when we are no better than the baseline.
+function renderTrack() {
+  const el = document.getElementById("forecast-track");
+  if (!el) return;
+  const m = FORECAST_META;
+  const tile = (v, l) =>
+    `<div class="cs-tile"><span class="cs-v">${v}</span><span class="cs-l">${l}</span></div>`;
+  if (!m || !m.counts) {
+    el.innerHTML = `<p class="empty">Forecast track record loads with the next snapshot.</p>`;
+    return;
+  }
+  const c = m.counts;
+  const gated = (m.confidence || "none") !== "none";
+  const dir = m.direction || {}, band = m.band || {};
+  const skill = (gated && dir.skillVsRandomWalk != null)
+    ? (dir.skillVsRandomWalk > 0 ? "+" : "") + dir.skillVsRandomWalk : "—";
+  const cov = (gated && band.coverageRate != null)
+    ? Math.round(band.coverageRate * 100) + "%" : "—";
+  el.innerHTML =
+    tile(c.resolved, "resolved · scored") +
+    tile(c.open, "open · awaiting 24h") +
+    tile(skill, "direction skill vs coin-flip") +
+    tile(cov, "band coverage · target 80%") +
+    `<p class="track-note">${gated
+      ? "Scored vs a random-walk baseline. Positive direction skill = better than a coin flip; band coverage near 80% = honest uncertainty. Shown win or lose."
+      : "Not yet meaningful — " + c.resolved + " resolved. Direction needs a long, "
+        + "correlation-adjusted sample; the volatility band proves out sooner. "
+        + "If we never beat the baseline, this will say so."}</p>`;
+}
+
 function render(data) {
   const { coins, live } = data;
   COINS = coins;
@@ -334,6 +366,7 @@ function render(data) {
   }
   if (sumEl) sumEl.innerHTML = marketSummary(coins);
   if (tbody) tbody.innerHTML = coins.map(row).join("");
+  renderTrack();
 }
 
 function toggleRow(tr) {
