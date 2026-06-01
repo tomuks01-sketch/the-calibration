@@ -192,6 +192,22 @@ function metric(label, value, note) {
   return `<div class="m"><span class="m-l">${label}</span><span class="m-v">${value}</span>${note ? `<span class="m-n">${note}</span>` : ""}</div>`;
 }
 
+// Real derivatives context from the cron-built feature store (Binance perps,
+// keyless). Only fields that are actually present are shown — never faked.
+function regimeMetrics(symbol) {
+  const r = REGIME[symbol];
+  if (!r) return null;
+  const out = [];
+  if (r.fundingRate != null)
+    out.push(metric("Funding rate", (r.fundingRate * 100).toFixed(4) + "%",
+      r.fundingZ != null ? "z-score " + esc(r.fundingZ) : "perp funding"));
+  if (r.oiDelta != null)
+    out.push(metric("Open interest", (r.oiDelta > 0 ? "+" : "") + (r.oiDelta * 100).toFixed(2) + "%", "1d change"));
+  if (r.basis != null)
+    out.push(metric("Basis", (r.basis * 100).toFixed(3) + "%", "mark vs index"));
+  return out.length ? out.join("") : null;
+}
+
 function detail(c, d) {
   const real = [
     metric("Momentum", esc(d.mom.label), "agreement of 24h / 7d / 30d direction"),
@@ -200,9 +216,12 @@ function detail(c, d) {
     metric("24h volume", fmtBig(c.volume), ""),
     metric("Market cap", fmtBig(c.mcap), "rank #" + (c.rank ?? "—")),
   ].join("");
-  // Honest "not in this version" — we do NOT fabricate derivatives/on-chain.
-  const missing = ["Open interest", "Funding rate", "Liquidations", "On-chain flows"]
-    .map((m) => `<span class="soon">${m}</span>`).join("");
+  const reg = regimeMetrics(c.symbol);
+  // Liquidations + on-chain stay honestly unavailable (no keyless source).
+  // Funding / OI / basis are REAL now if the feature store loaded for this coin.
+  const missingItems = ["Liquidations", "On-chain flows"];
+  if (!reg) missingItems.unshift("Funding rate", "Open interest", "Basis");
+  const missing = missingItems.map((m) => `<span class="soon">${m}</span>`).join("");
   return `<div class="detail">
     <div class="d-left">
       ${sparkSvg(c.spark, d.dir)}
@@ -212,10 +231,29 @@ function detail(c, d) {
     <div class="d-right">
       <p class="d-h">Observed metrics</p>
       <div class="metrics">${real}</div>
-      <p class="d-h">Advanced — needs a derivatives / on-chain source <span class="d-h-note">(not in this free version, never faked)</span></p>
+      ${reg ? `<p class="d-h">Derivatives · live <span class="d-h-note">(Binance perps, keyless)</span></p><div class="metrics">${reg}</div>` : ""}
+      <p class="d-h">${reg ? "Still unavailable" : "Advanced — needs a derivatives / on-chain source"} <span class="d-h-note">(never faked)</span></p>
       <div class="soon-row">${missing}</div>
     </div>
   </div>`;
+}
+
+let REGIME = {};   // symbol -> regime.descriptive, from the cron-built feature store
+
+// Join the cron-computed crypto regime (Binance perps) by symbol. Same-origin
+// fetch; fail-open so the detail panel falls back to "not available".
+async function loadRegime() {
+  try {
+    const r = await fetch("../features.json", { cache: "no-store" });
+    if (!r.ok) return;
+    const fs = await r.json();
+    const map = {};
+    (fs.records || []).forEach((rec) => {
+      const reg = rec.regime && rec.regime.descriptive;
+      if (rec.kind === "CRYPTO" && reg && reg.available) map[rec.assetId] = reg;
+    });
+    REGIME = map;
+  } catch (_) { /* fail-open: detail shows derivatives as unavailable */ }
 }
 
 function render(data) {
@@ -254,8 +292,9 @@ document.addEventListener("keydown", (ev) => {
 });
 
 async function start() {
+  await loadRegime();
   render(await fetchMarkets());
   // light auto-refresh every 90s (descriptive data only; no alerts/sound)
-  setInterval(async () => render(await fetchMarkets()), 90000);
+  setInterval(async () => { await loadRegime(); render(await fetchMarkets()); }, 90000);
 }
 start();

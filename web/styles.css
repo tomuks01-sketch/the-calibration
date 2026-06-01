@@ -28,7 +28,7 @@
   --space: clamp(1rem, 0.6rem + 1.4vw, 2rem);
   --radius: 14px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
   font-synthesis: none;
 }
 
@@ -42,7 +42,7 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "Inter", ui-sans-serif, "Segoe UI", system-ui, sans-serif;
+  font-family: "Archivo", ui-sans-serif, "Segoe UI", system-ui, sans-serif;
   line-height: 1.5;
   padding: var(--space);
   max-width: 1280px;
@@ -191,6 +191,14 @@ body::before {
 }
 .event:hover { border-color: oklch(50% 0.06 264 / 0.6); }
 .event:hover::after { opacity: 1; }
+.event.expired { opacity: 0.6; }
+.expired-badge {
+  font-family: var(--mono); font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); background: var(--s2);
+  border: 1px solid var(--line-soft); border-radius: 6px;
+  padding: 0.22rem 0.6rem; margin-bottom: 0.7rem; display: inline-block;
+}
 
 .ehead { display: flex; gap: 1rem; justify-content: space-between; align-items: flex-start; }
 .cat {

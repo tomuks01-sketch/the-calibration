@@ -173,6 +173,14 @@ function paint(initial) {
   gEl.textContent =
     `Snapshot ${ageMin} min old · ${gen.toLocaleString("en-US", { timeStyle: "short" })}`;
   gEl.classList.toggle("stale", ageMin > 40);
+
+  // Dynamic freshness labels — derived from actual snapshot age, not hardcoded.
+  const freshnessLabel = ageMin <= 5 ? "LIVE" : ageMin <= 35 ? "DELAYED" : ageMin <= 60 ? "STALE" : "VERY STALE";
+  const delayDetail = ageMin <= 5 ? "live" : ageMin <= 35 ? `~${ageMin}m delayed` : `${ageMin}m old`;
+  const freshEl = document.getElementById("data-freshness");
+  if (freshEl) freshEl.textContent = freshnessLabel;
+  const boardDelayEl = document.getElementById("board-delay-label");
+  if (boardDelayEl) boardDelayEl.textContent = freshnessLabel + " · " + delayDetail;
   renderKpis(initial);
   renderEditorial();
   renderProof();
@@ -321,6 +329,25 @@ async function renderProof() {
   }
   const open = (led.entries || []).filter((e) => e.status === "PENDING");
 
+  // Next expected resolution: find the soonest-closing tracked pending call.
+  // Declared BEFORE the awaiting-resolution block below, which reads it
+  // (const has a temporal dead zone — referencing it earlier throws).
+  const nextResolve = (() => {
+    const pending = (led.entries || []).filter((e) => e.status === "PENDING" && e.openedAt);
+    if (!pending.length) return null;
+    // Use daysToResolution from data.json if available for the same event slug.
+    const events = (DATA && DATA.events) || [];
+    let best = null;
+    for (const call of pending) {
+      const match = events.find((ev) => ev.slug === call.eventSlug || ev.id === call.marketId);
+      const d = match ? match.daysToResolution : null;
+      if (d !== null && d !== undefined && d >= 0 && (best === null || d < best.d)) {
+        best = { d, title: call.eventTitle || call.question };
+      }
+    }
+    return best;
+  })();
+
   // Honest "awaiting first resolution" status — real ledger data only, no
   // fabricated countdown (the ledger carries no market close date). Shows the
   // age of the oldest still-open call while nothing has resolved yet.
@@ -331,14 +358,33 @@ async function renderProof() {
     const t0 = opens.length ? new Date(opens[0]).getTime() : NaN;
     if (resolvedN === 0 && !Number.isNaN(t0)) {
       const days = Math.max(0, Math.floor((Date.now() - t0) / 86400000));
+      const nextHint = nextResolve
+        ? ` · Next tracked call closes in ~${nextResolve.d}d`
+        : "";
       ageEl.textContent =
-        `First call still open — oldest opened ${days}d ago, awaiting the first resolution.`;
+        `First call still open — oldest opened ${days}d ago, awaiting the first resolution.${nextHint}`;
       ageEl.hidden = false;
     } else {
       // malformed/absent date or a call has resolved → hide rather than
       // ever render "NaNd ago" or a stale "awaiting" claim.
       ageEl.hidden = true;
     }
+  }
+
+  // Confidence-tier legend — updates based on resolved count so it stays honest.
+  const tiersEl = document.getElementById("confidence-tiers-note");
+  if (tiersEl) {
+    const resolvedCount = (led.entries || []).filter((e) => e.status === "RESOLVED").length;
+    const tiers = [
+      { min: 0,  max: 9,  label: "none",   note: "Fewer than 10 resolved calls — model history too short to assess." },
+      { min: 10, max: 29, label: "low",    note: "10–29 resolved · early signal, treat with caution." },
+      { min: 30, max: 99, label: "medium", note: "30–99 resolved · meaningful sample, caveats remain." },
+      { min: 100, max: Infinity, label: "high", note: "100+ resolved · enough history to assess calibration." },
+    ];
+    const current = tiers.find((t) => resolvedCount >= t.min && resolvedCount <= t.max);
+    tiersEl.innerHTML =
+      `Current: <em>${current ? escapeHtml(current.label) : "—"}</em> · ${current ? escapeHtml(current.note) : ""} ` +
+      `<span class="tier-scale">none &lt;10 · low &lt;30 · medium &lt;100 · high 100+</span>`;
   }
 
   const callsEl = document.getElementById("proof-open-calls");
@@ -535,6 +581,7 @@ function pressureLine(e) {
 }
 
 function eventCard(e) {
+  const isExpired = e.daysToResolution !== null && e.daysToResolution !== undefined && e.daysToResolution < 0;
   const bars = (e.outcomes || [])
     .map((o) => {
       const p = pct1(o.price) ?? "0";
@@ -570,7 +617,8 @@ function eventCard(e) {
   }
   prevLead[e.id] = e.leadPrice;
 
-  return `<article class="event ${flash}" data-id="${escAttr(e.id)}">
+  return `<article class="event ${flash}${isExpired ? " expired" : ""}" data-id="${escAttr(e.id)}">
+    ${isExpired ? `<p class="expired-badge">Market closed — awaiting resolution</p>` : ""}
     <div class="ehead">
       <div><span class="cat">${escapeHtml(e.category)}</span><h3>${escapeHtml(e.title)}</h3></div>
       ${leadBlock(e)}
