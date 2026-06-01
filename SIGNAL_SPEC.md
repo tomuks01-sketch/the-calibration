@@ -6,7 +6,8 @@
 > failure that would kill this product: a user (or us) treating a
 > documented *mixture of signals* as if it were settled truth.
 >
-> Status: FROZEN at v1. Changes require a version bump + a note here.
+> Status: FROZEN at v1 (§1–§8). v2 ADDS §9 (crypto 24h forecast `cfx`) without
+> altering the v1 PM contract. Changes require a version bump + a note here.
 
 ---
 
@@ -209,3 +210,57 @@ field stays `modelProb` (qest) until §4's promotion conditions are met.
 - no signal reaches the scored number without coverage + source + timestamp
   + tests (+ calibration to become probabilistic).
 - the system is built to *become* good, not to pretend it already is.
+
+---
+
+## 9. Crypto 24h forecast — `cfx-v1` (v2 addition)
+
+> v2 addition. v1 (§1–§8) is unchanged and still binding. v1 kept crypto
+> **descriptive only** (§1/§5). v2 permits exactly ONE crypto *probabilistic*
+> signal — `cfx` — because it is falsifiable and publicly scored exactly like
+> a PM call. It does not touch the PM contract.
+
+### What `cfx` outputs (and what it must NOT)
+- **`probUp`** — probability the coin closes higher in ~24h. Deliberately
+  **HUMBLE**: a small, damped momentum tilt clamped tight around 0.5. Scored
+  by **Brier vs the 0.5 baseline** (and vs the unconditional up-rate). We
+  expect ~coin-flip skill and the scoreboard says so openly.
+- **`bandPct`** — an 80% magnitude band (±%) from realised daily volatility.
+  A **volatility** forecast (genuinely forecastable), scored by **empirical
+  coverage** (does the 80% band cover ~80%?) + pinball loss.
+- **FORBIDDEN (RED LINE):** a point "expected % change" headline. It is
+  provably worse than the random-walk baseline on MAE and reads as advice.
+
+### Baseline (what we are scored against)
+- direction → **random walk**: `probUp = 0.5` (and the unconditional up-rate).
+- magnitude → **random walk**: expected change 0; the band is judged on coverage.
+- The crypto scoreboard MUST publish skill-vs-baseline **including when it is
+  ≤ 0** ("no better than assuming no change"). Never hidden, never reframed.
+
+### Time-boxed resolution (crypto has no `endDate`)
+- A forecast is **locked at open**: `openedAt`, `priceAtOpen` (+ source
+  timestamp), `dueAt = openedAt + 24h`, `baseline=random_walk`, written to an
+  append-only `crypto_ledger.json` **before** the window. At most **one
+  forecast per (coin, UTC day)** — dedup key `sha1(symbol:utcdate)`.
+- Auto-resolved when `dueAt <= now`: settled by the price at the first tick
+  `>= dueAt` (within a max-staleness tolerance). Resolution code MUST assert
+  the resolve price timestamp `>= dueAt` (no look-ahead). Past staleness → VOID.
+- Append-only; `OPEN → RESOLVED|VOID` only; never deleted or reworded (same
+  integrity as the PM ledger). One frozen reference source/field per coin;
+  frozen versioned coin basket; gaps/delistings → **VOID, not silent drop**.
+
+### Gate & honesty
+- Same calibration gate (§6): below the N-gate the forecast is shown
+  **descriptively** with "track record not yet meaningful (N=…)". Direction
+  Brier needs a large **correlation-adjusted** N (majors are highly correlated,
+  so effective N « coin-days); volatility coverage is meaningful far sooner.
+- Per-coin skill claims require FDR correction; prefer **one aggregate skill
+  number** with effective-N over 10 per-coin claims.
+- `cfx` is NEVER framed as advice; the analytics-only disclaimer applies to
+  every crypto-forecast surface.
+
+### Schema — `web/crypto_ledger.json` (`schemaVersion: "cl-v1"`)
+Entries (nullable until resolved): `forecastId`, `symbol`, `openedAt`,
+`dueAt`, `priceAtOpen`, `probUp`, `sigmaPct`, `bandPct`, `baseline`,
+`status` (OPEN|RESOLVED|VOID), `resolvedAt`, `priceAtResolve`,
+`realizedChangePct`, `upHit`, `brierUp`, `bandCovered`, `voidReason`.

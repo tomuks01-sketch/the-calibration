@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "cs-v1",
+  "generatedFrom": "web/crypto_ledger.json",
+  "baseline": "random_walk",
+  "bandTarget": 0.8,
+  "counts": {
+    "resolved": 0,
+    "open": 7,
+    "void": 0,
+    "total": 7
+  },
+  "confidence": "none",
+  "direction": {
+    "meanBrierUp": null,
+    "baselineBrier": 0.25,
+    "skillVsRandomWalk": null,
+    "accuracy": null,
+    "accuracyWilson95": null,
+    "observedUpRate": null
+  },
+  "band": {
+    "target": 0.8,
+    "coverageRate": null,
+    "coverageWilson95": null,
+    "n": 0
+  },
+  "byCoin": {},
+  "disclaimer": "Crypto 24h forecasts scored vs a random-walk baseline. Direction: lower Brier is better; skillVsRandomWalk = 0.25 - our Brier (positive = better than a coin flip; shown even when negative). Band: empirical coverage of the 80% interval (target 0.80). Analytics only, not advice. Per-coin claims need many more samples (majors are highly correlated) \u2014 read the aggregate."
+}

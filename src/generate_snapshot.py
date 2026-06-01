@@ -421,6 +421,36 @@ def main() -> None:
     except Exception as exc:  # noqa: BLE001 — fail-open by design
         print(f"WARN feature-store: skipped ({type(exc).__name__}: {exc})", file=sys.stderr)
 
+    # ---- Crypto 24h forecast ledger + scoreboard (cfx-v1, SIGNAL_SPEC §9) ----
+    # Falsifiable, publicly scored vs a random-walk baseline (probUp vs 0.5,
+    # 80% band coverage). Forecasts lock at open and auto-resolve after ~24h.
+    # Fully fail-open: a forecast error must never break the data.json snapshot
+    # already written above.
+    try:
+        from crypto_forecast import forecast as cfx_forecast
+        from crypto_ledger import (
+            load_crypto_ledger, open_forecasts, resolve_due, save_crypto_ledger,
+        )
+        from crypto_scoreboard import write as write_crypto_scoreboard
+
+        top_coins = (macro_block or {}).get("topCoins") or []
+        spot = {
+            str(c.get("symbol") or "").lower(): c.get("price")
+            for c in top_coins if c.get("price")
+        }
+        forecasts = [cfx_forecast(c.get("symbol")) for c in top_coins]
+        cl = load_crypto_ledger()
+        c_opened = open_forecasts(cl, forecasts, spot)
+        c_resolved, c_voided = resolve_due(cl, spot)
+        save_crypto_ledger(cl)
+        csb = write_crypto_scoreboard(cl)
+        print(
+            f"Crypto forecast: +{c_opened} opened, {c_resolved} resolved, "
+            f"{c_voided} void | crypto scoreboard confidence={csb['confidence']}"
+        )
+    except Exception as fexc:  # noqa: BLE001 — fail-open by design
+        print(f"WARN crypto-forecast: skipped ({type(fexc).__name__}: {fexc})", file=sys.stderr)
+
     print(
         f"Wrote {OUTPUT} ({len(events_out)} events, "
         f"{len(categories)} categories) | Ledger: +{opened} opened, "
