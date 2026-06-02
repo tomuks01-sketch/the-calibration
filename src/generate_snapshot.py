@@ -265,6 +265,16 @@ def main() -> None:
         "crossSignals": build_cross_signals(macro, events_out),
     }
 
+    # Descriptive traditional-market index context (keyless, server-side,
+    # fail-open). NOT a signal/forecast — broad-market context only, delayed.
+    try:
+        from indices import fetch_indices
+
+        macro_block["indices"] = fetch_indices()
+    except Exception as iexc:  # noqa: BLE001 — fail-open: never block the snapshot
+        print(f"WARN indices: skipped ({type(iexc).__name__}: {iexc})", file=sys.stderr)
+        macro_block["indices"] = {"available": False}
+
     # ---- Model + append-only public ledger + scoreboard ----
     # Done BEFORE writing data.json so each event can carry the model number
     # ONLY when it corresponds to a real (open/scored) ledger entry — never an

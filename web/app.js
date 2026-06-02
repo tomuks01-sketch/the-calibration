@@ -476,6 +476,15 @@ function renderMacro() {
         `<i>${c.change7d == null ? "" : (c.change7d > 0 ? "+" : "") + c.change7d.toFixed(1) + "% 7d"}</i></span>`
       ).join("") + `</div>`;
   }
+
+  // Descriptive traditional-market index context (delayed, not a signal).
+  const idx = m.indices;
+  if (idx && idx.available && (idx.items || []).length) {
+    html += `<div class="topcoins"><span class="mlabel">Stocks · delayed · context, not a signal</span>` +
+      idx.items.map((s) =>
+        `<span class="tc">${escapeHtml(s.name)} ${sign(s.changePct, "%")}</span>`
+      ).join("") + `</div>`;
+  }
   el.innerHTML = html;
 }
 
