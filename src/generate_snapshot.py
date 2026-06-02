@@ -461,6 +461,17 @@ def main() -> None:
     except Exception as fexc:  # noqa: BLE001 — fail-open by design
         print(f"WARN crypto-forecast: skipped ({type(fexc).__name__}: {fexc})", file=sys.stderr)
 
+    # Descriptive large-cap stocks companion (keyless server-side, fail-open).
+    # NOT a forecast — same descriptive class as the crypto/indices context.
+    try:
+        from stocks import fetch_stocks, write_stocks
+
+        sblk = fetch_stocks()
+        write_stocks(sblk, OUTPUT.parent / "stocks.json")
+        print(f"Wrote web/stocks.json ({len(sblk.get('items', []))} stocks)")
+    except Exception as sexc:  # noqa: BLE001 — fail-open: never block the snapshot
+        print(f"WARN stocks: skipped ({type(sexc).__name__}: {sexc})", file=sys.stderr)
+
     print(
         f"Wrote {OUTPUT} ({len(events_out)} events, "
         f"{len(categories)} categories) | Ledger: +{opened} opened, "

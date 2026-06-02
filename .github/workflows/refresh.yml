@@ -44,7 +44,7 @@ jobs:
           python -c "import json; json.load(open('web/data.json'))"
           python -c "import json,glob,sys; [json.load(open(f)) for f in ['web/ledger.json','web/scoreboard.json']+glob.glob('web/ledger-archive/*.json')]"
           python -c "import json,os; (json.load(open('web/features.json')) if os.path.exists('web/features.json') else None)"
-          python -c "import json,os; [json.load(open(f)) for f in ['web/crypto_ledger.json','web/crypto_scoreboard.json'] if os.path.exists(f)]"
+          python -c "import json,os; [json.load(open(f)) for f in ['web/crypto_ledger.json','web/crypto_scoreboard.json','web/stocks.json'] if os.path.exists(f)]"
           echo "JSON OK"
 
       - name: Commit if changed
@@ -58,6 +58,7 @@ jobs:
           if [ -f web/crypto_ledger.json ]; then git add web/crypto_ledger.json; fi
           if [ -f web/crypto_scoreboard.json ]; then git add web/crypto_scoreboard.json; fi
           if [ -d web/crypto-ledger-archive ]; then git add web/crypto-ledger-archive; fi
+          if [ -f web/stocks.json ]; then git add web/stocks.json; fi
           if ! git diff --cached --quiet; then
             git commit -m "chore: refresh snapshot + ledger"
             # Plain rebase, NO -X strategy: a conflict on the append-only

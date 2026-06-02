@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stock Pulse — descriptive large-cap analytics · The Calibration</title>
+<meta name="description" content="A clear, fast read on major US large-cap stocks: price, 24h/7d/30d change, volume, and an honest descriptive momentum signal. Analytics only — not predictions, not advice. Delayed data." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../crypto/crypto.css" />
+  <link rel="icon" href="/the-calibration/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://tomuks01-sketch.github.io/the-calibration/stocks/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Stock Pulse — descriptive large-cap analytics" />
+  <meta property="og:description" content="Major US large-caps with honest descriptive signals. Analytics only — not predictions. Delayed data." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tomuks01-sketch.github.io/the-calibration/stocks/" />
+</head>
+<body>
+
+<header class="rail">
+  <a class="wm" href="../">THE&nbsp;<span>CALIBRATION</span></a>
+  <div class="meta"><span class="state"><span class="dotlive"></span><span id="data-status">loading…</span></span></div>
+  <nav>
+    <a href="../">Terminal</a>
+    <a href="../briefs/">Briefs</a>
+    <a href="../scoreboard/">Scoreboard</a>
+    <a href="../crypto/">Crypto</a>
+    <a href="./" aria-current="page">Stocks</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="head">
+    <p class="eyebrow"><span class="tick"></span>Descriptive market analytics</p>
+    <h1>Stock Pulse <span class="sub">· major large-caps</span></h1>
+    <p class="lede">A fast, plain read on major US large-cap stocks — what's actually moving and how each has behaved recently. Every signal here <b>describes observable data</b>; none of it is a price prediction or advice. Data is <b>delayed</b>. For our scored, falsifiable 24h reads, see <a href="../crypto/">Crypto</a>.</p>
+  </section>
+
+  <section class="table-wrap" aria-label="Major large-cap stocks">
+    <div class="table-head">
+      <h2>Major large-caps</h2>
+      <p class="th-note">Tap a row for detail. A recognised set of the largest US listings (not a precise live top-10 by market cap). Change colours are descriptive, not directional advice.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="coins">
+        <thead>
+          <tr>
+            <th class="rk">#</th>
+            <th class="nm">Company</th>
+            <th class="px">Price</th>
+            <th class="ch">24h</th>
+            <th class="ch hide-sm">7d</th>
+            <th class="ch hide-sm">30d</th>
+            <th class="vol hide-md">Volume</th>
+            <th class="sig">Signal</th>
+          </tr>
+        </thead>
+        <tbody id="stock-body"><tr><td colspan="8" class="empty">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="explainer" aria-label="How the signal works">
+    <h2>How the signal is built</h2>
+    <p>Each stock's signal is a <b>label, not a forecast</b>, assembled only from data you can check:</p>
+    <ul>
+      <li><b>Momentum</b> — whether the 24h, 7d and 30d changes point the same way (rising / falling / mixed).</li>
+      <li><b>Change</b> — price now versus the prior close, ~5 trading days, and ~1 month.</li>
+    </ul>
+    <p class="explainer-foot">We deliberately do <b>not</b> publish a "chance to go up/down" number for stocks. Equity markets are highly efficient and the free, keyless data is delayed and fragile — a fabricated probability would be the opposite of useful. Our <b>scored, falsifiable</b> forecasts live on the <a href="../crypto/">Crypto</a> page, where the data supports honest 24h reads that we log and grade in public. Market cap and derivatives are marked <em>not shown</em> rather than invented.</p>
+  </section>
+
+  <footer class="foot">
+    <p class="foot-lead">Stock Pulse is descriptive analytics of public, delayed market data. It does not predict prices, does not give financial or investment advice, and makes no profit claims. Data via a public endpoint; figures are delayed. Think for yourself.</p>
+    <p class="foot-fine">A free, public companion to <a href="../">The Calibration</a>.</p>
+  </footer>
+
+</main>
+
+<script src="stocks.js"></script>
+</body>
+</html>
