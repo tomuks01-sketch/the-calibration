@@ -63,7 +63,10 @@ function paintMap() {
   const host = document.getElementById("worldmap");
   if (!host) return;
   const counts = placeCounts();
-  if (!Object.keys(counts).length) { if (wrap) wrap.hidden = true; return; }
+  // Density: the map only earns its space when several countries are tagged.
+  // With 0–3 the place-chips row already conveys this without a mostly-empty map.
+  const MIN_MAP_COUNTRIES = 4;
+  if (Object.keys(counts).length < MIN_MAP_COUNTRIES) { if (wrap) wrap.hidden = true; return; }
   if (wrap) wrap.hidden = false;
   host.querySelectorAll("path").forEach((p) => {
     const iso = (p.id || "").replace("c-", "");
