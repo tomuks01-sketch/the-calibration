@@ -4,8 +4,8 @@
   "baseline": "random_walk",
   "bandTarget": 0.8,
   "counts": {
-    "resolved": 0,
-    "open": 7,
+    "resolved": 7,
+    "open": 0,
     "void": 0,
     "total": 7
   },
@@ -22,8 +22,44 @@
     "target": 0.8,
     "coverageRate": null,
     "coverageWilson95": null,
-    "n": 0
+    "n": 7
   },
-  "byCoin": {},
+  "byCoin": {
+    "btc": {
+      "n": 1,
+      "confidence": "none",
+      "coverageRate": null
+    },
+    "eth": {
+      "n": 1,
+      "confidence": "none",
+      "coverageRate": null
+    },
+    "bnb": {
+      "n": 1,
+      "confidence": "none",
+      "coverageRate": null
+    },
+    "xrp": {
+      "n": 1,
+      "confidence": "none",
+      "coverageRate": null
+    },
+    "sol": {
+      "n": 1,
+      "confidence": "none",
+      "coverageRate": null
+    },
+    "trx": {
+      "n": 1,
+      "confidence": "none",
+      "coverageRate": null
+    },
+    "doge": {
+      "n": 1,
+      "confidence": "none",
+      "coverageRate": null
+    }
+  },
   "disclaimer": "Crypto 24h forecasts scored vs a random-walk baseline. Direction: lower Brier is better; skillVsRandomWalk = 0.25 - our Brier (positive = better than a coin flip; shown even when negative). Band: empirical coverage of the 80% interval (target 0.80). Analytics only, not advice. Per-coin claims need many more samples (majors are highly correlated) \u2014 read the aggregate."
 }
