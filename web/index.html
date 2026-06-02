@@ -81,7 +81,7 @@
 @keyframes pulseRing { 0%{ box-shadow:0 0 0 0 var(--amber-glow);} 70%,100%{ box-shadow:0 0 0 8px rgba(255,180,92,0);} }
 
 /* ---------------- Command rail ---------------- */
-.rail {
+.cal-rail {
   position: sticky; top: 0; z-index: 60; margin: 0;
   display: flex; align-items: center; gap: 1.4rem;
   padding: 0.7rem var(--pad);
@@ -89,18 +89,18 @@
   -webkit-backdrop-filter: blur(16px) saturate(150%); backdrop-filter: blur(16px) saturate(150%);
   border-bottom: 1px solid var(--hair);
 }
-.rail .wm { font-family: var(--mono); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--amber); text-decoration: none; white-space: nowrap; }
-.rail .wm span { color: var(--ink-dim); }
-.rail .meta { display:flex; align-items:center; gap:0.7rem; padding-left:1.2rem; border-left:1px solid var(--hair); font-family:var(--mono); font-size:0.68rem; color:var(--ink-dim); }
-.rail .state { display:inline-flex; align-items:center; gap:0.45rem; color:var(--ink); font-weight:600; letter-spacing:0.12em; }
+.cal-rail .wm { font-family: var(--mono); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--amber); text-decoration: none; white-space: nowrap; }
+.cal-rail .wm span { color: var(--ink-dim); }
+.cal-rail .meta { display:flex; align-items:center; gap:0.7rem; padding-left:1.2rem; border-left:1px solid var(--hair); font-family:var(--mono); font-size:0.68rem; color:var(--ink-dim); }
+.cal-rail .state { display:inline-flex; align-items:center; gap:0.45rem; color:var(--ink); font-weight:600; letter-spacing:0.12em; }
 .dotlive { width:7px; height:7px; border-radius:50%; background:var(--amber); animation: pulseRing 2.4s ease-out infinite; }
 #generated.stale { color: var(--amber-2); }
-.rail nav { margin-left:auto; display:flex; gap:1.25rem; }
-.rail nav a { font-family:var(--mono); font-size:0.72rem; color:var(--ink-dim); text-decoration:none; letter-spacing:0.05em; transition:color .2s; }
-.rail nav a { padding: 0.35rem 0.2rem; }
-.rail nav a:hover, .rail nav a[aria-current="page"] { color: var(--ink); }
-.rail nav a[aria-current="page"] { color: var(--amber); }
-.rail nav a:focus-visible, .slink:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 3px; }
+.cal-rail nav { margin-left:auto; display:flex; gap:1.25rem; }
+.cal-rail nav a { font-family:var(--mono); font-size:0.72rem; color:var(--ink-dim); text-decoration:none; letter-spacing:0.05em; transition:color .2s; }
+.cal-rail nav a { padding: 0.35rem 0.2rem; }
+.cal-rail nav a:hover, .cal-rail nav a[aria-current="page"] { color: var(--ink); }
+.cal-rail nav a[aria-current="page"] { color: var(--amber); }
+.cal-rail nav a:focus-visible, .slink:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 3px; }
 
 /* ---------------- HERO ---------------- */
 .cal-hero { position: relative; margin: 0; padding: 0; min-height: clamp(620px, 90vh, 880px); overflow: hidden; display: flex; align-items: center; border-bottom: 1px solid var(--hair); }
@@ -312,15 +312,15 @@
   .shead { grid-template-columns:1fr; gap:0.6rem; align-items:start; }
 }
 @media (max-width: 680px) {
-  .rail { flex-wrap:wrap; gap:0.6rem 1rem; }
-  .rail .meta { padding-left:0; border-left:0; order:3; flex-basis:100%; }
-  .rail nav { gap:0.85rem; flex-wrap:wrap; }
+  .cal-rail { flex-wrap:wrap; gap:0.6rem 1rem; }
+  .cal-rail .meta { padding-left:0; border-left:0; order:3; flex-basis:100%; }
+  .cal-rail nav { gap:0.85rem; flex-wrap:wrap; }
   .hero-readout { grid-auto-flow:row; grid-template-columns:repeat(2,1fr); gap:1rem 1.6rem; }
   .spec li { grid-template-columns:2.6rem 1fr; } .spec .slink { grid-column:2; justify-self:start; }
   .benchgrid { grid-template-columns:1fr; }
   /* backdrop-filter is costly on low-end mobile GPUs — drop it, keep legibility */
-  .rail, .hero-readout, .panel { -webkit-backdrop-filter:none; backdrop-filter:none; }
-  .rail { background: rgba(7,8,11,0.95); }
+  .cal-rail, .hero-readout, .panel { -webkit-backdrop-filter:none; backdrop-filter:none; }
+  .cal-rail { background: rgba(7,8,11,0.95); }
 }
 @media (max-width: 600px) {
   /* the gradient headline must never out-run its column on phones/tablets
@@ -341,7 +341,7 @@
 <div class="map-tip" id="map-tip" role="status" aria-live="polite" hidden></div>
 
 <!-- ======= COMMAND RAIL ======= -->
-<header class="rail">
+<header class="cal-rail">
   <a class="wm" href="./">THE&nbsp;<span>CALIBRATION</span></a>
   <div class="meta">
     <span class="state"><span class="dotlive"></span><span id="data-freshness">LOADING</span></span>
