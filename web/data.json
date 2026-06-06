@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-06T11:38:13.615291+00:00",
+  "generatedAt": "2026-06-06T13:21:14.231426+00:00",
   "disclaimer": "Analytics only. Observable market state + news context. Not predictions, not betting advice. No wallet access.",
   "categories": [
     "AI",
@@ -13,7 +13,6 @@
     "Elections",
     "Foreign Policy",
     "Formula 1",
-    "Geopolitics",
     "Iran",
     "Khamenei",
     "MLB",
@@ -25,6 +24,7 @@
     "Strait of Hormuz",
     "Trump",
     "Trump-Machado",
+    "Weather",
     "World Elections"
   ],
   "eventCount": 24,
@@ -41,10 +41,10 @@
         "2026 FIFA World Cup",
         "Hide From New"
       ],
-      "volume": 1621760157.6767073,
-      "volume24h": 33669000.0913,
-      "liquidity": 342574353.37997,
-      "daysToResolution": 43.5,
+      "volume": 1623688017.4880455,
+      "volume24h": 34487966.553653,
+      "liquidity": 342109766.66307,
+      "daysToResolution": 43.4,
       "marketCount": 60,
       "binary": false,
       "leadPrice": 0.1605,
@@ -58,8 +58,8 @@
           "conditionId": "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894",
           "marketId": "558936",
           "question": "Will France win the 2026 FIFA World Cup?",
-          "liquidity": 750467.16206,
-          "volume": 37475556.175366394
+          "liquidity": 750766.01453,
+          "volume": 37529903.420941435
         },
         {
           "label": "Spain",
@@ -68,8 +68,8 @@
           "conditionId": "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892",
           "marketId": "558934",
           "question": "Will Spain win the 2026 FIFA World Cup?",
-          "liquidity": 1163651.39729,
-          "volume": 30068471.022044625
+          "liquidity": 933010.6704,
+          "volume": 30485781.477663625
         },
         {
           "label": "England",
@@ -78,18 +78,18 @@
           "conditionId": "0x375409bc5eeeff961e82b479caeccc20f33d15738e5bce1186d628aa3d9dfb1f",
           "marketId": "558935",
           "question": "Will England win the 2026 FIFA World Cup?",
-          "liquidity": 1532814.8853,
-          "volume": 25975741.14509311
+          "liquidity": 1514884.33203,
+          "volume": 26023221.92155911
         },
         {
           "label": "Portugal",
           "price": 0.0995,
-          "weekChange": -0.002,
+          "weekChange": -0.001,
           "conditionId": "0x4f3421fb2daf5cca7430ed8d8132463963081572d75434393a1808fdb8829fe8",
           "marketId": "558940",
           "question": "Will Portugal win the 2026 FIFA World Cup?",
-          "liquidity": 749889.74966,
-          "volume": 31268254.217759497
+          "liquidity": 703030.81601,
+          "volume": 31381052.73840451
         },
         {
           "label": "Argentina",
@@ -98,18 +98,18 @@
           "conditionId": "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f",
           "marketId": "558938",
           "question": "Will Argentina win the 2026 FIFA World Cup?",
-          "liquidity": 1109854.04752,
-          "volume": 27424236.769417856
+          "liquidity": 1094822.71761,
+          "volume": 27459197.183136858
         },
         {
           "label": "Brazil",
           "price": 0.0825,
-          "weekChange": -0.009,
+          "weekChange": -0.008,
           "conditionId": "0x30d55d8124ee1e12dabe89201badc45669b81dff69e4ce44d961f32878ec178a",
           "marketId": "558937",
           "question": "Will Brazil win the 2026 FIFA World Cup?",
-          "liquidity": 1604863.98821,
-          "volume": 27641711.77439676
+          "liquidity": 1626969.3101,
+          "volume": 27677025.310624756
         },
         {
           "label": "Germany",
@@ -118,18 +118,18 @@
           "conditionId": "0x1595b4818eeb1ea1e0bec5de6f057218e557feee9b405a0e930d290384fa1d16",
           "marketId": "558939",
           "question": "Will Germany win the 2026 FIFA World Cup?",
-          "liquidity": 1358467.8791,
-          "volume": 27792117.595458124
+          "liquidity": 1381426.92836,
+          "volume": 27803458.979921114
         },
         {
           "label": "Netherlands",
           "price": 0.0395,
-          "weekChange": 0.003,
+          "weekChange": 0.004,
           "conditionId": "0x9be56371f6a29d12769b2f196847ee825b9585ebb8bfa042136be031b081eba1",
           "marketId": "558941",
           "question": "Will Netherlands win the 2026 FIFA World Cup?",
-          "liquidity": 1666060.72689,
-          "volume": 30844880.4939399
+          "liquidity": 1677960.33702,
+          "volume": 30872698.327785894
         }
       ],
       "movers": [],
@@ -159,7 +159,7 @@
         }
       ],
       "context": {
-        "summary": "Current news coverage is discussing various aspects of the upcoming World Cup, including team analyses, tournament simulations, and country profiles, as well as providing predictions for each game and the overall winner.",
+        "summary": "Current news coverage is discussing various aspects of the upcoming World Cup, including team analyses, tournament simulations, and predictions for individual games and the overall winner.",
         "sources": [
           {
             "name": "ESPN",
@@ -175,7 +175,7 @@
           }
         ],
         "tier": "B",
-        "asOf": "2026-06-06T11:37:45.363229+00:00"
+        "asOf": "2026-06-06T13:20:44.198161+00:00"
       },
       "model": {
         "name": "QEST",
@@ -201,10 +201,10 @@
         "Primaries",
         "United States"
       ],
-      "volume": 1185826400.9162607,
-      "volume24h": 1476097.4685710003,
-      "liquidity": 67465754.00982,
-      "daysToResolution": 884.5,
+      "volume": 1185922309.8327599,
+      "volume24h": 1506878.5645680001,
+      "liquidity": 67257658.1014,
+      "daysToResolution": 884.4,
       "marketCount": 128,
       "binary": false,
       "leadPrice": 0.2515,
@@ -218,28 +218,28 @@
           "conditionId": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
           "marketId": "559652",
           "question": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
-          "liquidity": 224506.06233,
-          "volume": 25714887.89826247
+          "liquidity": 220835.18817,
+          "volume": 25715254.12953047
         },
         {
           "label": "Alexandria Ocasio-Cortez",
           "price": 0.0925,
-          "weekChange": 0.002,
+          "weekChange": 0.001,
           "conditionId": "0xe6bcc2f1dd025ce5e1833190f7c60a71171c94f805df55b9ab0ded695ec93565",
           "marketId": "559653",
           "question": "Will Alexandria Ocasio-Cortez win the 2028 Democratic presidential nomination?",
-          "liquidity": 290871.32936,
-          "volume": 13187189.670266176
+          "liquidity": 285100.94308,
+          "volume": 13187583.164027175
         },
         {
           "label": "Kamala Harris",
           "price": 0.0775,
-          "weekChange": -0.0025,
+          "weekChange": -0.002,
           "conditionId": "0x909659c9436228e2be56d5582ba6188166f2f8bf3c596335512c8f2e380d01ec",
           "marketId": "559658",
           "question": "Will Kamala Harris win the 2028 Democratic presidential nomination?",
-          "liquidity": 302242.32217,
-          "volume": 12022244.210430954
+          "liquidity": 293607.33055,
+          "volume": 12022256.510430954
         },
         {
           "label": "Jon Ossoff",
@@ -248,8 +248,8 @@
           "conditionId": "0x74dba1ce1ae9dd535414e85f2d9ab5ea32c0fb1acc9b7130b67e6d91217e24e1",
           "marketId": "559661",
           "question": "Will Jon Ossoff win the 2028 Democratic presidential nomination?",
-          "liquidity": 268530.9357,
-          "volume": 11464057.613975909
+          "liquidity": 258819.14685,
+          "volume": 11464428.189575909
         },
         {
           "label": "Josh Shapiro",
@@ -258,8 +258,8 @@
           "conditionId": "0xd65891729ce093cc12236856837eba1a0872fc7998fd4294c21346f7db68079c",
           "marketId": "559655",
           "question": "Will Josh Shapiro win the 2028 Democratic presidential nomination?",
-          "liquidity": 459086.87315,
-          "volume": 8490489.053706203
+          "liquidity": 462263.07751,
+          "volume": 8490539.953706203
         },
         {
           "label": "Pete Buttigieg",
@@ -268,8 +268,8 @@
           "conditionId": "0x4c325469d9b516ef4e6b8f73a81a12607dec075e3c2fd454f91765aaeafc4760",
           "marketId": "559654",
           "question": "Will Pete Buttigieg win the 2028 Democratic presidential nomination?",
-          "liquidity": 399735.38252,
-          "volume": 10937716.765343618
+          "liquidity": 397948.65129,
+          "volume": 10937769.155343618
         },
         {
           "label": "Andy Beshear",
@@ -278,18 +278,18 @@
           "conditionId": "0x1d519b87999e3d4e90e1e8f57b5eee73a0ba488ff3fdb70867f294733aba84a9",
           "marketId": "559660",
           "question": "Will Andy Beshear win the 2028 Democratic presidential nomination?",
-          "liquidity": 412260.97103,
-          "volume": 12404971.8401599
+          "liquidity": 404592.65603,
+          "volume": 12405030.1601599
         },
         {
-          "label": "James Talarico",
-          "price": 0.0215,
-          "weekChange": 0.0,
-          "conditionId": "0xb91be12388b3d4079c3ed9b5783cb42d8c33051d37746a49300227e0f45fc089",
-          "marketId": "559695",
-          "question": "Will James Talarico win the 2028 Democratic presidential nomination?",
-          "liquidity": 830430.21474,
-          "volume": 9610963.376640018
+          "label": "Hunter Biden",
+          "price": 0.0265,
+          "weekChange": 0.02,
+          "conditionId": "0x1945a8b23e313ed7423b6b6fd556f9ab5578900376b565a61dc480a5f4f35d21",
+          "marketId": "559682",
+          "question": "Will Hunter Biden win the 2028 Democratic presidential nomination?",
+          "liquidity": 356376.54504,
+          "volume": 39677092.350253776
         }
       ],
       "movers": [],
@@ -319,7 +319,7 @@
         }
       ],
       "context": {
-        "summary": "Current news coverage is discussing the various candidates and polls related to the 2028 Democratic Presidential Primary, with multiple outlets analyzing the field and tracking the early steps of potential Democratic contenders.",
+        "summary": "News outlets such as The New York Times, The Washington Post, and Reuters are currently discussing and analyzing the emerging field of potential candidates for the 2028 Democratic presidential nomination, with various articles and polls examining the early stages of the campaign.",
         "sources": [
           {
             "name": "The New York Times",
@@ -335,7 +335,7 @@
           }
         ],
         "tier": "B",
-        "asOf": "2026-06-06T11:37:50.946478+00:00"
+        "asOf": "2026-06-06T13:20:50.170988+00:00"
       }
     },
     {
@@ -354,10 +354,10 @@
         "Geopolitics",
         "Politics"
       ],
-      "volume": 259743455.23332313,
-      "volume24h": 3294088.5943609956,
-      "liquidity": 2238744.12849,
-      "daysToResolution": 207.5,
+      "volume": 259865308.81042513,
+      "volume24h": 3246815.993229996,
+      "liquidity": 2184824.0422,
+      "daysToResolution": 207.4,
       "marketCount": 17,
       "binary": false,
       "leadPrice": 0.685,
@@ -367,22 +367,22 @@
         {
           "label": "December 31",
           "price": 0.685,
-          "weekChange": -0.04,
+          "weekChange": -0.02,
           "conditionId": "0x9769f78cbc95a5ed11895e6064bac471d8fd8f930b260cf581b68d3f58630d27",
           "marketId": "2155052",
           "question": "US x Iran permanent peace deal by December 31, 2026?",
-          "liquidity": 264925.6074,
-          "volume": 6877321.303019025
+          "liquidity": 285239.2204,
+          "volume": 6879601.816997025
         },
         {
           "label": "October 31",
-          "price": 0.595,
+          "price": 0.59,
           "weekChange": 0.0,
           "conditionId": "0x087713ab2905e789c42c3fafdf747512f8d7883b7fab1ac554b703310c09d869",
           "marketId": "2413572",
           "question": "US x Iran permanent peace deal by October 31, 2026?",
-          "liquidity": 153967.2328,
-          "volume": 84573.42693899992
+          "liquidity": 151938.639,
+          "volume": 85112.84247899994
         },
         {
           "label": "August 31",
@@ -391,48 +391,48 @@
           "conditionId": "0xda519921a7090298cbdc56ee838a403a5193c2b3f637aef3e154e52de7b5e79c",
           "marketId": "2413571",
           "question": "US x Iran permanent peace deal by August 31, 2026?",
-          "liquidity": 196387.8588,
-          "volume": 707206.0435130001
+          "liquidity": 190026.3747,
+          "volume": 708098.9051470007
         },
         {
           "label": "July 31",
           "price": 0.315,
-          "weekChange": -0.17,
+          "weekChange": -0.13,
           "conditionId": "0x20af55ab35186377b81219db6cb8615240cba42cea41731091be9484a5f5b122",
           "marketId": "2270338",
           "question": "US x Iran permanent peace deal by July 31, 2026?",
-          "liquidity": 260614.1961,
-          "volume": 4860081.139368101
+          "liquidity": 245689.5836,
+          "volume": 4865883.7432021005
         },
         {
           "label": "June 30",
           "price": 0.205,
-          "weekChange": -0.13,
+          "weekChange": -0.1,
           "conditionId": "0x6114a8a3f9ac214f48a7e20d169f1c7a5c84082cb6f7058ed9fe1137b11fd0e7",
           "marketId": "1962237",
           "question": "US x Iran permanent peace deal by June 30, 2026?",
-          "liquidity": 350926.3251,
-          "volume": 18689190.21501169
+          "liquidity": 365100.795,
+          "volume": 18716309.382511683
         },
         {
           "label": "June 15",
-          "price": 0.075,
-          "weekChange": -0.14,
+          "price": 0.07,
+          "weekChange": -0.135,
           "conditionId": "0xd86a816093fcd0a0e1ca440bc5ce199bd3c5a8d6139e044b076958164f8c5423",
           "marketId": "2270330",
           "question": "US x Iran permanent peace deal by June 15, 2026?",
-          "liquidity": 684336.7803,
-          "volume": 12871947.027405193
+          "liquidity": 576895.8789,
+          "volume": 12902749.427016197
         },
         {
           "label": "June 7",
-          "price": 0.0155,
-          "weekChange": -0.1295,
+          "price": 0.0145,
+          "weekChange": -0.1205,
           "conditionId": "0x366f89649caea042c96ee741b185461ec7faa408a2664ec44469a0061924b537",
           "marketId": "2334107",
           "question": "US x Iran permanent peace deal by June 7, 2026?",
-          "liquidity": 320339.51016,
-          "volume": 15684819.126637049
+          "liquidity": 325196.14104,
+          "volume": 15728892.021014042
         },
         {
           "label": "April 22",
@@ -467,14 +467,14 @@
           "volume": 26051734.516940523
         },
         {
-          "label": "July 31",
-          "price": 0.315,
-          "weekChange": -0.17,
-          "conditionId": "0x20af55ab35186377b81219db6cb8615240cba42cea41731091be9484a5f5b122",
-          "marketId": "2270338",
-          "question": "US x Iran permanent peace deal by July 31, 2026?",
-          "liquidity": 260614.1961,
-          "volume": 4860081.139368101
+          "label": "May 15",
+          "price": 0.0,
+          "weekChange": -0.137,
+          "conditionId": "0x1db02ba50e2312a62b4104de691cc7a76065d8d0da40decf93eb1b914a3217b7",
+          "marketId": "2099029",
+          "question": "US x Iran permanent peace deal by May 15, 2026?",
+          "liquidity": 0.0,
+          "volume": 18446435.319120057
         }
       ],
       "flags": [
@@ -484,50 +484,50 @@
       ],
       "news": [
         {
-          "title": "Exclusive: Iran supreme leader\u2019s adviser says talks deadlocked over $24 billion and warns of wider war - CNN",
-          "source": "CNN",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWnA5aVNZalFpYVdlWHJuSE41QUlIbGFrNkdiV1Q3RzdTekJqM2oza09hcWZZMFBUNVlGN3g4eVZUc3puNmZWNjJERWFNYTRZRkZRd2pIcVVEam5KSTFmcWxlZG93ejJONDdVMnhzcVdXblB1OTQ0eG84RG9pZ1lHTlJmTXQ1UWF1VnVmZEhZNG1paEc0anlDUlBYejBPWU0?oc=5"
+          "title": "Iran backs Hezbollah, demands Israeli withdrawal, complicating US peace efforts - Crypto Briefing",
+          "source": "Crypto Briefing",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxORVhEb3JjR3B2TGJVbUZFTTZyOHA3SVF2RU1BZ2VVOEFVWnV2WXNRQUdhSDJyVHNIMlJkcXgtblg5amNLNWJnMy1pVGh5RWRGNjRnelMtMVhFU18wTXA3b3pGQjJqRTBRZy1LZ1RHNGp5SXc2bEJkUFlPMnFnbWhQaVZ0Z3p5MzlHUUpDcUxMMXlhUWFiQ2N3anRPNEFUdURkTGlyQWhFWjE?oc=5"
         },
         {
-          "title": "Live Updates: U.S. and Iran trade another round of fire as Iranian official says talks are at a \"deadlock\" - CBS News",
-          "source": "CBS News",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPelJMTjAxUFhxdHBqeU9KN3lhbkFhM182azlzVHpGTDZXaGkyaDFNT0Vzc2ZBT1BJTnpiTm9XalZjOVhaWGN6YjJjXzBBZ2lrQW52bFhZZmw4OHFSYWVRcUpwenVEckFlSkY5NGx1bFM2dDVuUUlPQ1M1UTgtX094dlhHOUs1bVU3NlFBRmFuLThRN0dtUE9yWg?oc=5"
+          "title": "Markets Bet on US-Iran Peace - StartupHub.ai",
+          "source": "StartupHub.ai",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNOEcxZEo3M0U4Y1hwRFZZa2h6V2RpMFQ1UVhpNjRuZ09KUHlQTGJWbjI2N3dYMHlkdzNQejZvY2VFSzVYejVnVlZKQmlPZlNVQ3dXcmh1cEFyMUFUdU9QRlhkZXczVE9aaVdleFlqOXN5QThuajVEYW5VbkJwY05WQlE3QV9hYTdNa1NSdDZMRQ?oc=5"
         },
         {
-          "title": "Iran Demands Cash for Peace. That\u2019s a Political Minefield for Trump. - WSJ",
-          "source": "WSJ",
-          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQLWxROW81WWQ0REhTd3pyc1R1aWRZOWpXYlFPM0JGYWYxR25kaWwwaFhwZUpjZ0wtYVFZajFObnR5cmJoeFJ1R0hkV296TndWZ1E4Y0xpaFJQblBBeWVYeTZSemk3b0JYdjkwSHd5YjJZOEVJOXRUcmxMclhPMjhnaVpSNUwxb3o5RV9jT3VraWVZNWgtRVEySXZFSG1pSmNwN2RpNmVMU0o1aVRldmZJY2hR?oc=5"
+          "title": "Iran says peace talks would be 'unreasonable' following Israeli strikes - Reuters",
+          "source": "Reuters",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPLVZ2aXNYWERoaVZBdWlxUWpCX3BMQlVCWjd3ZEpQZ2dKN21aR3lwMGdDWkVSM0Z3T2JvVzA4ZjZMcXFRSWtrUjJ3cno0MHFwQ0phWkdGdkIzY0Z5RFhkNlBpQTRsSjNUTk10emVzaEZ3NlhxQjU5Tkxsa3NTRU5VQUVMamkwUU9GeVR2WTA3MUt4dTM0QjFVQ1hESXliT0s2ZEtPVHNkVnBKb1lrWXdqdlZBRTBEVGJLVGlRVzhvNXdscFUwanloQTVwb1VOUQ?oc=5"
         },
         {
-          "title": "Are the US and Iran closer to war or to a deal? - Al Jazeera",
-          "source": "Al Jazeera",
-          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVVhJRkhSSnYzdi1PZVk5NHp1LUEtRWN4UW5kb0NIVnI2UjZ3MlRwT3hvRUxyZ1o5X052WUVZUEFRNGZabm5SSmFVVDBwMjdUeXZfSzhtMXB1QXluaHNkbGtEQUx0UnF6ZHpSZGhLcU1xTDBqT2R5Z3pqc0FTYVU0bUNkTzY2bDZzdVHSAY8BQVVfeXFMUEdJc25ldVFVT1J6cW5fMlp0b1h1cHA0cUgwV0lDN04xMTJ4djg1QkJhanhNQmwxU0JMbUxHQ0NXS2ZwMlFhajk5dkQ3WFNlWVZ5RVBWdEFKN1ZOM25mZDB3eTV4d0NyLUE4SXdfX3BFWGp6VWd2TTJzeVJmXzF3cGZwWE5CUmphZVJFc2ZwVHM?oc=5"
+          "title": "Iran ceasefire deal gives Trump a way out of war - but at a high cost - BBC",
+          "source": "BBC",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5CRVprXzRhN2xKdWwxckFMd1VzLU15RWN6QWNLVkI4b1lnSTltbnZMa3pVOFdQTmhMaWhtWTRCRDBFdEJLU3pTSi1DT2pyd1VJSGJ6VjhOeUVKUQ?oc=5"
         }
       ],
       "context": {
-        "summary": "Current news coverage is discussing the challenges and stalemates in the negotiations between the US and Iran, with reports of disagreements over financial compensation and warnings of a potential wider conflict.",
+        "summary": "Current news coverage is discussing the challenges and complexities surrounding the possibility of a US-Iran permanent peace deal, with reports highlighting Iran's support for Hezbollah, its demands for Israeli withdrawal, and its skepticism towards peace talks following Israeli strikes.",
         "sources": [
           {
-            "name": "CNN",
-            "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWnA5aVNZalFpYVdlWHJuSE41QUlIbGFrNkdiV1Q3RzdTekJqM2oza09hcWZZMFBUNVlGN3g4eVZUc3puNmZWNjJERWFNYTRZRkZRd2pIcVVEam5KSTFmcWxlZG93ejJONDdVMnhzcVdXblB1OTQ0eG84RG9pZ1lHTlJmTXQ1UWF1VnVmZEhZNG1paEc0anlDUlBYejBPWU0?oc=5"
+            "name": "Crypto Briefing",
+            "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxORVhEb3JjR3B2TGJVbUZFTTZyOHA3SVF2RU1BZ2VVOEFVWnV2WXNRQUdhSDJyVHNIMlJkcXgtblg5amNLNWJnMy1pVGh5RWRGNjRnelMtMVhFU18wTXA3b3pGQjJqRTBRZy1LZ1RHNGp5SXc2bEJkUFlPMnFnbWhQaVZ0Z3p5MzlHUUpDcUxMMXlhUWFiQ2N3anRPNEFUdURkTGlyQWhFWjE?oc=5"
           },
           {
-            "name": "CBS News",
-            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPelJMTjAxUFhxdHBqeU9KN3lhbkFhM182azlzVHpGTDZXaGkyaDFNT0Vzc2ZBT1BJTnpiTm9XalZjOVhaWGN6YjJjXzBBZ2lrQW52bFhZZmw4OHFSYWVRcUpwenVEckFlSkY5NGx1bFM2dDVuUUlPQ1M1UTgtX094dlhHOUs1bVU3NlFBRmFuLThRN0dtUE9yWg?oc=5"
+            "name": "StartupHub.ai",
+            "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNOEcxZEo3M0U4Y1hwRFZZa2h6V2RpMFQ1UVhpNjRuZ09KUHlQTGJWbjI2N3dYMHlkdzNQejZvY2VFSzVYejVnVlZKQmlPZlNVQ3dXcmh1cEFyMUFUdU9QRlhkZXczVE9aaVdleFlqOXN5QThuajVEYW5VbkJwY05WQlE3QV9hYTdNa1NSdDZMRQ?oc=5"
           },
           {
-            "name": "WSJ",
-            "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQLWxROW81WWQ0REhTd3pyc1R1aWRZOWpXYlFPM0JGYWYxR25kaWwwaFhwZUpjZ0wtYVFZajFObnR5cmJoeFJ1R0hkV296TndWZ1E4Y0xpaFJQblBBeWVYeTZSemk3b0JYdjkwSHd5YjJZOEVJOXRUcmxMclhPMjhnaVpSNUwxb3o5RV9jT3VraWVZNWgtRVEySXZFSG1pSmNwN2RpNmVMU0o1aVRldmZJY2hR?oc=5"
+            "name": "Reuters",
+            "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPLVZ2aXNYWERoaVZBdWlxUWpCX3BMQlVCWjd3ZEpQZ2dKN21aR3lwMGdDWkVSM0Z3T2JvVzA4ZjZMcXFRSWtrUjJ3cno0MHFwQ0phWkdGdkIzY0Z5RFhkNlBpQTRsSjNUTk10emVzaEZ3NlhxQjU5Tkxsa3NTRU5VQUVMamkwUU9GeVR2WTA3MUt4dTM0QjFVQ1hESXliT0s2ZEtPVHNkVnBKb1lrWXdqdlZBRTBEVGJLVGlRVzhvNXdscFUwanloQTVwb1VOUQ?oc=5"
           }
         ],
         "tier": "B",
-        "asOf": "2026-06-06T11:37:56.546364+00:00"
+        "asOf": "2026-06-06T13:20:55.779877+00:00"
       },
       "model": {
         "name": "QEST",
         "version": "baseline-v1",
-        "prob": 0.699,
-        "divergencePp": 1.4,
+        "prob": 0.692,
+        "divergencePp": 0.7,
         "tracked": true,
         "status": "PENDING"
       }
@@ -546,10 +546,10 @@
         "Macro Election 2",
         "Main Election"
       ],
-      "volume": 96273367.32244462,
-      "volume24h": 615185.9383319999,
-      "liquidity": 8766409.10549,
-      "daysToResolution": 119.5,
+      "volume": 96287135.82871261,
+      "volume24h": 605123.318271,
+      "liquidity": 8719571.45487,
+      "daysToResolution": 119.4,
       "marketCount": 32,
       "binary": false,
       "leadPrice": 0.415,
@@ -563,78 +563,78 @@
           "conditionId": "0xdf8e2dc5860027decbe6164555c3c1c9645c3bd33e16b9dc57ca87125047d4a8",
           "marketId": "601819",
           "question": "Will Luiz In\u00e1cio Lula da Silva win the 2026 Brazilian presidential election?",
-          "liquidity": 281218.753,
-          "volume": 6140747.734387028
+          "liquidity": 261601.2449,
+          "volume": 6141167.734387028
         },
         {
           "label": "Fl\u00e1vio Bolsonaro",
           "price": 0.2815,
-          "weekChange": -0.005,
+          "weekChange": -0.006,
           "conditionId": "0x1a01bf78f56a507fcb666d564d8c8b91b0750679163ed6e96746102c9b7d285d",
           "marketId": "601826",
           "question": "Will Fl\u00e1vio Bolsonaro win the 2026 Brazilian presidential election?",
-          "liquidity": 206367.43065,
-          "volume": 6433219.669306083
+          "liquidity": 204928.56245,
+          "volume": 6433226.232587082
         },
         {
           "label": "Renan Santos",
-          "price": 0.168,
-          "weekChange": 0.0135,
+          "price": 0.1675,
+          "weekChange": 0.0025,
           "conditionId": "0x05297f854d3b757d5e51a1a29c7f225a80b14b2a161d6b7f9a61677da7a80ced",
           "marketId": "601825",
           "question": "Will Renan Santos win the 2026 Brazilian presidential election?",
-          "liquidity": 165491.54227,
-          "volume": 6620197.653744994
+          "liquidity": 168095.31459,
+          "volume": 6620507.422928994
         },
         {
           "label": "Camilo Santana",
-          "price": 0.0365,
-          "weekChange": 0.025,
+          "price": 0.0355,
+          "weekChange": 0.024,
           "conditionId": "0x101d084cd035070abde58d8a3113b78e11ba68028b0d9e7e38ea7d780797aecc",
           "marketId": "601829",
           "question": "Will Camilo Santana win the 2026 Brazilian presidential election?",
-          "liquidity": 207870.53187,
-          "volume": 3119758.75689999
-        },
-        {
-          "label": "Romeu Zema",
-          "price": 0.0325,
-          "weekChange": 0.006,
-          "conditionId": "0x054725b2a7971376f7924a7021221b12acc50fe78d97817824fe411704d5b5a2",
-          "marketId": "601828",
-          "question": "Will Romeu Zema win the 2026 Brazilian presidential election?",
-          "liquidity": 349952.8893,
-          "volume": 3469898.7437639893
+          "liquidity": 206818.24649,
+          "volume": 3122836.16031599
         },
         {
           "label": "Fernando Haddad",
           "price": 0.0315,
-          "weekChange": -0.021,
+          "weekChange": -0.024,
           "conditionId": "0xdd3d104667774208eae2239f576122ecdd1c04ba81cc14d26d22a36b33887977",
           "marketId": "601821",
           "question": "Will Fernando Haddad win the 2026 Brazilian presidential election?",
-          "liquidity": 311912.62343,
-          "volume": 5552286.7116940385
+          "liquidity": 308130.18809,
+          "volume": 5553396.391597038
+        },
+        {
+          "label": "Romeu Zema",
+          "price": 0.0315,
+          "weekChange": 0.005,
+          "conditionId": "0x054725b2a7971376f7924a7021221b12acc50fe78d97817824fe411704d5b5a2",
+          "marketId": "601828",
+          "question": "Will Romeu Zema win the 2026 Brazilian presidential election?",
+          "liquidity": 350748.45252,
+          "volume": 3470176.3644089894
         },
         {
           "label": "Ronaldo Caiado",
-          "price": 0.0235,
-          "weekChange": 0.011,
+          "price": 0.0215,
+          "weekChange": 0.009,
           "conditionId": "0xbca3d70ec52a5a441ccc365a3b1b48b9cd0f08dfff4bc5871e2cd92d0d92caa1",
           "marketId": "601827",
           "question": "Will Ronaldo Caiado win the 2026 Brazilian presidential election?",
-          "liquidity": 266807.68474,
-          "volume": 3863067.2563219815
+          "liquidity": 262642.54354,
+          "volume": 3865479.483219982
         },
         {
           "label": "Jair Bolsonaro",
           "price": 0.0065,
-          "weekChange": 0.0,
+          "weekChange": -0.001,
           "conditionId": "0x63d8f3a34c90bd5342dda8acf62b6a898dfa52f86475efaf180b66493ef6af80",
           "marketId": "601820",
           "question": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?",
-          "liquidity": 377904.38388,
-          "volume": 4345013.325048967
+          "liquidity": 375048.79151,
+          "volume": 4345030.587379968
         }
       ],
       "movers": [],
@@ -680,7 +680,7 @@
           }
         ],
         "tier": "A",
-        "asOf": "2026-06-06T11:37:58.064226+00:00"
+        "asOf": "2026-06-06T13:20:57.215638+00:00"
       },
       "model": {
         "name": "QEST",
@@ -705,10 +705,10 @@
         "French Election",
         "Main Election"
       ],
-      "volume": 92698294.09350717,
-      "volume24h": 981971.9096280001,
-      "liquidity": 8716099.75329,
-      "daysToResolution": 327.5,
+      "volume": 92725038.09790917,
+      "volume24h": 653352.560115,
+      "liquidity": 8640515.70174,
+      "daysToResolution": 327.4,
       "marketCount": 128,
       "binary": false,
       "leadPrice": 0.255,
@@ -722,7 +722,7 @@
           "conditionId": "0x1166388a24a3f2a9bb0a45956bdb205c70f0ecafb8539e277a57adf022e306be",
           "marketId": "679019",
           "question": "Will Jordan Bardella win the 2027 French presidential election?",
-          "liquidity": 128860.2454,
+          "liquidity": 135534.6901,
           "volume": 1020531.7430619984
         },
         {
@@ -732,7 +732,7 @@
           "conditionId": "0x46f2f457e14ee9021ebd0ef4c27eacd98fdceaf7f2938b484e2551e9e3275ae8",
           "marketId": "679021",
           "question": "Will \u00c9douard Philippe win the 2027 French presidential election?",
-          "liquidity": 110393.7911,
+          "liquidity": 109666.8883,
           "volume": 833264.4001770236
         },
         {
@@ -742,18 +742,18 @@
           "conditionId": "0x174ea87d011bfd0b230efc45e0b4d0756d38af91f0ffbab70013a582603c2be8",
           "marketId": "679030",
           "question": "Will Jean-Luc M\u00e9lenchon win the 2027 French presidential election?",
-          "liquidity": 178394.4007,
-          "volume": 676066.1353609982
+          "liquidity": 179345.3323,
+          "volume": 676899.4653609982
         },
         {
           "label": "Gabriel Attal",
           "price": 0.0645,
-          "weekChange": -0.0095,
+          "weekChange": -0.005,
           "conditionId": "0x6189539ff1b08bc4052607d89921663ca0de0f0cd70b79c9993d7f9f3211ec3e",
           "marketId": "679026",
           "question": "Will Gabriel Attal win the 2027 French presidential election?",
-          "liquidity": 128525.63587,
-          "volume": 1542162.1163560161
+          "liquidity": 130799.53284,
+          "volume": 1543721.5963530163
         },
         {
           "label": "Marine Le Pen",
@@ -762,8 +762,8 @@
           "conditionId": "0x8126317d621047fb13d508a2651eecc8d38305904671822a62309c5aabd353aa",
           "marketId": "679018",
           "question": "Will Marine Le Pen win the 2027 French presidential election?",
-          "liquidity": 120224.6811,
-          "volume": 654965.1825869995
+          "liquidity": 127462.8974,
+          "volume": 655008.9225869995
         },
         {
           "label": "Dominique de Villepin",
@@ -772,8 +772,8 @@
           "conditionId": "0x20fd4cf096367edbd429168764db975b582249a7a3818684d051f445a3efaed1",
           "marketId": "679034",
           "question": "Will Dominique de Villepin win the 2027 French presidential election?",
-          "liquidity": 117577.5989,
-          "volume": 1324265.7688349974
+          "liquidity": 120774.28089,
+          "volume": 1325009.9088349973
         },
         {
           "label": "Fran\u00e7ois Hollande",
@@ -782,8 +782,8 @@
           "conditionId": "0xa203cc908da0d417590e01f89fb651a335650d6b797da76ac28726d5f8c7610b",
           "marketId": "679028",
           "question": "Will Fran\u00e7ois Hollande win the 2027 French presidential election?",
-          "liquidity": 113676.64241,
-          "volume": 1127299.973840997
+          "liquidity": 112738.10371,
+          "volume": 1127435.0338409971
         },
         {
           "label": "David Lisnard",
@@ -792,8 +792,8 @@
           "conditionId": "0xce610556ec78cfd7894f4169d91fe70e31c2fb49f927fffd7fe7d06530f88d56",
           "marketId": "679022",
           "question": "Will David Lisnard win the 2027 French presidential election?",
-          "liquidity": 117513.56767,
-          "volume": 1308683.3314460036
+          "liquidity": 121275.30161,
+          "volume": 1308841.8114460038
         }
       ],
       "movers": [],
@@ -839,7 +839,7 @@
           }
         ],
         "tier": "A",
-        "asOf": "2026-06-06T11:37:59.423884+00:00"
+        "asOf": "2026-06-06T13:20:58.675831+00:00"
       },
       "model": {
         "name": "QEST",
@@ -864,25 +864,25 @@
         "maduro",
         "Rewards 20, 4.5, 50"
       ],
-      "volume": 90104629.05147256,
-      "volume24h": 60698.326934000004,
-      "liquidity": 1681574.63172,
-      "daysToResolution": 207.5,
+      "volume": 90109757.06001754,
+      "volume24h": 64526.787815,
+      "liquidity": 1684678.22399,
+      "daysToResolution": 207.4,
       "marketCount": 57,
       "binary": false,
-      "leadPrice": 0.719,
+      "leadPrice": 0.7245,
       "change1h": 0.0,
       "change24h": 0.0,
       "outcomes": [
         {
           "label": "Nicol\u00e1s Maduro",
-          "price": 0.719,
-          "weekChange": 0.043,
+          "price": 0.7245,
+          "weekChange": 0.048,
           "conditionId": "0x67f3f8d0a0ecdfc008c99650284a4674388a8c3029b0eb7ca0abd65dde8d996f",
           "marketId": "1105744",
           "question": "Will Nicol\u00e1s Maduro be the leader of Venezuela end of 2026?",
-          "liquidity": 73176.77603,
-          "volume": 1810747.003186006
+          "liquidity": 73626.03223,
+          "volume": 1810759.883186006
         },
         {
           "label": "Delcy Rodr\u00edguez",
@@ -891,28 +891,18 @@
           "conditionId": "0xa01d48a973e40770719dab42faf1aeae5da4376d9eca46e77265c7551d1be0f7",
           "marketId": "1105742",
           "question": "Will Delcy Rodr\u00edguez be the leader of Venezuela end of 2026?",
-          "liquidity": 72558.3593,
+          "liquidity": 70082.2818,
           "volume": 1623021.9417430058
         },
         {
           "label": "Mar\u00eda Corina Machado",
-          "price": 0.0695,
-          "weekChange": 0.015,
+          "price": 0.063,
+          "weekChange": 0.0085,
           "conditionId": "0x70187b4770796788b9d1f3fc6652c596870a9a837b96c832441652588f26029d",
           "marketId": "1105741",
           "question": "Will Mar\u00eda Corina Machado be the leader of Venezuela end of 2026?",
-          "liquidity": 90365.12117,
-          "volume": 1168171.9832700419
-        },
-        {
-          "label": "Edmundo Gonz\u00e1lez",
-          "price": 0.0085,
-          "weekChange": -0.004,
-          "conditionId": "0xb122b2a17c8dea01d5e8ffe04316bbe011f9bf80c989bb82afde2f39a3fd4441",
-          "marketId": "1105740",
-          "question": "Will Edmundo Gonz\u00e1lez be the leader of Venezuela end of 2026?",
-          "liquidity": 64825.53361,
-          "volume": 960728.964743999
+          "liquidity": 89709.14948,
+          "volume": 1168920.9832700419
         },
         {
           "label": "Jorge Rodr\u00edguez",
@@ -921,8 +911,18 @@
           "conditionId": "0xcef0ea92825ef2e046a97ef9b628709d0071614832d3bfc9c6c8dc119a472618",
           "marketId": "1105749",
           "question": "Will Jorge Rodr\u00edguez be the leader of Venezuela end of 2026?",
-          "liquidity": 51677.73068,
+          "liquidity": 53121.1,
           "volume": 1022917.2393299987
+        },
+        {
+          "label": "Edmundo Gonz\u00e1lez",
+          "price": 0.0065,
+          "weekChange": -0.004,
+          "conditionId": "0xb122b2a17c8dea01d5e8ffe04316bbe011f9bf80c989bb82afde2f39a3fd4441",
+          "marketId": "1105740",
+          "question": "Will Edmundo Gonz\u00e1lez be the leader of Venezuela end of 2026?",
+          "liquidity": 67371.41626,
+          "volume": 961448.7028849988
         },
         {
           "label": "No Head of State",
@@ -931,8 +931,8 @@
           "conditionId": "0xf752269473fe416c87c8da63dd21c74581cbe3f3920cc904b0d59cbdfa173ef7",
           "marketId": "1105755",
           "question": "Will there be no head of state of Venezuela end of 2026?",
-          "liquidity": 52666.07672,
-          "volume": 1228255.570839
+          "liquidity": 52814.93736,
+          "volume": 1228619.985839
         },
         {
           "label": "Diosdado Cabello Rond\u00f3n",
@@ -941,8 +941,8 @@
           "conditionId": "0xd46931250308613b38c1fdad5cfeaeaae05818bc445668ad4629f12e92aac690",
           "marketId": "1105743",
           "question": "Will Diosdado Cabello Rond\u00f3n be the leader of Venezuela end of 2026?",
-          "liquidity": 57711.74269,
-          "volume": 1828995.7539759974
+          "liquidity": 57873.56834,
+          "volume": 1829391.9159759975
         },
         {
           "label": "Donald Trump",
@@ -951,7 +951,7 @@
           "conditionId": "0x746481a9f7ac20a4959a11ea5d535522040b0dfd7c21b920d5fe134a93c2c26c",
           "marketId": "1105746",
           "question": "Will Donald Trump be the leader of Venezuela end of 2026?",
-          "liquidity": 53262.13065,
+          "liquidity": 52414.03864,
           "volume": 925188.9003520029
         }
       ],
@@ -961,9 +961,9 @@
       ],
       "news": [
         {
-          "title": "Venezuelan opposition leader Machado says she will run again for presidency and return from exile by late 2026 - PBS",
-          "source": "PBS",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQdGJIbEFaVjFBYzdQT0JVdE1PREpQSnVIZUdfcnRySV9ranVYd05tUkNURU95SzdvaENteGRLLTN5YmJYeENEY2NCb0NCdm9QMURlem1obVVzVkl4Nk4tanJwdVMyTzM4SVR0YmlwbGFkZUZodmkwMFBoQ3RzSlI3VEg4YWdmTGhoQ3VrNm5FcFFqaXFqaTFvQW1MWkR5bW50YXE3bmdrNkZla3FKc0I2MTNGZlFsTzYtdXc2SURPNEZaTWFTQTMtalQydF96ajFmRF9zZFExYkRHUmpCYnfSAeMBQVVfeXFMUHNvLTRlVkN0aXJRbm04Z2d5S0lBMDNQRWVvTzlEYnVtcnZMM3JDcFpoUlR5c3NCQUZ4bXhaaDZ3eHItbkx2bG9jS0QzWWtFN190cDJISW1NWGtHLVhscXk1ZjJoc3BKc1kwS1FhSHNHVk5DY29IWkdHS3AwWFctOHVIaTdXTURaRzJCSkpMTGxWN2tKRjF5Zk80bVFFMjR0TmdCclNjNURjOEw0ZzJjRWQ5d1VVSGxUU21lbWRMREhDcG1KWDg2elg4dUpzWDQ0TVVYcFVRZFMySUtYTHFvU2ZGb1E?oc=5"
+          "title": "Exxon May Return to Venezuela, Ending a Long Fight With Its Leaders - The New York Times",
+          "source": "The New York Times",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObVhOVnhfX0dWQzFKNEFkdm4yVDZvYlAxOUZ5X0dMTFpwVWc3Rldub0hXQWE0a2hfVk1BSHY5R0MtZlAxa1pZbW5ZMV9TaElwNTVvMWpCVnREYXVZalZqYUV2UFBRRGJkaEk3VDFOSGh5S2ozcDcwMjhUQzZFd0JmVHJNWFpmUFk?oc=5"
         },
         {
           "title": "Venezuela's Machado plans to return home by end of year, urges swift elections - Reuters",
@@ -971,40 +971,40 @@
           "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUU9LbUE4c3RIamNvYjJPWVpmZXRTUXhQZzlpYmVndFZJMmIxWHV2bGlmNjMyTmp6MFBieVBHeVpUM1FtM0E0STBsM0dYd3hNdzZRRUJsQ05BVlh1VzhRM2cyTW9tSFZiVzlmeUpCcHBKdjhyZVlOVmZNWDRka3kzaFNJR2ZhVm9icWx3aUpUN1BRelYxRG5oem9QOHZWdUJoUnBDc1ltTFhjR1JVUVM0dHF2OWZXREpRMkUweTN3?oc=5"
         },
         {
-          "title": "Venezuelan president to end amnesty, hundreds of political prisoners still unreleased - Foundation for Defense of Democracies",
-          "source": "Foundation for Defense of Democracies",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQc0J3Z2VmU2FlUTdFWmxkVFRteE9xeTZacGk2Q0tEWDVzTFVGckZuQm1XSVpTWWU4SWVfWmZTaUpqV2x6ckNLbjg3SGw1ZXc3aU9pM19QcERoWkRQU3d0dEhnV3Y1YWpDTTQ3clN1TVZDRkZzUmJkdFZESXU1b3RuQ1JSVGZ1dGJZamVsYUtoOENQR3ZWRkxDcFFYLVZtWnFla3lKYjdWTW50N3RFNFFLUUZ4dGhDNkNCNEplRXRGZmJkNWs?oc=5"
+          "title": "Venezuela\u2019s Machado vows presidential comeback, plans return from exile before end of 2026 - Firstpost",
+          "source": "Firstpost",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQRUFQUUo2aEVieXNURzRvYjhGLUY4dDBQZmRGRlJ3WGEyc2xMSTA4eGZLblJKY21DaEVWVkdLRGU4Sk9DUjNfaTRoUENnNmZQMWtsSnRKNTdoN25nQ3JyOXFTQTFfR1c2UEJVTkpfQUVJNDZVZW5RR2xZZlJmcmlWc2QxN0NBaWNPRm9Ba0VnZWZqZ0xzTWhEUFVoMHo3Mi1FaEtlREhlXzNfQmNjZ0wwSDJhU292Q2RyOGFtazVuNTZjRlQ1R3BTSWZWUk4wVWvSAdQBQVVfeXFMTk1pdDJ0Rm9kR01WekJTYTdtOUt0dkNzem1wSm5ORjBuQzQ2Ni1pSUhpeEVaUWhJNXAxT2tTOFFROU4yUlZmMC1PNGIzNF9wTzRwbzF6OHFXdFdGWVgwMlR4RFBPRVZyZ3BUUnNuZGNNS3JYbEUxdFEtTVNjNDZrbWgybWFNTUJ5OGNMdFFTeDg1Vm9zSjljUC12ejNGM2o3bWd1cTBLQXlRRmNoakJFem9OWm9keVhqT25PQWRsWThfSThVUzJtSVBZek54UC0tNjlteEo?oc=5"
         },
         {
-          "title": "Venezuela\u2019s Delcy Rodr\u00edguez remains acting president after her initial 90-day appointment expired - Upper Michigan's Source",
-          "source": "Upper Michigan's Source",
-          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQam5rUkg1U3gwZFk5WUU4TDNQQW05aGlKc0VsVDNGdTFtbVVhYXlvWEpiYjhuT3Exa1g5NUZuMkFRbjEtejdKQTZSZ2ZWTVhVbHBmb0xsM3FUTGhpbUNVSTRMQmFjc0tzMkJvbGxreW0tSGhLaXMxQjczSjctVGNIUUoycllsbG9ldnF0UXY2Q0x0NjBUM28xZDZhNWxMNnc1NFVKT0VHbkp2MzF5TEg0YTBMUjA3T1VYbmM4bzhtUTFXVDBHMmdwWldtR0ZRbUJ5UUx3THM3UkJhdE84?oc=5"
+          "title": "Venezuelan president to end amnesty, hundreds of political prisoners still unreleased - Long War Journal",
+          "source": "Long War Journal",
+          "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOdWY1WFhQX1I0aFE0THZXY2tUbXlMMm04MUw4U0stSmF1T19CRU5oU3ZUdnRrc1RJRmJ6Zm5wOEZQNXlJQXB3UzRSMm92SWh5XzkzamlIMlhUS3dac25WRFh0NnIySlVNZzc1Q0ZBeklnRmNKNzg2M1BvOXh4bTNSQnVsN1lIOXh3SThoN0RKYlhDaUtKYU1sakZDbndzTUc0S0pYY0lLbklvbnAyQmFWQjg4TjgzREVzdWpjWkx0UnNobFY4eHBUVzNWeWdSd1BiTlE?oc=5"
         }
       ],
       "context": {
-        "summary": "Coverage in the news: \u201cVenezuelan opposition leader Machado says she will run again for presidency and return from exile by late 2026 - PBS\u201d \u00b7 \u201cVenezuela's Machado plans to return home by end of year, urges swift elections - Reuters\u201d",
+        "summary": "Coverage in the news: \u201cExxon May Return to Venezuela, Ending a Long Fight With Its Leaders - The New York Times\u201d \u00b7 \u201cVenezuela's Machado plans to return home by end of year, urges swift elections - Reuters\u201d",
         "sources": [
           {
-            "name": "PBS",
-            "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQdGJIbEFaVjFBYzdQT0JVdE1PREpQSnVIZUdfcnRySV9ranVYd05tUkNURU95SzdvaENteGRLLTN5YmJYeENEY2NCb0NCdm9QMURlem1obVVzVkl4Nk4tanJwdVMyTzM4SVR0YmlwbGFkZUZodmkwMFBoQ3RzSlI3VEg4YWdmTGhoQ3VrNm5FcFFqaXFqaTFvQW1MWkR5bW50YXE3bmdrNkZla3FKc0I2MTNGZlFsTzYtdXc2SURPNEZaTWFTQTMtalQydF96ajFmRF9zZFExYkRHUmpCYnfSAeMBQVVfeXFMUHNvLTRlVkN0aXJRbm04Z2d5S0lBMDNQRWVvTzlEYnVtcnZMM3JDcFpoUlR5c3NCQUZ4bXhaaDZ3eHItbkx2bG9jS0QzWWtFN190cDJISW1NWGtHLVhscXk1ZjJoc3BKc1kwS1FhSHNHVk5DY29IWkdHS3AwWFctOHVIaTdXTURaRzJCSkpMTGxWN2tKRjF5Zk80bVFFMjR0TmdCclNjNURjOEw0ZzJjRWQ5d1VVSGxUU21lbWRMREhDcG1KWDg2elg4dUpzWDQ0TVVYcFVRZFMySUtYTHFvU2ZGb1E?oc=5"
+            "name": "The New York Times",
+            "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObVhOVnhfX0dWQzFKNEFkdm4yVDZvYlAxOUZ5X0dMTFpwVWc3Rldub0hXQWE0a2hfVk1BSHY5R0MtZlAxa1pZbW5ZMV9TaElwNTVvMWpCVnREYXVZalZqYUV2UFBRRGJkaEk3VDFOSGh5S2ozcDcwMjhUQzZFd0JmVHJNWFpmUFk?oc=5"
           },
           {
             "name": "Reuters",
             "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUU9LbUE4c3RIamNvYjJPWVpmZXRTUXhQZzlpYmVndFZJMmIxWHV2bGlmNjMyTmp6MFBieVBHeVpUM1FtM0E0STBsM0dYd3hNdzZRRUJsQ05BVlh1VzhRM2cyTW9tSFZiVzlmeUpCcHBKdjhyZVlOVmZNWDRka3kzaFNJR2ZhVm9icWx3aUpUN1BRelYxRG5oem9QOHZWdUJoUnBDc1ltTFhjR1JVUVM0dHF2OWZXREpRMkUweTN3?oc=5"
           },
           {
-            "name": "Foundation for Defense of Democr",
-            "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQc0J3Z2VmU2FlUTdFWmxkVFRteE9xeTZacGk2Q0tEWDVzTFVGckZuQm1XSVpTWWU4SWVfWmZTaUpqV2x6ckNLbjg3SGw1ZXc3aU9pM19QcERoWkRQU3d0dEhnV3Y1YWpDTTQ3clN1TVZDRkZzUmJkdFZESXU1b3RuQ1JSVGZ1dGJZamVsYUtoOENQR3ZWRkxDcFFYLVZtWnFla3lKYjdWTW50N3RFNFFLUUZ4dGhDNkNCNEplRXRGZmJkNWs?oc=5"
+            "name": "Firstpost",
+            "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQRUFQUUo2aEVieXNURzRvYjhGLUY4dDBQZmRGRlJ3WGEyc2xMSTA4eGZLblJKY21DaEVWVkdLRGU4Sk9DUjNfaTRoUENnNmZQMWtsSnRKNTdoN25nQ3JyOXFTQTFfR1c2UEJVTkpfQUVJNDZVZW5RR2xZZlJmcmlWc2QxN0NBaWNPRm9Ba0VnZWZqZ0xzTWhEUFVoMHo3Mi1FaEtlREhlXzNfQmNjZ0wwSDJhU292Q2RyOGFtazVuNTZjRlQ1R3BTSWZWUk4wVWvSAdQBQVVfeXFMTk1pdDJ0Rm9kR01WekJTYTdtOUt0dkNzem1wSm5ORjBuQzQ2Ni1pSUhpeEVaUWhJNXAxT2tTOFFROU4yUlZmMC1PNGIzNF9wTzRwbzF6OHFXdFdGWVgwMlR4RFBPRVZyZ3BUUnNuZGNNS3JYbEUxdFEtTVNjNDZrbWgybWFNTUJ5OGNMdFFTeDg1Vm9zSjljUC12ejNGM2o3bWd1cTBLQXlRRmNoakJFem9OWm9keVhqT25PQWRsWThfSThVUzJtSVBZek54UC0tNjlteEo?oc=5"
           }
         ],
         "tier": "A",
-        "asOf": "2026-06-06T11:38:00.759023+00:00"
+        "asOf": "2026-06-06T13:21:00.032867+00:00"
       },
       "model": {
         "name": "QEST",
         "version": "baseline-v1",
-        "prob": 0.7039,
-        "divergencePp": -1.5,
+        "prob": 0.7077,
+        "divergencePp": -1.7,
         "tracked": false,
         "status": null
       }
@@ -1023,35 +1023,35 @@
         "Peru Election",
         "Main Election"
       ],
-      "volume": 64498057.91279791,
-      "volume24h": 1379809.867751,
-      "liquidity": 4783442.23415,
-      "daysToResolution": -55.5,
+      "volume": 65032921.51678491,
+      "volume24h": 1886705.9305899998,
+      "liquidity": 4612245.75247,
+      "daysToResolution": -55.6,
       "marketCount": 49,
       "binary": false,
-      "leadPrice": 0.605,
-      "change1h": 0.0005,
-      "change24h": 0.018,
+      "leadPrice": 0.615,
+      "change1h": 0.0,
+      "change24h": 0.0275,
       "outcomes": [
         {
           "label": "Keiko Fujimori",
-          "price": 0.605,
-          "weekChange": -0.17,
+          "price": 0.615,
+          "weekChange": -0.16,
           "conditionId": "0xc4c3dbcc37a957a817599b0bf9fb5bd6b62b19210b0f527fec57cb75c7ed150a",
           "marketId": "947269",
           "question": "Will Keiko Fujimori win the 2026 Peruvian presidential election?",
-          "liquidity": 275297.9692,
-          "volume": 8364383.833547129
+          "liquidity": 315913.4179,
+          "volume": 8424630.680096133
         },
         {
           "label": "Roberto S\u00e1nchez Palomino",
-          "price": 0.3765,
-          "weekChange": 0.168,
+          "price": 0.3865,
+          "weekChange": 0.178,
           "conditionId": "0x2cd24d17f5680dc6e7b7d67c712a223ae85550745597e81bd2d2b8d073443951",
           "marketId": "947289",
           "question": "Will Roberto S\u00e1nchez Palomino win the 2026 Peruvian presidential election?",
-          "liquidity": 277180.65873,
-          "volume": 15067496.041021032
+          "liquidity": 188418.18032,
+          "volume": 15198623.530543027
         },
         {
           "label": "Rafael L\u00f3pez Aliaga",
@@ -1060,8 +1060,8 @@
           "conditionId": "0xae6d3d20bc8f742922dc40880cd8a8671c10385a9912fa7cd670fba0643dfe96",
           "marketId": "947268",
           "question": "Will Rafael L\u00f3pez Aliaga win the 2026 Peruvian presidential election?",
-          "liquidity": 173453.56599,
-          "volume": 13046611.93778075
+          "liquidity": 188853.99502,
+          "volume": 13056113.568957753
         },
         {
           "label": "Carlos \u00c1lvarez",
@@ -1070,8 +1070,8 @@
           "conditionId": "0x9b14ba5cc37a35c0db2c9849e631d98195670be4a0f91233a81529f22a7a5949",
           "marketId": "947271",
           "question": "Will Carlos \u00c1lvarez win the 2026 Peruvian presidential election?",
-          "liquidity": 147069.32631,
-          "volume": 7549017.001722001
+          "liquidity": 63001.92517,
+          "volume": 7828577.001722001
         },
         {
           "label": "C\u00e9sar Acu\u00f1a",
@@ -1080,7 +1080,7 @@
           "conditionId": "0xef61cec575ac7260343e1f0c11900fee12a1f30b521b649eec7663ec5424242a",
           "marketId": "947272",
           "question": "Will C\u00e9sar Acu\u00f1a win the 2026 Peruvian presidential election?",
-          "liquidity": 211057.77335,
+          "liquidity": 214250.80397,
           "volume": 645993.8659779998
         },
         {
@@ -1090,7 +1090,7 @@
           "conditionId": "0xa61438a389267c7deafc9d04cd6d0dc597d70253eb94702c0f5be458d75719a2",
           "marketId": "947274",
           "question": "Will Vladimir Cerr\u00f3n win the 2026 Peruvian presidential election?",
-          "liquidity": 252856.64546,
+          "liquidity": 255232.14834,
           "volume": 252942.31393799995
         },
         {
@@ -1100,7 +1100,7 @@
           "conditionId": "0x3aec41fee9edc59c2b98d439dba86debe339e35f62ac4cdc8de01ab1a5b93f21",
           "marketId": "947277",
           "question": "Will Roberto Chiabra win the 2026 Peruvian presidential election?",
-          "liquidity": 246492.23683,
+          "liquidity": 248385.28231,
           "volume": 136391.31482499995
         },
         {
@@ -1110,30 +1110,30 @@
           "conditionId": "0xd149b38c9da6bacbdc0068b579f8d255196f8c2ed6a5df67f5f3064dd00733e9",
           "marketId": "947278",
           "question": "Will Enrique Valderrama win the 2026 Peruvian presidential election?",
-          "liquidity": 260280.84379,
+          "liquidity": 262567.06241,
           "volume": 266137.72597300005
         }
       ],
       "movers": [
         {
-          "label": "Keiko Fujimori",
-          "price": 0.605,
-          "weekChange": -0.17,
-          "conditionId": "0xc4c3dbcc37a957a817599b0bf9fb5bd6b62b19210b0f527fec57cb75c7ed150a",
-          "marketId": "947269",
-          "question": "Will Keiko Fujimori win the 2026 Peruvian presidential election?",
-          "liquidity": 275297.9692,
-          "volume": 8364383.833547129
-        },
-        {
           "label": "Roberto S\u00e1nchez Palomino",
-          "price": 0.3765,
-          "weekChange": 0.168,
+          "price": 0.3865,
+          "weekChange": 0.178,
           "conditionId": "0x2cd24d17f5680dc6e7b7d67c712a223ae85550745597e81bd2d2b8d073443951",
           "marketId": "947289",
           "question": "Will Roberto S\u00e1nchez Palomino win the 2026 Peruvian presidential election?",
-          "liquidity": 277180.65873,
-          "volume": 15067496.041021032
+          "liquidity": 188418.18032,
+          "volume": 15198623.530543027
+        },
+        {
+          "label": "Keiko Fujimori",
+          "price": 0.615,
+          "weekChange": -0.16,
+          "conditionId": "0xc4c3dbcc37a957a817599b0bf9fb5bd6b62b19210b0f527fec57cb75c7ed150a",
+          "marketId": "947269",
+          "question": "Will Keiko Fujimori win the 2026 Peruvian presidential election?",
+          "liquidity": 315913.4179,
+          "volume": 8424630.680096133
         }
       ],
       "flags": [
@@ -1179,7 +1179,7 @@
           }
         ],
         "tier": "A",
-        "asOf": "2026-06-06T11:38:01.985908+00:00"
+        "asOf": "2026-06-06T13:21:01.559534+00:00"
       }
     },
     {
@@ -1196,15 +1196,15 @@
         "Economy",
         "fomc"
       ],
-      "volume": 62624296.86389899,
-      "volume24h": 5201791.764081,
-      "liquidity": 5318748.57304,
-      "daysToResolution": 10.5,
+      "volume": 63487121.729203984,
+      "volume24h": 5690348.943583,
+      "liquidity": 5310770.58806,
+      "daysToResolution": 10.4,
       "marketCount": 5,
       "binary": false,
       "leadPrice": 0.9865,
       "change1h": 0.0,
-      "change24h": 0.0,
+      "change24h": 0.001,
       "outcomes": [
         {
           "label": "No change",
@@ -1213,18 +1213,18 @@
           "conditionId": "0xde04b189b3f19eaccda02529a3ea67abfc46bff5c0c8fc42d8a2d0ed7b8f0d41",
           "marketId": "906974",
           "question": "Will there be no change in Fed interest rates after the June 2026 meeting?",
-          "liquidity": 1362764.50445,
-          "volume": 10542540.534953987
+          "liquidity": 1363635.21144,
+          "volume": 10546873.397553986
         },
         {
           "label": "25 bps decrease",
-          "price": 0.0065,
-          "weekChange": -0.001,
+          "price": 0.006,
+          "weekChange": -0.0015,
           "conditionId": "0xdde06286a7b9464d344f410ab0b3d2ebc6469904e72c27fd982f65fdbf78768d",
           "marketId": "906973",
           "question": "Will the Fed decrease interest rates by 25 bps after the June 2026 meeting?",
-          "liquidity": 622782.63833,
-          "volume": 11293090.573431931
+          "liquidity": 618918.8437,
+          "volume": 11298727.845284933
         },
         {
           "label": "25 bps increase",
@@ -1233,28 +1233,28 @@
           "conditionId": "0xa7cb4135c6d9c36da0e343874dd5b455de739c6d1b9f9f5583dd9320aacf5db2",
           "marketId": "906975",
           "question": "Will the Fed increase interest rates by 25 bps after the June 2026 meeting?",
-          "liquidity": 755345.76225,
-          "volume": 10030142.483325984
+          "liquidity": 753607.48552,
+          "volume": 10034264.639325976
         },
         {
           "label": "50+ bps decrease",
-          "price": 0.0025,
-          "weekChange": -0.002,
+          "price": 0.0035,
+          "weekChange": -0.001,
           "conditionId": "0x4e4a7df876b0c04f0b8b29b9073eddfbaf5c787192da825ae7ca1031bc8cfd15",
           "marketId": "906972",
           "question": "Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting?",
-          "liquidity": 1283162.63646,
-          "volume": 15123565.211987402
+          "liquidity": 1274017.94807,
+          "volume": 15131164.730068406
         },
         {
           "label": "50+ bps increase",
-          "price": 0.0005,
-          "weekChange": -0.001,
+          "price": 0.0015,
+          "weekChange": 0.0,
           "conditionId": "0xb01e70a56199a6d5467f47a2b94e75e7c7218c128c8d0b8beb6dafed2f0d15c2",
           "marketId": "906976",
           "question": "Will the Fed increase interest rates by 50+ bps after the June 2026 meeting?",
-          "liquidity": 1286814.541,
-          "volume": 15635409.934398685
+          "liquidity": 1308806.32387,
+          "volume": 16477433.994398685
         }
       ],
       "movers": [],
@@ -1262,6 +1262,11 @@
         "high-attention"
       ],
       "news": [
+        {
+          "title": "Polymarket Bets on Fed's June 2026 Rate Decision - StartupHub.ai",
+          "source": "StartupHub.ai",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaEIta2lVR1czdVFjalExTkpYYzVCWWFXUE5kYW5FTlRWclV5cUQ4Ty1XT05ENlNwUVloQ1pHWDN4MmlxUmZLblpCVDdGOFRRYmYybkRjLVl5dkhGWm1KWHI2SHdxQTB6Y2dhNmVBTWF2ajBEQ1pvZ2RnckhrTHJLNnlrVmpRTTFZci1odnZYbVlKWldtVGlpYU5vUUk1eXZGTEl5ckdiUGV3dw?oc=5"
+        },
         {
           "title": "When is the Fed's next meeting? See the full schedule for 2026. - Yahoo Finance",
           "source": "Yahoo Finance",
@@ -1276,16 +1281,15 @@
           "title": "Fed's interest rate pause bolstered by jobs data, but concerns linger - Reuters",
           "source": "Reuters",
           "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQa3FiMHVLTXhSU2hqb2ZuaWhEeXVEOVlMQnRtQWxWb0xyTEFYYlFQT1kwajlsQ0dyeC1adG40X3FHM0NHcWw5aHZHeUlzRjZENDNEeEJ1ZzlKb3pObDFfbnBheFE0ejJGTEJ2SzVVMWkwVUdHOGpNenVQSzhvYTVfUVI2UnQwZmt1NmxZSHRfOHpjNnhobFZSeHNn?oc=5"
-        },
-        {
-          "title": "Fed\u2019s Collins warns inflation to persist, no rate cuts expected through 2026 - Crypto Briefing",
-          "source": "Crypto Briefing",
-          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcjlCcW4tWGo2anF3Y3Btd0huN2xaYXJEczY2bjlZQ2hhNVVraWJNTE1hWEZHS0xidmliamdHQjBVR0lsZWNDcjZZdjhoYTRpczdiU3VYY2dmbjQtOTE2TXg3NzVxSzBjcFo5TEYzMGoya1YwbDloUXc5UTIwQlhWc2MtZHRUNWNiR3RDRVlOTkRqODMta1phVzlEak41RVdiM243ag?oc=5"
         }
       ],
       "context": {
-        "summary": "Coverage in the news: \u201cWhen is the Fed's next meeting? See the full schedule for 2026. - Yahoo Finance\u201d \u00b7 \u201cJune calendar 2026 features AICPA ENGAGE in Las Vegas, Fed decision, and Q2 earnings - eciks.org\u201d",
+        "summary": "Coverage in the news: \u201cPolymarket Bets on Fed's June 2026 Rate Decision - StartupHub.ai\u201d \u00b7 \u201cWhen is the Fed's next meeting? See the full schedule for 2026. - Yahoo Finance\u201d",
         "sources": [
+          {
+            "name": "StartupHub.ai",
+            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaEIta2lVR1czdVFjalExTkpYYzVCWWFXUE5kYW5FTlRWclV5cUQ4Ty1XT05ENlNwUVloQ1pHWDN4MmlxUmZLblpCVDdGOFRRYmYybkRjLVl5dkhGWm1KWHI2SHdxQTB6Y2dhNmVBTWF2ajBEQ1pvZ2RnckhrTHJLNnlrVmpRTTFZci1odnZYbVlKWldtVGlpYU5vUUk1eXZGTEl5ckdiUGV3dw?oc=5"
+          },
           {
             "name": "Yahoo Finance",
             "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOTV8yM2tUeklocXVhZXp4bzB5M2tTZUQ0OWZ2d3BNNVF2Z2pIbzhyODJha0R1WUhOaDNicE9zcjhMdVFvQ2RaU21UVjl3ZzY1SlMxZlB4SjhJTWRERTFwU19CMmVuQVQtQm5PQnREMW5LS3Nwc3E1LWh3QTdCQklfRVQ3emYyaWlGMjBqaktvb2ZLbFBZSnlTT01KYWpMaldSdkh4dWVKR192S3AwLWNNQmk2R3E4RUk?oc=5"
@@ -1293,21 +1297,17 @@
           {
             "name": "eciks.org",
             "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNM2VsTjctLXNNRWV5dDMxcmZJM0lfSmY2QkkyNmk2Wi1xRVQtbjJwcWdpNlJaOEFucWZOVXhjQklvZF9hSlg1TzM4SEdtejkycHVhYUVCejk2MVY2bUxCVmZfaEZiZ0VBRWtHTFk2SHc0ZnBHTklScm5pZml3WmlwRnlfMjFoWHZVUklLaUhtS0dDUTRSRktEMDFMRGV1OTBwaVBfY0Vvand5TWNMNGc?oc=5"
-          },
-          {
-            "name": "Reuters",
-            "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQa3FiMHVLTXhSU2hqb2ZuaWhEeXVEOVlMQnRtQWxWb0xyTEFYYlFQT1kwajlsQ0dyeC1adG40X3FHM0NHcWw5aHZHeUlzRjZENDNEeEJ1ZzlKb3pObDFfbnBheFE0ejJGTEJ2SzVVMWkwVUdHOGpNenVQSzhvYTVfUVI2UnQwZmt1NmxZSHRfOHpjNnhobFZSeHNn?oc=5"
           }
         ],
         "tier": "A",
-        "asOf": "2026-06-06T11:38:03.349458+00:00"
+        "asOf": "2026-06-06T13:21:02.983069+00:00"
       },
       "pressure": {
         "suddenMove": false,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false,
-        "move24hPp": 0.0
+        "move24hPp": 0.1
       }
     },
     {
@@ -1324,25 +1324,25 @@
         "Geopolitics",
         "Strait of Hormuz"
       ],
-      "volume": 50492684.96705136,
-      "volume24h": 363648.590778,
-      "liquidity": 154027.48767,
-      "daysToResolution": -66.5,
+      "volume": 50508146.52691536,
+      "volume24h": 374594.3856880001,
+      "liquidity": 186027.44728,
+      "daysToResolution": -66.6,
       "marketCount": 5,
       "binary": false,
-      "leadPrice": 0.0285,
+      "leadPrice": 0.0305,
       "change1h": null,
       "change24h": null,
       "outcomes": [
         {
           "label": "June 30",
-          "price": 0.0285,
-          "weekChange": -0.0165,
+          "price": 0.0305,
+          "weekChange": -0.0145,
           "conditionId": "0x6897736d782ce70f47126dfcec6669073f563d6e757e60bc61c0367370d6f73e",
           "marketId": "1708086",
           "question": "Kharg Island no longer under Iranian control by June 30?",
-          "liquidity": 158014.85543,
-          "volume": 5690143.752365025
+          "liquidity": 184415.28469,
+          "volume": 5705157.848037025
         },
         {
           "label": "March 31",
@@ -1441,7 +1441,7 @@
           }
         ],
         "tier": "A",
-        "asOf": "2026-06-06T11:38:04.628272+00:00"
+        "asOf": "2026-06-06T13:21:04.393949+00:00"
       }
     },
     {
@@ -1455,10 +1455,10 @@
         "Science",
         "Aliens"
       ],
-      "volume": 49616780.21335744,
-      "volume24h": 413845.54470900004,
-      "liquidity": 3317777.73982,
-      "daysToResolution": 207.5,
+      "volume": 49628728.93918644,
+      "volume24h": 420637.1747830001,
+      "liquidity": 3300968.76953,
+      "daysToResolution": 207.4,
       "marketCount": 6,
       "binary": false,
       "leadPrice": 0.135,
@@ -1472,8 +1472,8 @@
           "conditionId": "0x747dc809fb79e1b05be09c42d6179459a58de2ef3e40f02484a4e1260f741f75",
           "marketId": "703257",
           "question": "Will the US confirm that aliens exist before 2027?",
-          "liquidity": 1308636.215,
-          "volume": 31520205.42400856
+          "liquidity": 1234863.6861,
+          "volume": 31520552.003085557
         },
         {
           "label": "September 30",
@@ -1482,8 +1482,8 @@
           "conditionId": "0xace3c72c24fccb6731433483ece41c780432d84850edccd5a6bf3147ccea62a9",
           "marketId": "2034729",
           "question": "Will the US confirm that aliens exist by September 30?",
-          "liquidity": 165311.7786,
-          "volume": 1068311.2341789983
+          "liquidity": 164119.5392,
+          "volume": 1069525.0715089978
         },
         {
           "label": "June 30",
@@ -1492,8 +1492,8 @@
           "conditionId": "0xa7962b12241616d83dcb8c70fc33aa0f48b1ec46a3ad6a23db21d3885dedc4cb",
           "marketId": "2034723",
           "question": "Will the US confirm that aliens exist by June 30?",
-          "liquidity": 1900425.95124,
-          "volume": 4406573.405692978
+          "liquidity": 1895654.89169,
+          "volume": 4417188.832188978
         },
         {
           "label": "March 31",
@@ -1569,7 +1569,7 @@
           }
         ],
         "tier": "A",
-        "asOf": "2026-06-06T11:38:06.060514+00:00"
+        "asOf": "2026-06-06T13:21:05.800721+00:00"
       },
       "model": {
         "name": "QEST",
@@ -1578,57 +1578,6 @@
         "divergencePp": 0.4,
         "tracked": false,
         "status": null
-      }
-    },
-    {
-      "id": "73130",
-      "title": "Will the U.S. invade Iran before 2027?",
-      "slug": "will-the-us-invade-iran-before-2027",
-      "category": "Geopolitics",
-      "tags": [
-        "Geopolitics",
-        "Politics",
-        "Middle East",
-        "Israel",
-        "Iran",
-        "Trump",
-        "World",
-        "Military Strikes"
-      ],
-      "volume": 34024086.7664347,
-      "volume24h": 195373.03805499998,
-      "liquidity": 543318.526,
-      "daysToResolution": 207.5,
-      "marketCount": 1,
-      "binary": true,
-      "leadPrice": 0.165,
-      "change1h": -0.01,
-      "change24h": 0.0,
-      "outcomes": [
-        {
-          "label": "Will the U.S. invade Iran before 2027?",
-          "price": 0.165,
-          "weekChange": -0.03,
-          "conditionId": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
-          "marketId": "665374",
-          "question": "Will the U.S. invade Iran before 2027?",
-          "liquidity": 536861.3422,
-          "volume": 34024269.7664347
-        }
-      ],
-      "movers": [],
-      "flags": [
-        "high-attention"
-      ],
-      "news": [],
-      "context": null,
-      "model": {
-        "name": "QEST",
-        "version": "baseline-v1",
-        "prob": 0.1755,
-        "divergencePp": 1.1,
-        "tracked": true,
-        "status": "PENDING"
       }
     },
     {
@@ -1645,25 +1594,25 @@
         "Davos",
         "Parent For Derivative"
       ],
-      "volume": 33579865.49831752,
-      "volume24h": 22836.520762000033,
-      "liquidity": 192807.71478,
-      "daysToResolution": 207.5,
+      "volume": 33582451.62758051,
+      "volume24h": 24407.37192600003,
+      "liquidity": 185772.70238,
+      "daysToResolution": 207.4,
       "marketCount": 1,
       "binary": true,
-      "leadPrice": 0.0615,
+      "leadPrice": 0.0605,
       "change1h": 0.0,
-      "change24h": 0.0,
+      "change24h": -0.001,
       "outcomes": [
         {
           "label": "Will Trump acquire Greenland before 2027?",
-          "price": 0.0615,
-          "weekChange": -0.007,
+          "price": 0.0605,
+          "weekChange": -0.008,
           "conditionId": "0xd595eb9b81885ff018738300c79047e3ec89e87294424f57a29a7fa9162bf116",
           "marketId": "997488",
           "question": "Will Trump acquire Greenland before 2027?",
-          "liquidity": 189789.67294,
-          "volume": 33579886.70533351
+          "liquidity": 188823.04636,
+          "volume": 33582683.865212515
         }
       ],
       "movers": [],
@@ -1675,8 +1624,8 @@
       "model": {
         "name": "QEST",
         "version": "baseline-v1",
-        "prob": 0.0639,
-        "divergencePp": 0.2,
+        "prob": 0.0633,
+        "divergencePp": 0.3,
         "tracked": false,
         "status": null
       }
@@ -1696,25 +1645,25 @@
         "Finance",
         "Rewards 200, 4.5, 50"
       ],
-      "volume": 32698281.999921046,
-      "volume24h": 663046.3269719998,
-      "liquidity": 1924355.09683,
-      "daysToResolution": 207.5,
+      "volume": 32709428.944588047,
+      "volume24h": 612740.8629469998,
+      "liquidity": 1953450.55343,
+      "daysToResolution": 207.4,
       "marketCount": 13,
       "binary": false,
-      "leadPrice": 0.822,
-      "change1h": -0.001,
-      "change24h": 0.1285,
+      "leadPrice": 0.816,
+      "change1h": 0.0,
+      "change24h": 0.1235,
       "outcomes": [
         {
           "label": "0 (0 bps)",
-          "price": 0.822,
-          "weekChange": 0.1495,
+          "price": 0.816,
+          "weekChange": 0.1435,
           "conditionId": "0xd4e77ba6f29fc093509d24f508631abd445ecf506bbdc9c4c80e60256a318527",
           "marketId": "616902",
           "question": "Will no Fed rate cuts happen in 2026?",
-          "liquidity": 176752.21491,
-          "volume": 4817527.926565057
+          "liquidity": 175863.81474,
+          "volume": 4817611.603109057
         },
         {
           "label": "1 (25 bps)",
@@ -1723,8 +1672,8 @@
           "conditionId": "0x5e082f0b57f47a29044aa35b4c5658393122e659d5feae521c06b57cdd7f905c",
           "marketId": "616903",
           "question": "Will 1 Fed rate cut happen in 2026?",
-          "liquidity": 93633.8882,
-          "volume": 1421060.5858330063
+          "liquidity": 96636.946,
+          "volume": 1421377.6758330066
         },
         {
           "label": "2 (50 bps)",
@@ -1733,28 +1682,28 @@
           "conditionId": "0xe0d9f508a249e0070db06eb7d1e1fb17eb23c963f6fb722c4c3f81e23240c1cd",
           "marketId": "616904",
           "question": "Will 2 Fed rate cuts happen in 2026?",
-          "liquidity": 91144.6598,
-          "volume": 1378536.2126710024
+          "liquidity": 96839.7177,
+          "volume": 1378827.7326710026
         },
         {
           "label": "3 (75 bps)",
-          "price": 0.0255,
-          "weekChange": -0.006,
+          "price": 0.026,
+          "weekChange": -0.0055,
           "conditionId": "0x8d4966e84ae80f24b2e14643fdd45364e354229e11e2c17903b4b1763cfbe67c",
           "marketId": "616905",
           "question": "Will 3 Fed rate cuts happen in 2026?",
-          "liquidity": 109747.60795,
-          "volume": 1256857.7288539992
+          "liquidity": 114224.49748,
+          "volume": 1257004.6988539991
         },
         {
           "label": "4 (100 bps)",
-          "price": 0.0125,
-          "weekChange": 0.001,
+          "price": 0.0115,
+          "weekChange": -0.001,
           "conditionId": "0xaece8d6062d3e3eb9845b32441a4ab06eb2ef332c0228bc6a36add450647c7c4",
           "marketId": "616906",
           "question": "Will 4 Fed rate cuts happen in 2026?",
-          "liquidity": 81597.98671,
-          "volume": 1384515.0792830046
+          "liquidity": 87003.6649,
+          "volume": 1385290.6571090044
         },
         {
           "label": "5 (125 bps)",
@@ -1763,8 +1712,8 @@
           "conditionId": "0x7ee722a07e0f84405f1267bc1c84eb95bd6348454453abf445618e778af8fd18",
           "marketId": "616907",
           "question": "Will 5 Fed rate cuts happen in 2026?",
-          "liquidity": 112939.55384,
-          "volume": 1617381.5916280043
+          "liquidity": 115389.6459,
+          "volume": 1618053.5408280045
         },
         {
           "label": "6 (150 bps)",
@@ -1773,8 +1722,8 @@
           "conditionId": "0x4914bfdd892a48c341b5e0f41ec10475a815f2277273110b16f95e21084bfe75",
           "marketId": "616908",
           "question": "Will 6 Fed rate cuts happen in 2026?",
-          "liquidity": 114231.80895,
-          "volume": 2844971.015684959
+          "liquidity": 117942.12914,
+          "volume": 2845482.805684959
         },
         {
           "label": "7 (175 bps)",
@@ -1783,20 +1732,20 @@
           "conditionId": "0x2368d2604c9c2b95bc98c51bd50c66e5351caebf05b9fe79d3398c387fe29a89",
           "marketId": "616909",
           "question": "Will 7 Fed rate cuts happen in 2026?",
-          "liquidity": 152905.65102,
-          "volume": 2300155.0552249686
+          "liquidity": 156474.47402,
+          "volume": 2300693.0152249685
         }
       ],
       "movers": [
         {
           "label": "0 (0 bps)",
-          "price": 0.822,
-          "weekChange": 0.1495,
+          "price": 0.816,
+          "weekChange": 0.1435,
           "conditionId": "0xd4e77ba6f29fc093509d24f508631abd445ecf506bbdc9c4c80e60256a318527",
           "marketId": "616902",
           "question": "Will no Fed rate cuts happen in 2026?",
-          "liquidity": 176752.21491,
-          "volume": 4817527.926565057
+          "liquidity": 175863.81474,
+          "volume": 4817611.603109057
         },
         {
           "label": "1 (25 bps)",
@@ -1805,8 +1754,8 @@
           "conditionId": "0x5e082f0b57f47a29044aa35b4c5658393122e659d5feae521c06b57cdd7f905c",
           "marketId": "616903",
           "question": "Will 1 Fed rate cut happen in 2026?",
-          "liquidity": 93633.8882,
-          "volume": 1421060.5858330063
+          "liquidity": 96636.946,
+          "volume": 1421377.6758330066
         }
       ],
       "flags": [
@@ -1819,8 +1768,8 @@
       "model": {
         "name": "QEST",
         "version": "baseline-v1",
-        "prob": 0.7697,
-        "divergencePp": -5.2,
+        "prob": 0.7658,
+        "divergencePp": -5.0,
         "tracked": true,
         "status": "PENDING"
       },
@@ -1829,7 +1778,7 @@
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false,
-        "move24hPp": 12.8
+        "move24hPp": 12.3
       }
     },
     {
@@ -1845,10 +1794,10 @@
         "Geopolitics",
         "Earn 4%"
       ],
-      "volume": 32412430.284142245,
-      "volume24h": 347591.54191399994,
-      "liquidity": 748049.89743,
-      "daysToResolution": 207.5,
+      "volume": 32415931.837681253,
+      "volume24h": 349066.5195049993,
+      "liquidity": 746994.13696,
+      "daysToResolution": 207.4,
       "marketCount": 1,
       "binary": true,
       "leadPrice": 0.0655,
@@ -1862,8 +1811,8 @@
           "conditionId": "0xd9fb1184af0064e5e34b129f5b79afa5a17b7e32f2953ab05efed82315fee6d4",
           "marketId": "567621",
           "question": "Will China invade Taiwan by end of 2026?",
-          "liquidity": 747480.5397,
-          "volume": 32412790.60514625
+          "liquidity": 743604.44315,
+          "volume": 32416343.15505125
         }
       ],
       "movers": [],
@@ -1894,10 +1843,10 @@
         "Politics",
         "World"
       ],
-      "volume": 30918109.106736053,
-      "volume24h": 71103.665965,
-      "liquidity": 265406.17038,
-      "daysToResolution": -157.0,
+      "volume": 30934023.02540605,
+      "volume24h": 86671.15807699999,
+      "liquidity": 260168.79187,
+      "daysToResolution": -157.1,
       "marketCount": 11,
       "binary": false,
       "leadPrice": 0.735,
@@ -1911,18 +1860,18 @@
           "conditionId": "0x2bde6486e7067f48ee21344d8b5c1af458732536eb4d080932c88c3a7c2d2126",
           "marketId": "666655",
           "question": "Starmer out by December 31, 2026?",
-          "liquidity": 76259.2026,
-          "volume": 2946509.8896649797
+          "liquidity": 74065.7012,
+          "volume": 2946637.0665559797
         },
         {
           "label": "July 31",
           "price": 0.375,
-          "weekChange": 0.025,
+          "weekChange": 0.02,
           "conditionId": "0x0efcc493f7e7578cd5808b29e08c2535dee61c2a1fe841696e76e7892b29cca8",
           "marketId": "2365093",
           "question": "Starmer out by July 31, 2026?",
-          "liquidity": 44016.419,
-          "volume": 91508.5948429999
+          "liquidity": 46622.8006,
+          "volume": 91632.4043579999
         },
         {
           "label": "June 30",
@@ -1931,18 +1880,18 @@
           "conditionId": "0xbee2cd40473495f713c69b9dfbce9fc2837fa4011568222c83c83bb773e35053",
           "marketId": "597967",
           "question": "Starmer out by June 30, 2026?",
-          "liquidity": 72476.9294,
-          "volume": 5275814.398613007
+          "liquidity": 79225.4626,
+          "volume": 5291336.037388008
         },
         {
           "label": "June 15",
-          "price": 0.0175,
-          "weekChange": -0.018,
+          "price": 0.0155,
+          "weekChange": -0.02,
           "conditionId": "0x3f75f0ebdcde8371e64cb1462ad7e893aff45003415986d02c29d823132aebd9",
           "marketId": "2365092",
           "question": "Starmer out by June 15, 2026?",
-          "liquidity": 66281.9485,
-          "volume": 263684.858804
+          "liquidity": 75679.14556,
+          "volume": 276059.71880400006
         },
         {
           "label": "December 31, 2025",
@@ -1993,8 +1942,8 @@
           "conditionId": "0x2bde6486e7067f48ee21344d8b5c1af458732536eb4d080932c88c3a7c2d2126",
           "marketId": "666655",
           "question": "Starmer out by December 31, 2026?",
-          "liquidity": 76259.2026,
-          "volume": 2946509.8896649797
+          "liquidity": 74065.7012,
+          "volume": 2946637.0665559797
         }
       ],
       "flags": [
@@ -2021,10 +1970,10 @@
         "Middle East",
         "Hormuz"
       ],
-      "volume": 29295641.65572092,
-      "volume24h": 245342.843105,
-      "liquidity": 345153.35281,
-      "daysToResolution": 23.5,
+      "volume": 29305519.40278892,
+      "volume24h": 254523.917263,
+      "liquidity": 342000.78188,
+      "daysToResolution": 23.4,
       "marketCount": 17,
       "binary": false,
       "leadPrice": 0.615,
@@ -2038,38 +1987,38 @@
           "conditionId": "0x0549eb8269570dea333fe47ffff241827d93a22caed18f64f9a1eb4c3239c7f8",
           "marketId": "2413557",
           "question": "Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by July 31, 2026?",
-          "liquidity": 73384.3483,
-          "volume": 52006.790278
+          "liquidity": 75923.2325,
+          "volume": 52136.656694000005
         },
         {
           "label": "June 30",
-          "price": 0.385,
-          "weekChange": -0.32,
+          "price": 0.375,
+          "weekChange": -0.31,
           "conditionId": "0x4d0c4865bdecc5f7971dbab47bb6c069d93909dec75bdff52fb766ae6094a6d6",
           "marketId": "2155023",
           "question": "Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by June 30, 2026?",
-          "liquidity": 92545.273,
-          "volume": 2137436.070938998
+          "liquidity": 92732.8087,
+          "volume": 2140310.1297969986
         },
         {
           "label": "June 15",
-          "price": 0.115,
-          "weekChange": -0.485,
+          "price": 0.105,
+          "weekChange": -0.47,
           "conditionId": "0x3094a2b925483a06aa72945a1472e311e5eb6be75284f61e0c008e279508ddf6",
           "marketId": "2354024",
           "question": "Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by June 15, 2026?",
-          "liquidity": 76279.3488,
-          "volume": 611079.0700629969
+          "liquidity": 79326.5227,
+          "volume": 616055.811919997
         },
         {
           "label": "June 7",
           "price": 0.0215,
-          "weekChange": -0.3035,
+          "weekChange": -0.2785,
           "conditionId": "0x65f5c4e3c6853a68fb50b59054dfe4c9e5ca5b705e04ed008185648334d1931d",
           "marketId": "2354023",
           "question": "Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by June 7, 2026?",
-          "liquidity": 95814.51055,
-          "volume": 879689.3079240001
+          "liquidity": 93116.14486,
+          "volume": 881697.4442770001
         },
         {
           "label": "May 31",
@@ -2115,33 +2064,33 @@
       "movers": [
         {
           "label": "June 15",
-          "price": 0.115,
-          "weekChange": -0.485,
+          "price": 0.105,
+          "weekChange": -0.47,
           "conditionId": "0x3094a2b925483a06aa72945a1472e311e5eb6be75284f61e0c008e279508ddf6",
           "marketId": "2354024",
           "question": "Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by June 15, 2026?",
-          "liquidity": 76279.3488,
-          "volume": 611079.0700629969
+          "liquidity": 79326.5227,
+          "volume": 616055.811919997
         },
         {
           "label": "June 30",
-          "price": 0.385,
-          "weekChange": -0.32,
+          "price": 0.375,
+          "weekChange": -0.31,
           "conditionId": "0x4d0c4865bdecc5f7971dbab47bb6c069d93909dec75bdff52fb766ae6094a6d6",
           "marketId": "2155023",
           "question": "Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by June 30, 2026?",
-          "liquidity": 92545.273,
-          "volume": 2137436.070938998
+          "liquidity": 92732.8087,
+          "volume": 2140310.1297969986
         },
         {
           "label": "June 7",
           "price": 0.0215,
-          "weekChange": -0.3035,
+          "weekChange": -0.2785,
           "conditionId": "0x65f5c4e3c6853a68fb50b59054dfe4c9e5ca5b705e04ed008185648334d1931d",
           "marketId": "2354023",
           "question": "Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by June 7, 2026?",
-          "liquidity": 95814.51055,
-          "volume": 879689.3079240001
+          "liquidity": 93116.14486,
+          "volume": 881697.4442770001
         }
       ],
       "flags": [
@@ -2172,8 +2121,8 @@
       ],
       "volume": 28235287.094852,
       "volume24h": 0.0,
-      "liquidity": 1722514.90198,
-      "daysToResolution": -125.5,
+      "liquidity": 1721830.37909,
+      "daysToResolution": -125.6,
       "marketCount": 61,
       "binary": false,
       "leadPrice": 1.0,
@@ -2197,7 +2146,7 @@
           "conditionId": "0xd7db9898e70fa01f172704d4bdee55a5bd947e47b368e1ca71f3ead8aa9b741d",
           "marketId": "1006487",
           "question": "Will Grigor Dimitrov win the 2026 Australian Open?",
-          "liquidity": 1722767.77274,
+          "liquidity": 1722183.15595,
           "volume": 1438228.4588250006
         },
         {
@@ -2313,10 +2262,10 @@
         "World Series",
         "baseball"
       ],
-      "volume": 28009173.581470057,
-      "volume24h": 247899.52503699998,
-      "liquidity": 2343128.85844,
-      "daysToResolution": 147.5,
+      "volume": 28019211.769687057,
+      "volume24h": 247941.591037,
+      "liquidity": 2341760.56363,
+      "daysToResolution": 147.4,
       "marketCount": 31,
       "binary": false,
       "leadPrice": 0.295,
@@ -2330,7 +2279,7 @@
           "conditionId": "0x749d8eccbc0a99447e71fc5e40a0096842774bef4d5c8838b8adb39af068b3cb",
           "marketId": "1235572",
           "question": "Will the Los Angeles Dodgers win the 2026 World Series?",
-          "liquidity": 36195.6772,
+          "liquidity": 36200.1844,
           "volume": 179588.03544799992
         },
         {
@@ -2340,18 +2289,18 @@
           "conditionId": "0x3df7be753c8b6ebbddf31d6d63535c4b31c836cb25b1a73085508a271bc103db",
           "marketId": "1235547",
           "question": "Will the New York Yankees win the 2026 World Series?",
-          "liquidity": 47888.087,
+          "liquidity": 47509.5447,
           "volume": 214081.15195799968
         },
         {
           "label": "Atlanta Braves",
-          "price": 0.097,
-          "weekChange": -0.004,
+          "price": 0.0965,
+          "weekChange": -0.005,
           "conditionId": "0x7c6d624563d7efee94f7ef54da8d35fd794b3cde9ead02df0d413d6ad3886570",
           "marketId": "1235562",
           "question": "Will the Atlanta Braves win the 2026 World Series?",
-          "liquidity": 78859.5083,
-          "volume": 911165.6786259968
+          "liquidity": 78543.50073,
+          "volume": 911203.5686259968
         },
         {
           "label": "Seattle Mariners",
@@ -2360,8 +2309,8 @@
           "conditionId": "0x8a638b539c43375ea04e0e2501f4a877df4ab35ae67a1f60d0e034d75c8c38ef",
           "marketId": "1235558",
           "question": "Will the Seattle Mariners win the 2026 World Series?",
-          "liquidity": 49006.41223,
-          "volume": 578329.7689569985
+          "liquidity": 48001.61984,
+          "volume": 578361.5089569985
         },
         {
           "label": "Milwaukee Brewers",
@@ -2370,18 +2319,8 @@
           "conditionId": "0x3db74f14fa0c4d8acb19ff4ffa18d523597a8e553ec565d494290a908d99395a",
           "marketId": "1235568",
           "question": "Will the Milwaukee Brewers win the 2026 World Series?",
-          "liquidity": 90806.37265,
-          "volume": 1138051.1836270005
-        },
-        {
-          "label": "Tampa Bay Rays",
-          "price": 0.037,
-          "weekChange": -0.0095,
-          "conditionId": "0x4d9567b9fa71a94b6e43ddb62ea6104cbb01926813938d241cce336bd72a8ba5",
-          "marketId": "1235549",
-          "question": "Will the Tampa Bay Rays win the 2026 World Series?",
-          "liquidity": 56912.74254,
-          "volume": 194209.37758199996
+          "liquidity": 90045.84943,
+          "volume": 1138073.1136270005
         },
         {
           "label": "Philadelphia Phillies",
@@ -2390,8 +2329,8 @@
           "conditionId": "0x9e238daa4cc2b89379314f5c1873e3c0d07d26bf2eb69a3d618a7b5d13b165a0",
           "marketId": "1235564",
           "question": "Will the Philadelphia Phillies win the 2026 World Series?",
-          "liquidity": 53700.9819,
-          "volume": 1184322.898231003
+          "liquidity": 52829.15763,
+          "volume": 1184489.243675003
         },
         {
           "label": "Chicago Cubs",
@@ -2400,8 +2339,18 @@
           "conditionId": "0xae0363bfe26b7de87f4526c47d5de9b324bab3d14690112bd89b34c9ed3552fc",
           "marketId": "1235569",
           "question": "Will the Chicago Cubs win the 2026 World Series?",
-          "liquidity": 79978.81987,
-          "volume": 995150.304227002
+          "liquidity": 79107.6003,
+          "volume": 995313.1242270019
+        },
+        {
+          "label": "Tampa Bay Rays",
+          "price": 0.036,
+          "weekChange": -0.0105,
+          "conditionId": "0x4d9567b9fa71a94b6e43ddb62ea6104cbb01926813938d241cce336bd72a8ba5",
+          "marketId": "1235549",
+          "question": "Will the Tampa Bay Rays win the 2026 World Series?",
+          "liquidity": 57084.62899,
+          "volume": 194380.55758199995
         }
       ],
       "movers": [],
@@ -2432,10 +2381,10 @@
         "Iran Ceasefire",
         "Politics"
       ],
-      "volume": 25248472.151760112,
-      "volume24h": 137564.45653599995,
-      "liquidity": 346112.57191,
-      "daysToResolution": 207.5,
+      "volume": 25249586.52171611,
+      "volume24h": 130179.82649199995,
+      "liquidity": 347786.26948,
+      "daysToResolution": 207.4,
       "marketCount": 5,
       "binary": false,
       "leadPrice": 0.195,
@@ -2449,18 +2398,18 @@
           "conditionId": "0x58998da8fa20593cf07618032acd580344a79279a8bcc3ed128b668d793c3d6f",
           "marketId": "2006983",
           "question": "US obtains Iranian enriched uranium by December 31?",
-          "liquidity": 109531.4231,
-          "volume": 1467774.566583004
+          "liquidity": 112747.0411,
+          "volume": 1467780.7394190042
         },
         {
           "label": "June 30",
           "price": 0.0255,
-          "weekChange": -0.0195,
+          "weekChange": -0.01,
           "conditionId": "0xc112ff35c760ee66738e288067c3de90a2b44a28a9e2f4488989d498be03b292",
           "marketId": "2183424",
           "question": "US obtains Iranian enriched uranium by June 30?",
-          "liquidity": 241118.84981,
-          "volume": 2073933.775755993
+          "liquidity": 230322.38498,
+          "volume": 2075041.972875992
         },
         {
           "label": "May 31",
@@ -2510,10 +2459,10 @@
         "NYMEX Crude Oil Futures",
         "Oil"
       ],
-      "volume": 23340061.868479013,
-      "volume24h": 251534.135528,
-      "liquidity": 1638919.84803,
-      "daysToResolution": 24.3,
+      "volume": 23347188.078479014,
+      "volume24h": 245232.47117100004,
+      "liquidity": 1589115.61984,
+      "daysToResolution": 24.2,
       "marketCount": 33,
       "binary": false,
       "leadPrice": 1.0,
@@ -2657,45 +2606,45 @@
         "Sports",
         "f1"
       ],
-      "volume": 22844042.15517571,
-      "volume24h": 193519.03537199998,
-      "liquidity": 1401873.90084,
-      "daysToResolution": 182.5,
+      "volume": 22852964.270063706,
+      "volume24h": 192065.61112699998,
+      "liquidity": 1395669.13671,
+      "daysToResolution": 182.4,
       "marketCount": 12,
       "binary": false,
-      "leadPrice": 0.805,
+      "leadPrice": 0.82,
       "change1h": 0.0,
       "change24h": 0.0,
       "outcomes": [
         {
           "label": "Mercedes",
-          "price": 0.805,
-          "weekChange": -0.07,
+          "price": 0.82,
+          "weekChange": -0.055,
           "conditionId": "0x9c4459a70fd67a346075c22a6b010b454794204f2f28d128983b9056fe8d64b5",
           "marketId": "898660",
           "question": "Will Mercedes be the 2026 F1 Constructors' Champion?",
-          "liquidity": 52993.0901,
-          "volume": 745634.5552029975
+          "liquidity": 52776.8088,
+          "volume": 745974.3234909974
         },
         {
           "label": "Ferrari",
-          "price": 0.08,
-          "weekChange": 0.0395,
+          "price": 0.078,
+          "weekChange": 0.0375,
           "conditionId": "0xfd516863c645e716dd507bd159267c85362b9b9b4a8bc9af340c2dda3b3751d7",
           "marketId": "898662",
           "question": "Will Ferrari be the 2026 F1 Constructors' Champion?",
-          "liquidity": 60780.25611,
-          "volume": 435268.46233399905
+          "liquidity": 60261.93644,
+          "volume": 435385.16233399906
         },
         {
           "label": "McLaren",
-          "price": 0.0455,
+          "price": 0.045,
           "weekChange": 0.0015,
           "conditionId": "0x5580ee82864f4523f7ecfe3a132642ca2db71a4187cd9d45df10579bf7655efd",
           "marketId": "898659",
           "question": "Will McLaren be the 2026 F1 Constructors' Champion?",
-          "liquidity": 64764.11372,
-          "volume": 1531004.5472189994
+          "liquidity": 67290.28368,
+          "volume": 1531310.1872189995
         },
         {
           "label": "Red Bull Racing",
@@ -2704,7 +2653,7 @@
           "conditionId": "0xe0342431765701abd4d9b25c1a205852a6f8df0324aeb9e7d7f58faced483881",
           "marketId": "898661",
           "question": "Will Red Bull Racing be the 2026 F1 Constructors' Champion?",
-          "liquidity": 67670.24179,
+          "liquidity": 66754.13737,
           "volume": 659024.0848799986
         },
         {
@@ -2714,8 +2663,8 @@
           "conditionId": "0x4d7eeb6b14f64cc6b847a5fea348e78f54a7ebbbf3a8e0df2141c916cc4ee3d3",
           "marketId": "898665",
           "question": "Will Aston Martin be the 2026 F1 Constructors' Champion?",
-          "liquidity": 176328.35574,
-          "volume": 2597163.293082999
+          "liquidity": 175057.10009,
+          "volume": 2597424.4456829987
         },
         {
           "label": "Audi",
@@ -2724,8 +2673,8 @@
           "conditionId": "0x523f29f4370b912f8434eba7726b7dd2e463f252cd14c2b97a2c7f256f0921a6",
           "marketId": "898667",
           "question": "Will Audi be the 2026 F1 Constructors' Champion?",
-          "liquidity": 162062.6124,
-          "volume": 2596228.9629170042
+          "liquidity": 160841.12745,
+          "volume": 2597482.0311170043
         },
         {
           "label": "Haas",
@@ -2734,8 +2683,8 @@
           "conditionId": "0x115401967f653200b41852811453cb5aac5052f339af0a63920fb84e6485f316",
           "marketId": "898666",
           "question": "Will Haas be the 2026 F1 Constructors' Champion?",
-          "liquidity": 158312.23003,
-          "volume": 2799304.367417967
+          "liquidity": 156201.45983,
+          "volume": 2801197.2758179656
         },
         {
           "label": "Alpine",
@@ -2744,20 +2693,20 @@
           "conditionId": "0xa6c8d7d0d25f27f1b6ecadd74be78256bf7c248d9d7c6fb9bc42d2059cfdca4f",
           "marketId": "898668",
           "question": "Will Alpine be the 2026 F1 Constructors' Champion?",
-          "liquidity": 155296.46573,
-          "volume": 2842710.4573809956
+          "liquidity": 152426.63516,
+          "volume": 2845079.095380995
         }
       ],
       "movers": [
         {
           "label": "Mercedes",
-          "price": 0.805,
-          "weekChange": -0.07,
+          "price": 0.82,
+          "weekChange": -0.055,
           "conditionId": "0x9c4459a70fd67a346075c22a6b010b454794204f2f28d128983b9056fe8d64b5",
           "marketId": "898660",
           "question": "Will Mercedes be the 2026 F1 Constructors' Champion?",
-          "liquidity": 52993.0901,
-          "volume": 745634.5552029975
+          "liquidity": 52776.8088,
+          "volume": 745974.3234909974
         }
       ],
       "flags": [
@@ -2769,8 +2718,8 @@
       "model": {
         "name": "QEST",
         "version": "baseline-v1",
-        "prob": 0.8295,
-        "divergencePp": 2.5,
+        "prob": 0.8392,
+        "divergencePp": 1.9,
         "tracked": true,
         "status": "PENDING"
       }
@@ -2789,10 +2738,10 @@
         "Business",
         "Finance"
       ],
-      "volume": 20706409.09498386,
-      "volume24h": 826051.417207,
-      "liquidity": 1649259.26214,
-      "daysToResolution": 23.5,
+      "volume": 20712704.251377862,
+      "volume24h": 790628.4926979999,
+      "liquidity": 1657724.11666,
+      "daysToResolution": 23.4,
       "marketCount": 28,
       "binary": false,
       "leadPrice": 0.905,
@@ -2806,28 +2755,28 @@
           "conditionId": "0x79afea6a94f0b3dffb5e0886fa1dbd740d688029f7aba351dc46911bcb1b1f95",
           "marketId": "631181",
           "question": "Will NVIDIA be the largest company in the world by market cap on June 30?",
-          "liquidity": 62447.4637,
-          "volume": 2372111.2618259457
+          "liquidity": 62790.6579,
+          "volume": 2376226.0444709454
         },
         {
           "label": "Apple",
-          "price": 0.051,
-          "weekChange": 0.0055,
+          "price": 0.0465,
+          "weekChange": 0.002,
           "conditionId": "0xc2db6688c6df422104ee751fad721b03ade9c50a8b3c85588cfe4a20ae62ff63",
           "marketId": "631183",
           "question": "Will Apple be the largest company in the world by market cap on June 30?",
-          "liquidity": 95228.56741,
-          "volume": 1794404.677376006
+          "liquidity": 109332.68424,
+          "volume": 1794747.8773760058
         },
         {
           "label": "Alphabet",
-          "price": 0.045,
-          "weekChange": -0.016,
+          "price": 0.0445,
+          "weekChange": -0.019,
           "conditionId": "0x416242cc0757f9d4aefdfe86893cea90610b3d0928c60e09416e717db7e9f0f0",
           "marketId": "631184",
           "question": "Will Alphabet be the largest company in the world by market cap on June 30?",
-          "liquidity": 71172.1205,
-          "volume": 1905891.2726250158
+          "liquidity": 71741.57478,
+          "volume": 1906583.4871850156
         },
         {
           "label": "Microsoft",
@@ -2836,8 +2785,8 @@
           "conditionId": "0x644dd9e9dd31ed7bb8ea3780c8eff79a42a190756e2592bcb4a93aa484b4fb9b",
           "marketId": "631182",
           "question": "Will Microsoft be the largest company in the world by market cap on June 30?",
-          "liquidity": 257919.26463,
-          "volume": 3812731.590152968
+          "liquidity": 260802.28214,
+          "volume": 3813137.743152968
         },
         {
           "label": "Tesla",
@@ -2846,7 +2795,7 @@
           "conditionId": "0xf1ed2e6df582b055e94b3ff00b9dce996af9f04c5cc67e9a6fbfef487169c0e7",
           "marketId": "631185",
           "question": "Will Tesla be the largest company in the world by market cap on June 30?",
-          "liquidity": 372236.13443,
+          "liquidity": 374064.68147,
           "volume": 3926878.099749972
         },
         {
@@ -2856,7 +2805,7 @@
           "conditionId": "0x6786eb0f18f38f4132b3501f142728ba2ed15b72ddc4f65ddde548c509d7f6ff",
           "marketId": "631187",
           "question": "Will Amazon be the largest company in the world by market cap on June 30?",
-          "liquidity": 400991.64687,
+          "liquidity": 400452.17326,
           "volume": 3505755.234545973
         },
         {
@@ -2866,7 +2815,7 @@
           "conditionId": "0x36b97e8e982e7ffc316526077c0fb30aa97e9ddb32961596e114576a17719df2",
           "marketId": "631186",
           "question": "Will Saudi Aramco be the largest company in the world by market cap on June 30?",
-          "liquidity": 380328.98634,
+          "liquidity": 380598.41951,
           "volume": 3389613.316740982
         }
       ],
@@ -2896,10 +2845,10 @@
         "Geopolitics",
         "World"
       ],
-      "volume": 19601614.119595036,
-      "volume24h": 88796.345069,
-      "liquidity": 1451747.97117,
-      "daysToResolution": 125.5,
+      "volume": 19615501.261465035,
+      "volume24h": 100139.784656,
+      "liquidity": 1446386.32906,
+      "daysToResolution": 125.4,
       "marketCount": 71,
       "binary": false,
       "leadPrice": 0.105,
@@ -2909,12 +2858,12 @@
         {
           "label": "Volodymyr Zelenskyy",
           "price": 0.105,
-          "weekChange": -0.003,
+          "weekChange": -0.001,
           "conditionId": "0xe2cd08587e1f67a41341994fc3ea053a8ed92b5258d42acf3d4448c75095eaa5",
           "marketId": "637011",
           "question": "Will Volodymyr Zelenskyy win the Nobel Peace Prize in 2026?",
-          "liquidity": 27365.76135,
-          "volume": 535197.679528998
+          "liquidity": 26836.1895,
+          "volume": 535449.669528998
         },
         {
           "label": "Donald Trump",
@@ -2923,18 +2872,18 @@
           "conditionId": "0x962e5b226a77266ab429029ee04665e8fcfeb10b91af593786ceab871d2e945f",
           "marketId": "637002",
           "question": "Will Donald Trump win the Nobel Peace Prize in 2026?",
-          "liquidity": 405671.8176,
-          "volume": 3563260.2198230135
+          "liquidity": 405300.3808,
+          "volume": 3563382.136778014
         },
         {
           "label": "UNRWA",
-          "price": 0.0755,
-          "weekChange": 0.009,
+          "price": 0.0775,
+          "weekChange": 0.008,
           "conditionId": "0xb3fefe9667acca5ca31a8e330219dc67a01b374331d9bf4875357655a5508815",
           "marketId": "637008",
           "question": "Will UNRWA win the Nobel Peace Prize in 2026?",
-          "liquidity": 48116.78035,
-          "volume": 1981867.7054290022
+          "liquidity": 47840.77217,
+          "volume": 1981982.255429002
         },
         {
           "label": "Yulia Navalnaya",
@@ -2943,8 +2892,8 @@
           "conditionId": "0xae76ef049f09b109cfb0a9bfa2335d7c9fde5bd262c64548b43308c810c314ec",
           "marketId": "637004",
           "question": "Will Yulia Navalnaya win the Nobel Peace Prize in 2026?",
-          "liquidity": 55848.5596,
-          "volume": 183497.17964099845
+          "liquidity": 55726.7178,
+          "volume": 183542.39964099845
         },
         {
           "label": "Tamim bin Hamad Al Thani",
@@ -2953,8 +2902,8 @@
           "conditionId": "0x720e7267b2bd49feeaed5cf254b5d5243aa4d5e4f2ac03e4a5cb1bd9eea8a6eb",
           "marketId": "637012",
           "question": "Will Tamim bin Hamad Al Thani win the Nobel Peace Prize in 2026?",
-          "liquidity": 47685.54539,
-          "volume": 635842.6407460032
+          "liquidity": 49814.44186,
+          "volume": 635857.7607460032
         },
         {
           "label": "Pope Leo XIV",
@@ -2963,8 +2912,18 @@
           "conditionId": "0xec2e51ebb99006172b05548fc53d6842d30c9c0cccaf4c34569f0431b94d4bfc",
           "marketId": "637003",
           "question": "Will Pope Leo XIV win the Nobel Peace Prize in 2026?",
-          "liquidity": 47408.49542,
-          "volume": 737924.3122370015
+          "liquidity": 45387.79717,
+          "volume": 737975.2182590015
+        },
+        {
+          "label": "Narendra Modi",
+          "price": 0.0225,
+          "weekChange": 0.0015,
+          "conditionId": "0xbe70d1b2d9c50c2d91f5f309417735f4238682239593a6a0bb1340188befb6cd",
+          "marketId": "637021",
+          "question": "Will Narendra Modi win the Nobel Peace Prize in 2026?",
+          "liquidity": 38427.78025,
+          "volume": 573830.7892849998
         },
         {
           "label": "International Court of Justice",
@@ -2973,18 +2932,8 @@
           "conditionId": "0x36081a32ac369bad207447fa2bc5d6d663fb576e935178a4a297931ec571f5d1",
           "marketId": "637009",
           "question": "Will the International Court of Justice win the Nobel Peace Prize in 2026?",
-          "liquidity": 43389.35154,
-          "volume": 790486.9843790017
-        },
-        {
-          "label": "Narendra Modi",
-          "price": 0.0215,
-          "weekChange": 0.0005,
-          "conditionId": "0xbe70d1b2d9c50c2d91f5f309417735f4238682239593a6a0bb1340188befb6cd",
-          "marketId": "637021",
-          "question": "Will Narendra Modi win the Nobel Peace Prize in 2026?",
-          "liquidity": 40433.40686,
-          "volume": 573775.6292849998
+          "liquidity": 42650.35559,
+          "volume": 790606.4143790017
         }
       ],
       "movers": [],
@@ -2996,7 +2945,7 @@
       "model": {
         "name": "QEST",
         "version": "baseline-v1",
-        "prob": 0.1239,
+        "prob": 0.1236,
         "divergencePp": 1.9,
         "tracked": false,
         "status": null
@@ -3019,10 +2968,10 @@
         "Khamenei out",
         "Mojtaba out"
       ],
-      "volume": 16609513.334658,
-      "volume24h": 181989.44903699995,
-      "liquidity": 187063.46236,
-      "daysToResolution": 207.5,
+      "volume": 16622705.173154999,
+      "volume24h": 182203.14461899997,
+      "liquidity": 184073.97125,
+      "daysToResolution": 207.4,
       "marketCount": 6,
       "binary": false,
       "leadPrice": 0.255,
@@ -3036,18 +2985,18 @@
           "conditionId": "0x377e7fe65cf198a7fc4fdae3f2136b74729279267858daaf96718b23bc2a5607",
           "marketId": "1535973",
           "question": "Iran leadership change by December 31?",
-          "liquidity": 92751.6401,
-          "volume": 2706255.3990999786
+          "liquidity": 94775.3521,
+          "volume": 2706472.493196978
         },
         {
           "label": "June 30",
-          "price": 0.04,
-          "weekChange": -0.035,
+          "price": 0.039,
+          "weekChange": -0.026,
           "conditionId": "0xb196a122933da9aff6cb8b0f3764d0dc5db1859f46c0481c711521eee8524291",
           "marketId": "1708133",
           "question": "Iran leadership change by June 30?",
-          "liquidity": 88500.60853,
-          "volume": 2296278.600373008
+          "liquidity": 86889.43468,
+          "volume": 2308980.327635008
         },
         {
           "label": "March 31",
@@ -3117,84 +3066,130 @@
         "tracked": false,
         "status": null
       }
+    },
+    {
+      "id": "448037",
+      "title": "Hantavirus pandemic in 2026?",
+      "slug": "hantavirus-pandemic-in-2026",
+      "category": "Weather",
+      "tags": [
+        "Weather",
+        "Pandemics",
+        "Hantavirus"
+      ],
+      "volume": 14394304.656787835,
+      "volume24h": 27241.940288000005,
+      "liquidity": 773069.1146,
+      "daysToResolution": 207.4,
+      "marketCount": 1,
+      "binary": true,
+      "leadPrice": 0.0605,
+      "change1h": 0.0,
+      "change24h": 0.0,
+      "outcomes": [
+        {
+          "label": "Hantavirus pandemic in 2026?",
+          "price": 0.0605,
+          "weekChange": -0.002,
+          "conditionId": "0xa4ddc18895cc7b14810283ef8f113939abffd3969c6a0e37f1897110c67e6f73",
+          "marketId": "2155000",
+          "question": "Hantavirus pandemic in 2026?",
+          "liquidity": 775206.62698,
+          "volume": 14394304.656787835
+        }
+      ],
+      "movers": [],
+      "flags": [
+        "high-attention"
+      ],
+      "news": [],
+      "context": null,
+      "model": {
+        "name": "QEST",
+        "version": "baseline-v1",
+        "prob": 0.0612,
+        "divergencePp": 0.1,
+        "tracked": false,
+        "status": null
+      }
     }
   ],
   "macro": {
     "available": true,
-    "regime": "risk-off",
-    "btcUsd": 60787.0,
-    "ethUsd": 1561.55,
-    "btcChange24h": -2.355,
-    "ethChange24h": -6.6328,
-    "totalMcapUsd": 2167482544226.6323,
-    "totalMcapChange24h": -2.311,
-    "btcDominance": 56.1584,
+    "regime": "neutral",
+    "btcUsd": 60908.0,
+    "ethUsd": 1566.22,
+    "btcChange24h": -1.8831,
+    "ethChange24h": -6.041,
+    "totalMcapUsd": 2177320134508.0764,
+    "totalMcapChange24h": -0.206,
+    "btcDominance": 56.1493,
     "topCoins": [
       {
         "symbol": "BTC",
-        "price": 60786.0,
-        "change24h": -2.3576,
-        "change7d": -17.3202
+        "price": 60920.0,
+        "change24h": -1.8632,
+        "change7d": -17.2152
       },
       {
         "symbol": "ETH",
-        "price": 1561.33,
-        "change24h": -6.6457,
-        "change7d": -22.5149
+        "price": 1566.64,
+        "change24h": -6.0155,
+        "change7d": -22.3185
       },
       {
         "symbol": "BNB",
-        "price": 575.82,
-        "change24h": -2.657,
-        "change7d": -14.6165
+        "price": 574.78,
+        "change24h": -3.2504,
+        "change7d": -14.4712
       },
       {
         "symbol": "XRP",
-        "price": 1.084,
-        "change24h": -3.633,
-        "change7d": -19.0954
+        "price": 1.094,
+        "change24h": -3.1655,
+        "change7d": -18.1699
       },
       {
         "symbol": "SOL",
-        "price": 62.4,
-        "change24h": -5.9619,
-        "change7d": -24.2251
+        "price": 62.71,
+        "change24h": -5.5504,
+        "change7d": -23.7601
       },
       {
         "symbol": "TRX",
-        "price": 0.3194,
-        "change24h": -1.7748,
-        "change7d": -6.9801
+        "price": 0.3202,
+        "change24h": -1.783,
+        "change7d": -6.8622
       },
       {
         "symbol": "FIGR_HELOC",
         "price": 1.029,
-        "change24h": 0.9495,
-        "change7d": -0.2977
+        "change24h": 0.9516,
+        "change7d": -0.3
       },
       {
         "symbol": "HYPE",
-        "price": 59.18,
-        "change24h": -3.7895,
-        "change7d": -11.4132
+        "price": 59.06,
+        "change24h": -5.3804,
+        "change7d": -13.0864
       },
       {
         "symbol": "DOGE",
-        "price": 0.0811,
-        "change24h": -3.9437,
-        "change7d": -19.5432
+        "price": 0.0819,
+        "change24h": -2.9422,
+        "change7d": -18.7154
       },
       {
         "symbol": "LEO",
-        "price": 9.58,
-        "change24h": -3.2977,
-        "change7d": -4.8292
+        "price": 9.56,
+        "change24h": -2.789,
+        "change7d": -4.8682
       }
     ],
     "crossSignals": [
       {
         "label": "Crowd vs tape (context only)",
-        "reading": "The crowd's 'How many Fed rate cuts in 2026?' market repriced ~12.8pp (24h); separately, BTC was -2.4% over the same window. Observed crypto regime label: risk-off.",
+        "reading": "The crowd's 'How many Fed rate cuts in 2026?' market repriced ~12.3pp (24h); separately, BTC was -1.9% over the same window. Observed crypto regime label: neutral.",
         "note": "Market context only \u2014 two observed moves shown side by side. No causal relationship implied; not predictive or investment commentary."
       }
     ],
@@ -3202,7 +3197,7 @@
       "available": true,
       "source": "yahoo-finance (delayed)",
       "class": "descriptive",
-      "asOf": "2026-06-06T11:38:13.451197+00:00",
+      "asOf": "2026-06-06T13:21:14.031626+00:00",
       "items": [
         {
           "symbol": "^GSPC",
@@ -3244,7 +3239,7 @@
       "series": "KXFEDDECISION",
       "ticker": "KXFEDDECISION-26JUN-H0",
       "title": "Will the Federal Reserve Hike rates by 0bps at their June 2026 meeting?",
-      "impliedPct": 97.0,
+      "impliedPct": 98.0,
       "closeDate": "2026-06-17",
       "attribution": "Kalshi public API"
     },
@@ -3260,7 +3255,7 @@
       "series": "KXCPIYOY",
       "ticker": "KXCPIYOY-26MAY-T4.3",
       "title": "Will the rate of CPI inflation be above 4.3% for the year ending in May 2026?",
-      "impliedPct": 9.0,
+      "impliedPct": 11.0,
       "closeDate": "2026-06-10",
       "attribution": "Kalshi public API"
     }
