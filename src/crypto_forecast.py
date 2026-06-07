@@ -12,9 +12,11 @@ worse than a random-walk baseline (MAE) and reads as advice.
     A VOLATILITY forecast (genuinely forecastable), scored by empirical
     coverage (does the 80% band cover ~80%?) — NOT a direction claim.
 
-Baseline to beat: random walk (prob_up=0.5, expected change=0). Data: Binance
-USDⓈ-M daily klines (keyless, public). HTTP is injectable so tests never touch
-the network. NEVER a point % headline; NEVER an edge/advice claim.
+Baseline to beat: random walk (prob_up=0.5, expected change=0). Data: Yahoo
+Finance daily candles (keyless). NOTE: Binance fapi is geoblocked from CI
+runners, so the cron opened 0 forecasts until this switched to Yahoo, which is
+proven reachable from the runner (same source as stocks.py). HTTP is injectable
+so tests never touch the network. NEVER a point % headline; NEVER an edge claim.
 """
 
 from __future__ import annotations
@@ -25,7 +27,7 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass
 
-from features.crypto_regime import BINANCE_FAPI, perp_symbol
+from features.crypto_regime import PERP_COINS
 
 FORECAST_VERSION = "cfx-v1"
 HORIZON_HOURS = 24
@@ -36,6 +38,7 @@ PROB_TILT_K = 0.3       # small: keeps prob_up near 0.5 (honest ~coin-flip)
 PROB_CLAMP = 0.10       # prob_up stays within [0.40, 0.60] worst case
 MIN_CLOSES = 10         # need enough history or available:false
 REQUEST_TIMEOUT_S = 6
+YF_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/"
 
 
 @dataclass(frozen=True)
@@ -72,19 +75,21 @@ def _clamp(x: float, lo: float, hi: float) -> float:
     return max(lo, min(hi, x))
 
 
-def klines_closes(symbol: str, get=_default_get, limit: int = VOL_WINDOW + 1) -> list[float]:
-    """Daily close prices (oldest -> newest) from Binance USDⓈ-M klines, or []."""
-    data = get(f"{BINANCE_FAPI}/fapi/v1/klines?symbol={symbol}&interval=1d&limit={limit}")
-    if not isinstance(data, list):
+def yahoo_ticker(coin_symbol: str | None) -> str | None:
+    """Map a coin symbol to its Yahoo USD ticker, restricted to the liquid-coin
+    allowlist. Yahoo is reachable from CI runners (Binance is geoblocked there)."""
+    s = (coin_symbol or "").lower()
+    return f"{s.upper()}-USD" if s in PERP_COINS else None
+
+
+def klines_closes(ticker: str, get=_default_get) -> list[float]:
+    """Daily close prices (oldest -> newest) from Yahoo Finance, or []."""
+    data = get(f"{YF_CHART}{ticker}?range=3mo&interval=1d")
+    try:
+        quote = data["chart"]["result"][0]["indicators"]["quote"][0]
+    except (TypeError, KeyError, IndexError):
         return []
-    closes: list[float] = []
-    for row in data:
-        # Binance kline row: [openTime, open, high, low, close, volume, ...]
-        if isinstance(row, (list, tuple)) and len(row) > 4:
-            c = _f(row[4])
-            if c is not None and c > 0:
-                closes.append(c)
-    return closes
+    return [c for c in (quote.get("close") or []) if isinstance(c, (int, float)) and c > 0]
 
 
 def _daily_returns(closes: list[float]) -> list[float]:
@@ -128,15 +133,15 @@ def prob_up(closes: list[float]) -> float | None:
 def forecast(coin_symbol: str | None, get=_default_get) -> CryptoForecast:
     """Build the 24h forecast for one coin. Fail-open: unsupported coin, thin
     history, or any fetch failure -> available:false with nulls (never faked)."""
-    sym = perp_symbol(coin_symbol)
+    tkr = yahoo_ticker(coin_symbol)
     base = CryptoForecast(
         symbol=(coin_symbol or "").lower(), available=False, prob_up=None,
         sigma_pct=None, band_pct=None, n_closes=0,
-        source="binance-fapi-klines", baseline="random_walk",
+        source="yahoo-finance-klines (delayed)", baseline="random_walk",
     )
-    if not sym:
+    if not tkr:
         return base
-    closes = klines_closes(sym, get)
+    closes = klines_closes(tkr, get)
     if len(closes) < MIN_CLOSES:
         return base
     sigma = realized_vol_pct(closes)
@@ -146,5 +151,5 @@ def forecast(coin_symbol: str | None, get=_default_get) -> CryptoForecast:
         symbol=(coin_symbol or "").lower(), available=True,
         prob_up=prob_up(closes), sigma_pct=sigma,
         band_pct=round(Z80 * sigma, 4), n_closes=len(closes),
-        source="binance-fapi-klines", baseline="random_walk",
+        source="yahoo-finance-klines (delayed)", baseline="random_walk",
     )

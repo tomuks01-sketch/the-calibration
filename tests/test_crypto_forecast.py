@@ -18,13 +18,13 @@ from crypto_forecast import (  # noqa: E402
 )
 
 
-def _klines(closes):
-    """Shape rows like Binance: [openTime, open, high, low, close, volume, ...]."""
-    return [[0, "0", "0", "0", str(c), "0", 0, "0", 0, "0", "0", "0"] for c in closes]
+def _yf(closes):
+    """Shape like the Yahoo chart endpoint: result[0].indicators.quote[0].close."""
+    return {"chart": {"result": [{"indicators": {"quote": [{"close": list(closes)}]}}]}}
 
 
 def _rising_get(closes):
-    return lambda url: _klines(closes) if "klines" in url else None
+    return lambda url: _yf(closes) if "chart" in url else None
 
 
 def _series(start, drift, osc, n):
@@ -38,9 +38,9 @@ def _series(start, drift, osc, n):
 
 
 def test_klines_closes_parses_and_skips_junk():
-    rows = _klines([100.0, 101.0]) + [["bad"], {"not": "a row"}, [0, 0, 0, 0, "-5"]]
-    closes = klines_closes("BTCUSDT", lambda url: rows)
-    assert closes == [100.0, 101.0]            # negative/short/garbage rows dropped
+    raw = [100.0, None, 101.0, -5, "x"]        # nulls/negatives/garbage in the series
+    closes = klines_closes("BTC-USD", lambda url: _yf(raw))
+    assert closes == [100.0, 101.0]            # only valid positive numbers kept
 
 
 def test_realized_vol_pct_known_series():
