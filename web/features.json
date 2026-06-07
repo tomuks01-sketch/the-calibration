@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-06-07T18:01:32.544119+00:00",
+  "generatedAt": "2026-06-07T19:53:57.610742+00:00",
   "records": [
     {
       "assetId": "30615",
@@ -120,7 +120,7 @@
       "category": "Iran",
       "horizonDays": 206.2,
       "crowd": {
-        "prob": 0.675,
+        "prob": 0.665,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -129,8 +129,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.689,
-        "gapVsCrowd": 0.014,
+        "prob": 0.6825,
+        "gapVsCrowd": 0.018,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -152,13 +152,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.6781,
+        "prob": 0.6689,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.3,
+          "baseline": 0.4,
           "regime": 0.0
         }
       }
@@ -335,7 +335,7 @@
       "category": "Politics",
       "horizonDays": -56.8,
       "crowd": {
-        "prob": 0.695,
+        "prob": 0.515,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -366,13 +366,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": -7.7,
+        "move24hPp": 7.2,
         "overheated": false,
         "infoEventNear": true,
         "preResolutionVol": true
       },
       "composite": {
-        "prob": 0.695,
+        "prob": 0.515,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -390,7 +390,7 @@
       "category": "Khamenei",
       "horizonDays": -67.8,
       "crowd": {
-        "prob": 0.0275,
+        "prob": 0.0455,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -422,13 +422,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0275,
+        "prob": 0.0455,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -489,6 +489,61 @@
       }
     },
     {
+      "assetId": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+      "kind": "PM_BINARY",
+      "title": "Will the U.S. invade Iran before 2027?",
+      "category": "Geopolitics",
+      "horizonDays": 206.2,
+      "crowd": {
+        "prob": 0.165,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.1615,
+        "gapVsCrowd": -0.004,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 1.0,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.1642,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": -0.1,
+          "regime": 0.0
+        }
+      }
+    },
+    {
       "assetId": "0xd595eb9b81885ff018738300c79047e3ec89e87294424f57a29a7fa9162bf116",
       "kind": "PM_BINARY",
       "title": "Will Trump acquire Greenland before 2027?",
@@ -504,7 +559,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0636,
+        "prob": 0.0633,
         "gapVsCrowd": 0.003,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -532,7 +587,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0612,
+        "prob": 0.0611,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -550,7 +605,7 @@
       "category": "Foreign Policy",
       "horizonDays": 206.2,
       "crowd": {
-        "prob": 0.066,
+        "prob": 0.0665,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -559,7 +614,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0658,
+        "prob": 0.0662,
         "gapVsCrowd": -0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -581,13 +636,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.066,
+        "prob": 0.0664,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -614,8 +669,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7604,
-        "gapVsCrowd": -0.044,
+        "prob": 0.7618,
+        "gapVsCrowd": -0.043,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -642,7 +697,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.7953,
+        "prob": 0.7955,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -710,7 +765,7 @@
       "category": "Strait of Hormuz",
       "horizonDays": 22.2,
       "crowd": {
-        "prob": 0.585,
+        "prob": 0.575,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -719,7 +774,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.585,
+        "prob": 0.575,
         "gapVsCrowd": 0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -742,7 +797,7 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.585,
+        "prob": 0.575,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -819,7 +874,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2879,
+        "prob": 0.2882,
         "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -847,7 +902,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2934,
+        "prob": 0.2935,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -859,11 +914,61 @@
       }
     },
     {
+      "assetId": "329654",
+      "kind": "PM_MULTI",
+      "title": "US obtains Iranian enriched uranium by...?",
+      "category": "Trump",
+      "horizonDays": 206.2,
+      "crowd": {
+        "prob": 0.195,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.1985,
+        "gapVsCrowd": 0.004,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive",
+        "source": "snapshot-derived"
+      },
+      "composite": {
+        "prob": 0.1958,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.1,
+          "regime": 0.0
+        }
+      }
+    },
+    {
       "assetId": "125877",
       "kind": "PM_MULTI",
       "title": "Will Crude Oil (CL) hit__ by end of June?",
       "category": "Commodities",
-      "horizonDays": 23.0,
+      "horizonDays": 22.9,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -975,7 +1080,7 @@
       "category": "AI",
       "horizonDays": 22.2,
       "crowd": {
-        "prob": 0.905,
+        "prob": 0.915,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -984,8 +1089,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.9015,
-        "gapVsCrowd": -0.004,
+        "prob": 0.901,
+        "gapVsCrowd": -0.014,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1012,13 +1117,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9042,
+        "prob": 0.9121,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.1,
+          "baseline": -0.3,
           "regime": 0.0
         }
       }
@@ -1039,8 +1144,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1189,
-        "gapVsCrowd": 0.014,
+        "prob": 0.1192,
+        "gapVsCrowd": 0.015,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1083,9 +1188,9 @@
       "kind": "PM_MULTI",
       "title": "Roland Garros ATP: Flavio Cobolli vs Alexander Zverev",
       "category": "Tennis",
-      "horizonDays": 6.8,
+      "horizonDays": 6.7,
       "crowd": {
-        "prob": 0.9995,
+        "prob": 1.0,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1140,7 +1245,7 @@
       "category": "Mojtaba",
       "horizonDays": 206.2,
       "crowd": {
-        "prob": 0.245,
+        "prob": 0.3,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1149,8 +1254,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2555,
-        "gapVsCrowd": 0.011,
+        "prob": 0.2913,
+        "gapVsCrowd": -0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1172,123 +1277,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.2473,
+        "prob": 0.2981,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.2,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "0xa4ddc18895cc7b14810283ef8f113939abffd3969c6a0e37f1897110c67e6f73",
-      "kind": "PM_BINARY",
-      "title": "Hantavirus pandemic in 2026?",
-      "category": "Weather",
-      "horizonDays": 206.2,
-      "crowd": {
-        "prob": 0.0595,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.0588,
-        "gapVsCrowd": -0.001,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": -0.1,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.0593,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "0x348cd9adf4f6855f58bd9c6dbf9ff251c4142ef77233a5dc95c65b4b61cd2187",
-      "kind": "PM_BINARY",
-      "title": "Strait of Hormuz traffic returns to normal by end of June?",
-      "category": "Macro Geopolitics",
-      "horizonDays": 22.2,
-      "crowd": {
-        "prob": 0.125,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.1845,
-        "gapVsCrowd": 0.059,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": -2.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.1366,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 1.2,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -1336,7 +1331,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 2.6,
+        "move24hPp": 1.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1386,7 +1381,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 5.0,
+        "move24hPp": 3.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1436,7 +1431,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 3.9,
+        "move24hPp": 2.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1485,8 +1480,8 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": true,
-        "move24hPp": 5.7,
+        "suddenMove": false,
+        "move24hPp": 3.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1535,8 +1530,8 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": true,
-        "move24hPp": 6.1,
+        "suddenMove": false,
+        "move24hPp": 3.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1586,7 +1581,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.8,
+        "move24hPp": 1.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1639,51 +1634,6 @@
       "composite": null
     },
     {
-      "assetId": "hype",
-      "kind": "CRYPTO",
-      "title": "HYPE",
-      "category": "crypto",
-      "horizonDays": null,
-      "crowd": {
-        "prob": null,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": false
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": "binance-fapi",
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 3.1,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": null
-    },
-    {
       "assetId": "doge",
       "kind": "CRYPTO",
       "title": "DOGE",
@@ -1725,8 +1675,53 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": true,
-        "move24hPp": 5.2,
+        "suddenMove": false,
+        "move24hPp": 3.1,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": null
+    },
+    {
+      "assetId": "hype",
+      "kind": "CRYPTO",
+      "title": "HYPE",
+      "category": "crypto",
+      "horizonDays": null,
+      "crowd": {
+        "prob": null,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": false
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": "binance-fapi",
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 2.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1771,7 +1766,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.6,
+        "move24hPp": 0.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
