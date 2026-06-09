@@ -4,65 +4,65 @@
   "baseline": "random_walk",
   "bandTarget": 0.8,
   "counts": {
-    "resolved": 14,
+    "resolved": 21,
     "open": 7,
     "void": 0,
-    "total": 21
+    "total": 28
   },
   "confidence": "low",
   "direction": {
-    "meanBrierUp": 0.2572,
+    "meanBrierUp": 0.24631,
     "baselineBrier": 0.25,
-    "skillVsRandomWalk": -0.0072,
-    "accuracy": 0.5,
+    "skillVsRandomWalk": 0.00369,
+    "accuracy": 0.667,
     "accuracyWilson95": [
-      0.268,
-      0.732
+      0.454,
+      0.828
     ],
-    "observedUpRate": 0.429
+    "observedUpRate": 0.286
   },
   "band": {
     "target": 0.8,
-    "coverageRate": 0.429,
+    "coverageRate": 0.619,
     "coverageWilson95": [
-      0.214,
-      0.674
+      0.409,
+      0.792
     ],
-    "n": 14
+    "n": 21
   },
   "byCoin": {
     "btc": {
-      "n": 2,
+      "n": 3,
       "confidence": "none",
       "coverageRate": null
     },
     "eth": {
-      "n": 2,
+      "n": 3,
       "confidence": "none",
       "coverageRate": null
     },
     "bnb": {
-      "n": 2,
+      "n": 3,
       "confidence": "none",
       "coverageRate": null
     },
     "xrp": {
-      "n": 2,
+      "n": 3,
       "confidence": "none",
       "coverageRate": null
     },
     "sol": {
-      "n": 2,
+      "n": 3,
       "confidence": "none",
       "coverageRate": null
     },
     "trx": {
-      "n": 2,
+      "n": 3,
       "confidence": "none",
       "coverageRate": null
     },
     "doge": {
-      "n": 2,
+      "n": 3,
       "confidence": "none",
       "coverageRate": null
     }
