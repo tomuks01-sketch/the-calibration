@@ -340,16 +340,39 @@ function renderTrack() {
     ? (dir.skillVsRandomWalk > 0 ? "+" : "") + dir.skillVsRandomWalk : "—";
   const cov = (gated && band.coverageRate != null)
     ? Math.round(band.coverageRate * 100) + "%" : "—";
+  const calErr = (gated && dir.calibrationError != null) ? dir.calibrationError : "—";
+  const pinball = (gated && band.pinball != null) ? band.pinball : "—";
+
+  // Reliability mini-plot: predicted probUp vs realised up-rate, per bin.
+  const bins = (gated && Array.isArray(dir.calibrationBins)) ? dir.calibrationBins : [];
+  const relRow = (b) => {
+    const p = Math.round((b.predicted || 0) * 100), a = Math.round((b.actual || 0) * 100);
+    return `<div class="rel-row">
+      <span class="rel-range">${esc(b.range)}<i>n=${b.n}</i></span>
+      <span class="rel-bars">
+        <span class="rel-bar rel-pred" style="width:${p}%"></span>
+        <span class="rel-bar rel-act" style="width:${a}%"></span>
+      </span>
+      <span class="rel-nums">${p}% <i>pred</i> · ${a}% <i>real</i></span>
+    </div>`;
+  };
+  const reliability = bins.length
+    ? `<div class="reliability"><p class="rel-h">Direction reliability · predicted vs realised up-rate (steel = predicted, amber = actual)</p>${bins.map(relRow).join("")}</div>`
+    : "";
+
   el.innerHTML =
     tile(c.resolved, "resolved · scored") +
     tile(c.open, "open · awaiting 24h") +
     tile(skill, "direction skill vs coin-flip") +
     tile(cov, "band coverage · target 80%") +
+    tile(calErr, "calibration error · lower better") +
+    tile(pinball, "band pinball · lower better") +
     `<p class="track-note">${gated
-      ? "Scored vs a random-walk baseline. Positive direction skill = better than a coin flip; band coverage near 80% = honest uncertainty. Shown win or lose."
+      ? "Scored vs a random-walk baseline. Direction skill near 0 = a coin flip; calibration error is how far our stated odds sit from reality; band coverage near 80% with low pinball = honest, well-sized uncertainty. Shown win or lose."
       : "Not yet meaningful — " + c.resolved + " resolved. Direction needs a long, "
         + "correlation-adjusted sample; the volatility band proves out sooner. "
-        + "If we never beat the baseline, this will say so."}</p>`;
+        + "If we never beat the baseline, this will say so."}</p>` +
+    reliability;
 }
 
 function render(data) {

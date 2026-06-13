@@ -19,7 +19,22 @@
       0.394,
       0.663
     ],
-    "observedUpRate": 0.449
+    "observedUpRate": 0.449,
+    "calibrationError": 0.0331,
+    "calibrationBins": [
+      {
+        "range": "45-50%",
+        "n": 48,
+        "predicted": 0.482,
+        "actual": 0.458
+      },
+      {
+        "range": "50-55%",
+        "n": 1,
+        "predicted": 0.51,
+        "actual": 0.0
+      }
+    ]
   },
   "band": {
     "target": 0.8,
@@ -28,6 +43,7 @@
       0.686,
       0.9
     ],
+    "pinball": 0.4962,
     "n": 49
   },
   "byCoin": {

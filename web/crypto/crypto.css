@@ -128,6 +128,16 @@ table.coins thead th.rk, table.coins thead th.nm { text-align: left; }
 .fx-note { font-size: 0.7rem; line-height: 1.45; color: var(--ink-faint); margin: -0.5rem 0 1.1rem; }
 .track-wrap { margin-top: clamp(1.5rem, 1rem + 2vw, 2.5rem); }
 .track-note { grid-column: 1 / -1; font-size: 0.74rem; line-height: 1.5; color: var(--ink-faint); margin: 0.3rem 0 0; }
+.reliability { grid-column: 1 / -1; margin-top: 0.6rem; }
+.rel-h { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin: 0 0 0.55rem; line-height: 1.4; }
+.rel-row { display: grid; grid-template-columns: 6.5rem 1fr auto; gap: 0.7rem; align-items: center; margin-bottom: 0.4rem; font-family: var(--mono); font-size: 0.72rem; }
+.rel-range { color: var(--ink-dim); } .rel-range i { color: var(--ink-faint); font-style: normal; margin-left: 0.4rem; }
+.rel-bars { position: relative; height: 16px; background: var(--carbon-1); border: 1px solid var(--hair); border-radius: 5px; overflow: hidden; }
+.rel-bar { position: absolute; left: 0; height: 7px; border-radius: 3px; }
+.rel-pred { top: 1px; background: var(--steel, #7f9ad0); opacity: 0.9; }
+.rel-act { bottom: 1px; background: var(--amber); }
+.rel-nums { color: var(--ink-faint); white-space: nowrap; } .rel-nums i { font-style: normal; opacity: 0.65; }
+@media (max-width: 560px) { .rel-nums { display: none; } .rel-row { grid-template-columns: 5rem 1fr; } }
 .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.6rem;
   margin-bottom: 1.1rem; }
 .m { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.6rem 0.7rem; border: 1px solid var(--hair);

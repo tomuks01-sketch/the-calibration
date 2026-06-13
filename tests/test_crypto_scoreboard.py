@@ -10,12 +10,15 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
 
-from crypto_scoreboard import BASELINE_BRIER, build  # noqa: E402
+from crypto_scoreboard import (  # noqa: E402
+    BASELINE_BRIER, band_pinball, build, direction_calibration,
+)
 
 
-def _resolved(symbol, prob_up, up_hit, brier, covered):
+def _resolved(symbol, prob_up, up_hit, brier, covered, band=None, realized=None):
     return {"symbol": symbol, "status": "RESOLVED", "probUp": prob_up,
-            "upHit": up_hit, "brierUp": brier, "bandCovered": covered}
+            "upHit": up_hit, "brierUp": brier, "bandCovered": covered,
+            "bandPct": band, "realizedChangePct": realized}
 
 
 def _cl(entries):
@@ -52,8 +55,39 @@ def test_negative_skill_is_published_not_hidden():
     assert sb["band"]["coverageRate"] == 0.0
 
 
+def test_band_pinball_known_value():
+    # realised 0%, band +/-2%: P10=-2 -> (0-(-2))*0.1=0.2 ; P90=+2 -> (2-0)*0.1=0.2 ; mean 0.2
+    pb = band_pinball([_resolved("btc", 0.5, 1, 0.25, True, band=2.0, realized=0.0)])
+    assert abs(pb - 0.2) < 1e-9
+    assert band_pinball([]) is None                     # nothing to score
+    assert band_pinball([_resolved("x", 0.5, 1, 0.25, True)]) is None  # missing band/realized -> skipped
+
+
+def test_direction_calibration_bins_and_error():
+    # 10 forecasts at probUp 0.55, all resolved up -> one bin, predicted 0.55, actual 1.0
+    rows, err = direction_calibration([_resolved("btc", 0.55, 1, 0.2, True) for _ in range(10)])
+    assert len(rows) == 1 and rows[0]["range"] == "55-60%"
+    assert rows[0]["predicted"] == 0.55 and rows[0]["actual"] == 1.0
+    assert abs(err - 0.45) < 1e-9                        # |0.55 - 1.0|
+    assert direction_calibration([]) == ([], None)       # empty -> no rows, no error
+
+
+def test_build_exposes_calibration_and_pinball_when_gated():
+    entries = [_resolved("btc", 0.55, 1, 0.20, True, band=2.0, realized=1.0) for _ in range(12)]
+    sb = build(_cl(entries))
+    assert sb["direction"]["calibrationError"] is not None
+    assert len(sb["direction"]["calibrationBins"]) >= 1
+    assert sb["band"]["pinball"] is not None
+    # below gate -> hidden
+    sb2 = build(_cl([_resolved("btc", 0.55, 1, 0.2, True, band=2.0, realized=1.0) for _ in range(5)]))
+    assert sb2["direction"]["calibrationError"] is None and sb2["band"]["pinball"] is None
+
+
 if __name__ == "__main__":
     test_below_gate_hides_stats_but_shows_counts()
     test_above_gate_scores_vs_random_walk()
     test_negative_skill_is_published_not_hidden()
+    test_band_pinball_known_value()
+    test_direction_calibration_bins_and_error()
+    test_build_exposes_calibration_and_pinball_when_gated()
     print("ALL cs-v1 CRYPTO-SCOREBOARD TESTS PASSED")

@@ -24,6 +24,52 @@ from scoreboard import _confidence, _mean, _wilson  # shared honest helpers (DRY
 OUT = Path(__file__).resolve().parent.parent / "web" / "crypto_scoreboard.json"
 BASELINE_BRIER = 0.25   # Brier of the always-0.5 (random-walk) direction forecaster
 BAND_TARGET = 0.80      # the band is an 80% interval; coverage should approach this
+# Direction reliability bins. probUp is clamped to [0.40, 0.60] by design, so
+# the bins are deliberately narrow — the plot clusters near 0.5, which IS the
+# honest picture (our calls are near-coin-flip), not a defect.
+CAL_BINS = ((0.40, 0.45), (0.45, 0.50), (0.50, 0.55), (0.55, 0.60))
+
+
+def _pinball(actual: float, q: float, tau: float) -> float:
+    """Quantile (pinball) loss: asymmetrically penalises an over- or
+    under-shooting quantile by tau. Lower is better."""
+    return (actual - q) * tau if actual >= q else (q - actual) * (1.0 - tau)
+
+
+def band_pinball(resolved: list[dict]) -> float | None:
+    """Mean pinball loss treating the 80% band (+/-bandPct around a 0% expected
+    move) as a P10/P90 quantile pair on the realised % change. Unlike coverage,
+    this rewards a band that is well-sized AND covering: an over-wide band that
+    always covers still scores worse than a tight one that does."""
+    losses = []
+    for e in resolved:
+        b, r = e.get("bandPct"), e.get("realizedChangePct")
+        if b is None or r is None:
+            continue
+        losses.append((_pinball(r, -b, 0.10) + _pinball(r, b, 0.90)) / 2.0)
+    return round(sum(losses) / len(losses), 4) if losses else None
+
+
+def direction_calibration(resolved: list[dict]) -> tuple[list[dict], float | None]:
+    """Reliability bins (predicted probUp vs realised up-rate) + a single
+    calibration-error number = count-weighted mean |predicted - actual|."""
+    rows, werr, wn = [], 0.0, 0
+    for i, (lo, hi) in enumerate(CAL_BINS):
+        last = i == len(CAL_BINS) - 1
+        grp = [
+            e for e in resolved
+            if isinstance(e.get("probUp"), (int, float)) and e.get("upHit") is not None
+            and (lo <= e["probUp"] <= hi if last else lo <= e["probUp"] < hi)
+        ]
+        if not grp:
+            continue
+        pred = sum(e["probUp"] for e in grp) / len(grp)
+        actual = sum(e["upHit"] for e in grp) / len(grp)
+        rows.append({"range": f"{int(lo * 100)}-{int(hi * 100)}%", "n": len(grp),
+                     "predicted": round(pred, 3), "actual": round(actual, 3)})
+        werr += abs(pred - actual) * len(grp)
+        wn += len(grp)
+    return rows, (round(werr / wn, 4) if wn else None)
 
 
 def _by_coin(resolved: list[dict]) -> dict:
@@ -65,6 +111,9 @@ def build(cl: dict) -> dict:
     cov = [e["bandCovered"] for e in resolved if e.get("bandCovered") is not None]
     cov_k, cov_n = sum(1 for c in cov if c), len(cov)
 
+    cal_bins, cal_err = direction_calibration(resolved)
+    pinball = band_pinball(resolved)
+
     return {
         "schemaVersion": "cs-v1",
         "generatedFrom": "web/crypto_ledger.json",
@@ -85,11 +134,14 @@ def build(cl: dict) -> dict:
             "accuracyWilson95": (_wilson(dir_hits, len(dir_grp)) if (gated and dir_grp) else None),
             "observedUpRate": (round(_mean([float(x) for x in up_hits]), 3)
                                if (gated and up_hits) else None),
+            "calibrationError": cal_err if gated else None,
+            "calibrationBins": cal_bins if gated else [],
         },
         "band": {
             "target": BAND_TARGET,
             "coverageRate": (round(cov_k / cov_n, 3) if (gated and cov_n) else None),
             "coverageWilson95": (_wilson(cov_k, cov_n) if (gated and cov_n) else None),
+            "pinball": pinball if gated else None,
             "n": cov_n,
         },
         "byCoin": _by_coin(resolved),
