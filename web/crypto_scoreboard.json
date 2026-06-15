@@ -4,81 +4,81 @@
   "baseline": "random_walk",
   "bandTarget": 0.8,
   "counts": {
-    "resolved": 56,
+    "resolved": 63,
     "open": 7,
     "void": 0,
-    "total": 63
+    "total": 70
   },
   "confidence": "ok",
   "direction": {
-    "meanBrierUp": 0.24751,
+    "meanBrierUp": 0.24678,
     "baselineBrier": 0.25,
-    "skillVsRandomWalk": 0.00249,
-    "accuracy": 0.571,
+    "skillVsRandomWalk": 0.00322,
+    "accuracy": 0.603,
     "accuracyWilson95": [
-      0.441,
-      0.692
+      0.48,
+      0.715
     ],
-    "observedUpRate": 0.518,
-    "calibrationError": 0.0544,
+    "observedUpRate": 0.571,
+    "calibrationError": 0.0867,
     "calibrationBins": [
       {
         "range": "45-50%",
-        "n": 49,
+        "n": 50,
         "predicted": 0.482,
-        "actual": 0.469
+        "actual": 0.48
       },
       {
         "range": "50-55%",
-        "n": 7,
-        "predicted": 0.509,
-        "actual": 0.857
+        "n": 13,
+        "predicted": 0.51,
+        "actual": 0.923
       }
     ]
   },
   "band": {
     "target": 0.8,
-    "coverageRate": 0.839,
+    "coverageRate": 0.825,
     "coverageWilson95": [
-      0.722,
-      0.913
+      0.714,
+      0.9
     ],
-    "pinball": 0.4714,
-    "n": 56
+    "pinball": 0.4564,
+    "n": 63
   },
   "byCoin": {
     "btc": {
-      "n": 8,
+      "n": 9,
       "confidence": "none",
       "coverageRate": null
     },
     "eth": {
-      "n": 8,
+      "n": 9,
       "confidence": "none",
       "coverageRate": null
     },
     "bnb": {
-      "n": 8,
+      "n": 9,
       "confidence": "none",
       "coverageRate": null
     },
     "xrp": {
-      "n": 8,
+      "n": 9,
       "confidence": "none",
       "coverageRate": null
     },
     "sol": {
-      "n": 8,
+      "n": 9,
       "confidence": "none",
       "coverageRate": null
     },
     "trx": {
-      "n": 8,
+      "n": 9,
       "confidence": "none",
       "coverageRate": null
     },
     "doge": {
-      "n": 8,
+      "n": 9,
       "confidence": "none",
       "coverageRate": null
     }
