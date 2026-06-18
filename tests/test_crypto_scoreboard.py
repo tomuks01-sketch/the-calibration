@@ -15,10 +15,10 @@ from crypto_scoreboard import (  # noqa: E402
 )
 
 
-def _resolved(symbol, prob_up, up_hit, brier, covered, band=None, realized=None):
+def _resolved(symbol, prob_up, up_hit, brier, covered, band=None, realized=None, band_ewma=None):
     return {"symbol": symbol, "status": "RESOLVED", "probUp": prob_up,
             "upHit": up_hit, "brierUp": brier, "bandCovered": covered,
-            "bandPct": band, "realizedChangePct": realized}
+            "bandPct": band, "realizedChangePct": realized, "bandPctEwma": band_ewma}
 
 
 def _cl(entries):
@@ -83,6 +83,24 @@ def test_build_exposes_calibration_and_pinball_when_gated():
     assert sb2["direction"]["calibrationError"] is None and sb2["band"]["pinball"] is None
 
 
+def test_band_vs_ewma_baseline_gated_and_beats():
+    # our band 2.0 (tight) vs EWMA band 5.0 (wide) on realised +1.0%:
+    # our pinball 0.2 < ewma pinball 0.5 -> we beat the baseline.
+    entries = [_resolved("btc", 0.55, 1, 0.20, True, band=2.0, realized=1.0, band_ewma=5.0)
+               for _ in range(12)]
+    sb = build(_cl(entries))
+    assert sb["band"]["baselineN"] == 12
+    assert sb["band"]["pinballBaseline"] is not None
+    assert sb["band"]["beatsBaseline"] is True
+    # below 10 EWMA-bearing samples -> baseline gated OFF (None), even though
+    # direction stats are gated ON (n=12 resolved total).
+    mixed = ([_resolved("btc", 0.55, 1, 0.2, True, band=2.0, realized=1.0, band_ewma=5.0) for _ in range(9)]
+             + [_resolved("eth", 0.55, 1, 0.2, True, band=2.0, realized=1.0) for _ in range(3)])
+    sb2 = build(_cl(mixed))
+    assert sb2["band"]["baselineN"] == 9
+    assert sb2["band"]["pinballBaseline"] is None and sb2["band"]["beatsBaseline"] is None
+
+
 if __name__ == "__main__":
     test_below_gate_hides_stats_but_shows_counts()
     test_above_gate_scores_vs_random_walk()
@@ -90,4 +108,5 @@ if __name__ == "__main__":
     test_band_pinball_known_value()
     test_direction_calibration_bins_and_error()
     test_build_exposes_calibration_and_pinball_when_gated()
+    test_band_vs_ewma_baseline_gated_and_beats()
     print("ALL cs-v1 CRYPTO-SCOREBOARD TESTS PASSED")

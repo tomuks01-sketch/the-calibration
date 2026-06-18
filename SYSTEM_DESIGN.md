@@ -57,5 +57,5 @@ At current scale, **append-only JSON + monthly archives is the right call** — 
 
 ## Frozen scoring contract (cs-v1 + cl-v1)
 - Direction: `skillVsRandomWalk = 0.25 − meanBrierUp`; `calibrationError` = count-weighted mean |predicted − actual| over reliability bins; `calibrationBins` predicted-vs-actual.
-- Band: `coverageRate` vs 0.80 target; `pinball` = mean quantile loss treating ±bandPct as P10/P90 (rewards tight-and-covering, penalises over-wide).
+- Band: `coverageRate` vs 0.80 target; `pinball` = mean quantile loss treating ±bandPct as P10/P90 (rewards tight-and-covering, penalises over-wide). `pinballBaseline`/`beatsBaseline` compare our band to a trivial **EWMA (λ=0.94) vol band** — the band only "adds value" if it beats this; the comparison accrues from new forecasts (gated at baselineN≥10).
 - All N-gated; negatives/weaknesses published, never hidden.

@@ -37,6 +37,7 @@ Z80 = 1.2816            # +/- z for an 80% central interval of a normal
 PROB_TILT_K = 0.3       # small: keeps prob_up near 0.5 (honest ~coin-flip)
 PROB_CLAMP = 0.10       # prob_up stays within [0.40, 0.60] worst case
 MIN_CLOSES = 10         # need enough history or available:false
+EWMA_LAMBDA = 0.94      # RiskMetrics daily decay — the trivial vol baseline to beat
 REQUEST_TIMEOUT_S = 6
 YF_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/"
 
@@ -48,6 +49,7 @@ class CryptoForecast:
     prob_up: float | None        # 0..1 — P(close higher in ~24h)
     sigma_pct: float | None      # realised daily vol, % (the uncertainty)
     band_pct: float | None       # +/- % 80% central band (= Z80 * sigma)
+    band_pct_ewma: float | None  # +/- % 80% band from the EWMA baseline vol
     n_closes: int                # daily closes used
     source: str
     baseline: str                # what the scoreboard scores us against
@@ -117,6 +119,21 @@ def realized_vol_pct(closes: list[float]) -> float | None:
     return round(sd * 100.0, 4) if sd is not None and sd > 0 else None
 
 
+def realized_vol_ewma_pct(closes: list[float]) -> float | None:
+    """EWMA daily volatility (%) — the trivial recency-weighted baseline the band
+    must BEAT to add value. var_t = lambda*var + (1-lambda)*r^2 (mean ~0 for
+    daily returns). Scored separately on pinball so 'our band vs naive band' is
+    a real, published comparison rather than an unanchored number."""
+    rets = _daily_returns(closes)
+    if len(rets) < 2:
+        return None
+    var = sum(r * r for r in rets) / len(rets)              # seed with mean-square
+    for r in rets:
+        var = EWMA_LAMBDA * var + (1.0 - EWMA_LAMBDA) * r * r
+    sd = math.sqrt(var)
+    return round(sd * 100.0, 4) if sd > 0 else None
+
+
 def prob_up(closes: list[float]) -> float | None:
     """HUMBLE probability of an up day: a small, damped momentum tilt around
     0.5, clamped tight so we never claim more skill than ~a coin flip."""
@@ -136,7 +153,7 @@ def forecast(coin_symbol: str | None, get=_default_get) -> CryptoForecast:
     tkr = yahoo_ticker(coin_symbol)
     base = CryptoForecast(
         symbol=(coin_symbol or "").lower(), available=False, prob_up=None,
-        sigma_pct=None, band_pct=None, n_closes=0,
+        sigma_pct=None, band_pct=None, band_pct_ewma=None, n_closes=0,
         source="yahoo-finance-klines (delayed)", baseline="random_walk",
     )
     if not tkr:
@@ -147,9 +164,12 @@ def forecast(coin_symbol: str | None, get=_default_get) -> CryptoForecast:
     sigma = realized_vol_pct(closes)
     if sigma is None:
         return base
+    ewma = realized_vol_ewma_pct(closes)
     return CryptoForecast(
         symbol=(coin_symbol or "").lower(), available=True,
         prob_up=prob_up(closes), sigma_pct=sigma,
-        band_pct=round(Z80 * sigma, 4), n_closes=len(closes),
+        band_pct=round(Z80 * sigma, 4),
+        band_pct_ewma=(round(Z80 * ewma, 4) if ewma else None),
+        n_closes=len(closes),
         source="yahoo-finance-klines (delayed)", baseline="random_walk",
     )

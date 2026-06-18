@@ -118,6 +118,7 @@ def open_forecasts(
             "probUp": f.prob_up,
             "sigmaPct": f.sigma_pct,
             "bandPct": f.band_pct,
+            "bandPctEwma": getattr(f, "band_pct_ewma", None),
             "baseline": BASELINE,
             "status": "OPEN",
             "resolvedAt": None,

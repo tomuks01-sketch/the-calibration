@@ -342,6 +342,12 @@ function renderTrack() {
     ? Math.round(band.coverageRate * 100) + "%" : "—";
   const calErr = (gated && dir.calibrationError != null) ? dir.calibrationError : "—";
   const pinball = (gated && band.pinball != null) ? band.pinball : "—";
+  // Our band vs the trivial EWMA-vol baseline (accrues from new forecasts).
+  const baseN = (gated && band.baselineN) ? band.baselineN : 0;
+  const baseTxt = !gated ? "—"
+    : band.beatsBaseline === true ? "beats ✓"
+    : band.beatsBaseline === false ? "loses ✗"
+    : "accruing " + baseN + "/10";
 
   // Reliability mini-plot: predicted probUp vs realised up-rate, per bin.
   const bins = (gated && Array.isArray(dir.calibrationBins)) ? dir.calibrationBins : [];
@@ -367,8 +373,9 @@ function renderTrack() {
     tile(cov, "band coverage · target 80%") +
     tile(calErr, "calibration error · lower better") +
     tile(pinball, "band pinball · lower better") +
+    tile(baseTxt, "band vs EWMA baseline") +
     `<p class="track-note">${gated
-      ? "Scored vs a random-walk baseline. Direction skill near 0 = a coin flip; calibration error is how far our stated odds sit from reality; band coverage near 80% with low pinball = honest, well-sized uncertainty. Shown win or lose."
+      ? "Scored vs a random-walk baseline. Direction skill near 0 = a coin flip; calibration error is how far our stated odds sit from reality; band coverage near 80% with low pinball = honest, well-sized uncertainty. 'Vs EWMA baseline' checks our band against a trivial recency-weighted vol band (accrues over ~10 days). Shown win or lose."
       : "Not yet meaningful — " + c.resolved + " resolved. Direction needs a long, "
         + "correlation-adjusted sample; the volatility band proves out sooner. "
         + "If we never beat the baseline, this will say so."}</p>` +

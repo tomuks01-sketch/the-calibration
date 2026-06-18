@@ -36,14 +36,15 @@ def _pinball(actual: float, q: float, tau: float) -> float:
     return (actual - q) * tau if actual >= q else (q - actual) * (1.0 - tau)
 
 
-def band_pinball(resolved: list[dict]) -> float | None:
-    """Mean pinball loss treating the 80% band (+/-bandPct around a 0% expected
+def band_pinball(resolved: list[dict], field: str = "bandPct") -> float | None:
+    """Mean pinball loss treating an 80% band (+/-`field`% around a 0% expected
     move) as a P10/P90 quantile pair on the realised % change. Unlike coverage,
     this rewards a band that is well-sized AND covering: an over-wide band that
-    always covers still scores worse than a tight one that does."""
+    always covers still scores worse than a tight one that does. `field` lets us
+    score our band ('bandPct') and the EWMA baseline ('bandPctEwma') the same way."""
     losses = []
     for e in resolved:
-        b, r = e.get("bandPct"), e.get("realizedChangePct")
+        b, r = e.get(field), e.get("realizedChangePct")
         if b is None or r is None:
             continue
         losses.append((_pinball(r, -b, 0.10) + _pinball(r, b, 0.90)) / 2.0)
@@ -113,6 +114,14 @@ def build(cl: dict) -> dict:
 
     cal_bins, cal_err = direction_calibration(resolved)
     pinball = band_pinball(resolved)
+    # EWMA baseline: only score it once enough forecasts carry an ewma band
+    # (added going forward), so the comparison is honest, never on N=1.
+    ewma_n = sum(1 for e in resolved
+                 if e.get("bandPctEwma") is not None and e.get("realizedChangePct") is not None)
+    base_gated = ewma_n >= 10
+    pinball_base = band_pinball(resolved, field="bandPctEwma") if base_gated else None
+    beats_base = (pinball is not None and pinball_base is not None and pinball <= pinball_base) \
+        if base_gated else None
 
     return {
         "schemaVersion": "cs-v1",
@@ -142,6 +151,9 @@ def build(cl: dict) -> dict:
             "coverageRate": (round(cov_k / cov_n, 3) if (gated and cov_n) else None),
             "coverageWilson95": (_wilson(cov_k, cov_n) if (gated and cov_n) else None),
             "pinball": pinball if gated else None,
+            "pinballBaseline": pinball_base,            # EWMA baseline (None until baselineN>=10)
+            "beatsBaseline": beats_base,                # True if our band <= EWMA on pinball
+            "baselineN": ewma_n,
             "n": cov_n,
         },
         "byCoin": _by_coin(resolved),

@@ -20,10 +20,11 @@ MATURE = "2026-06-02T00:30:00+00:00"    # just past due
 EARLY = "2026-06-01T12:00:00+00:00"     # before due
 
 
-def _fc(symbol, available=True, prob_up=0.55, sigma=2.0, band=2.5632):
+def _fc(symbol, available=True, prob_up=0.55, sigma=2.0, band=2.5632, band_ewma=2.4):
     return CryptoForecast(symbol=symbol, available=available, prob_up=prob_up,
-                          sigma_pct=sigma, band_pct=band, n_closes=31,
-                          source="binance-fapi-klines", baseline="random_walk")
+                          sigma_pct=sigma, band_pct=band, band_pct_ewma=band_ewma,
+                          n_closes=31, source="yahoo-finance-klines (delayed)",
+                          baseline="random_walk")
 
 
 def _ledger():
@@ -40,6 +41,7 @@ def test_open_locks_available_with_price_only():
     assert e["symbol"] == "btc" and e["status"] == "OPEN"
     assert e["priceAtOpen"] == 100.0 and e["dueAt"] == DUE
     assert e["baseline"] == "random_walk" and e["resolvedAt"] is None
+    assert e["bandPctEwma"] == 2.4                     # EWMA baseline band locked at open
 
 
 def test_open_dedup_one_per_coin_per_day():
