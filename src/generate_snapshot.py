@@ -472,6 +472,18 @@ def main() -> None:
     except Exception as sexc:  # noqa: BLE001 — fail-open: never block the snapshot
         print(f"WARN stocks: skipped ({type(sexc).__name__}: {sexc})", file=sys.stderr)
 
+    # International football forecasts (fbx): our own Elo+Poisson model, scored
+    # vs the result AND the market (RPS). Fully fail-open; never blocks the snapshot.
+    try:
+        from football import run as run_football
+
+        fsum = run_football()
+        print(f"Football: +{fsum['opened']} opened, {fsum['resolved']} resolved, "
+              f"{fsum['voided']} void | {fsum['teamsRated']} teams rated | "
+              f"confidence={fsum['confidence']}")
+    except Exception as fbexc:  # noqa: BLE001 — fail-open by design
+        print(f"WARN football: skipped ({type(fbexc).__name__}: {fbexc})", file=sys.stderr)
+
     print(
         f"Wrote {OUTPUT} ({len(events_out)} events, "
         f"{len(categories)} categories) | Ledger: +{opened} opened, "
