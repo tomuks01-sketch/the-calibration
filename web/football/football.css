@@ -1,0 +1,44 @@
+/* Football page — extends crypto.css (rail, hero, table, cs-tile, detail). Only
+   the match-specific bits live here: the 3-way win/draw/win probability bar,
+   the fixture columns, and the scoreline-scenario chips. */
+
+.fixtures th.comp { width: 8rem; }
+.fixtures th.fx-likely, .fixtures td.fx-likely {
+  width: 4rem; text-align: right; font-family: var(--mono);
+  font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.fixtures td.comp {
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.04em;
+  color: var(--ink-faint); text-transform: uppercase; white-space: nowrap;
+}
+.fx-match b { font-weight: 700; }
+.fx-match i { color: var(--ink-faint); font-style: normal; margin: 0 0.35rem; font-size: 0.85em; }
+
+/* 3-way probability bar: home (amber) / draw (muted) / away (steel) */
+.pbar {
+  display: flex; height: 12px; width: 100%; min-width: 120px; max-width: 260px;
+  border-radius: 6px; overflow: hidden; border: 1px solid var(--hair);
+  background: var(--carbon-1);
+}
+.pbar > span { height: 100%; }
+.pbar-h { background: var(--amber); }
+.pbar-d { background: var(--ink-faint); opacity: 0.55; }
+.pbar-a { background: var(--steel, #7f9ad0); }
+.fx-nums {
+  display: block; margin-top: 0.3rem; font-family: var(--mono);
+  font-size: 0.7rem; color: var(--ink-faint); letter-spacing: 0.02em;
+}
+.fixtures td.fx-prob { min-width: 150px; }
+
+/* scoreline scenarios + reasoning inside the expanded detail */
+.scen-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; }
+.scen {
+  font-family: var(--mono); font-size: 0.74rem; color: var(--ink-dim);
+  padding: 0.28rem 0.55rem; border: 1px solid var(--hair); border-radius: 7px;
+  background: var(--carbon-1);
+}
+.scen b { color: var(--amber); }
+.why-list { margin: 0 0 1rem; padding-left: 1.1rem; }
+.why-list li { font-size: 0.82rem; line-height: 1.5; color: var(--ink-dim); margin-bottom: 0.25rem; }
+
+@media (max-width: 560px) { .pbar { max-width: none; } }

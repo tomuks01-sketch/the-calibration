@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Football — international match forecasts, scored in public · The Calibration</title>
+<meta name="description" content="Our own model (World Football Elo + Poisson) for the big international games: who wins, the likely scoreline, the scenarios and why — every forecast scored with RPS against the result AND the market. Analytics only, not betting advice." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../crypto/crypto.css" />
+<link rel="stylesheet" href="football.css" />
+  <link rel="icon" href="/the-calibration/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://tomuks01-sketch.github.io/the-calibration/football/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Football — international match forecasts, scored in public" />
+  <meta property="og:description" content="Our own Elo + Poisson model for the world's big games: who wins, the likely score, scenarios and why — scored with RPS vs the result and the market." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tomuks01-sketch.github.io/the-calibration/football/" />
+  <meta property="og:image" content="https://tomuks01-sketch.github.io/the-calibration/og-image.png" />
+</head>
+<body>
+
+<header class="rail">
+  <a class="wm" href="../">THE&nbsp;<span>CALIBRATION</span></a>
+  <div class="meta"><span class="state"><span class="dotlive"></span><span id="data-status">loading…</span></span></div>
+  <nav>
+    <a href="../">Terminal</a>
+    <a href="../briefs/">Briefs</a>
+    <a href="../scoreboard/">Scoreboard</a>
+    <a href="../crypto/">Crypto</a>
+    <a href="../stocks/">Stocks</a>
+    <a href="./" aria-current="page">Football</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="head">
+    <p class="eyebrow"><span class="tick"></span>Our model · scored in public</p>
+    <h1>Football <span class="sub">· the world's games</span></h1>
+    <p class="lede">Our own model — <b>World Football Elo</b> over ~49,000 international results, plus a <b>Poisson goals model</b> — reads the big international games: <b>who wins</b>, the <b>likely scoreline</b>, the <b>scenarios</b>, and <b>why</b>. Every forecast is locked before kickoff and scored with <b>RPS</b> against the result <b>and</b> the market — so any edge is proven, never claimed. Not predictions to bet on; numbers we are held to.</p>
+  </section>
+
+  <!-- UPCOMING MATCHES -->
+  <section class="table-wrap" aria-label="Upcoming international matches">
+    <div class="table-head">
+      <h2>Upcoming games</h2>
+      <p class="th-note">Tap a match for the scoreline scenarios and the reasoning. Bars show win / draw / win — our model's probabilities, locked before kickoff.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="coins fixtures">
+        <thead>
+          <tr>
+            <th class="comp hide-sm">Comp</th>
+            <th class="fx-match">Match</th>
+            <th class="fx-prob">Win · Draw · Win</th>
+            <th class="fx-likely">Likely</th>
+          </tr>
+        </thead>
+        <tbody id="fixtures-body"><tr><td colspan="4" class="empty">Loading fixtures…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TRACK RECORD -->
+  <section class="summary-wrap track-wrap" aria-label="Forecast track record">
+    <div class="table-head">
+      <h2>Forecast track record</h2>
+      <p class="th-note">Every forecast scored with RPS (lower is better) once the match finishes — against the result and the market. Win or lose, it stays here.</p>
+    </div>
+    <div class="summary" id="football-track"><p class="empty">Loading track record…</p></div>
+  </section>
+
+  <section class="explainer" aria-label="How it works">
+    <h2>How the model works</h2>
+    <ul>
+      <li><b>Elo</b> — each nation's strength from ~49k international results (bigger games move ratings more; home advantage included).</li>
+      <li><b>Poisson goals</b> — the Elo gap maps to expected goals for each side, giving the full scoreline distribution: win/draw/win, the likely score, over-2.5 and both-teams-score.</li>
+      <li><b>Scored</b> — locked before kickoff, graded with RPS vs the result and vs the market's odds. We only claim to beat the market when the record proves it.</li>
+    </ul>
+    <p class="explainer-foot">These are documented, reproducible probabilities and scenarios — never "team X will win", never betting advice. The model's constants are honest priors until a resolved track record earns calibration. International results history is public (openfootball / community datasets); fixtures and odds via a public endpoint.</p>
+  </section>
+
+  <footer class="foot">
+    <p class="foot-lead">Football forecasts are analytics, scored in public against the result and the market. They are not predictions to act on, not betting or investment advice, and make no profit claim. Think for yourself.</p>
+    <p class="foot-fine">A free, public part of <a href="../">The Calibration</a>.</p>
+  </footer>
+
+</main>
+
+<script src="football.js"></script>
+</body>
+</html>
