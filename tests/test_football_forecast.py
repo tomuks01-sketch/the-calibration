@@ -51,6 +51,8 @@ def test_forecast_stronger_team_favoured_and_normalised():
     assert abs(s - 1.0) < 0.02                              # probs ~sum to 1 (truncation)
     assert len(f.top_scorelines) == 5 and f.top_scorelines[0]["prob"] > 0
     assert 0.0 <= f.prob_over_2_5 <= 1.0 and 0.0 <= f.prob_btts <= 1.0
+    assert f.prob_over_1_5 >= f.prob_over_2_5 >= f.prob_over_3_5   # goal lines monotone
+    assert f.total_goals is not None and f.total_goals > 0
     assert f.exp_goals_home > f.exp_goals_away              # supremacy -> more goals
     assert any("Elo" in w for w in f.why)                   # reasoning surfaced
 

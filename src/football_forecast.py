@@ -146,8 +146,11 @@ class MatchForecast:
     prob_away: float | None
     exp_goals_home: float | None
     exp_goals_away: float | None
+    total_goals: float | None     # expected total goals (lambda_home + lambda_away)
     top_scorelines: list          # [{"score": "2-1", "prob": 0.11}, ...] highest first
+    prob_over_1_5: float | None
     prob_over_2_5: float | None
+    prob_over_3_5: float | None
     prob_btts: float | None       # both teams to score
     why: list                     # human-readable factor strings
 
@@ -158,8 +161,9 @@ def forecast_match(home: str, away: str, elo: dict[str, float],
     unknown teams -> available:false (we never invent a rating)."""
     base = MatchForecast(home=home, away=away, available=False, elo_home=None,
                          elo_away=None, prob_home=None, prob_draw=None, prob_away=None,
-                         exp_goals_home=None, exp_goals_away=None, top_scorelines=[],
-                         prob_over_2_5=None, prob_btts=None, why=[])
+                         exp_goals_home=None, exp_goals_away=None, total_goals=None,
+                         top_scorelines=[], prob_over_1_5=None, prob_over_2_5=None,
+                         prob_over_3_5=None, prob_btts=None, why=[])
     rh, ra = elo.get(home), elo.get(away)
     if rh is None or ra is None:
         return base
@@ -171,7 +175,8 @@ def forecast_match(home: str, away: str, elo: dict[str, float],
 
     ph = [_poisson_pmf(k, lam_h) for k in range(MAX_GOALS + 1)]
     pa = [_poisson_pmf(k, lam_a) for k in range(MAX_GOALS + 1)]
-    p_home = p_draw = p_away = p_over = p_btts = 0.0
+    p_home = p_draw = p_away = p_btts = 0.0
+    p_o15 = p_o25 = p_o35 = 0.0
     cells = []
     for h in range(MAX_GOALS + 1):
         for a in range(MAX_GOALS + 1):
@@ -183,8 +188,13 @@ def forecast_match(home: str, away: str, elo: dict[str, float],
                 p_draw += p
             else:
                 p_away += p
-            if h + a > 2.5:
-                p_over += p
+            tot = h + a
+            if tot > 1.5:
+                p_o15 += p
+            if tot > 2.5:
+                p_o25 += p
+            if tot > 3.5:
+                p_o35 += p
             if h >= 1 and a >= 1:
                 p_btts += p
     cells.sort(reverse=True)
@@ -200,6 +210,8 @@ def forecast_match(home: str, away: str, elo: dict[str, float],
         home=home, away=away, available=True, elo_home=round(rh, 1), elo_away=round(ra, 1),
         prob_home=round(p_home, 4), prob_draw=round(p_draw, 4), prob_away=round(p_away, 4),
         exp_goals_home=round(lam_h, 3), exp_goals_away=round(lam_a, 3),
-        top_scorelines=top, prob_over_2_5=round(p_over, 4), prob_btts=round(p_btts, 4),
+        total_goals=round(lam_h + lam_a, 2), top_scorelines=top,
+        prob_over_1_5=round(p_o15, 4), prob_over_2_5=round(p_o25, 4),
+        prob_over_3_5=round(p_o35, 4), prob_btts=round(p_btts, 4),
         why=[w for w in why if w],
     )

@@ -30,30 +30,56 @@ function metric(label, value, note) {
   return `<div class="m"><span class="m-l">${label}</span><span class="m-v">${value}</span>${note ? `<span class="m-n">${note}</span>` : ""}</div>`;
 }
 
+const odds = (p) => (p == null || p <= 0) ? "—" : (1 / p).toFixed(2);
+
+function marketsHtml(e) {
+  const m = e.markets || {};
+  const sum = (a, b) => (a != null && b != null) ? a + b : null;
+  const under = (p) => (p == null) ? null : 1 - p;
+  const row = (label, p) =>
+    `<div class="mk-row"><span class="mk-l">${label}</span><span class="mk-p">${pct(p)}</span><span class="mk-o">${odds(p)}</span></div>`;
+  const cmp = (e.marketProbHome != null)
+    ? `<p class="mk-cmp">Bookmaker implied: ${pct(e.marketProbHome)} · ${pct(e.marketProbDraw)} · ${pct(e.marketProbAway)} — scored against ours.</p>`
+    : "";
+  return `<div class="markets-grid">
+    <div class="mk-head"><span>Market</span><span>Prob</span><span>Fair odds</span></div>
+    ${row(esc(e.home) + " win", e.probHome)}
+    ${row("Draw", e.probDraw)}
+    ${row(esc(e.away) + " win", e.probAway)}
+    ${row("Double chance — " + esc(e.home) + " or draw", sum(e.probHome, e.probDraw))}
+    ${row("Double chance — draw or " + esc(e.away), sum(e.probDraw, e.probAway))}
+    ${row("Over 1.5 goals", m.over15)}
+    ${row("Over 2.5 goals", m.over25)}
+    ${row("Under 2.5 goals", under(m.over25))}
+    ${row("Over 3.5 goals", m.over35)}
+    ${row("Both teams to score", m.btts)}
+  </div>
+  <p class="mk-note">Fair odds = 1 ÷ our probability (no bookmaker margin). Where a bookmaker's odds are <b>higher</b> than ours, they rate it less likely than we do — that's where to look. Total expected goals: <b>${m.totalGoals ?? "—"}</b>. Analytics, not advice — we don't tell you to bet.</p>
+  ${cmp}`;
+}
+
 function detail(e) {
   const scen = (e.topScorelines || []).slice(0, 5)
     .map((s) => `<span class="scen"><b>${esc(s.score)}</b> ${Math.round((s.prob || 0) * 100)}%</span>`).join("");
   const why = (e.why || []).map((w) => `<li>${esc(w)}</li>`).join("");
-  const mkt = (e.marketProbHome != null)
-    ? metric("Market (odds)", `${pct(e.marketProbHome)} · ${pct(e.marketProbDraw)} · ${pct(e.marketProbAway)}`, "implied W/D/L — scored against ours")
-    : "";
   return `<div class="detail">
     <div class="d-left">
-      <p class="d-h">Scoreline scenarios</p>
+      <p class="d-h">Scoreline scenarios <span class="d-h-note">(the most likely score is usually only ~1 in 8 — a spread, not a pick)</span></p>
       <div class="scen-row">${scen || "—"}</div>
       <p class="d-state">expected goals <span class="state state-flat">${e.expGoalsHome ?? "—"} – ${e.expGoalsAway ?? "—"}</span></p>
-    </div>
-    <div class="d-right">
       <p class="d-h">Why</p>
       <ul class="why-list">${why || "<li>—</li>"}</ul>
-      <div class="metrics">${mkt}</div>
-      <p class="d-h">No bet here <span class="d-h-note">(documented probabilities, locked pre-kickoff, scored with RPS vs result + market)</span></p>
+    </div>
+    <div class="d-right">
+      <p class="d-h">Markets · our fair odds</p>
+      ${marketsHtml(e)}
     </div>
   </div>`;
 }
 
 function fixtureRow(e) {
-  const likely = (e.topScorelines && e.topScorelines[0]) ? esc(e.topScorelines[0].score) : "—";
+  const t0 = e.topScorelines && e.topScorelines[0];
+  const likely = t0 ? `${esc(t0.score)} <i class="lk-p">${Math.round((t0.prob || 0) * 100)}%</i>` : "—";
   return `<tr class="coin-row fx-row" data-id="${esc(e.matchId)}" tabindex="0" aria-expanded="false">
     <td class="comp hide-sm">${esc(COMP[e.competition] || e.competition || "")}</td>
     <td class="fx-match"><b>${esc(e.home)}</b> <i>v</i> <b>${esc(e.away)}</b></td>

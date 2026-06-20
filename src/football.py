@@ -179,6 +179,11 @@ def fetch_fixtures_and_results(elo: dict, get_json=_get_json) -> tuple[list[dict
                 "probHome": f.prob_home, "probDraw": f.prob_draw, "probAway": f.prob_away,
                 "expGoalsHome": f.exp_goals_home, "expGoalsAway": f.exp_goals_away,
                 "topScorelines": f.top_scorelines,
+                "markets": {
+                    "over15": f.prob_over_1_5, "over25": f.prob_over_2_5,
+                    "over35": f.prob_over_3_5, "btts": f.prob_btts,
+                    "totalGoals": f.total_goals,
+                },
                 "marketProbHome": mp[0] if mp else None,
                 "marketProbDraw": mp[1] if mp else None,
                 "marketProbAway": mp[2] if mp else None,

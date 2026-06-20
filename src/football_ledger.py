@@ -112,6 +112,7 @@ def open_matches(cl: dict, fixtures: list[dict], now: str | None = None) -> int:
             "probHome": f["probHome"], "probDraw": f["probDraw"], "probAway": f["probAway"],
             "expGoalsHome": f.get("expGoalsHome"), "expGoalsAway": f.get("expGoalsAway"),
             "topScorelines": f.get("topScorelines", []),
+            "markets": f.get("markets", {}),
             "marketProbHome": f.get("marketProbHome"),
             "marketProbDraw": f.get("marketProbDraw"),
             "marketProbAway": f.get("marketProbAway"),
