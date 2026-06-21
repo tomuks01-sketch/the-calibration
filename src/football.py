@@ -24,6 +24,7 @@ from pathlib import Path
 from football_forecast import compute_elo, forecast_match, load_results
 
 ESPN_SCOREBOARD = "https://site.api.espn.com/apis/site/v2/sports/soccer/{}/scoreboard"
+ESPN_SUMMARY = "https://site.api.espn.com/apis/site/v2/sports/soccer/{}/summary?event={}"
 # International "world games": World Cup, continental, their qualifiers, Nations League.
 COMPETITIONS = [
     "fifa.world", "uefa.champions", "uefa.euro", "conmebol.america",
@@ -31,6 +32,13 @@ COMPETITIONS = [
 ]
 ELO_CACHE = Path(__file__).resolve().parent.parent / "web" / "football_elo.json"
 ELO_CACHE_MAX_AGE_H = 24
+
+# Only lock a forecast once a match is within this window of kickoff. ESPN lists
+# fixtures (esp. qualifiers) months ahead, before any market odds exist; locking
+# that early gives a stale-Elo "forecast" with no market to score against. A few
+# days out the 3-way odds are posted and the Elo reflects the current squad, so
+# the lock is a genuine pre-match call AND captures the market for comparison.
+LOCK_WINDOW_HOURS = 120
 
 # ESPN display name -> martj42 history name (only where they differ).
 ALIASES = {
@@ -58,6 +66,16 @@ def _hours_since(iso: str) -> float:
     except (ValueError, AttributeError):
         return 1e9
     return (datetime.now(timezone.utc) - t).total_seconds() / 3600.0
+
+
+def _hours_until(iso: str) -> float | None:
+    """Hours from now until `iso` (negative if past). None if unparseable —
+    callers treat that as 'don't gate on time' (fail-open, never drop a match)."""
+    try:
+        t = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+    except (ValueError, AttributeError):
+        return None
+    return (t - datetime.now(timezone.utc)).total_seconds() / 3600.0
 
 
 def _get_text(url: str) -> str | None:
@@ -112,33 +130,74 @@ def load_or_compute_elo(get_text=_get_text) -> dict:
     return out
 
 
+def _odd_to_decimal(v) -> float | None:
+    """Normalise a single price to decimal odds. Handles American moneylines
+    (|v| >= 100, e.g. -235 or +600) and decimal odds (1 < v < 100). Anything
+    else (0, <=1, non-numeric) is invalid -> None. The |v|>=100 split is exact:
+    American lines are always >= +100 or <= -100, decimal quotes never are."""
+    if isinstance(v, bool) or not isinstance(v, (int, float)) or v == 0:
+        return None
+    if abs(v) >= 100:                       # American moneyline
+        return 1.0 + (v / 100.0 if v > 0 else 100.0 / -v)
+    if v > 1.0:                             # decimal odds
+        return float(v)
+    return None
+
+
+def _normalise(dh: float | None, dd: float | None,
+               da: float | None) -> tuple[float, float, float] | None:
+    """Three decimal odds -> de-vigged (home, draw, away) probabilities."""
+    if not (dh and dd and da):
+        return None
+    raw = [1.0 / dh, 1.0 / dd, 1.0 / da]
+    s = sum(raw)
+    return (raw[0] / s, raw[1] / s, raw[2] / s) if s > 0 else None
+
+
+def _pickcenter_implied(summary: dict | None) -> tuple[float, float, float] | None:
+    """3-way implied probabilities from an ESPN summary's pickcenter block —
+    the only place the moneyline (home/draw/away) actually lives for soccer.
+    None if absent or unparseable (fail-open)."""
+    if not isinstance(summary, dict):
+        return None
+    pc = summary.get("pickcenter")
+    if not isinstance(pc, list) or not pc or not isinstance(pc[0], dict):
+        return None
+    o = pc[0]
+
+    def _ml(block):
+        if not isinstance(block, dict):
+            return None
+        return _odd_to_decimal(block.get("moneyLine"))
+
+    return _normalise(_ml(o.get("homeTeamOdds")), _ml(o.get("drawOdds")),
+                      _ml(o.get("awayTeamOdds")))
+
+
 def _implied_probs(comp: dict) -> tuple[float, float, float] | None:
-    """Best-effort 3-way implied probabilities from ESPN odds (decimal or
-    moneyline), normalised to remove the overround. None if unparseable."""
+    """Best-effort 3-way implied probabilities from a scoreboard event's odds
+    block (rarely carries a moneyline for soccer; pickcenter is preferred).
+    Normalised to remove the overround. None if unparseable."""
     odds = comp.get("odds")
     if not isinstance(odds, list) or not odds or not isinstance(odds[0], dict):
         return None
     o = odds[0]
 
-    def _dec(block, *keys):
+    def _pick(block, *keys):
         if not isinstance(block, dict):
             return None
         for k in keys:
-            v = block.get(k)
-            if isinstance(v, (int, float)) and v > 1.0:
-                return float(v)             # decimal odds
-            if isinstance(v, (int, float)) and v != 0:       # american moneyline
-                return 1.0 + (v / 100.0 if v > 0 else 100.0 / -v)
+            d = _odd_to_decimal(block.get(k))
+            if d is not None:
+                return d
         return None
 
-    dh = _dec(o.get("homeTeamOdds"), "decimal", "moneyLine")
-    da = _dec(o.get("awayTeamOdds"), "decimal", "moneyLine")
-    dd = _dec(o, "drawOdds") or _dec(o.get("drawOdds") if isinstance(o.get("drawOdds"), dict) else {}, "decimal", "moneyLine")
-    if not (dh and da and dd):
-        return None
-    raw = [1.0 / dh, 1.0 / dd, 1.0 / da]
-    s = sum(raw)
-    return (raw[0] / s, raw[1] / s, raw[2] / s) if s > 0 else None
+    dh = _pick(o.get("homeTeamOdds"), "decimal", "moneyLine")
+    da = _pick(o.get("awayTeamOdds"), "decimal", "moneyLine")
+    draw = o.get("drawOdds")
+    dd = _odd_to_decimal(draw) if isinstance(draw, (int, float)) \
+        else _pick(draw, "decimal", "moneyLine")
+    return _normalise(dh, dd, da)
 
 
 def fetch_fixtures_and_results(elo: dict, get_json=_get_json) -> tuple[list[dict], dict]:
@@ -165,6 +224,9 @@ def fetch_fixtures_and_results(elo: dict, get_json=_get_json) -> tuple[list[dict
                 continue
             if state != "pre":
                 continue  # 'in' (live) — skip; lock only before kickoff
+            hrs = _hours_until(ev.get("date", ""))
+            if hrs is not None and hrs > LOCK_WINDOW_HOURS:
+                continue  # too far out — odds not posted yet; lock nearer kickoff
             hk, ak = elo_key(home_nm, elo), elo_key(away_nm, elo)
             if hk is None or ak is None:
                 continue  # unknown team -> no forecast (honest, never invented)
@@ -172,7 +234,11 @@ def fetch_fixtures_and_results(elo: dict, get_json=_get_json) -> tuple[list[dict
             f = forecast_match(hk, ak, elo, neutral=neutral)
             if not f.available:
                 continue
-            mp = _implied_probs(c)
+            # Real 3-way moneyline lives in the summary's pickcenter; the
+            # scoreboard odds block is a best-effort fallback. One extra HTTP
+            # call per *forecastable* upcoming match only — bounded + fail-open.
+            mp = _pickcenter_implied(get_json(ESPN_SUMMARY.format(comp, mid))) \
+                or _implied_probs(c)
             fixtures.append({
                 "matchId": mid, "competition": comp, "kickoff": ev.get("date", _now()),
                 "home": home_nm, "away": away_nm,
