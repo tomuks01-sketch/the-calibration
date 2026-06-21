@@ -202,16 +202,16 @@ function renderTrack(sb) {
   const acc = (gated && m.accuracy != null) ? Math.round(m.accuracy * 100) + "%" : "—";
   const calErr = (gated && m.calibrationError != null) ? m.calibrationError : "—";
   const skill = (mk.skillVsMarket != null) ? (mk.skillVsMarket > 0 ? "+" : "") + mk.skillVsMarket : (mk.n ? "accruing " + mk.n + "/10" : "—");
-  el.innerHTML =
-    tile(c.resolved, "resolved · scored") +
-    tile(c.open, "locked · awaiting result") +
-    tile(rps, "RPS · lower better") +
-    tile(acc, "top-pick accuracy") +
-    tile(calErr, "calibration error · lower better") +
-    tile(skill, "RPS skill vs market") +
+  // Until there's enough N (gated), show only the real counts — not a wall of
+  // "—" metric tiles. The per-match RPS and result are already in the resolved
+  // section above; the aggregate unlocks once it's actually meaningful.
+  const counts = tile(c.resolved, "resolved · scored") + tile(c.open, "locked · awaiting result");
+  const metrics = tile(rps, "RPS · lower better") + tile(acc, "top-pick accuracy") +
+    tile(calErr, "calibration error · lower better") + tile(skill, "RPS skill vs market");
+  el.innerHTML = counts + (gated ? metrics : "") +
     `<p class="track-note">${gated
       ? "Scored with RPS (lower = better). Accuracy = how often our most-likely outcome was right. 'Skill vs market' = market RPS − ours (positive = we beat the odds; accrues as resolved matches carry odds). Shown win or lose."
-      : "Track record not yet meaningful — " + c.resolved + " resolved. Forecasts are locked before kickoff and graded the moment matches finish; this fills over the coming weeks. If we never beat the market, it will say so."}</p>`;
+      : "Aggregate stats unlock once enough matches resolve — " + c.resolved + " scored so far" + (c.resolved > 0 ? " (see them above)" : "") + ". Forecasts lock before kickoff and grade the moment matches finish. If we never beat the market, it will say so."}</p>`;
 }
 
 function toggleRow(tr) {
