@@ -123,13 +123,42 @@ function fixtureRow(e) {
   <tr class="detail-row" data-detail="${esc(e.matchId)}" hidden><td colspan="4">${detail(e)}</td></tr>`;
 }
 
+// Data freshness without adding a churning field to the ledger: derive it from
+// the newest openedAt/resolvedAt already in the data (so the file only changes
+// when a forecast is actually locked or graded, not every cron run).
+function relTime(iso) {
+  const t = Date.parse(iso);
+  if (isNaN(t)) return null;
+  const s = (Date.now() - t) / 1000;
+  if (s < 0) return "just now";
+  if (s < 3600) return Math.max(1, Math.round(s / 60)) + "m ago";
+  if (s < 86400) return Math.round(s / 3600) + "h ago";
+  return Math.round(s / 86400) + "d ago";
+}
+function lastActivity(ledger) {
+  let latest = "";
+  for (const e of (ledger && ledger.entries) || []) {
+    for (const ts of [e.resolvedAt, e.openedAt]) {
+      if (ts && ts > latest) latest = ts;
+    }
+  }
+  return latest || null;
+}
+
 function renderFixtures(ledger) {
   const tbody = document.getElementById("fixtures-body");
   const st = document.getElementById("data-status");
   const open = ((ledger && ledger.entries) || [])
     .filter((e) => e.status === "OPEN" && e.probHome != null)
     .sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || ""));
-  if (st) st.textContent = ledger ? "model · scored in public" : "data unavailable";
+  if (st) {
+    if (!ledger) {
+      st.textContent = "data unavailable";
+    } else {
+      const rel = relTime(lastActivity(ledger));
+      st.textContent = "scored in public" + (rel ? " · updated " + rel : "");
+    }
+  }
   if (!tbody) return;
   tbody.innerHTML = open.length
     ? open.map(fixtureRow).join("")
