@@ -35,27 +35,25 @@ const odds = (p) => (p == null || p <= 0) ? "—" : (1 / p).toFixed(2);
 function marketsHtml(e) {
   const m = e.markets || {};
   const sum = (a, b) => (a != null && b != null) ? a + b : null;
-  const under = (p) => (p == null) ? null : 1 - p;
   const row = (label, p) =>
     `<div class="mk-row"><span class="mk-l">${label}</span><span class="mk-p">${pct(p)}</span><span class="mk-o">${odds(p)}</span></div>`;
+  // The 3-way win/draw/away % is already in the fixture row — show only the
+  // bookmaker comparison here (ours vs theirs, side by side) to avoid repeating it.
   const cmp = (e.marketProbHome != null)
-    ? `<p class="mk-cmp">Bookmaker implied: ${pct(e.marketProbHome)} · ${pct(e.marketProbDraw)} · ${pct(e.marketProbAway)} — scored against ours.</p>`
-    : "";
-  return `<div class="markets-grid">
+    ? `<p class="mk-cmp">Win / draw / win — <b>ours</b> ${pct(e.probHome)} · ${pct(e.probDraw)} · ${pct(e.probAway)} vs <b>bookmaker</b> ${pct(e.marketProbHome)} · ${pct(e.marketProbDraw)} · ${pct(e.marketProbAway)}. Both scored — see the track record below.</p>`
+    : `<p class="mk-cmp">Win / draw / win is in the row above. No bookmaker odds posted for this match yet.</p>`;
+  // Goal & double-chance markets only — the bets the row does NOT already show.
+  return `${cmp}
+  <div class="markets-grid">
     <div class="mk-head"><span>Market</span><span>Prob</span><span>Fair odds</span></div>
-    ${row(esc(e.home) + " win", e.probHome)}
-    ${row("Draw", e.probDraw)}
-    ${row(esc(e.away) + " win", e.probAway)}
     ${row("Double chance — " + esc(e.home) + " or draw", sum(e.probHome, e.probDraw))}
     ${row("Double chance — draw or " + esc(e.away), sum(e.probDraw, e.probAway))}
     ${row("Over 1.5 goals", m.over15)}
     ${row("Over 2.5 goals", m.over25)}
-    ${row("Under 2.5 goals", under(m.over25))}
     ${row("Over 3.5 goals", m.over35)}
     ${row("Both teams to score", m.btts)}
   </div>
-  <p class="mk-note">Fair odds = 1 ÷ our probability (no bookmaker margin). Where a bookmaker's odds are <b>higher</b> than ours, they rate it less likely than we do — that's where to look. Total expected goals: <b>${m.totalGoals ?? "—"}</b>. Analytics, not advice — we don't tell you to bet.</p>
-  ${cmp}`;
+  <p class="mk-note">Fair odds = 1 ÷ our probability (no bookmaker margin). Total expected goals: <b>${m.totalGoals ?? "—"}</b>. Analytics, not advice — we don't tell you to bet.</p>`;
 }
 
 function detail(e) {
