@@ -56,21 +56,57 @@ function marketsHtml(e) {
   <p class="mk-note">Fair odds = 1 ÷ our probability (no bookmaker margin). Total expected goals: <b>${m.totalGoals ?? "—"}</b>. Analytics, not advice — we don't tell you to bet.</p>`;
 }
 
+// Shared between upcoming and resolved rows (so the two views don't drift).
+function scenarioChips(e) {
+  return (e.topScorelines || []).slice(0, 5)
+    .map((s) => {
+      const hit = e.finalScore && s.score === e.finalScore ? " scen-hit" : "";
+      return `<span class="scen${hit}"><b>${esc(s.score)}</b> ${Math.round((s.prob || 0) * 100)}%</span>`;
+    }).join("") || "—";
+}
+function whyList(e) {
+  return (e.why || []).map((w) => `<li>${esc(w)}</li>`).join("") || "<li>—</li>";
+}
+function topPickOutcome(e) {
+  const m = Math.max(e.probHome || 0, e.probDraw || 0, e.probAway || 0);
+  return m === e.probHome ? "home" : m === e.probAway ? "away" : "draw";
+}
+
 function detail(e) {
-  const scen = (e.topScorelines || []).slice(0, 5)
-    .map((s) => `<span class="scen"><b>${esc(s.score)}</b> ${Math.round((s.prob || 0) * 100)}%</span>`).join("");
-  const why = (e.why || []).map((w) => `<li>${esc(w)}</li>`).join("");
   return `<div class="detail">
     <div class="d-left">
       <p class="d-h">Scoreline scenarios <span class="d-h-note">(the most likely score is usually only ~1 in 8 — a spread, not a pick)</span></p>
-      <div class="scen-row">${scen || "—"}</div>
+      <div class="scen-row">${scenarioChips(e)}</div>
       <p class="d-state">expected goals <span class="state state-flat">${e.expGoalsHome ?? "—"} – ${e.expGoalsAway ?? "—"}</span></p>
       <p class="d-h">Why</p>
-      <ul class="why-list">${why || "<li>—</li>"}</ul>
+      <ul class="why-list">${whyList(e)}</ul>
     </div>
     <div class="d-right">
       <p class="d-h">Markets · our fair odds</p>
       ${marketsHtml(e)}
+    </div>
+  </div>`;
+}
+
+function resolvedDetail(e) {
+  const our = topPickOutcome(e);
+  const ourLabel = our === "home" ? esc(e.home) + " win" : our === "away" ? esc(e.away) + " win" : "Draw";
+  const ourPct = pct(our === "home" ? e.probHome : our === "away" ? e.probAway : e.probDraw);
+  const right = our === e.outcome;
+  const mkt = e.rpsMarket != null ? ` · market RPS <b>${e.rpsMarket}</b>` : "";
+  const beat = e.beatMarket == null ? ""
+    : e.beatMarket ? `<span class="res-badge beat">beat the market</span>`
+    : `<span class="res-badge lost">market was closer</span>`;
+  return `<div class="detail detail-1col">
+    <div class="d-left">
+      <p class="d-h">Result</p>
+      <p class="res-summary">Final <b>${esc(e.finalScore || "—")}</b>. Our most-likely call was
+        <b>${ourLabel}</b> (${ourPct}) — <span class="${right ? "res-ok" : "res-no"}">${right ? "right" : "wrong"}</span>.
+        RPS <b>${e.rpsModel ?? "—"}</b> (lower is better)${mkt}. ${beat}</p>
+      <p class="d-h">Scoreline scenarios <span class="d-h-note">(what we gave beforehand — the actual score is highlighted if we had it)</span></p>
+      <div class="scen-row">${scenarioChips(e)}</div>
+      <p class="d-h">Why we had it this way</p>
+      <ul class="why-list">${whyList(e)}</ul>
     </div>
   </div>`;
 }
@@ -97,7 +133,33 @@ function renderFixtures(ledger) {
   if (!tbody) return;
   tbody.innerHTML = open.length
     ? open.map(fixtureRow).join("")
-    : `<tr><td colspan="4" class="empty">No upcoming international games locked right now — they appear as fixtures are scheduled.</td></tr>`;
+    : `<tr><td colspan="4" class="empty">No upcoming games locked right now — forecasts lock a few days before kickoff. Recently scored ones are below.</td></tr>`;
+}
+
+function resolvedRow(e) {
+  const right = topPickOutcome(e) === e.outcome;
+  const mark = right ? `<i class="res-ok" title="our most-likely outcome was right">✓</i>`
+    : `<i class="res-no" title="our most-likely outcome was wrong">✗</i>`;
+  return `<tr class="coin-row fx-row" data-id="${esc(e.matchId)}" tabindex="0" aria-expanded="false">
+    <td class="comp hide-sm">${esc(COMP[e.competition] || e.competition || "")}</td>
+    <td class="fx-match"><b>${esc(e.home)}</b> <i>v</i> <b>${esc(e.away)}</b></td>
+    <td class="fx-prob">${probBar(e.probHome, e.probDraw, e.probAway)}<span class="fx-nums">${pct(e.probHome)} · ${pct(e.probDraw)} · ${pct(e.probAway)}</span></td>
+    <td class="fx-likely fx-result"><b>${esc(e.finalScore || "—")}</b> ${mark}</td>
+  </tr>
+  <tr class="detail-row" data-detail="${esc(e.matchId)}" hidden><td colspan="4">${resolvedDetail(e)}</td></tr>`;
+}
+
+function renderResolved(ledger) {
+  const sec = document.getElementById("resolved-wrap");
+  const tbody = document.getElementById("resolved-body");
+  if (!sec || !tbody) return;
+  const done = ((ledger && ledger.entries) || [])
+    .filter((e) => e.status === "RESOLVED" && e.probHome != null && e.finalScore)
+    .sort((a, b) => (b.resolvedAt || "").localeCompare(a.resolvedAt || ""))
+    .slice(0, 12);
+  if (!done.length) { sec.setAttribute("hidden", ""); return; }
+  sec.removeAttribute("hidden");
+  tbody.innerHTML = done.map(resolvedRow).join("");
 }
 
 function renderTrack(sb) {
@@ -141,10 +203,13 @@ document.addEventListener("keydown", (ev) => {
 });
 
 async function load() {
+  let ledger = null;
   try {
     const r = await fetch("../football_ledger.json", { cache: "no-store" });
-    renderFixtures(r.ok ? await r.json() : null);
-  } catch (_) { renderFixtures(null); }
+    ledger = r.ok ? await r.json() : null;
+  } catch (_) { ledger = null; }
+  renderFixtures(ledger);
+  renderResolved(ledger);
   try {
     const r2 = await fetch("../football_scoreboard.json", { cache: "no-store" });
     renderTrack(r2.ok ? await r2.json() : null);
