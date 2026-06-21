@@ -25,9 +25,12 @@ from football_forecast import compute_elo, forecast_match, load_results
 
 ESPN_SCOREBOARD = "https://site.api.espn.com/apis/site/v2/sports/soccer/{}/scoreboard"
 ESPN_SUMMARY = "https://site.api.espn.com/apis/site/v2/sports/soccer/{}/summary?event={}"
-# International "world games": World Cup, continental, their qualifiers, Nations League.
+# International "world games": World Cup, continental, their qualifiers, Nations
+# League. NATIONAL TEAMS ONLY — the Elo is built from international results, so
+# club competitions (e.g. the Champions League) can't be forecast and are out of
+# scope; including them would just fetch matches we always drop.
 COMPETITIONS = [
-    "fifa.world", "uefa.champions", "uefa.euro", "conmebol.america",
+    "fifa.world", "uefa.euro", "conmebol.america",
     "fifa.worldq.uefa", "fifa.worldq.conmebol", "uefa.nations",
 ]
 ELO_CACHE = Path(__file__).resolve().parent.parent / "web" / "football_elo.json"

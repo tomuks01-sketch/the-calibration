@@ -1,6 +1,6 @@
 """International football forecast (fbx-v1) — our OWN model, documented + scorable.
 
-For big international games (World Cup, Euros, Champions-League-style, qualifiers)
+For big international games (World Cup, Euros, Copa América, qualifiers, Nations League)
 we want a rich, falsifiable read: who wins (W/D/L), the likely scoreline and a
 'what could happen' scenario table, plus WHY — and every number is scored vs the
 result AND vs the market, so any edge is proven, never claimed.

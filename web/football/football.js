@@ -12,7 +12,7 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&
 const pct = (v) => (v == null ? "—" : Math.round(v * 100) + "%");
 
 const COMP = {
-  "fifa.world": "World Cup", "uefa.champions": "Champions Lg", "uefa.euro": "Euro",
+  "fifa.world": "World Cup", "uefa.euro": "Euro",
   "conmebol.america": "Copa América", "fifa.worldq.uefa": "WC Qual",
   "fifa.worldq.conmebol": "WC Qual", "uefa.nations": "Nations Lg",
 };
