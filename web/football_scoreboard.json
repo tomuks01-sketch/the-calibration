@@ -2,18 +2,76 @@
   "schemaVersion": "fs2-v1",
   "generatedFrom": "web/football_ledger.json",
   "counts": {
-    "resolved": 9,
-    "open": 13,
+    "resolved": 10,
+    "open": 12,
     "void": 0,
     "total": 22
   },
-  "confidence": "none",
+  "confidence": "low",
   "model": {
-    "meanRps": null,
-    "accuracy": null,
-    "accuracyWilson95": null,
-    "calibrationError": null,
-    "calibrationBins": []
+    "meanRps": 0.15014,
+    "accuracy": 0.6,
+    "accuracyWilson95": [
+      0.313,
+      0.832
+    ],
+    "calibrationError": 0.215,
+    "calibrationBins": [
+      {
+        "range": "0-10%",
+        "n": 3,
+        "predicted": 0.076,
+        "actual": 0.0
+      },
+      {
+        "range": "10-20%",
+        "n": 5,
+        "predicted": 0.165,
+        "actual": 0.4
+      },
+      {
+        "range": "20-30%",
+        "n": 11,
+        "predicted": 0.233,
+        "actual": 0.182
+      },
+      {
+        "range": "30-40%",
+        "n": 1,
+        "predicted": 0.315,
+        "actual": 0.0
+      },
+      {
+        "range": "40-50%",
+        "n": 1,
+        "predicted": 0.423,
+        "actual": 0.0
+      },
+      {
+        "range": "50-60%",
+        "n": 4,
+        "predicted": 0.537,
+        "actual": 1.0
+      },
+      {
+        "range": "60-70%",
+        "n": 2,
+        "predicted": 0.625,
+        "actual": 0.5
+      },
+      {
+        "range": "70-80%",
+        "n": 2,
+        "predicted": 0.725,
+        "actual": 0.0
+      },
+      {
+        "range": "80-90%",
+        "n": 1,
+        "predicted": 0.801,
+        "actual": 1.0
+      }
+    ]
   },
   "market": {
     "meanRps": null,
@@ -21,7 +79,7 @@
     "skillVsMarket": null,
     "beatMarketRate": null,
     "beatMarketWilson95": null,
-    "n": 3
+    "n": 4
   },
   "disclaimer": "International-football W/D/L forecasts scored with RPS (lower is better). skillVsMarket = market RPS - our RPS (positive = we beat the market; shown even when negative). Calibration pooled over the three outcomes. Analytics only, not advice. Gated until enough resolved matches; market comparison needs matches with odds."
 }
