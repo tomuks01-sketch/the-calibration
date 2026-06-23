@@ -2,20 +2,20 @@
   "schemaVersion": "fs2-v1",
   "generatedFrom": "web/football_ledger.json",
   "counts": {
-    "resolved": 12,
-    "open": 13,
+    "resolved": 13,
+    "open": 12,
     "void": 0,
     "total": 25
   },
   "confidence": "low",
   "model": {
-    "meanRps": 0.14178,
-    "accuracy": 0.667,
+    "meanRps": 0.13905,
+    "accuracy": 0.692,
     "accuracyWilson95": [
-      0.391,
-      0.862
+      0.424,
+      0.873
     ],
-    "calibrationError": 0.1753,
+    "calibrationError": 0.1739,
     "calibrationBins": [
       {
         "range": "0-10%",
@@ -25,15 +25,15 @@
       },
       {
         "range": "10-20%",
-        "n": 6,
-        "predicted": 0.166,
-        "actual": 0.333
+        "n": 7,
+        "predicted": 0.168,
+        "actual": 0.286
       },
       {
         "range": "20-30%",
-        "n": 13,
+        "n": 14,
         "predicted": 0.237,
-        "actual": 0.154
+        "actual": 0.143
       },
       {
         "range": "30-40%",
@@ -49,8 +49,8 @@
       },
       {
         "range": "50-60%",
-        "n": 4,
-        "predicted": 0.537,
+        "n": 5,
+        "predicted": 0.545,
         "actual": 1.0
       },
       {
@@ -79,7 +79,7 @@
     "skillVsMarket": null,
     "beatMarketRate": null,
     "beatMarketWilson95": null,
-    "n": 6
+    "n": 7
   },
   "disclaimer": "International-football W/D/L forecasts scored with RPS (lower is better). skillVsMarket = market RPS - our RPS (positive = we beat the market; shown even when negative). Calibration pooled over the three outcomes. Analytics only, not advice. Gated until enough resolved matches; market comparison needs matches with odds."
 }

@@ -3,16 +3,120 @@
   "modelVersion": "baseline-v1",
   "sampleNote": "Snapshot-scoped: calls are logged only for markets present in the top-volume snapshot at call time. This is NOT a random sample of all Polymarket markets; the Brier figures are 'snapshot-scoped' and must be read with that selection caveat.",
   "counts": {
-    "resolved": 0,
-    "pending": 26,
+    "resolved": 13,
+    "pending": 13,
     "void": 0,
     "total": 26
   },
-  "confidence": "none",
-  "snapshotScopedModelBrier": null,
-  "snapshotScopedCrowdBrier": null,
-  "skillVsCrowd": null,
-  "calibration": [],
-  "byCategory": {},
+  "confidence": "low",
+  "snapshotScopedModelBrier": 0.15906,
+  "snapshotScopedCrowdBrier": 0.1619,
+  "skillVsCrowd": 0.00284,
+  "calibration": [
+    {
+      "range": "0-20%",
+      "n": 1,
+      "predicted": 0.109,
+      "actual": 0.0
+    },
+    {
+      "range": "20-40%",
+      "n": 2,
+      "predicted": 0.281,
+      "actual": 0.5
+    },
+    {
+      "range": "40-60%",
+      "n": 6,
+      "predicted": 0.512,
+      "actual": 0.5
+    },
+    {
+      "range": "60-80%",
+      "n": 2,
+      "predicted": 0.708,
+      "actual": 1.0
+    },
+    {
+      "range": "80-100%",
+      "n": 2,
+      "predicted": 0.87,
+      "actual": 1.0
+    }
+  ],
+  "byCategory": {
+    "Strait of Hormuz": {
+      "n": 2,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "Iran": {
+      "n": 1,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "transit": {
+      "n": 1,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "Sports": {
+      "n": 4,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "Politics": {
+      "n": 1,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "Economy": {
+      "n": 1,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "IEM Cologne": {
+      "n": 2,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "Starmer": {
+      "n": 1,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    }
+  },
   "disclaimer": "Baseline statistical model, not advice, not an edge claim. Brier is snapshot-scoped (selection caveat above). Lower Brier is better; skill = crowd Brier - model Brier (positive = model beat the crowd on this scoped sample)."
 }
