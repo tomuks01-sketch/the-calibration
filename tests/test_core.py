@@ -89,6 +89,31 @@ def test_resolve_pending_budget() -> None:
     assert resolve_pending({"version": 1, "entries": []}) == (0, 0)
 
 
+def test_resolve_pending_resolves_closed_market() -> None:
+    # Regression for the moat bug: Gamma's DEFAULT markets query excludes closed
+    # markets, so a resolved market only appears under closed=true. The resolver
+    # must still score it (it was silently never resolving before).
+    led = {"version": 1, "entries": [
+        {"conditionId": "0xWON", "status": "PENDING", "openedAt": "2026-01-01",
+         "modelProb": 0.7, "crowdProbAtCallTime": 0.6},     # resolved YES
+        {"conditionId": "0xLIVE", "status": "PENDING", "openedAt": "2026-06-01",
+         "modelProb": 0.4, "crowdProbAtCallTime": 0.5},     # still active
+    ]}
+
+    def fake_get(url: str):
+        if "closed=true" in url:
+            return [{"conditionId": "0xWON", "closed": True, "outcomePrices": ["1", "0"]}]
+        return [{"conditionId": "0xLIVE", "closed": False}]   # default = active only
+
+    resolved, voided = resolve_pending(led, get=fake_get)
+    assert (resolved, voided) == (1, 0)
+    won = next(e for e in led["entries"] if e["conditionId"] == "0xWON")
+    live = next(e for e in led["entries"] if e["conditionId"] == "0xLIVE")
+    assert won["status"] == "RESOLVED" and won["resolvedOutcome"] == 1
+    assert won["modelBrier"] == round((0.7 - 1) ** 2, 6)
+    assert live["status"] == "PENDING"          # active + recent -> not voided
+
+
 if __name__ == "__main__":
     test_model_bounds()
     test_ledger_dedup()
@@ -96,4 +121,5 @@ if __name__ == "__main__":
     test_enough_events_guard()
     test_atomic_write_json()
     test_resolve_pending_budget()
+    test_resolve_pending_resolves_closed_market()
     print("ALL CORE TESTS PASSED")

@@ -171,7 +171,8 @@ def open_calls(ledger: dict, candidates: list[dict]) -> int:
 
 def _get(url: str) -> list:
     req = urllib.request.Request(
-        url, headers={"Accept": "application/json", "User-Agent": "pmi/0.1"}
+        # Browser-like UA: Gamma's CDN/WAF has 403'd bare urllib UAs before.
+        url, headers={"Accept": "application/json", "User-Agent": "Mozilla/5.0 pmi/0.1"}
     )
     with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_S) as r:
         d = json.loads(r.read().decode("utf-8"))
@@ -202,7 +203,7 @@ def _terminal_outcome(market: dict) -> int | None:
 
 
 def resolve_pending(
-    ledger: dict, budget_s: float = RESOLVE_BUDGET_S
+    ledger: dict, budget_s: float = RESOLVE_BUDGET_S, get=_get
 ) -> tuple[int, int]:
     pend = [e for e in ledger["entries"] if e["status"] == "PENDING"]
     if not pend:
@@ -220,23 +221,27 @@ def resolve_pending(
             )
             break
         batch = ids[i : i + 15]
+        # Gamma needs ONE condition_ids param PER id (a,b,c comma-joined is read as
+        # a single invalid id -> always 0 results, which silently broke resolution).
+        params = "&".join(f"condition_ids={c}" for c in batch)
         try:
-            mkts = _get(f"{GAMMA_MARKETS}?condition_ids={','.join(batch)}")
+            # And its default markets query EXCLUDES closed markets, so a RESOLVED
+            # market is invisible there. Query closed=true to actually resolve, and
+            # the default (active) set only for liveness, so a still-open call isn't
+            # wrongly stale-voided.
+            closed_mkts = get(f"{GAMMA_MARKETS}?{params}&closed=true")
+            active_mkts = get(f"{GAMMA_MARKETS}?{params}")
         except (urllib.error.URLError, TimeoutError, ValueError):
             continue  # transient: stays PENDING, retried next run
         seen_cids = set()
-        for m in mkts:
+        for m in closed_mkts:
             cid = str(m.get("conditionId") or "")
             e = by_cid.get(cid)
             if not e:
                 continue
             seen_cids.add(cid)
             outcome = _terminal_outcome(m)
-            if m.get("closed") and outcome is None:
-                e.update(status="VOID", voidReason="non-terminal/disputed",
-                         resolvedAt=_now())
-                voided += 1
-            elif outcome is not None:
+            if outcome is not None:
                 mp, cp = e["modelProb"], e["crowdProbAtCallTime"]
                 e.update(
                     status="RESOLVED",
@@ -246,7 +251,16 @@ def resolve_pending(
                     marketBrier=round((cp - outcome) ** 2, 6),
                 )
                 resolved += 1
-        # Entries whose id vanished from the API and are very old -> VOID
+            elif m.get("closed"):
+                e.update(status="VOID", voidReason="non-terminal/disputed",
+                         resolvedAt=_now())
+                voided += 1
+        # Active markets are still pending — mark them seen so they're not voided.
+        for m in active_mkts:
+            cid = str(m.get("conditionId") or "")
+            if cid in by_cid:
+                seen_cids.add(cid)
+        # Entries in neither set vanished from the API; void only if very old.
         for cid in batch:
             if cid in seen_cids:
                 continue
