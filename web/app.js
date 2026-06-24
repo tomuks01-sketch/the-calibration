@@ -424,7 +424,8 @@ async function renderProof() {
         const dir = dv >= 0 ? "right" : "left";
         const q = escAttr((e.question || "—").slice(0, 60));
         const sgn = dv > 0 ? "+" : "";
-        return `<div class="pd-row" title="${q}">
+        const aria = escAttr(`${(e.question || "—").slice(0, 60)}: QEST ${sgn}${dv}pp ${dv >= 0 ? "above" : "below"} crowd`);
+        return `<div class="pd-row" title="${q}" aria-label="${aria}">
             <span class="pd-axis">
               <span class="pd-mid"></span>
               <span class="pd-bar pd-${dir}" style="width:${w}%"></span>
@@ -773,10 +774,16 @@ if (mapEl) {
 
 const searchEl = document.getElementById("board-search");
 if (searchEl) {
+  // Debounce: a full board re-render + tilt re-bind on every keystroke blocks
+  // input on low-end devices. 200ms keeps it responsive without churn.
+  let searchTimer;
   searchEl.addEventListener("input", () => {
-    activeQuery = searchEl.value.trim();
-    render();
-    bindTilt();
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      activeQuery = searchEl.value.trim();
+      render();
+      bindTilt();
+    }, 200);
   });
 }
 // "/" focuses the board search (skip when already typing in a field).

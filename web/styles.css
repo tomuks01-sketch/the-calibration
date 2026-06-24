@@ -12,12 +12,13 @@
   --hair: oklch(46% 0.02 260 / 0.28);        /* hairline grid rules */
   --text: oklch(95% 0.006 260);
   --muted: oklch(65% 0.014 260);
-  --faint: oklch(60% 0.014 260);
-  /* Accents — restrained. Amber is the single warm "live" signal
-     (Bloomberg lineage); sapphire stays for crowd data; champagne now
-     only for premium emphasis, used sparingly. */
+  --faint: oklch(63% 0.014 260);          /* AA-bumped: was 60% (~4.3:1 fail) */
+  /* Accents — SEMANTIC two-colour system (premium-consistency pass 2026-06-24):
+     amber = OUR model / live signal; sapphire = the CROWD. These two carry
+     meaning, never decoration. Champagne is retired as a competing gold —
+     folded to a warm near-white so amber stays the only warm accent. */
   --amber: oklch(80% 0.13 75);
-  --champagne: oklch(86% 0.05 88);
+  --champagne: oklch(91% 0.02 88);
   --sapphire: oklch(74% 0.14 248);
   --up: oklch(76% 0.15 155);
   --down: oklch(72% 0.17 27);
@@ -25,7 +26,15 @@
   --hot: oklch(72% 0.18 40);
   --glow: oklch(70% 0.14 248 / 0.3);
   --glow-amber: oklch(80% 0.13 75 / 0.35);
+  /* Spacing rhythm — three deliberate steps so the lead-in breathes
+     (quiet-loud-quiet) instead of uniform padding everywhere. */
   --space: clamp(1rem, 0.6rem + 1.4vw, 2rem);
+  --space-tight: clamp(1.2rem, 0.8rem + 1.2vw, 2rem);
+  --space-section: clamp(2.4rem, 1.6rem + 2.6vw, 4.4rem);
+  --space-major: clamp(4rem, 2.6rem + 4vw, 7rem);
+  /* Elevation tiers — 0 flush, 1 cards, 2 focal. Real depth = composed feel. */
+  --elev-1: 0 12px 28px -20px rgba(0,0,0,0.75);
+  --elev-2: 0 28px 56px -28px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.06);
   --radius: 14px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -152,11 +161,11 @@ body::before {
 .filters.subtle { margin: 0.4rem 0 1.4rem; }
 .chip {
   background: var(--s1); color: var(--muted);
-  border: 1px solid var(--line-soft); border-radius: 999px;
+  border: 1px solid var(--line); border-radius: 999px;   /* AA: was line-soft (~1.9:1 boundary) */
   padding: 0.4rem 0.9rem; font-size: 0.8rem; cursor: pointer;
   transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
 }
-.filters.subtle .chip { font-size: 0.75rem; padding: 0.3rem 0.72rem; }
+.filters.subtle .chip { font-size: 0.75rem; padding: 0.4rem 0.72rem; }  /* AA tap target >=24px */
 .chip:hover { color: var(--text); border-color: var(--muted); }
 .chip.is-active {
   background: linear-gradient(180deg, oklch(84% 0.13 78), var(--amber));

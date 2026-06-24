@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="styles.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
   <link rel="icon" href="/the-calibration/favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://tomuks01-sketch.github.io/the-calibration/" />
   <link rel="alternate" type="application/rss+xml" title="The Crowd Signal" href="https://tomuks01-sketch.github.io/the-calibration/feed.xml" />
@@ -44,7 +44,7 @@
   --hair-bright: rgba(255,180,92,0.30);
   --ink: #eceef2;
   --ink-dim: #9aa3b0;
-  --ink-faint: #8a939f;
+  --ink-faint: #9da5b0;   /* AA-bumped: was #8a939f (~4.1:1 fail on void) */
   --amber: #ffb45c;
   --amber-2: #ff9e3d;
   --amber-glow: rgba(255,180,92,0.45);
@@ -64,7 +64,6 @@
 }
 .home::before { /* engineering grid + grain over the whole page */
   content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
-  will-change: transform;
   background:
     linear-gradient(rgba(150,170,200,0.025) 1px, transparent 1px) 0 0 / 100% 46px,
     linear-gradient(90deg, rgba(150,170,200,0.025) 1px, transparent 1px) 0 0 / 46px 100%,
@@ -97,13 +96,13 @@
 #generated.stale { color: var(--amber-2); }
 .cal-rail nav { margin-left:auto; display:flex; gap:1.25rem; }
 .cal-rail nav a { font-family:var(--mono); font-size:0.72rem; color:var(--ink-dim); text-decoration:none; letter-spacing:0.05em; transition:color .2s; }
-.cal-rail nav a { padding: 0.35rem 0.2rem; }
+.cal-rail nav a { padding: 0.5rem 0.35rem; min-height: 24px; display: inline-flex; align-items: center; }
 .cal-rail nav a:hover, .cal-rail nav a[aria-current="page"] { color: var(--ink); }
 .cal-rail nav a[aria-current="page"] { color: var(--amber); }
 .cal-rail nav a:focus-visible, .slink:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 3px; }
 
 /* ---------------- HERO ---------------- */
-.cal-hero { position: relative; margin: 0; padding: 0; min-height: clamp(500px, 76vh, 720px); overflow: hidden; display: flex; align-items: center; border-bottom: 1px solid var(--hair); }
+.cal-hero { position: relative; margin: 0; padding: 0; min-height: clamp(460px, 64vh, 660px); overflow: hidden; display: flex; align-items: center; border-bottom: 1px solid var(--hair); }
 #hero-canvas { position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 .hero-scrim { position:absolute; inset:0; z-index:1; pointer-events:none;
   background: linear-gradient(90deg, var(--void) 0%, rgba(6,7,10,0.4) 38%, transparent 66%),
@@ -139,8 +138,9 @@
   -webkit-backdrop-filter: blur(12px) saturate(140%); backdrop-filter: blur(12px) saturate(140%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.07), inset 0 0 0 1px rgba(150,170,200,0.04), 0 24px 48px -28px rgba(0,0,0,0.85); }
 .panel::after { content:""; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--hair-bright),transparent); }
-/* focal leftmost panel: brighter seam + a slow ambient sweep across it */
-.bento > .panel:first-child { border-color: rgba(255,180,92,0.18); }
+/* focal leftmost panel: elevation-2 (stronger depth) + brighter seam + a slow ambient sweep */
+.bento > .panel:first-child { border-color: rgba(255,180,92,0.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 30px 60px -30px rgba(0,0,0,0.92); }
 .bento > .panel:first-child::before { content:""; position:absolute; top:0; left:0; right:0; height:1px; z-index:3;
   background:linear-gradient(90deg,transparent,var(--amber),transparent); transform:translateX(-100%); animation: sweep 7s ease-in-out 1.5s infinite; }
 .panel .pbar { display:flex; align-items:center; justify-content:space-between; padding:0.65rem 1rem; border-bottom:1px solid var(--hair); background:rgba(8,10,13,0.55); }
@@ -221,7 +221,7 @@
   color:var(--ink); background:var(--carbon-1); border:1px solid var(--hair); border-radius:9px;
   padding:0.5rem 0.75rem; outline:none; transition:border-color .2s, box-shadow .2s; }
 .board-search::placeholder { color:var(--ink-faint); }
-.board-search:focus { border-color:var(--amber); box-shadow:0 0 0 3px rgba(255,180,92,0.13); }
+.board-search:focus-visible { border-color:var(--amber); outline:2px solid var(--amber); outline-offset:2px; box-shadow:0 0 0 3px rgba(255,180,92,0.13); }
 @media (prefers-reduced-motion: reduce){ .refresh-scan i{ display:none; } }
 
 .divchart { display:grid; gap:0.42rem; }
@@ -285,13 +285,14 @@
   background:var(--carbon-1); border:1px solid var(--hair); border-radius:9px;
   padding:0.55rem 0.8rem; outline:none; transition:border-color .2s,box-shadow .2s; }
 .notify-input::placeholder { color:var(--ink-faint); }
-.notify-input:focus { border-color:var(--amber); box-shadow:0 0 0 3px rgba(255,180,92,0.13); }
+.notify-input:focus-visible { border-color:var(--amber); outline:2px solid var(--amber); outline-offset:2px; box-shadow:0 0 0 3px rgba(255,180,92,0.13); }
 .notify-btn { font-family:var(--mono); font-weight:600; font-size:0.82rem; letter-spacing:0.04em;
   background:linear-gradient(180deg,var(--amber),var(--amber-2)); color:#1a1206;
   border:1px solid var(--hair-bright); border-radius:9px; padding:0.55rem 1.1rem;
   cursor:pointer; transition:transform .2s,box-shadow .2s; }
 .notify-btn:hover { transform:translateY(-1px); box-shadow:0 8px 20px -8px var(--amber-glow); }
 .notify-btn:disabled { opacity:0.5; cursor:default; transform:none; }
+.notify-btn:focus-visible { outline:2px solid var(--amber); outline-offset:3px; }
 .notify-fine { font-size:0.7rem; color:var(--ink-faint); margin-top:0.5rem; }
 .notify-ok { font-family:var(--mono); font-size:0.82rem; color:var(--win); }
 
@@ -386,7 +387,7 @@
   <article class="panel">
     <div class="pbar"><span class="ptag">SCOREBOARD · PULSE</span><span class="dotlive" role="img" aria-label="Live, updated every 30 minutes"></span></div>
     <div class="pbody">
-      <div class="statgrid" id="pr-status-grid">
+      <div class="statgrid" id="pr-status-grid" aria-live="polite">
         <div><span class="bignum amber" data-stat="resolved">—</span><span class="statlab">Resolved</span></div>
         <div><span class="bignum" data-stat="pending">—</span><span class="statlab">Pending</span></div>
         <div><span class="bignum" data-stat="void">—</span><span class="statlab">Void</span></div>
@@ -409,16 +410,16 @@
   <article class="panel">
     <div class="pbar"><span class="ptag">OPEN CALLS · SCORING</span><span class="dotlive" role="img" aria-label="Live"></span></div>
     <div class="pbody">
-      <ul id="proof-open-calls" class="calls"><li class="skel">loading…</li></ul>
+      <ul id="proof-open-calls" class="calls" aria-live="polite"><li class="skel">loading…</li></ul>
       <p class="pfoot">From the public <a href="ledger.json">ledger.json</a> — timestamped, scored at resolution.</p>
     </div>
   </article>
 </section>
 
 <!-- ======= TERMINAL BOARD ======= -->
-<section id="terminal" class="sect">
+<section id="terminal" class="sect" aria-labelledby="board-h2">
   <div class="shead">
-    <div><p class="stag">LIVE TERMINAL</p><h2>The board</h2>
+    <div><p class="stag">LIVE TERMINAL</p><h2 id="board-h2">The board</h2>
       <p class="snapmeta"><span class="live" id="board-delay-label">LOADING</span> · top-volume events, category-balanced</p></div>
     <p class="ssub">Top-volume Polymarket events, round-robin balanced across categories so no topic dominates. Every eligible card shows crowd pricing against the QEST baseline — the gap is the call.</p>
   </div>
@@ -491,7 +492,7 @@
     <p class="notify-label">Get notified when calibration alerts ship</p>
     <form class="notify-form" action="https://formspree.io/f/placeholder" method="POST"
           onsubmit="return notifySubmit(event)">
-      <input class="notify-input" type="email" name="email"
+      <input class="notify-input" type="email" name="email" autocomplete="email"
              placeholder="your@email.com" required aria-label="Email address" />
       <button class="notify-btn" type="submit">Notify me</button>
     </form>
