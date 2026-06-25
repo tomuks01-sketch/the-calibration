@@ -2,20 +2,20 @@
   "schemaVersion": "fs2-v1",
   "generatedFrom": "web/football_ledger.json",
   "counts": {
-    "resolved": 21,
-    "open": 16,
+    "resolved": 23,
+    "open": 14,
     "void": 0,
     "total": 37
   },
   "confidence": "low",
   "model": {
-    "meanRps": 0.16403,
-    "accuracy": 0.714,
+    "meanRps": 0.17006,
+    "accuracy": 0.696,
     "accuracyWilson95": [
-      0.5,
-      0.862
+      0.491,
+      0.844
     ],
-    "calibrationError": 0.1984,
+    "calibrationError": 0.1746,
     "calibrationBins": [
       {
         "range": "0-10%",
@@ -25,15 +25,15 @@
       },
       {
         "range": "10-20%",
-        "n": 13,
-        "predicted": 0.169,
-        "actual": 0.308
+        "n": 14,
+        "predicted": 0.17,
+        "actual": 0.286
       },
       {
         "range": "20-30%",
-        "n": 22,
-        "predicted": 0.242,
-        "actual": 0.091
+        "n": 25,
+        "predicted": 0.244,
+        "actual": 0.12
       },
       {
         "range": "30-40%",
@@ -43,15 +43,15 @@
       },
       {
         "range": "40-50%",
-        "n": 4,
-        "predicted": 0.442,
-        "actual": 0.75
+        "n": 5,
+        "predicted": 0.446,
+        "actual": 0.6
       },
       {
         "range": "50-60%",
-        "n": 9,
-        "predicted": 0.554,
-        "actual": 0.889
+        "n": 10,
+        "predicted": 0.557,
+        "actual": 0.9
       },
       {
         "range": "60-70%",
@@ -74,15 +74,15 @@
     ]
   },
   "market": {
-    "meanRps": 0.1442,
-    "accuracy": 0.733,
-    "skillVsMarket": -0.01983,
-    "beatMarketRate": 0.4,
+    "meanRps": 0.15987,
+    "accuracy": 0.706,
+    "skillVsMarket": -0.01019,
+    "beatMarketRate": 0.412,
     "beatMarketWilson95": [
-      0.198,
-      0.643
+      0.216,
+      0.64
     ],
-    "n": 15
+    "n": 17
   },
   "disclaimer": "International-football W/D/L forecasts scored with RPS (lower is better). skillVsMarket = market RPS - our RPS (positive = we beat the market; shown even when negative). Calibration pooled over the three outcomes. Analytics only, not advice. Gated until enough resolved matches; market comparison needs matches with odds."
 }
