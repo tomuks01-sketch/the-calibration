@@ -2,20 +2,20 @@
   "schemaVersion": "fs2-v1",
   "generatedFrom": "web/football_ledger.json",
   "counts": {
-    "resolved": 23,
-    "open": 14,
+    "resolved": 25,
+    "open": 12,
     "void": 0,
     "total": 37
   },
   "confidence": "low",
   "model": {
-    "meanRps": 0.17006,
-    "accuracy": 0.696,
+    "meanRps": 0.16594,
+    "accuracy": 0.68,
     "accuracyWilson95": [
-      0.491,
-      0.844
+      0.484,
+      0.828
     ],
-    "calibrationError": 0.1746,
+    "calibrationError": 0.1323,
     "calibrationBins": [
       {
         "range": "0-10%",
@@ -25,15 +25,15 @@
       },
       {
         "range": "10-20%",
-        "n": 14,
-        "predicted": 0.17,
-        "actual": 0.286
+        "n": 17,
+        "predicted": 0.168,
+        "actual": 0.235
       },
       {
         "range": "20-30%",
-        "n": 25,
-        "predicted": 0.244,
-        "actual": 0.12
+        "n": 26,
+        "predicted": 0.243,
+        "actual": 0.154
       },
       {
         "range": "30-40%",
@@ -49,9 +49,9 @@
       },
       {
         "range": "50-60%",
-        "n": 10,
-        "predicted": 0.557,
-        "actual": 0.9
+        "n": 11,
+        "predicted": 0.56,
+        "actual": 0.818
       },
       {
         "range": "60-70%",
@@ -61,9 +61,9 @@
       },
       {
         "range": "70-80%",
-        "n": 5,
-        "predicted": 0.739,
-        "actual": 0.4
+        "n": 6,
+        "predicted": 0.733,
+        "actual": 0.5
       },
       {
         "range": "80-90%",
@@ -74,15 +74,15 @@
     ]
   },
   "market": {
-    "meanRps": 0.15987,
-    "accuracy": 0.706,
-    "skillVsMarket": -0.01019,
-    "beatMarketRate": 0.412,
+    "meanRps": 0.15146,
+    "accuracy": 0.684,
+    "skillVsMarket": -0.01448,
+    "beatMarketRate": 0.368,
     "beatMarketWilson95": [
-      0.216,
-      0.64
+      0.191,
+      0.59
     ],
-    "n": 17
+    "n": 19
   },
   "disclaimer": "International-football W/D/L forecasts scored with RPS (lower is better). skillVsMarket = market RPS - our RPS (positive = we beat the market; shown even when negative). Calibration pooled over the three outcomes. Analytics only, not advice. Gated until enough resolved matches; market comparison needs matches with odds."
 }
