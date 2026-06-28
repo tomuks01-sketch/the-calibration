@@ -11,9 +11,13 @@ resolved track record earns calibration, per the project's honesty rule):
   1. World Football Elo: delta = weight * G * (result - expected), weight =
      tournament importance, G = goal-difference multiplier, home advantage in
      Elo points. Iterated chronologically over real history.
-  2. Poisson goals model: the Elo gap maps to an expected goal supremacy; two
-     Poisson rates (lambda_home, lambda_away) give the full scoreline matrix ->
-     W/D/L, the top scorelines, expected goals, over-2.5 and both-teams-score.
+  2. Poisson goals model with a Dixon-Coles low-score correction: the Elo gap
+     maps to an expected goal supremacy; two Poisson rates (lambda_home,
+     lambda_away) give the full scoreline matrix -> W/D/L, the top scorelines,
+     expected goals, over-2.5 and both-teams-score. Independent Poisson is known
+     to under-price 0-0/1-1 and draws; the Dixon & Coles (1997) tau correction
+     reweights the four low-score cells with a documented dependence parameter
+     (NOT fitted to our games — a prior, like HOME_ADV_ELO), then renormalises.
 
 Data: martj42/international_results (keyless GitHub CSV, ~49k matches). HTTP is
 injectable so tests never touch the network. NEVER 'team X will win'; always
@@ -29,7 +33,7 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass
 
-FORECAST_VERSION = "fbx-v1"
+FORECAST_VERSION = "fbx-v2"   # v2: Dixon-Coles low-score correction added
 INTL_RESULTS_URL = (
     "https://raw.githubusercontent.com/martj42/international_results/master/results.csv"
 )
@@ -55,6 +59,12 @@ INTL_AVG_TOTAL_GOALS = 2.6  # long-run avg total goals in international football
 ELO_PER_GOAL = 250.0        # Elo gap (incl. home adv) per 1.0 of expected supremacy
 MIN_LAMBDA = 0.15           # a team is never literally incapable of scoring
 MAX_GOALS = 8               # scoreline matrix truncation (P(>8) is negligible)
+# Dixon-Coles low-score dependence parameter. Documented prior from the football
+# modelling literature (Dixon & Coles 1997 estimated rho around -0.13 to -0.18);
+# NEGATIVE = independent Poisson under-prices 0-0/1-1, so they get boosted. This
+# is a fixed prior, NOT fitted to our resolved games (same honesty rule as the
+# Elo constants); the live scoreboard shows whether it narrows the gap to market.
+DIXON_COLES_RHO = -0.13
 
 
 def _default_get(url: str) -> str | None:
@@ -134,6 +144,23 @@ def _poisson_pmf(k: int, lam: float) -> float:
     return math.exp(-lam) * lam ** k / math.factorial(k)
 
 
+def _dc_tau(h: int, a: int, lam_h: float, lam_a: float, rho: float) -> float:
+    """Dixon-Coles correction for the four low-score cells; 1.0 elsewhere. With
+    rho < 0 it lifts 0-0 and 1-1 (and trims 1-0/0-1), the empirically observed
+    dependence that independent Poisson misses. Clamped non-negative for safety."""
+    if h == 0 and a == 0:
+        tau = 1.0 - lam_h * lam_a * rho
+    elif h == 0 and a == 1:
+        tau = 1.0 + lam_h * rho
+    elif h == 1 and a == 0:
+        tau = 1.0 + lam_a * rho
+    elif h == 1 and a == 1:
+        tau = 1.0 - rho
+    else:
+        tau = 1.0
+    return tau if tau > 0.0 else 0.0
+
+
 @dataclass(frozen=True)
 class MatchForecast:
     home: str
@@ -180,7 +207,7 @@ def forecast_match(home: str, away: str, elo: dict[str, float],
     cells = []
     for h in range(MAX_GOALS + 1):
         for a in range(MAX_GOALS + 1):
-            p = ph[h] * pa[a]
+            p = ph[h] * pa[a] * _dc_tau(h, a, lam_h, lam_a, DIXON_COLES_RHO)
             cells.append((p, h, a))
             if h > a:
                 p_home += p
@@ -197,8 +224,15 @@ def forecast_match(home: str, away: str, elo: dict[str, float],
                 p_o35 += p
             if h >= 1 and a >= 1:
                 p_btts += p
+    # The DC correction (and truncation) leaves the matrix not summing to 1 ->
+    # renormalise so W/D/L and the markets are honest probabilities.
+    total = p_home + p_draw + p_away
+    if total <= 0:
+        return base
+    p_home, p_draw, p_away = p_home / total, p_draw / total, p_away / total
+    p_o15, p_o25, p_o35, p_btts = p_o15 / total, p_o25 / total, p_o35 / total, p_btts / total
     cells.sort(reverse=True)
-    top = [{"score": f"{h}-{a}", "prob": round(p, 4)} for p, h, a in cells[:5]]
+    top = [{"score": f"{h}-{a}", "prob": round(p / total, 4)} for p, h, a in cells[:5]]
 
     why = [
         f"Elo {round(rh)} vs {round(ra)} ({'+' if elo_diff >= 0 else ''}{round(elo_diff)} incl. "

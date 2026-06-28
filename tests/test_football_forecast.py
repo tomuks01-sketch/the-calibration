@@ -10,7 +10,8 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
 
 from football_forecast import (  # noqa: E402
-    ELO_BASE, _expected, _g_multiplier, compute_elo, forecast_match, load_results,
+    DIXON_COLES_RHO, ELO_BASE, _dc_tau, _expected, _g_multiplier, compute_elo,
+    forecast_match, load_results,
 )
 
 _CSV = (
@@ -57,6 +58,27 @@ def test_forecast_stronger_team_favoured_and_normalised():
     assert any("Elo" in w for w in f.why)                   # reasoning surfaced
 
 
+def test_dixon_coles_tau_boosts_draws_only():
+    rho = DIXON_COLES_RHO
+    assert rho < 0                                          # documented negative dependence
+    lh, la = 1.5, 1.1
+    assert _dc_tau(1, 1, lh, la, rho) > 1.0                 # 1-1 lifted (1 - rho)
+    assert _dc_tau(0, 0, lh, la, rho) > 1.0                 # 0-0 lifted
+    assert _dc_tau(0, 1, lh, la, rho) < 1.0                 # 0-1 trimmed
+    assert _dc_tau(1, 0, lh, la, rho) < 1.0                 # 1-0 trimmed
+    assert _dc_tau(2, 1, lh, la, rho) == 1.0                # only low scores touched
+    assert _dc_tau(0, 0, 5.0, 5.0, rho) >= 0.0             # clamped non-negative
+
+
+def test_dixon_coles_renormalises_and_raises_draw():
+    elo = {"A": 1550.0, "B": 1500.0}
+    f = forecast_match("A", "B", elo)
+    s = f.prob_home + f.prob_draw + f.prob_away
+    assert abs(s - 1.0) < 1e-9                              # DC matrix renormalised exactly
+    # the 1-1/0-0 lift should leave a non-trivial draw share for two close teams
+    assert 0.18 < f.prob_draw < 0.45
+
+
 def test_forecast_unknown_team_unavailable():
     f = forecast_match("Nowhere", "Elsewhere", {"Strong": 1750.0})
     assert f.available is False and f.prob_home is None
@@ -75,6 +97,8 @@ if __name__ == "__main__":
     test_expected_and_g_multiplier()
     test_compute_elo_rewards_winner_symmetrically()
     test_forecast_stronger_team_favoured_and_normalised()
+    test_dixon_coles_tau_boosts_draws_only()
+    test_dixon_coles_renormalises_and_raises_draw()
     test_forecast_unknown_team_unavailable()
     test_neutral_venue_removes_home_edge()
     print("ALL fbx-v1 FOOTBALL-FORECAST TESTS PASSED")
