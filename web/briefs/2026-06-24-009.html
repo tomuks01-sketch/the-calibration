@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Crowd Signal #009 — the bookmaker is sharper</title>
+<meta name="description" content="The first read of our football model against the bookmaker's own odds, over 30 matches: our RPS is 0.155, the bookmaker's 0.138. We lose. Here is by how much, why, and the first documented change we made to try to close the gap." />
+<link rel="stylesheet" href="../styles.css" />
+  <link rel="icon" href="/the-calibration/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://tomuks01-sketch.github.io/the-calibration/briefs/2026-06-24-009.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:site_name" content="The Calibration" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Crowd Signal #009 — the bookmaker is sharper" />
+  <meta property="og:description" content="Our football model vs the bookmaker over 30 matches: RPS 0.155 to 0.138. We lose, and we say so — then ship a documented fix (Dixon-Coles) and let the record judge it." />
+  <meta property="og:url" content="https://tomuks01-sketch.github.io/the-calibration/briefs/2026-06-24-009.html" />
+  <meta property="og:image" content="https://tomuks01-sketch.github.io/the-calibration/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Crowd Signal #009 — the bookmaker is sharper" />
+  <meta name="twitter:description" content="First football scorecard vs the bookmaker: we lose by 0.017 RPS over 30 matches. We lead with it, then ship a documented correction and let the record judge." />
+  <meta name="twitter:image" content="https://tomuks01-sketch.github.io/the-calibration/og-image.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Crowd Signal #009 — the bookmaker is sharper", "datePublished": "2026-06-24", "author": {"@type": "Organization", "name": "The Calibration"}, "publisher": {"@type": "Organization", "name": "The Calibration"}, "mainEntityOfPage": "https://tomuks01-sketch.github.io/the-calibration/briefs/2026-06-24-009.html"}</script>
+</head>
+<body>
+<header class="rail">
+  <a class="wm" href="../">THE&nbsp;<span>CALIBRATION</span></a>
+  <div class="meta"><span class="state"><span class="dotlive"></span>DELAYED</span></div>
+  <nav>
+    <a href="../">Terminal</a>
+    <a href="./" aria-current="page">Briefs</a>
+    <a href="../scoreboard/">Scoreboard</a>
+  </nav>
+</header>
+
+<article class="brief">
+  <a class="back" href="./">← The Crowd Signal · archive</a>
+  <p class="kicker">Crowd Signal #009 · 24 June 2026 · 3 min read</p>
+  <h1>The bookmaker is <em>sharper</em></h1>
+  <p class="standfirst">Enough international matches have now resolved <b>with
+  odds attached</b> to read our <a href="../football/">football</a> model against
+  the bookmaker's own price. Over <b>30</b> matches our RPS is <b>0.155</b>; the
+  bookmaker's is <b>0.138</b>. Lower is better, so we are <b>behind</b>. This is
+  the answer to the question the whole football model was built to ask, and the
+  answer — for now — is that the market is sharper.</p>
+
+  <h2>1 · The verdict</h2>
+  <p>Each forecast is locked before kickoff next to the bookmaker's implied
+  probabilities, and both are scored with RPS — the standard measure for a
+  three-way win/draw/win call — the moment the match ends. Across the thirty
+  graded so far, we were closer than the bookmaker on only <b>37%</b> of them.
+  Our most-likely outcome came in <b>64%</b> of the time, which is fine, but
+  "fine" is not "sharper than a market that prices injuries, line-ups and the
+  morning's news." Our Elo runs on <b>49,000 historical results</b> and sees none
+  of that. The gap is small — <b>0.017</b> — but it is real and it is the wrong
+  way round.</p>
+
+  <h2>2 · Why a loss is the system working</h2>
+  <p>We did not build this to beat the bookmaker on day one. We built it to be
+  <em>scored against</em> one, in public, win or lose — so that any future claim
+  of skill has a receipt. Most sites that sell football "AI" never show this
+  number because it would end the sale. Ours is the headline: <b>over thirty
+  matches, the market beats us.</b> If that never changes, the scoreboard will
+  keep saying it.</p>
+
+  <h2>3 · The first thing we changed</h2>
+  <p>A measured gap is a target, so we made one documented change. Our scoreline
+  model treated each team's goals as independent — a standard simplification that
+  is <b>known</b> to under-price draws and the tight 0-0 and 1-1 results. We
+  added the <b>Dixon-Coles correction</b> (from the 1997 paper that more or less
+  founded modern football modelling), which lifts exactly those low-score cells.
+  It is a <b>documented constant, not a number we fitted to our thirty games</b>
+  — the same honesty rule as every other prior in the model. On a close fixture
+  it nudges the draw probability up by about three points. It applies to new
+  forecasts only; the matches already scored keep their old numbers.</p>
+
+  <h2>4 · What we are not promising</h2>
+  <p>Dixon-Coles is a refinement, not a magic wand. It is unlikely to fully close
+  a gap to a market that knows who is injured and we don't, and it is entirely
+  possible that with public, keyless data we simply never beat the bookmaker. We
+  are not promising that we will. We are promising that the next thirty matches
+  are scored the same way, that the correction either narrows the gap or it
+  doesn't, and that the number is on the <a href="../football/">football</a> page
+  either way.</p>
+
+  <h2>5 · Elsewhere on the record</h2>
+  <p>The pattern holds across the board. Our <a href="../crypto/">crypto</a>
+  direction calls, now <b>154</b> resolved, remain a coin flip — no edge, as <a
+  href="2026-06-13-007.html">#007</a> said — while the volatility band stays
+  calibrated. The prediction-market <a href="../scoreboard/">ledger</a> is a dead
+  heat with the crowd (<a href="2026-06-24-008.html">#008</a>). Three records,
+  one rule: we publish the score we got, not the one we wanted.</p>
+
+  <p class="disclaimer">Analytics only. These are transparent, documented
+  probabilities scored in public against a bookmaker's implied odds — not
+  predictions to act on, not betting, financial or investment advice, and no
+  profit claim. Losing to the market is not a tip to bet the market; a model
+  change is not a promise of improvement. Figures come from the live record and
+  move continuously. Think for yourself.</p>
+
+  <nav class="brief-nav" aria-label="More briefs">
+    <a class="bn-prev" href="2026-06-24-008.html"><span>← Previous</span><b>#008 — Thirteen calls in, a dead heat</b></a>
+  </nav>
+  <a class="back" href="./">← back to archive</a>
+</article>
+</body>
+</html>
