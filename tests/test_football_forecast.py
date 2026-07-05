@@ -1,4 +1,4 @@
-"""fbx-v1 football model tests (zero-dep, run: python tests/test_football_forecast.py).
+"""fbx-v2 football model tests (zero-dep, run: python tests/test_football_forecast.py).
 
 World Football Elo + Poisson goals model. Documented + reproducible; fail-open
 on unknown teams (never invent a rating). HTTP injected so tests never hit the net.
@@ -101,4 +101,4 @@ if __name__ == "__main__":
     test_dixon_coles_renormalises_and_raises_draw()
     test_forecast_unknown_team_unavailable()
     test_neutral_venue_removes_home_edge()
-    print("ALL fbx-v1 FOOTBALL-FORECAST TESTS PASSED")
+    print("ALL fbx-v2 FOOTBALL-FORECAST TESTS PASSED")

@@ -1,4 +1,4 @@
-"""International football forecast (fbx-v1) — our OWN model, documented + scorable.
+"""International football forecast (fbx-v2) — our OWN model, documented + scorable.
 
 For big international games (World Cup, Euros, Copa América, qualifiers, Nations League)
 we want a rich, falsifiable read: who wins (W/D/L), the likely scoreline and a
