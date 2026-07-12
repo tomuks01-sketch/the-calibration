@@ -1,8 +1,58 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-07-11T23:24:25.399206+00:00",
+  "generatedAt": "2026-07-12T01:02:17.758076+00:00",
   "records": [
+    {
+      "assetId": "30615",
+      "kind": "PM_MULTI",
+      "title": "World Cup Winner ",
+      "category": "Sports",
+      "horizonDays": 8.0,
+      "crowd": {
+        "prob": 0.3815,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.3741,
+        "gapVsCrowd": -0.007,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive",
+        "source": "snapshot-derived"
+      },
+      "composite": {
+        "prob": 0.3799,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": -0.2,
+          "regime": 0.0
+        }
+      }
+    },
     {
       "assetId": "30829",
       "kind": "PM_MULTI",
@@ -120,7 +170,7 @@
       "category": "Ethiopia",
       "horizonDays": -41.0,
       "crowd": {
-        "prob": 0.971,
+        "prob": 0.9715,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -157,13 +207,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.971,
+        "prob": 0.9715,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -230,7 +280,7 @@
       "category": "Trump-Machado",
       "horizonDays": 172.0,
       "crowd": {
-        "prob": 0.779,
+        "prob": 0.785,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -239,8 +289,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7879,
-        "gapVsCrowd": 0.009,
+        "prob": 0.7918,
+        "gapVsCrowd": 0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -267,68 +317,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.781,
+        "prob": 0.7865,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.2,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "424982",
-      "kind": "PM_MULTI",
-      "title": "Next leader out of power before 2027? (No Orban)",
-      "category": "Politics",
-      "horizonDays": 172.0,
-      "crowd": {
-        "prob": 0.978,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": true,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.978,
-        "coverage": 0.7778,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -395,7 +390,7 @@
       "category": "Iran Regime",
       "horizonDays": -102.0,
       "crowd": {
-        "prob": 0.0425,
+        "prob": 0.0485,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -427,7 +422,7 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0425,
+        "prob": 0.0485,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -439,68 +434,13 @@
       }
     },
     {
-      "assetId": "672710",
-      "kind": "PM_MULTI",
-      "title": "Norway vs. England - More Markets",
-      "category": "Sports",
-      "horizonDays": -0.1,
-      "crowd": {
-        "prob": 0.9995,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": true,
-        "move24hPp": -21.8,
-        "overheated": true,
-        "infoEventNear": true,
-        "preResolutionVol": true
-      },
-      "composite": {
-        "prob": 0.99,
-        "coverage": 0.7778,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -1.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
       "assetId": "413862",
       "kind": "PM_MULTI",
       "title": "World Cup: Golden Boot Winner",
       "category": "2026 FIFA World Cup",
       "horizonDays": 8.0,
       "crowd": {
-        "prob": 0.465,
+        "prob": 0.525,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -509,8 +449,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.4897,
-        "gapVsCrowd": 0.025,
+        "prob": 0.5285,
+        "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -532,13 +472,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.4705,
+        "prob": 0.5258,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.5,
+          "baseline": 0.1,
           "regime": 0.0
         }
       }
@@ -550,7 +490,7 @@
       "category": "Economic Policy",
       "horizonDays": 17.0,
       "crowd": {
-        "prob": 0.78,
+        "prob": 0.775,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -559,8 +499,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8203,
-        "gapVsCrowd": 0.04,
+        "prob": 0.817,
+        "gapVsCrowd": 0.042,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -581,19 +521,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.5,
+        "move24hPp": 0.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.7895,
+        "prob": 0.7849,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.9,
+          "baseline": 1.0,
           "regime": 0.0
         }
       }
@@ -660,7 +600,7 @@
       "category": "Military Strikes",
       "horizonDays": 172.0,
       "crowd": {
-        "prob": 0.165,
+        "prob": 0.175,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -669,8 +609,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.151,
-        "gapVsCrowd": -0.014,
+        "prob": 0.1575,
+        "gapVsCrowd": -0.018,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -691,19 +631,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 2.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.1618,
+        "prob": 0.171,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.3,
+          "baseline": -0.4,
           "regime": 0.0
         }
       }
@@ -715,7 +655,7 @@
       "category": "California Midterm",
       "horizonDays": 114.0,
       "crowd": {
-        "prob": 0.927,
+        "prob": 0.9265,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -725,7 +665,7 @@
       },
       "baseline": {
         "prob": 0.9202,
-        "gapVsCrowd": -0.007,
+        "gapVsCrowd": -0.006,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -752,7 +692,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9255,
+        "prob": 0.9251,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -801,7 +741,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 0.1,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -884,8 +824,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8574,
-        "gapVsCrowd": 0.002,
+        "prob": 0.8564,
+        "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -912,13 +852,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8555,
+        "prob": 0.8553,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.1,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -930,7 +870,7 @@
       "category": "Main Election",
       "horizonDays": 172.0,
       "crowd": {
-        "prob": 0.373,
+        "prob": 0.3725,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -939,7 +879,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3747,
+        "prob": 0.3744,
         "gapVsCrowd": 0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -967,7 +907,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3734,
+        "prob": 0.3729,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -985,7 +925,7 @@
       "category": "Middle East",
       "horizonDays": 172.0,
       "crowd": {
-        "prob": 0.8215,
+        "prob": 0.7995,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -994,8 +934,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8236,
-        "gapVsCrowd": 0.002,
+        "prob": 0.8089,
+        "gapVsCrowd": 0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1022,13 +962,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.822,
+        "prob": 0.8016,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": 0.2,
           "regime": 0.0
         }
       }
@@ -1040,7 +980,7 @@
       "category": "Awards",
       "horizonDays": 90.0,
       "crowd": {
-        "prob": 0.1125,
+        "prob": 0.111,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1049,7 +989,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1143,
+        "prob": 0.1133,
         "gapVsCrowd": 0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1077,13 +1017,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.1129,
+        "prob": 0.1115,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": 0.1,
           "regime": 0.0
         }
       }
@@ -1095,7 +1035,7 @@
       "category": "Reza Pahlavi",
       "horizonDays": 172.0,
       "crowd": {
-        "prob": 0.075,
+        "prob": 0.085,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1104,8 +1044,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0715,
-        "gapVsCrowd": -0.004,
+        "prob": 0.078,
+        "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1126,19 +1066,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 1.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0742,
+        "prob": 0.0834,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.1,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -1209,7 +1149,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2814,
+        "prob": 0.2809,
         "gapVsCrowd": -0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1237,7 +1177,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2881,
+        "prob": 0.288,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1253,9 +1193,9 @@
       "kind": "PM_MULTI",
       "title": "NBA: LeBron James Next Team",
       "category": "NBA",
-      "horizonDays": 111.2,
+      "horizonDays": 111.1,
       "crowd": {
-        "prob": 0.4645,
+        "prob": 0.452,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1264,8 +1204,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.4843,
-        "gapVsCrowd": 0.02,
+        "prob": 0.4765,
+        "gapVsCrowd": 0.025,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1285,20 +1225,70 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": true,
-        "move24hPp": 5.9,
+        "suddenMove": false,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.4689,
+        "prob": 0.4574,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.4,
+          "baseline": 0.5,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "139122",
+      "kind": "PM_MULTI",
+      "title": "2026 Men\u2019s Wimbledon Winner",
+      "category": "Wimbledon",
+      "horizonDays": -0.0,
+      "crowd": {
+        "prob": 0.815,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive",
+        "source": "snapshot-derived"
+      },
+      "composite": {
+        "prob": 0.815,
+        "coverage": 0.7778,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -1346,7 +1336,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.3,
+        "move24hPp": -0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1396,7 +1386,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.3,
+        "move24hPp": -0.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1446,7 +1436,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.3,
+        "move24hPp": -0.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1496,7 +1486,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": -1.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1546,7 +1536,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.9,
+        "move24hPp": -2.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1596,7 +1586,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": -0.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1641,7 +1631,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 2.5,
+        "move24hPp": 0.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1686,7 +1676,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": -0.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1736,7 +1726,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.3,
+        "move24hPp": -2.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1781,7 +1771,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.6,
+        "move24hPp": 2.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
