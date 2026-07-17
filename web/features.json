@@ -1,58 +1,8 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-07-17T18:33:11.754729+00:00",
+  "generatedAt": "2026-07-17T20:02:09.839649+00:00",
   "records": [
-    {
-      "assetId": "30615",
-      "kind": "PM_MULTI",
-      "title": "World Cup Winner ",
-      "category": "Sports",
-      "horizonDays": 2.2,
-      "crowd": {
-        "prob": 0.5895,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.4429,
-        "gapVsCrowd": -0.147,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive",
-        "source": "snapshot-derived"
-      },
-      "composite": {
-        "prob": 0.5574,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -3.2,
-          "regime": 0.0
-        }
-      }
-    },
     {
       "assetId": "30829",
       "kind": "PM_MULTI",
@@ -170,7 +120,7 @@
       "category": "Ethiopia",
       "horizonDays": -46.8,
       "crowd": {
-        "prob": 0.958,
+        "prob": 0.9585,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -201,13 +151,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.7,
+        "move24hPp": -0.5,
         "overheated": true,
         "infoEventNear": true,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.958,
+        "prob": 0.9585,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -280,7 +230,7 @@
       "category": "Trump-Machado",
       "horizonDays": 166.2,
       "crowd": {
-        "prob": 0.7975,
+        "prob": 0.798,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -289,7 +239,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7945,
+        "prob": 0.7953,
         "gapVsCrowd": -0.003,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -317,7 +267,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.7968,
+        "prob": 0.7974,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -335,7 +285,7 @@
       "category": "Economic Policy",
       "horizonDays": 11.2,
       "crowd": {
-        "prob": 0.9415,
+        "prob": 0.9445,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -344,8 +294,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8867,
-        "gapVsCrowd": -0.055,
+        "prob": 0.8852,
+        "gapVsCrowd": -0.059,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -366,19 +316,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.6,
+        "move24hPp": -1.3,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.932,
+        "prob": 0.9345,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.9,
+          "baseline": -1.0,
           "regime": 0.0
         }
       }
@@ -399,8 +349,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5119,
-        "gapVsCrowd": -0.069,
+        "prob": 0.5049,
+        "gapVsCrowd": -0.076,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -421,19 +371,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -3.3,
+        "move24hPp": -3.1,
         "overheated": false,
         "infoEventNear": true,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5654,
+        "prob": 0.5639,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -1.5,
+          "baseline": -1.7,
           "regime": 0.0
         }
       }
@@ -445,7 +395,7 @@
       "category": "Iran Regime",
       "horizonDays": -107.8,
       "crowd": {
-        "prob": 0.0845,
+        "prob": 0.0855,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -477,7 +427,7 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0845,
+        "prob": 0.0855,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -581,7 +531,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 4.0,
+        "move24hPp": 3.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -660,7 +610,7 @@
       "category": "California Midterm",
       "horizonDays": 108.2,
       "crowd": {
-        "prob": 0.9405,
+        "prob": 0.9395,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -669,8 +619,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.9387,
-        "gapVsCrowd": -0.002,
+        "prob": 0.9383,
+        "gapVsCrowd": -0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -697,7 +647,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9401,
+        "prob": 0.9392,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -715,7 +665,7 @@
       "category": "Davos",
       "horizonDays": 166.2,
       "crowd": {
-        "prob": 0.046,
+        "prob": 0.0455,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -752,13 +702,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.046,
+        "prob": 0.0455,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -770,7 +720,7 @@
       "category": "Middle East",
       "horizonDays": 166.2,
       "crowd": {
-        "prob": 0.774,
+        "prob": 0.7795,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -779,8 +729,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7927,
-        "gapVsCrowd": 0.019,
+        "prob": 0.7966,
+        "gapVsCrowd": 0.017,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -807,7 +757,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.7783,
+        "prob": 0.7834,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -834,8 +784,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.4637,
-        "gapVsCrowd": -0.031,
+        "prob": 0.4633,
+        "gapVsCrowd": -0.032,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -856,13 +806,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 1.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.488,
+        "prob": 0.4879,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -889,7 +839,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8473,
+        "prob": 0.8466,
         "gapVsCrowd": -0.003,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -917,7 +867,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8494,
+        "prob": 0.8492,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -933,9 +883,9 @@
       "kind": "PM_MULTI",
       "title": "NBA: LeBron James Next Team",
       "category": "NBA",
-      "horizonDays": 105.4,
+      "horizonDays": 105.3,
       "crowd": {
-        "prob": 0.345,
+        "prob": 0.344,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -944,8 +894,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.4034,
-        "gapVsCrowd": 0.058,
+        "prob": 0.3788,
+        "gapVsCrowd": 0.035,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -966,19 +916,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -3.3,
+        "move24hPp": -1.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3576,
+        "prob": 0.3516,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 1.3,
+          "baseline": 0.8,
           "regime": 0.0
         }
       }
@@ -1205,7 +1155,7 @@
       "category": "MLS",
       "horizonDays": 154.2,
       "crowd": {
-        "prob": 0.31,
+        "prob": 0.305,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1214,8 +1164,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3066,
-        "gapVsCrowd": -0.003,
+        "prob": 0.3042,
+        "gapVsCrowd": -0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1242,13 +1192,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3092,
+        "prob": 0.3048,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.1,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -1258,7 +1208,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 348.0,
+      "horizonDays": 347.9,
       "crowd": {
         "prob": 0.18,
         "spread": null,
@@ -1298,6 +1248,56 @@
       },
       "composite": {
         "prob": 0.1804,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.0,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "310530",
+      "kind": "PM_MULTI",
+      "title": "Iran agrees to surrender enriched uranium stockpile by...?",
+      "category": "Geopolitics",
+      "horizonDays": 166.2,
+      "crowd": {
+        "prob": 0.135,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.135,
+        "gapVsCrowd": 0.0,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive",
+        "source": "snapshot-derived"
+      },
+      "composite": {
+        "prob": 0.135,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1351,7 +1351,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.3,
+        "move24hPp": -0.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1401,7 +1401,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.0,
+        "move24hPp": -1.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1451,7 +1451,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.6,
+        "move24hPp": -1.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1501,7 +1501,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.4,
+        "move24hPp": -0.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1551,7 +1551,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.7,
+        "move24hPp": -0.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1646,7 +1646,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.4,
+        "move24hPp": -2.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1691,7 +1691,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -4.0,
+        "move24hPp": -3.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1741,7 +1741,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.2,
+        "move24hPp": -0.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1786,7 +1786,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.7,
+        "move24hPp": -2.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
