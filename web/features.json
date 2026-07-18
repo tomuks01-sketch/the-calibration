@@ -1,64 +1,14 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-07-18T06:00:19.464858+00:00",
+  "generatedAt": "2026-07-18T08:03:42.394669+00:00",
   "records": [
-    {
-      "assetId": "30615",
-      "kind": "PM_MULTI",
-      "title": "World Cup Winner ",
-      "category": "Sports",
-      "horizonDays": 1.8,
-      "crowd": {
-        "prob": 0.5915,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive",
-        "source": "snapshot-derived"
-      },
-      "composite": {
-        "prob": 0.5915,
-        "coverage": 0.7778,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.0,
-          "regime": 0.0
-        }
-      }
-    },
     {
       "assetId": "30829",
       "kind": "PM_MULTI",
       "title": "Democratic Presidential Nominee 2028",
       "category": "United States",
-      "horizonDays": 842.8,
+      "horizonDays": 842.7,
       "crowd": {
         "prob": 0.2015,
         "spread": null,
@@ -113,7 +63,7 @@
       "kind": "PM_MULTI",
       "title": "Presidential Election Winner 2028",
       "category": "President",
-      "horizonDays": 842.8,
+      "horizonDays": 842.7,
       "crowd": {
         "prob": 0.1975,
         "spread": null,
@@ -168,9 +118,9 @@
       "kind": "PM_MULTI",
       "title": "Next Prime Minister of Ethiopia?",
       "category": "Ethiopia",
-      "horizonDays": -47.2,
+      "horizonDays": -47.3,
       "crowd": {
-        "prob": 0.97,
+        "prob": 0.9695,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -201,19 +151,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.2,
+        "move24hPp": 0.1,
         "overheated": true,
         "infoEventNear": true,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.97,
+        "prob": 0.9695,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -223,7 +173,7 @@
       "kind": "PM_MULTI",
       "title": "Next French Presidential Election",
       "category": "French Election",
-      "horizonDays": 285.8,
+      "horizonDays": 285.7,
       "crowd": {
         "prob": 0.3255,
         "spread": null,
@@ -234,7 +184,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3073,
+        "prob": 0.3077,
         "gapVsCrowd": -0.018,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -262,7 +212,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3214,
+        "prob": 0.3215,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -278,7 +228,7 @@
       "kind": "PM_MULTI",
       "title": "Venezuela leader end of 2026?",
       "category": "Trump-Machado",
-      "horizonDays": 165.8,
+      "horizonDays": 165.7,
       "crowd": {
         "prob": 0.797,
         "spread": null,
@@ -289,7 +239,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7903,
+        "prob": 0.7899,
         "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -317,13 +267,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.7955,
+        "prob": 0.7954,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.1,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -333,9 +283,9 @@
       "kind": "PM_MULTI",
       "title": "Fed Decision in July?",
       "category": "Economic Policy",
-      "horizonDays": 10.8,
+      "horizonDays": 10.7,
       "crowd": {
-        "prob": 0.9455,
+        "prob": 0.9475,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -344,7 +294,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8858,
+        "prob": 0.8871,
         "gapVsCrowd": -0.06,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -366,13 +316,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.3,
+        "move24hPp": -0.9,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9355,
+        "prob": 0.9375,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -388,9 +338,9 @@
       "kind": "PM_MULTI",
       "title": "Next leader out of power before 2027? (No Orban)",
       "category": "Politics",
-      "horizonDays": 165.8,
+      "horizonDays": 165.7,
       "crowd": {
-        "prob": 0.994,
+        "prob": 0.9945,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -433,7 +383,7 @@
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.4,
+          "baseline": -0.5,
           "regime": 0.0
         }
       }
@@ -443,9 +393,9 @@
       "kind": "PM_MULTI",
       "title": "World Cup: Golden Boot Winner",
       "category": "2026 FIFA World Cup",
-      "horizonDays": 1.8,
+      "horizonDays": 1.7,
       "crowd": {
-        "prob": 0.576,
+        "prob": 0.5755,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -476,13 +426,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.5,
+        "move24hPp": -1.7,
         "overheated": false,
         "infoEventNear": true,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.576,
+        "prob": 0.5755,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -500,7 +450,7 @@
       "category": "Iran Regime",
       "horizonDays": -108.3,
       "crowd": {
-        "prob": 0.097,
+        "prob": 0.095,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -532,7 +482,7 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.097,
+        "prob": 0.095,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -548,7 +498,7 @@
       "kind": "PM_MULTI",
       "title": "Will the US confirm that aliens exist by...?",
       "category": "Aliens",
-      "horizonDays": 165.8,
+      "horizonDays": 165.7,
       "crowd": {
         "prob": 0.055,
         "spread": null,
@@ -603,7 +553,7 @@
       "kind": "PM_BINARY",
       "title": "Will the U.S. invade Iran before 2027?",
       "category": "Military Strikes",
-      "horizonDays": 165.8,
+      "horizonDays": 165.7,
       "crowd": {
         "prob": 0.275,
         "spread": null,
@@ -635,8 +585,8 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": true,
-        "move24hPp": 6.0,
+        "suddenMove": false,
+        "move24hPp": 4.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -658,9 +608,9 @@
       "kind": "PM_MULTI",
       "title": "How many Fed rate cuts in 2026?",
       "category": "Rewards 200, 4.5, 50 Deprec",
-      "horizonDays": 165.8,
+      "horizonDays": 165.7,
       "crowd": {
-        "prob": 0.8405,
+        "prob": 0.8425,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -669,7 +619,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8177,
+        "prob": 0.8191,
         "gapVsCrowd": -0.023,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -691,13 +641,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.1,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8356,
+        "prob": 0.8375,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -713,9 +663,9 @@
       "kind": "PM_MULTI",
       "title": "California Governor Election Winner",
       "category": "California Midterm",
-      "horizonDays": 107.8,
+      "horizonDays": 107.7,
       "crowd": {
-        "prob": 0.9375,
+        "prob": 0.94,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -724,8 +674,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.9345,
-        "gapVsCrowd": -0.003,
+        "prob": 0.936,
+        "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -752,7 +702,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9368,
+        "prob": 0.9391,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -768,9 +718,9 @@
       "kind": "PM_MULTI",
       "title": "Iran leader end of 2026?",
       "category": "Middle East",
-      "horizonDays": 165.8,
+      "horizonDays": 165.7,
       "crowd": {
-        "prob": 0.773,
+        "prob": 0.7755,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -779,8 +729,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7921,
-        "gapVsCrowd": 0.019,
+        "prob": 0.7916,
+        "gapVsCrowd": 0.016,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -807,7 +757,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.7773,
+        "prob": 0.7792,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -823,9 +773,9 @@
       "kind": "PM_MULTI",
       "title": "Who will be the next Prime Minister of Israel after the next election?",
       "category": "Main Election",
-      "horizonDays": 165.8,
+      "horizonDays": 165.7,
       "crowd": {
-        "prob": 0.4935,
+        "prob": 0.4965,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -834,8 +784,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.4602,
-        "gapVsCrowd": -0.033,
+        "prob": 0.4617,
+        "gapVsCrowd": -0.035,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -862,13 +812,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.4861,
+        "prob": 0.4888,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.7,
+          "baseline": -0.8,
           "regime": 0.0
         }
       }
@@ -878,7 +828,7 @@
       "kind": "PM_MULTI",
       "title": "F1 Constructors' Champion",
       "category": "Formula 1",
-      "horizonDays": 140.8,
+      "horizonDays": 140.7,
       "crowd": {
         "prob": 0.855,
         "spread": null,
@@ -889,8 +839,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8537,
-        "gapVsCrowd": -0.001,
+        "prob": 0.8515,
+        "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -917,13 +867,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8547,
+        "prob": 0.8542,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -933,9 +883,9 @@
       "kind": "PM_MULTI",
       "title": "NBA: LeBron James Next Team",
       "category": "NBA",
-      "horizonDays": 104.9,
+      "horizonDays": 104.8,
       "crowd": {
-        "prob": 0.3385,
+        "prob": 0.3205,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -944,8 +894,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3098,
-        "gapVsCrowd": -0.029,
+        "prob": 0.2967,
+        "gapVsCrowd": -0.024,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -966,19 +916,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": -14.2,
+        "move24hPp": -13.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.332,
+        "prob": 0.3151,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.6,
+          "baseline": -0.5,
           "regime": 0.0
         }
       }
@@ -988,7 +938,7 @@
       "kind": "PM_MULTI",
       "title": "What will happen before GTA VI?",
       "category": "Culture",
-      "horizonDays": 13.3,
+      "horizonDays": 13.2,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -1043,7 +993,7 @@
       "kind": "PM_MULTI",
       "title": "Nobel Peace Prize Winner 2026",
       "category": "Awards",
-      "horizonDays": 83.8,
+      "horizonDays": 83.7,
       "crowd": {
         "prob": 0.135,
         "spread": null,
@@ -1076,7 +1026,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.5,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1098,7 +1048,7 @@
       "kind": "PM_BINARY",
       "title": "Will the Iranian regime fall before 2027?",
       "category": "Reza Pahlavi",
-      "horizonDays": 165.8,
+      "horizonDays": 165.7,
       "crowd": {
         "prob": 0.095,
         "spread": null,
@@ -1153,7 +1103,7 @@
       "kind": "PM_MULTI",
       "title": "Will Reza Pahlavi enter Iran by...?",
       "category": "shah",
-      "horizonDays": -18.2,
+      "horizonDays": -18.3,
       "crowd": {
         "prob": 0.07,
         "spread": null,
@@ -1203,9 +1153,9 @@
       "kind": "PM_MULTI",
       "title": "MLS Cup Winner 2026",
       "category": "MLS",
-      "horizonDays": 153.8,
+      "horizonDays": 153.7,
       "crowd": {
-        "prob": 0.305,
+        "prob": 0.31,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1214,8 +1164,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3036,
-        "gapVsCrowd": -0.001,
+        "prob": 0.3073,
+        "gapVsCrowd": -0.003,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1242,13 +1192,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3047,
+        "prob": 0.3094,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -1258,9 +1208,9 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 347.5,
+      "horizonDays": 347.4,
       "crowd": {
-        "prob": 0.18,
+        "prob": 0.185,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1269,8 +1219,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1839,
-        "gapVsCrowd": 0.004,
+        "prob": 0.1853,
+        "gapVsCrowd": 0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1291,19 +1241,69 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.0,
+        "move24hPp": 0.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.1809,
+        "prob": 0.1851,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.1,
+          "baseline": 0.0,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "310530",
+      "kind": "PM_MULTI",
+      "title": "Iran agrees to surrender enriched uranium stockpile by...?",
+      "category": "Geopolitics",
+      "horizonDays": 165.7,
+      "crowd": {
+        "prob": 0.135,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.135,
+        "gapVsCrowd": 0.0,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive",
+        "source": "snapshot-derived"
+      },
+      "composite": {
+        "prob": 0.135,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -1351,7 +1351,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.8,
+        "move24hPp": 1.9,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1401,7 +1401,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.2,
+        "move24hPp": 0.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1451,7 +1451,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.0,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1501,7 +1501,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.7,
+        "move24hPp": 0.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1551,7 +1551,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.7,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1691,7 +1691,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.6,
+        "move24hPp": 0.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1741,7 +1741,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.0,
+        "move24hPp": 0.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1786,7 +1786,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.9,
+        "move24hPp": -1.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
