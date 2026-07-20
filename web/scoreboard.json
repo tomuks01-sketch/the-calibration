@@ -3,15 +3,15 @@
   "modelVersion": "baseline-v1",
   "sampleNote": "Snapshot-scoped: calls are logged only for markets present in the top-volume snapshot at call time. This is NOT a random sample of all Polymarket markets; the Brier figures are 'snapshot-scoped' and must be read with that selection caveat.",
   "counts": {
-    "resolved": 18,
-    "pending": 17,
+    "resolved": 21,
+    "pending": 14,
     "void": 0,
     "total": 35
   },
   "confidence": "low",
-  "snapshotScopedModelBrier": 0.13445,
-  "snapshotScopedCrowdBrier": 0.14463,
-  "skillVsCrowd": 0.01018,
+  "snapshotScopedModelBrier": 0.15763,
+  "snapshotScopedCrowdBrier": 0.1582,
+  "skillVsCrowd": 0.00057,
   "calibration": [
     {
       "range": "0-20%",
@@ -21,15 +21,15 @@
     },
     {
       "range": "20-40%",
-      "n": 5,
-      "predicted": 0.284,
-      "actual": 0.2
+      "n": 7,
+      "predicted": 0.274,
+      "actual": 0.286
     },
     {
       "range": "40-60%",
-      "n": 6,
-      "predicted": 0.512,
-      "actual": 0.5
+      "n": 7,
+      "predicted": 0.502,
+      "actual": 0.571
     },
     {
       "range": "60-80%",
@@ -73,7 +73,7 @@
       "beatsCrowdWilson95": null
     },
     "Sports": {
-      "n": 4,
+      "n": 5,
       "confidence": "none",
       "modelBrier": null,
       "crowdBrier": null,
@@ -119,6 +119,15 @@
     },
     "Starmer": {
       "n": 1,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "FIFA World Cup": {
+      "n": 2,
       "confidence": "none",
       "modelBrier": null,
       "crowdBrier": null,
