@@ -2,7 +2,7 @@
   "available": true,
   "source": "yahoo-finance (delayed)",
   "class": "descriptive",
-  "asOf": "2026-07-26T14:47:40.601629+00:00",
+  "asOf": "2026-07-26T15:57:53.958577+00:00",
   "items": [
     {
       "symbol": "AAPL",
@@ -196,12 +196,11 @@
       "symbol": "AMZN",
       "name": "Amazon",
       "price": 232.11,
-      "c24": -4.57,
-      "c7": -6.49,
-      "c30": 0.37,
-      "volume": 33836532,
+      "c24": -0.66,
+      "c7": -6.12,
+      "c30": -0.85,
+      "volume": 34965800,
       "spark": [
-        238.0,
         241.51,
         238.55,
         246.02,
@@ -230,12 +229,13 @@
         249.99,
         247.55,
         244.85,
-        233.66
+        233.66,
+        232.11
       ],
       "signal": {
-        "label": "mixed",
-        "dir": "flat",
-        "why": "timeframes disagree"
+        "label": "falling",
+        "dir": "down",
+        "why": "24h / 7d / 30d all lower"
       },
       "rank": 5
     },
