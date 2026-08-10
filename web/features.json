@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-10T01:17:22.936578+00:00",
+  "generatedAt": "2026-08-10T03:24:38.346675+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -120,7 +120,7 @@
       "category": "Ethiopia",
       "horizonDays": -70.1,
       "crowd": {
-        "prob": 0.9405,
+        "prob": 0.94,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -151,13 +151,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": true,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9405,
+        "prob": 0.94,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -239,7 +239,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8165,
+        "prob": 0.8163,
         "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -335,7 +335,7 @@
       "category": "Aliens",
       "horizonDays": 142.9,
       "crowd": {
-        "prob": 0.055,
+        "prob": 0.045,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -344,11 +344,11 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.055,
-        "gapVsCrowd": 0.0,
+        "prob": null,
+        "gapVsCrowd": null,
         "signalQuality": "insufficient",
         "source": "model.py",
-        "available": true
+        "available": false
       },
       "regime": {
         "descriptive": {
@@ -366,19 +366,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": false,
+        "move24hPp": -1.0,
+        "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.055,
-        "coverage": 1.0,
+        "prob": 0.045,
+        "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -443,7 +443,7 @@
       "kind": "PM_MULTI",
       "title": "What price will Bitcoin hit in 2026?",
       "category": "Bitcoin",
-      "horizonDays": 144.2,
+      "horizonDays": 144.1,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -555,7 +555,7 @@
       "category": "California Midterm",
       "horizonDays": 84.9,
       "crowd": {
-        "prob": 0.939,
+        "prob": 0.9385,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -564,7 +564,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.9376,
+        "prob": 0.9373,
         "gapVsCrowd": -0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -592,7 +592,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9387,
+        "prob": 0.9382,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -674,8 +674,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5076,
-        "gapVsCrowd": -0.005,
+        "prob": 0.5083,
+        "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -702,7 +702,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5114,
+        "prob": 0.5116,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -729,8 +729,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1238,
-        "gapVsCrowd": 0.039,
+        "prob": 0.1222,
+        "gapVsCrowd": 0.037,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -752,13 +752,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0925,
+        "prob": 0.0923,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.8,
+          "baseline": 0.7,
           "regime": 0.0
         }
       }
@@ -825,7 +825,7 @@
       "category": "Soccer",
       "horizonDays": 81.9,
       "crowd": {
-        "prob": 0.5795,
+        "prob": 0.579,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -834,7 +834,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5641,
+        "prob": 0.5638,
         "gapVsCrowd": -0.015,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -856,13 +856,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.5,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5761,
+        "prob": 0.5756,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1040,7 +1040,7 @@
       "category": "fomc",
       "horizonDays": 36.9,
       "crowd": {
-        "prob": 0.625,
+        "prob": 0.635,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1049,7 +1049,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.548,
+        "prob": 0.558,
         "gapVsCrowd": -0.077,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1077,7 +1077,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6083,
+        "prob": 0.6183,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1093,7 +1093,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 324.7,
+      "horizonDays": 324.6,
       "crowd": {
         "prob": 0.125,
         "spread": null,
@@ -1159,7 +1159,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2998,
+        "prob": 0.2995,
         "gapVsCrowd": 0.015,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1187,7 +1187,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2883,
+        "prob": 0.2882,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1286,7 +1286,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.3,
+        "move24hPp": -0.4,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1346,7 +1346,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1396,7 +1396,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.2,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1446,7 +1446,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.6,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1496,7 +1496,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.8,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1546,7 +1546,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.7,
+        "move24hPp": 1.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1596,7 +1596,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.4,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1686,7 +1686,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.9,
+        "move24hPp": -1.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1736,7 +1736,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.1,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1781,7 +1781,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.9,
+        "move24hPp": -0.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
