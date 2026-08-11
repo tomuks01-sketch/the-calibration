@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-11T21:40:22.131411+00:00",
+  "generatedAt": "2026-08-11T22:35:48.711000+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -10,7 +10,7 @@
       "category": "United States",
       "horizonDays": 818.1,
       "crowd": {
-        "prob": 0.1775,
+        "prob": 0.1795,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,7 +47,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.1775,
+        "prob": 0.1795,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -120,7 +120,7 @@
       "category": "Ethiopia",
       "horizonDays": -71.9,
       "crowd": {
-        "prob": 0.957,
+        "prob": 0.9515,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -157,13 +157,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.957,
+        "prob": 0.9515,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -289,7 +289,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8218,
+        "prob": 0.8213,
         "gapVsCrowd": 0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -317,13 +317,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.82,
+        "prob": 0.8199,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.1,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -449,8 +449,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.175,
-        "gapVsCrowd": 0.0,
+        "prob": 0.1715,
+        "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -477,13 +477,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.175,
+        "prob": 0.1742,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -495,7 +495,7 @@
       "category": "Rewards 200, 4.5, 50 Deprec",
       "horizonDays": 141.1,
       "crowd": {
-        "prob": 0.8555,
+        "prob": 0.8565,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -504,7 +504,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8667,
+        "prob": 0.8674,
         "gapVsCrowd": 0.011,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -532,13 +532,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8581,
+        "prob": 0.859,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.3,
+          "baseline": 0.2,
           "regime": 0.0
         }
       }
@@ -746,7 +746,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.1,
+        "move24hPp": 0.0,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -770,7 +770,7 @@
       "category": "Main Election",
       "horizonDays": 141.1,
       "crowd": {
-        "prob": 0.518,
+        "prob": 0.5185,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -779,7 +779,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5191,
+        "prob": 0.5197,
         "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -807,7 +807,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5182,
+        "prob": 0.5188,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -834,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1222,
-        "gapVsCrowd": 0.037,
+        "prob": 0.1237,
+        "gapVsCrowd": 0.039,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -857,13 +857,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0923,
+        "prob": 0.0925,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.7,
+          "baseline": 0.8,
           "regime": 0.0
         }
       }
@@ -930,7 +930,7 @@
       "category": "Soccer",
       "horizonDays": 80.1,
       "crowd": {
-        "prob": 0.5795,
+        "prob": 0.5805,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -939,8 +939,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5641,
-        "gapVsCrowd": -0.015,
+        "prob": 0.5647,
+        "gapVsCrowd": -0.016,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -961,13 +961,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.5,
+        "move24hPp": 0.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5761,
+        "prob": 0.577,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1126,7 +1126,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1198,7 +1198,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 322.9,
+      "horizonDays": 322.8,
       "crowd": {
         "prob": 0.115,
         "spread": null,
@@ -1264,7 +1264,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2994,
+        "prob": 0.2993,
         "gapVsCrowd": 0.014,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1292,7 +1292,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2882,
+        "prob": 0.2881,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1346,7 +1346,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.5,
+        "move24hPp": -0.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1396,7 +1396,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.2,
+        "move24hPp": 0.3,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1496,7 +1496,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.3,
+        "move24hPp": 0.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1546,7 +1546,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.3,
+        "move24hPp": 0.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1641,7 +1641,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 3.3,
+        "move24hPp": 3.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1686,7 +1686,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.3,
+        "move24hPp": -1.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1736,7 +1736,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 2.6,
+        "move24hPp": 3.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
