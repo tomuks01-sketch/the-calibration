@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-13T03:40:00.106761+00:00",
+  "generatedAt": "2026-08-13T05:30:12.355866+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -10,7 +10,7 @@
       "category": "United States",
       "horizonDays": 816.8,
       "crowd": {
-        "prob": 0.197,
+        "prob": 0.196,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,7 +47,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.197,
+        "prob": 0.196,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -65,7 +65,7 @@
       "category": "President",
       "horizonDays": 816.8,
       "crowd": {
-        "prob": 0.2315,
+        "prob": 0.2305,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -102,13 +102,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2315,
+        "prob": 0.2305,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -225,7 +225,7 @@
       "category": "French Election",
       "horizonDays": 259.8,
       "crowd": {
-        "prob": 0.3155,
+        "prob": 0.317,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -234,62 +234,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3095,
-        "gapVsCrowd": -0.006,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.3142,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -0.1,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "143443",
-      "kind": "PM_MULTI",
-      "title": "Venezuela leader end of 2026?",
-      "category": "Trump-Machado",
-      "horizonDays": 139.8,
-      "crowd": {
-        "prob": 0.8205,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.8137,
+        "prob": 0.3105,
         "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -317,13 +262,68 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.819,
+        "prob": 0.3155,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": -0.1,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "143443",
+      "kind": "PM_MULTI",
+      "title": "Venezuela leader end of 2026?",
+      "category": "Trump-Machado",
+      "horizonDays": 139.8,
+      "crowd": {
+        "prob": 0.8205,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.8122,
+        "gapVsCrowd": -0.008,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 0.0,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.8187,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -605,7 +605,7 @@
       "category": "California Midterm",
       "horizonDays": 81.8,
       "crowd": {
-        "prob": 0.9265,
+        "prob": 0.929,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -614,8 +614,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.926,
-        "gapVsCrowd": -0.001,
+        "prob": 0.9192,
+        "gapVsCrowd": -0.01,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -636,74 +636,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9264,
+        "prob": 0.9269,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "237598",
-      "kind": "PM_MULTI",
-      "title": "Iran leader end of 2026?",
-      "category": "Middle East",
-      "horizonDays": 139.8,
-      "crowd": {
-        "prob": 0.81,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.8223,
-        "gapVsCrowd": 0.012,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.8128,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.3,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -715,7 +660,7 @@
       "category": "Davos",
       "horizonDays": 139.8,
       "crowd": {
-        "prob": 0.0385,
+        "prob": 0.038,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -752,7 +697,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0385,
+        "prob": 0.038,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -770,7 +715,7 @@
       "category": "Main Election",
       "horizonDays": 139.8,
       "crowd": {
-        "prob": 0.532,
+        "prob": 0.531,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -779,8 +724,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5289,
-        "gapVsCrowd": -0.003,
+        "prob": 0.5271,
+        "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -807,7 +752,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5313,
+        "prob": 0.5301,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -994,7 +939,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5805,
+        "prob": 0.5803,
         "gapVsCrowd": -0.014,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1198,7 +1143,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 321.6,
+      "horizonDays": 321.5,
       "crowd": {
         "prob": 0.115,
         "spread": null,
@@ -1264,8 +1209,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3011,
-        "gapVsCrowd": 0.016,
+        "prob": 0.3015,
+        "gapVsCrowd": 0.017,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1292,13 +1237,68 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2885,
+        "prob": 0.2886,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.4,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "660108",
+      "kind": "PM_MULTI",
+      "title": "Strait of Hormuz traffic returns to normal by...?",
+      "category": "Oil",
+      "horizonDays": 17.8,
+      "crowd": {
+        "prob": 0.0315,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": -1.0,
+        "overheated": true,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.0315,
+        "coverage": 0.7778,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -1346,7 +1346,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.5,
+        "move24hPp": -0.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1396,7 +1396,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.2,
+        "move24hPp": 0.3,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1446,7 +1446,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.3,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1496,7 +1496,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.6,
+        "move24hPp": -0.9,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1546,7 +1546,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.7,
+        "move24hPp": -0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1596,7 +1596,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.4,
+        "move24hPp": 0.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1686,7 +1686,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 3.4,
+        "move24hPp": 4.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1736,7 +1736,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.9,
+        "move24hPp": -2.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1781,7 +1781,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.1,
+        "move24hPp": -2.9,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
