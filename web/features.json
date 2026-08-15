@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-15T09:20:19.039255+00:00",
+  "generatedAt": "2026-08-15T09:48:33.119066+00:00",
   "records": [
     {
       "assetId": "31875",
@@ -151,7 +151,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.1,
+        "move24hPp": 0.3,
         "overheated": true,
         "infoEventNear": true,
         "preResolutionVol": false
@@ -509,8 +509,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8543,
-        "gapVsCrowd": 0.003,
+        "prob": 0.8527,
+        "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -537,13 +537,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8521,
+        "prob": 0.8518,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.1,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -839,8 +839,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1176,
-        "gapVsCrowd": 0.038,
+        "prob": 0.1192,
+        "gapVsCrowd": 0.039,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -862,13 +862,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0873,
+        "prob": 0.0875,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.7,
+          "baseline": 0.8,
           "regime": 0.0
         }
       }
@@ -1205,7 +1205,7 @@
       "category": "Oil",
       "horizonDays": 15.6,
       "crowd": {
-        "prob": 0.0165,
+        "prob": 0.0175,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1236,19 +1236,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": 0.0,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0165,
+        "prob": 0.0175,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -1269,8 +1269,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2995,
-        "gapVsCrowd": 0.015,
+        "prob": 0.2981,
+        "gapVsCrowd": 0.013,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1297,7 +1297,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2882,
+        "prob": 0.2879,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
