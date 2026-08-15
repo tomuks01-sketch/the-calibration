@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-15T11:14:36.744895+00:00",
+  "generatedAt": "2026-08-15T11:43:15.095340+00:00",
   "records": [
     {
       "assetId": "31875",
@@ -164,56 +164,6 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "34051",
-      "kind": "PM_MULTI",
-      "title": "Netanyahu out by...?",
-      "category": "Geopolitics",
-      "horizonDays": 137.5,
-      "crowd": {
-        "prob": 0.445,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.452,
-        "gapVsCrowd": 0.007,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive",
-        "source": "snapshot-derived"
-      },
-      "composite": {
-        "prob": 0.4466,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.2,
           "regime": 0.0
         }
       }
@@ -559,7 +509,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8522,
+        "prob": 0.8524,
         "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -825,7 +775,7 @@
       "category": "Main Election",
       "horizonDays": 137.5,
       "crowd": {
-        "prob": 0.5255,
+        "prob": 0.5285,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -834,8 +784,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5243,
-        "gapVsCrowd": -0.001,
+        "prob": 0.5261,
+        "gapVsCrowd": -0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -856,19 +806,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.5,
+        "move24hPp": 1.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5252,
+        "prob": 0.528,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -889,8 +839,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1192,
-        "gapVsCrowd": 0.039,
+        "prob": 0.1208,
+        "gapVsCrowd": 0.041,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -912,7 +862,7 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0875,
+        "prob": 0.0878,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -994,8 +944,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8367,
-        "gapVsCrowd": 0.002,
+        "prob": 0.8385,
+        "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1022,13 +972,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8354,
+        "prob": 0.8358,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": 0.1,
           "regime": 0.0
         }
       }
@@ -1299,6 +1249,61 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.0,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "200782",
+      "kind": "PM_MULTI",
+      "title": "MLS Cup Winner 2026",
+      "category": "MLS",
+      "horizonDays": 125.5,
+      "crowd": {
+        "prob": 0.285,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.298,
+        "gapVsCrowd": 0.013,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 0.0,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.2879,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.3,
           "regime": 0.0
         }
       }
