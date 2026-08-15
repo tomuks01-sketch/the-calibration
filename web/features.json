@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-15T23:14:33.142826+00:00",
+  "generatedAt": "2026-08-15T23:42:58.309318+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -709,6 +709,61 @@
       }
     },
     {
+      "assetId": "237598",
+      "kind": "PM_MULTI",
+      "title": "Iran leader end of 2026?",
+      "category": "Middle East",
+      "horizonDays": 137.0,
+      "crowd": {
+        "prob": 0.8145,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.8008,
+        "gapVsCrowd": -0.014,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": -0.4,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.8115,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": -0.3,
+          "regime": 0.0
+        }
+      }
+    },
+    {
       "assetId": "0xd595eb9b81885ff018738300c79047e3ec89e87294424f57a29a7fa9162bf116",
       "kind": "PM_BINARY",
       "title": "Will Trump acquire Greenland before 2027?",
@@ -834,7 +889,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5323,
+        "prob": 0.5316,
         "gapVsCrowd": -0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -856,13 +911,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.5,
+        "move24hPp": 1.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5391,
+        "prob": 0.5389,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -930,7 +985,7 @@
       "category": "Soccer",
       "horizonDays": 76.0,
       "crowd": {
-        "prob": 0.618,
+        "prob": 0.6175,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -939,7 +994,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6028,
+        "prob": 0.6025,
         "gapVsCrowd": -0.015,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -967,7 +1022,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6146,
+        "prob": 0.6142,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1239,61 +1294,6 @@
       "composite": {
         "prob": 0.0175,
         "coverage": 0.7778,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "31195",
-      "kind": "PM_MULTI",
-      "title": "Putin out as President of Russia by...?",
-      "category": "putin",
-      "horizonDays": 318.8,
-      "crowd": {
-        "prob": 0.125,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.125,
-        "gapVsCrowd": 0.0,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": -1.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.125,
-        "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
