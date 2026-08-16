@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-16T07:09:46.035583+00:00",
+  "generatedAt": "2026-08-16T07:53:25.989560+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -225,7 +225,7 @@
       "category": "French Election",
       "horizonDays": 256.7,
       "crowd": {
-        "prob": 0.3235,
+        "prob": 0.323,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -234,7 +234,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3155,
+        "prob": 0.3151,
         "gapVsCrowd": -0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -262,7 +262,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3217,
+        "prob": 0.3212,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -605,7 +605,7 @@
       "category": "California Midterm",
       "horizonDays": 78.7,
       "crowd": {
-        "prob": 0.9295,
+        "prob": 0.929,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -614,7 +614,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.933,
+        "prob": 0.9327,
         "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -642,7 +642,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9303,
+        "prob": 0.9298,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -669,8 +669,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8017,
-        "gapVsCrowd": -0.017,
+        "prob": 0.8034,
+        "gapVsCrowd": -0.015,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -697,13 +697,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8149,
+        "prob": 0.8152,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.4,
+          "baseline": -0.3,
           "regime": 0.0
         }
       }
@@ -715,7 +715,7 @@
       "category": "Davos",
       "horizonDays": 136.7,
       "crowd": {
-        "prob": 0.0365,
+        "prob": 0.0355,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -746,13 +746,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": -0.1,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0365,
+        "prob": 0.0355,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -825,7 +825,7 @@
       "category": "Main Election",
       "horizonDays": 136.7,
       "crowd": {
-        "prob": 0.541,
+        "prob": 0.5405,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -834,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5307,
-        "gapVsCrowd": -0.01,
+        "prob": 0.5321,
+        "gapVsCrowd": -0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -862,7 +862,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5387,
+        "prob": 0.5386,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -994,8 +994,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8367,
-        "gapVsCrowd": 0.002,
+        "prob": 0.8385,
+        "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1022,13 +1022,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8354,
+        "prob": 0.8358,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": 0.1,
           "regime": 0.0
         }
       }
@@ -1200,7 +1200,7 @@
       "category": "Oil",
       "horizonDays": 14.7,
       "crowd": {
-        "prob": 0.0175,
+        "prob": 0.0165,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1231,19 +1231,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.1,
+        "move24hPp": 0.0,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0175,
+        "prob": 0.0165,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -1253,7 +1253,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 318.5,
+      "horizonDays": 318.4,
       "crowd": {
         "prob": 0.125,
         "spread": null,
