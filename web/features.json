@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-16T09:21:58.474892+00:00",
+  "generatedAt": "2026-08-16T09:50:02.026235+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -225,7 +225,7 @@
       "category": "French Election",
       "horizonDays": 256.6,
       "crowd": {
-        "prob": 0.323,
+        "prob": 0.3235,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -234,7 +234,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3151,
+        "prob": 0.3155,
         "gapVsCrowd": -0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -262,7 +262,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3212,
+        "prob": 0.3217,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -280,7 +280,7 @@
       "category": "Trump-Machado",
       "horizonDays": 136.6,
       "crowd": {
-        "prob": 0.821,
+        "prob": 0.8215,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -289,7 +289,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8203,
+        "prob": 0.8206,
         "gapVsCrowd": -0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -317,7 +317,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8208,
+        "prob": 0.8213,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -636,7 +636,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -834,7 +834,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5317,
+        "prob": 0.5312,
         "gapVsCrowd": -0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -862,7 +862,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5385,
+        "prob": 0.5384,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1250,7 +1250,7 @@
       "category": "Oil",
       "horizonDays": 14.6,
       "crowd": {
-        "prob": 0.0155,
+        "prob": 0.0145,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1281,19 +1281,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.2,
+        "move24hPp": -0.3,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0155,
+        "prob": 0.0145,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
