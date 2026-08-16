@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-16T14:16:48.281064+00:00",
+  "generatedAt": "2026-08-16T14:46:51.993831+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -10,7 +10,7 @@
       "category": "United States",
       "horizonDays": 813.4,
       "crowd": {
-        "prob": 0.2015,
+        "prob": 0.2065,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,13 +47,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2015,
+        "prob": 0.2065,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -65,7 +65,7 @@
       "category": "President",
       "horizonDays": 813.4,
       "crowd": {
-        "prob": 0.2285,
+        "prob": 0.2305,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -102,7 +102,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2285,
+        "prob": 0.2305,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -120,7 +120,7 @@
       "category": "Ethiopia",
       "horizonDays": -76.6,
       "crowd": {
-        "prob": 0.961,
+        "prob": 0.9615,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -157,13 +157,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.961,
+        "prob": 0.9615,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -495,7 +495,7 @@
       "category": "Rewards 200, 4.5, 50 Deprec",
       "horizonDays": 136.4,
       "crowd": {
-        "prob": 0.8545,
+        "prob": 0.8525,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -504,7 +504,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8552,
+        "prob": 0.8539,
         "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -526,74 +526,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.3,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8547,
+        "prob": 0.8528,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "202857",
-      "kind": "PM_MULTI",
-      "title": "Pro Football: 2027 Champion",
-      "category": "Sports",
-      "horizonDays": 182.4,
-      "crowd": {
-        "prob": 0.135,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.1385,
-        "gapVsCrowd": 0.004,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.1358,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.1,
           "regime": 0.0
         }
       }
@@ -669,7 +614,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8094,
+        "prob": 0.8096,
         "gapVsCrowd": -0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -697,7 +642,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8165,
+        "prob": 0.8166,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -825,7 +770,7 @@
       "category": "Main Election",
       "horizonDays": 136.4,
       "crowd": {
-        "prob": 0.5325,
+        "prob": 0.5355,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -834,8 +779,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5297,
-        "gapVsCrowd": -0.003,
+        "prob": 0.5316,
+        "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -862,7 +807,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5319,
+        "prob": 0.5346,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -930,7 +875,7 @@
       "category": "Soccer",
       "horizonDays": 75.4,
       "crowd": {
-        "prob": 0.612,
+        "prob": 0.6125,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -939,7 +884,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6038,
+        "prob": 0.6041,
         "gapVsCrowd": -0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -961,13 +906,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.4,
+        "move24hPp": -0.3,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6102,
+        "prob": 0.6106,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1299,6 +1244,61 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.0,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "200782",
+      "kind": "PM_MULTI",
+      "title": "MLS Cup Winner 2026",
+      "category": "MLS",
+      "horizonDays": 124.4,
+      "crowd": {
+        "prob": 0.275,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.2957,
+        "gapVsCrowd": 0.021,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 0.0,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.2795,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.5,
           "regime": 0.0
         }
       }
