@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-18T22:49:09.044268+00:00",
+  "generatedAt": "2026-08-18T23:16:29.217960+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -289,8 +289,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8126,
-        "gapVsCrowd": -0.011,
+        "prob": 0.8131,
+        "gapVsCrowd": -0.01,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -317,7 +317,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8211,
+        "prob": 0.8212,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -669,8 +669,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.663,
-        "gapVsCrowd": -0.042,
+        "prob": 0.6665,
+        "gapVsCrowd": -0.039,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -697,13 +697,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6959,
+        "prob": 0.6967,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.9,
+          "baseline": -0.8,
           "regime": 0.0
         }
       }
@@ -884,8 +884,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6013,
-        "gapVsCrowd": -0.008,
+        "prob": 0.6036,
+        "gapVsCrowd": -0.006,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -912,13 +912,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6077,
+        "prob": 0.6082,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.2,
+          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -1327,17 +1327,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 1.008e-05,
-          "fundingZ": -1.97,
-          "basis": -0.000465,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 106396.499,
-          "oiDelta": -0.041
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": 0.7552,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1346,7 +1346,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.3,
+        "move24hPp": 0.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1377,17 +1377,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 2.21e-05,
-          "fundingZ": -0.85,
-          "basis": -0.000523,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 2379217.226,
-          "oiDelta": 0.0068
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": 0.4011,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1396,7 +1396,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.2,
+        "move24hPp": 0.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1427,17 +1427,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 1.237e-05,
-          "fundingZ": -0.45,
-          "basis": 0.00051,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 604846.74,
-          "oiDelta": -0.0156
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": 0.2213,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1446,7 +1446,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.6,
+        "move24hPp": -0.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1477,17 +1477,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 3.59e-06,
-          "fundingZ": -0.3,
-          "basis": -0.000473,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 404603728.8,
-          "oiDelta": -0.0321
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": 0.1489,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1496,7 +1496,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.3,
+        "move24hPp": 0.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1527,17 +1527,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 0.0001,
-          "fundingZ": 1.2,
-          "basis": -0.000368,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 8662353.75,
-          "oiDelta": -0.0271
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": -0.537,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1546,7 +1546,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.3,
+        "move24hPp": 1.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1577,17 +1577,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": -3.276e-05,
-          "fundingZ": -0.78,
-          "basis": -0.000194,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 265233455.0,
-          "oiDelta": 0.0173
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": 0.3714,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1686,7 +1686,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": -1.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1717,17 +1717,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 5.1e-05,
-          "fundingZ": -0.25,
-          "basis": -0.000742,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 3009031884.0,
-          "oiDelta": 0.0078
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": 0.1244,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1736,7 +1736,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.3,
+        "move24hPp": -0.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
