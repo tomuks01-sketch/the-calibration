@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-18T17:25:46.726447+00:00",
+  "generatedAt": "2026-08-18T17:52:54.261856+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -385,7 +385,7 @@
       "category": "Aliens",
       "horizonDays": 134.3,
       "crowd": {
-        "prob": 0.0445,
+        "prob": 0.045,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -416,13 +416,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": 0.0,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0445,
+        "prob": 0.045,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -504,7 +504,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8534,
+        "prob": 0.8536,
         "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -724,8 +724,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5263,
-        "gapVsCrowd": -0.007,
+        "prob": 0.5283,
+        "gapVsCrowd": -0.005,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -746,13 +746,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": -0.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5315,
+        "prob": 0.532,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1209,7 +1209,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2754,
+        "prob": 0.275,
         "gapVsCrowd": 0.03,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1237,13 +1237,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2516,
+        "prob": 0.2515,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.7,
+          "baseline": 0.6,
           "regime": 0.0
         }
       }
