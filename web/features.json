@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-19T16:26:26.257264+00:00",
+  "generatedAt": "2026-08-19T16:55:44.840749+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -10,7 +10,7 @@
       "category": "United States",
       "horizonDays": 810.3,
       "crowd": {
-        "prob": 0.2105,
+        "prob": 0.2115,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,13 +47,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2105,
+        "prob": 0.2115,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -335,7 +335,7 @@
       "category": "Aliens",
       "horizonDays": 133.3,
       "crowd": {
-        "prob": 0.0365,
+        "prob": 0.0355,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -366,13 +366,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": -0.2,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0365,
+        "prob": 0.0355,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -454,8 +454,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8533,
-        "gapVsCrowd": 0.002,
+        "prob": 0.8529,
+        "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -482,7 +482,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8519,
+        "prob": 0.8518,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -586,7 +586,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.5,
+        "move24hPp": 0.3,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -610,7 +610,7 @@
       "category": "Main Election",
       "horizonDays": 133.3,
       "crowd": {
-        "prob": 0.5765,
+        "prob": 0.577,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -619,7 +619,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5609,
+        "prob": 0.5614,
         "gapVsCrowd": -0.016,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -647,7 +647,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.573,
+        "prob": 0.5735,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1049,7 +1049,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2757,
+        "prob": 0.2756,
         "gapVsCrowd": 0.031,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1214,8 +1214,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.9179,
-        "gapVsCrowd": -0.007,
+        "prob": 0.9174,
+        "gapVsCrowd": -0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1242,7 +1242,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9235,
+        "prob": 0.9234,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1260,7 +1260,7 @@
       "category": "Iran",
       "horizonDays": 12.3,
       "crowd": {
-        "prob": 0.697,
+        "prob": 0.6985,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1269,8 +1269,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7455,
-        "gapVsCrowd": 0.049,
+        "prob": 0.7465,
+        "gapVsCrowd": 0.048,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1292,7 +1292,7 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.7082,
+        "prob": 0.7096,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
