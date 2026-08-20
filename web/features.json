@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-20T11:51:36.757460+00:00",
+  "generatedAt": "2026-08-20T12:36:27.716896+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -10,7 +10,7 @@
       "category": "United States",
       "horizonDays": 809.5,
       "crowd": {
-        "prob": 0.181,
+        "prob": 0.182,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,7 +47,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.181,
+        "prob": 0.182,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -239,7 +239,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8225,
+        "prob": 0.8223,
         "gapVsCrowd": -0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -267,7 +267,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8233,
+        "prob": 0.8232,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -509,7 +509,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.9398,
+        "prob": 0.94,
         "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -564,8 +564,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.704,
-        "gapVsCrowd": -0.021,
+        "prob": 0.718,
+        "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -592,13 +592,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.7204,
+        "prob": 0.7235,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.5,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -610,7 +610,7 @@
       "category": "Middle East",
       "horizonDays": 132.5,
       "crowd": {
-        "prob": 0.827,
+        "prob": 0.8275,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -619,7 +619,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.821,
+        "prob": 0.8214,
         "gapVsCrowd": -0.006,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -641,13 +641,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.2,
+        "move24hPp": 0.3,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8257,
+        "prob": 0.8262,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -720,7 +720,7 @@
       "category": "Main Election",
       "horizonDays": 132.5,
       "crowd": {
-        "prob": 0.5575,
+        "prob": 0.562,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -729,7 +729,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5508,
+        "prob": 0.5548,
         "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -751,19 +751,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.0,
+        "move24hPp": 2.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.556,
+        "prob": 0.5604,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.1,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -825,7 +825,7 @@
       "category": "Soccer",
       "horizonDays": 71.5,
       "crowd": {
-        "prob": 0.625,
+        "prob": 0.6195,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -834,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6136,
-        "gapVsCrowd": -0.011,
+        "prob": 0.6094,
+        "gapVsCrowd": -0.01,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -856,19 +856,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.2,
+        "move24hPp": 0.9,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6225,
+        "prob": 0.6173,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.3,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -1093,7 +1093,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 314.3,
+      "horizonDays": 314.2,
       "crowd": {
         "prob": 0.125,
         "spread": null,
@@ -1159,8 +1159,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2762,
-        "gapVsCrowd": 0.031,
+        "prob": 0.2753,
+        "gapVsCrowd": 0.03,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1187,7 +1187,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2517,
+        "prob": 0.2515,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1351,7 +1351,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": 11.7,
+        "move24hPp": 11.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1401,7 +1401,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": 19.0,
+        "move24hPp": 19.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1451,7 +1451,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": 6.8,
+        "move24hPp": 7.3,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1501,7 +1501,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": 15.5,
+        "move24hPp": 17.9,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1551,7 +1551,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": 13.1,
+        "move24hPp": 13.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1601,7 +1601,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.1,
+        "move24hPp": 1.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1691,7 +1691,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": 24.5,
+        "move24hPp": 22.8,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1741,7 +1741,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": 10.3,
+        "move24hPp": 10.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
