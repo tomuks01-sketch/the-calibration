@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-22T19:20:33.544619+00:00",
+  "generatedAt": "2026-08-22T19:44:31.995424+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -230,7 +230,7 @@
       "category": "Trump-Machado",
       "horizonDays": 130.2,
       "crowd": {
-        "prob": 0.855,
+        "prob": 0.8555,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -239,7 +239,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8433,
+        "prob": 0.8436,
         "gapVsCrowd": -0.012,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -267,7 +267,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8525,
+        "prob": 0.8529,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -610,7 +610,7 @@
       "category": "Main Election",
       "horizonDays": 130.2,
       "crowd": {
-        "prob": 0.567,
+        "prob": 0.572,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -619,8 +619,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5553,
-        "gapVsCrowd": -0.012,
+        "prob": 0.561,
+        "gapVsCrowd": -0.011,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -647,13 +647,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5644,
+        "prob": 0.5696,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.3,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -663,7 +663,7 @@
       "kind": "PM_MULTI",
       "title": "New \"Stranger Things\" episode released by...? ",
       "category": "Culture",
-      "horizonDays": 221.4,
+      "horizonDays": 221.3,
       "crowd": {
         "prob": 0.07,
         "spread": null,
@@ -715,7 +715,7 @@
       "category": "Soccer",
       "horizonDays": 69.2,
       "crowd": {
-        "prob": 0.625,
+        "prob": 0.6185,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -724,8 +724,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6213,
-        "gapVsCrowd": -0.004,
+        "prob": 0.6171,
+        "gapVsCrowd": -0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -746,19 +746,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.1,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6242,
+        "prob": 0.6182,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.1,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -779,7 +779,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.825,
+        "prob": 0.8249,
         "gapVsCrowd": -0.01,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -933,7 +933,7 @@
       "kind": "PM_MULTI",
       "title": "Strait of Hormuz traffic returns to normal by...?",
       "category": "Oil",
-      "horizonDays": 9.4,
+      "horizonDays": 9.3,
       "crowd": {
         "prob": 0.0035,
         "spread": null,
@@ -1038,7 +1038,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 312.4,
+      "horizonDays": 312.3,
       "crowd": {
         "prob": 0.125,
         "spread": null,
@@ -1104,8 +1104,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2616,
-        "gapVsCrowd": 0.037,
+        "prob": 0.2615,
+        "gapVsCrowd": 0.036,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1205,7 +1205,7 @@
       "category": "Iran",
       "horizonDays": 131.4,
       "crowd": {
-        "prob": 0.711,
+        "prob": 0.6945,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1214,8 +1214,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.742,
-        "gapVsCrowd": 0.031,
+        "prob": 0.7307,
+        "gapVsCrowd": 0.036,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1237,13 +1237,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.7181,
+        "prob": 0.7028,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.7,
+          "baseline": 0.8,
           "regime": 0.0
         }
       }
