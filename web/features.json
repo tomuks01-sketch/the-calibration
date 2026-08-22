@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-22T16:16:50.896799+00:00",
+  "generatedAt": "2026-08-22T16:48:22.829451+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -10,7 +10,7 @@
       "category": "United States",
       "horizonDays": 807.3,
       "crowd": {
-        "prob": 0.2365,
+        "prob": 0.2385,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,13 +47,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2365,
+        "prob": 0.2385,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -164,61 +164,6 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "45915",
-      "kind": "PM_MULTI",
-      "title": "Brazil Presidential Election",
-      "category": "Politics",
-      "horizonDays": 42.3,
-      "crowd": {
-        "prob": 0.625,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.6285,
-        "gapVsCrowd": 0.004,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.6258,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.1,
           "regime": 0.0
         }
       }
@@ -610,7 +555,7 @@
       "category": "California Midterm",
       "horizonDays": 72.3,
       "crowd": {
-        "prob": 0.9505,
+        "prob": 0.951,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -647,13 +592,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.9505,
+        "prob": 0.951,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -751,7 +696,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.5,
+        "move24hPp": 1.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -889,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8247,
-        "gapVsCrowd": -0.01,
+        "prob": 0.8255,
+        "gapVsCrowd": -0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -917,7 +862,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8328,
+        "prob": 0.8329,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1214,8 +1159,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.261,
-        "gapVsCrowd": 0.036,
+        "prob": 0.2618,
+        "gapVsCrowd": 0.037,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1242,7 +1187,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2327,
+        "prob": 0.2328,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1304,6 +1249,56 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": -0.0,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "699735",
+      "kind": "PM_MULTI",
+      "title": "US announces end of Iranian blockade by...?",
+      "category": "Iran",
+      "horizonDays": 131.5,
+      "crowd": {
+        "prob": 0.6625,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.7066,
+        "gapVsCrowd": 0.044,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive",
+        "source": "snapshot-derived"
+      },
+      "composite": {
+        "prob": 0.6726,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 1.0,
           "regime": 0.0
         }
       }
@@ -1409,56 +1404,6 @@
       "composite": null
     },
     {
-      "assetId": "bnb",
-      "kind": "CRYPTO",
-      "title": "BNB",
-      "category": "crypto",
-      "horizonDays": null,
-      "crowd": {
-        "prob": null,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": false
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
-          "basisZ": null,
-          "oi": null,
-          "oiDelta": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 1.5,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": null
-    },
-    {
       "assetId": "xrp",
       "kind": "CRYPTO",
       "title": "XRP",
@@ -1502,6 +1447,56 @@
         "source": "snapshot-derived",
         "suddenMove": false,
         "move24hPp": 2.7,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": null
+    },
+    {
+      "assetId": "bnb",
+      "kind": "CRYPTO",
+      "title": "BNB",
+      "category": "crypto",
+      "horizonDays": null,
+      "crowd": {
+        "prob": null,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": false
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": "binance-fapi",
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
+          "basisZ": null,
+          "oi": null,
+          "oiDelta": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 1.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
