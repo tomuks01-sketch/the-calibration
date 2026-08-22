@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-22T11:16:10.715035+00:00",
+  "generatedAt": "2026-08-22T11:43:52.258848+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -175,7 +175,7 @@
       "category": "French Election",
       "horizonDays": 250.5,
       "crowd": {
-        "prob": 0.3155,
+        "prob": 0.3185,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -184,8 +184,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3169,
-        "gapVsCrowd": 0.001,
+        "prob": 0.3189,
+        "gapVsCrowd": 0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -212,7 +212,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3158,
+        "prob": 0.3186,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -230,7 +230,7 @@
       "category": "Trump-Machado",
       "horizonDays": 130.5,
       "crowd": {
-        "prob": 0.8625,
+        "prob": 0.8535,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -239,8 +239,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8482,
-        "gapVsCrowd": -0.014,
+        "prob": 0.8423,
+        "gapVsCrowd": -0.011,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -267,13 +267,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8594,
+        "prob": 0.8511,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.3,
+          "baseline": -0.2,
           "regime": 0.0
         }
       }
@@ -531,7 +531,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -619,7 +619,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.824,
+        "prob": 0.8238,
         "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -674,8 +674,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5531,
-        "gapVsCrowd": -0.015,
+        "prob": 0.5542,
+        "gapVsCrowd": -0.014,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -702,7 +702,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5647,
+        "prob": 0.5649,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -729,7 +729,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.103,
+        "prob": 0.1031,
         "gapVsCrowd": 0.033,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -834,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8204,
-        "gapVsCrowd": -0.015,
+        "prob": 0.8208,
+        "gapVsCrowd": -0.014,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -862,7 +862,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8318,
+        "prob": 0.8319,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1159,8 +1159,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.264,
-        "gapVsCrowd": 0.039,
+        "prob": 0.2647,
+        "gapVsCrowd": 0.04,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1187,7 +1187,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2333,
+        "prob": 0.2334,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1236,7 +1236,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
