@@ -1,16 +1,16 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-22T15:14:49.468677+00:00",
+  "generatedAt": "2026-08-22T15:44:28.420601+00:00",
   "records": [
     {
       "assetId": "30829",
       "kind": "PM_MULTI",
       "title": "Democratic Presidential Nominee 2028",
       "category": "United States",
-      "horizonDays": 807.4,
+      "horizonDays": 807.3,
       "crowd": {
-        "prob": 0.2345,
+        "prob": 0.235,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,13 +47,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2345,
+        "prob": 0.235,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -63,7 +63,7 @@
       "kind": "PM_MULTI",
       "title": "Presidential Election Winner 2028",
       "category": "President",
-      "horizonDays": 807.4,
+      "horizonDays": 807.3,
       "crowd": {
         "prob": 0.2225,
         "spread": null,
@@ -118,7 +118,7 @@
       "kind": "PM_MULTI",
       "title": "Next Prime Minister of Ethiopia?",
       "category": "Ethiopia",
-      "horizonDays": -82.6,
+      "horizonDays": -82.7,
       "crowd": {
         "prob": 0.969,
         "spread": null,
@@ -173,7 +173,7 @@
       "kind": "PM_MULTI",
       "title": "Brazil Presidential Election",
       "category": "Politics",
-      "horizonDays": 42.4,
+      "horizonDays": 42.3,
       "crowd": {
         "prob": 0.625,
         "spread": null,
@@ -228,7 +228,7 @@
       "kind": "PM_MULTI",
       "title": "Next French Presidential Election",
       "category": "French Election",
-      "horizonDays": 250.4,
+      "horizonDays": 250.3,
       "crowd": {
         "prob": 0.3175,
         "spread": null,
@@ -283,9 +283,9 @@
       "kind": "PM_MULTI",
       "title": "Venezuela leader end of 2026?",
       "category": "Trump-Machado",
-      "horizonDays": 130.4,
+      "horizonDays": 130.3,
       "crowd": {
-        "prob": 0.857,
+        "prob": 0.8585,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -294,8 +294,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8446,
-        "gapVsCrowd": -0.012,
+        "prob": 0.8456,
+        "gapVsCrowd": -0.013,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -322,7 +322,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8543,
+        "prob": 0.8557,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -349,7 +349,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0815,
+        "prob": 0.0821,
         "gapVsCrowd": 0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -372,13 +372,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0764,
+        "prob": 0.0765,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.1,
+          "baseline": 0.2,
           "regime": 0.0
         }
       }
@@ -443,7 +443,7 @@
       "kind": "PM_BINARY",
       "title": "Will the U.S. invade Iran before 2027?",
       "category": "Military Strikes",
-      "horizonDays": 130.4,
+      "horizonDays": 130.3,
       "crowd": {
         "prob": 0.165,
         "spread": null,
@@ -498,7 +498,7 @@
       "kind": "PM_MULTI",
       "title": "How many Fed rate cuts in 2026?",
       "category": "Rewards 200, 4.5, 50 Deprec",
-      "horizonDays": 130.4,
+      "horizonDays": 130.3,
       "crowd": {
         "prob": 0.8605,
         "spread": null,
@@ -553,7 +553,7 @@
       "kind": "PM_MULTI",
       "title": "Fed Decision in September?",
       "category": "fomc",
-      "horizonDays": 24.4,
+      "horizonDays": 24.3,
       "crowd": {
         "prob": 0.685,
         "spread": null,
@@ -608,7 +608,7 @@
       "kind": "PM_MULTI",
       "title": "California Governor Election Winner",
       "category": "California Midterm",
-      "horizonDays": 72.4,
+      "horizonDays": 72.3,
       "crowd": {
         "prob": 0.9505,
         "spread": null,
@@ -663,7 +663,7 @@
       "kind": "PM_MULTI",
       "title": "Iran leader end of 2026?",
       "category": "Middle East",
-      "horizonDays": 130.4,
+      "horizonDays": 130.3,
       "crowd": {
         "prob": 0.827,
         "spread": null,
@@ -718,7 +718,7 @@
       "kind": "PM_MULTI",
       "title": "Prime Minister of Israel after the next election?",
       "category": "Main Election",
-      "horizonDays": 130.4,
+      "horizonDays": 130.3,
       "crowd": {
         "prob": 0.5685,
         "spread": null,
@@ -823,9 +823,9 @@
       "kind": "PM_MULTI",
       "title": "Ballon d'Or Winner 2026",
       "category": "Soccer",
-      "horizonDays": 69.4,
+      "horizonDays": 69.3,
       "crowd": {
-        "prob": 0.628,
+        "prob": 0.625,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -834,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6236,
-        "gapVsCrowd": -0.004,
+        "prob": 0.6217,
+        "gapVsCrowd": -0.003,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -856,13 +856,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.8,
+        "move24hPp": 1.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.627,
+        "prob": 0.6243,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -878,7 +878,7 @@
       "kind": "PM_MULTI",
       "title": "F1 Constructors' Champion",
       "category": "Formula 1",
-      "horizonDays": 105.4,
+      "horizonDays": 105.3,
       "crowd": {
         "prob": 0.835,
         "spread": null,
@@ -933,7 +933,7 @@
       "kind": "PM_BINARY",
       "title": "Will the Iranian regime fall before 2027?",
       "category": "Reza Pahlavi",
-      "horizonDays": 130.4,
+      "horizonDays": 130.3,
       "crowd": {
         "prob": 0.065,
         "spread": null,
@@ -988,9 +988,9 @@
       "kind": "PM_MULTI",
       "title": "Nobel Peace Prize Winner 2026",
       "category": "Awards",
-      "horizonDays": 48.4,
+      "horizonDays": 48.3,
       "crowd": {
-        "prob": 0.085,
+        "prob": 0.08,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -999,8 +999,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0815,
-        "gapVsCrowd": -0.004,
+        "prob": 0.0783,
+        "gapVsCrowd": -0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1027,13 +1027,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0842,
+        "prob": 0.0796,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.1,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -1203,7 +1203,7 @@
       "kind": "PM_MULTI",
       "title": "MLS Cup Winner 2026",
       "category": "MLS",
-      "horizonDays": 118.4,
+      "horizonDays": 118.3,
       "crowd": {
         "prob": 0.225,
         "spread": null,
@@ -1214,7 +1214,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2618,
+        "prob": 0.2616,
         "gapVsCrowd": 0.037,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1258,7 +1258,7 @@
       "kind": "PM_MULTI",
       "title": "NBA: 2027 Champion",
       "category": "NBA Finals",
-      "horizonDays": 312.4,
+      "horizonDays": 312.3,
       "crowd": {
         "prob": 0.215,
         "spread": null,
