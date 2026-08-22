@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-22T04:04:16.947936+00:00",
+  "generatedAt": "2026-08-22T04:58:40.720154+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -159,61 +159,6 @@
       "composite": {
         "prob": 0.969,
         "coverage": 0.7778,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "45915",
-      "kind": "PM_MULTI",
-      "title": "Brazil Presidential Election",
-      "category": "Politics",
-      "horizonDays": 42.8,
-      "crowd": {
-        "prob": 0.635,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.635,
-        "gapVsCrowd": 0.0,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.635,
-        "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
@@ -834,7 +779,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1031,
+        "prob": 0.103,
         "gapVsCrowd": 0.033,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -884,8 +829,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6025,
-        "gapVsCrowd": -0.01,
+        "prob": 0.6125,
+        "gapVsCrowd": 0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -912,13 +857,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6103,
+        "prob": 0.6125,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.2,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -1264,7 +1209,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.264,
+        "prob": 0.2641,
         "gapVsCrowd": 0.039,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1299,6 +1244,61 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.8,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "478277",
+      "kind": "PM_MULTI",
+      "title": "NBA: 2027 Champion",
+      "category": "NBA Finals",
+      "horizonDays": 312.8,
+      "crowd": {
+        "prob": 0.215,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.215,
+        "gapVsCrowd": 0.0,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 0.0,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.215,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
