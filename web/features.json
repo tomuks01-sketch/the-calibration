@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-22T23:15:13.423869+00:00",
+  "generatedAt": "2026-08-22T23:43:59.938492+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -175,7 +175,7 @@
       "category": "French Election",
       "horizonDays": 250.0,
       "crowd": {
-        "prob": 0.3165,
+        "prob": 0.3195,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -184,8 +184,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3193,
-        "gapVsCrowd": 0.003,
+        "prob": 0.3212,
+        "gapVsCrowd": 0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -212,13 +212,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3171,
+        "prob": 0.3199,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.1,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -665,7 +665,7 @@
       "category": "Main Election",
       "horizonDays": 130.0,
       "crowd": {
-        "prob": 0.5675,
+        "prob": 0.565,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -674,8 +674,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5582,
-        "gapVsCrowd": -0.009,
+        "prob": 0.5566,
+        "gapVsCrowd": -0.008,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -702,7 +702,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5654,
+        "prob": 0.5631,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -779,7 +779,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6183,
+        "prob": 0.6182,
         "gapVsCrowd": -0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -807,7 +807,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6185,
+        "prob": 0.6184,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -834,7 +834,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8215,
+        "prob": 0.8211,
         "gapVsCrowd": -0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1159,8 +1159,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2614,
-        "gapVsCrowd": 0.036,
+        "prob": 0.2617,
+        "gapVsCrowd": 0.037,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1260,7 +1260,7 @@
       "category": "Iran",
       "horizonDays": 131.2,
       "crowd": {
-        "prob": 0.682,
+        "prob": 0.6855,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1269,8 +1269,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7203,
-        "gapVsCrowd": 0.038,
+        "prob": 0.7226,
+        "gapVsCrowd": 0.037,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1292,13 +1292,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.6908,
+        "prob": 0.694,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.9,
+          "baseline": 0.8,
           "regime": 0.0
         }
       }
