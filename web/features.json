@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-23T23:15:14.472104+00:00",
+  "generatedAt": "2026-08-23T23:43:46.202082+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -164,56 +164,6 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "34051",
-      "kind": "PM_MULTI",
-      "title": "Netanyahu out by...?",
-      "category": "Geopolitics",
-      "horizonDays": 130.2,
-      "crowd": {
-        "prob": 0.485,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.4815,
-        "gapVsCrowd": -0.004,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive",
-        "source": "snapshot-derived"
-      },
-      "composite": {
-        "prob": 0.4842,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -770,7 +720,7 @@
       "category": "Main Election",
       "horizonDays": 129.0,
       "crowd": {
-        "prob": 0.5835,
+        "prob": 0.5845,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -779,8 +729,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5681,
-        "gapVsCrowd": -0.015,
+        "prob": 0.5687,
+        "gapVsCrowd": -0.016,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -801,13 +751,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.5,
+        "move24hPp": -3.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5801,
+        "prob": 0.581,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1264,8 +1214,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2485,
-        "gapVsCrowd": 0.043,
+        "prob": 0.2486,
+        "gapVsCrowd": 0.044,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1299,6 +1249,56 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.9,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "699735",
+      "kind": "PM_MULTI",
+      "title": "US announces end of Iranian blockade by...?",
+      "category": "Iran",
+      "horizonDays": 130.2,
+      "crowd": {
+        "prob": 0.714,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.746,
+        "gapVsCrowd": 0.032,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive",
+        "source": "snapshot-derived"
+      },
+      "composite": {
+        "prob": 0.7213,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.7,
           "regime": 0.0
         }
       }
