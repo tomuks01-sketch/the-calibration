@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-23T19:19:36.923187+00:00",
+  "generatedAt": "2026-08-23T19:44:12.740512+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -604,6 +604,61 @@
       }
     },
     {
+      "assetId": "237598",
+      "kind": "PM_MULTI",
+      "title": "Iran leader end of 2026?",
+      "category": "Middle East",
+      "horizonDays": 129.2,
+      "crowd": {
+        "prob": 0.822,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.8223,
+        "gapVsCrowd": 0.0,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": -0.5,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.8221,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.0,
+          "regime": 0.0
+        }
+      }
+    },
+    {
       "assetId": "0xd595eb9b81885ff018738300c79047e3ec89e87294424f57a29a7fa9162bf116",
       "kind": "PM_BINARY",
       "title": "Will Trump acquire Greenland before 2027?",
@@ -665,7 +720,7 @@
       "category": "Main Election",
       "horizonDays": 129.2,
       "crowd": {
-        "prob": 0.5745,
+        "prob": 0.575,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -674,7 +729,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5623,
+        "prob": 0.5626,
         "gapVsCrowd": -0.012,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -702,7 +757,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5718,
+        "prob": 0.5723,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -718,7 +773,7 @@
       "kind": "PM_MULTI",
       "title": "New \"Stranger Things\" episode released by...? ",
       "category": "Culture",
-      "horizonDays": 220.4,
+      "horizonDays": 220.3,
       "crowd": {
         "prob": 0.065,
         "spread": null,
@@ -834,7 +889,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8431,
+        "prob": 0.8432,
         "gapVsCrowd": -0.022,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -988,7 +1043,7 @@
       "kind": "PM_MULTI",
       "title": "Strait of Hormuz traffic returns to normal by...?",
       "category": "Oil",
-      "horizonDays": 8.4,
+      "horizonDays": 8.3,
       "crowd": {
         "prob": 0.0035,
         "spread": null,
@@ -1093,7 +1148,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 311.4,
+      "horizonDays": 311.3,
       "crowd": {
         "prob": 0.135,
         "spread": null,
@@ -1159,8 +1214,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2594,
-        "gapVsCrowd": 0.034,
+        "prob": 0.261,
+        "gapVsCrowd": 0.036,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1187,13 +1242,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2324,
+        "prob": 0.2327,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.7,
+          "baseline": 0.8,
           "regime": 0.0
         }
       }
@@ -1205,7 +1260,7 @@
       "category": "Iran",
       "horizonDays": 130.4,
       "crowd": {
-        "prob": 0.717,
+        "prob": 0.715,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1214,8 +1269,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7474,
-        "gapVsCrowd": 0.03,
+        "prob": 0.7465,
+        "gapVsCrowd": 0.031,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1237,68 +1292,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.7239,
+        "prob": 0.7222,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.7,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "478277",
-      "kind": "PM_MULTI",
-      "title": "NBA: 2027 Champion",
-      "category": "NBA Finals",
-      "horizonDays": 311.2,
-      "crowd": {
-        "prob": 0.215,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.215,
-        "gapVsCrowd": 0.0,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.215,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -0.0,
           "regime": 0.0
         }
       }
