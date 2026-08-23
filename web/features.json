@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-23T22:15:30.572483+00:00",
+  "generatedAt": "2026-08-23T22:46:35.222069+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -225,7 +225,7 @@
       "category": "French Election",
       "horizonDays": 249.1,
       "crowd": {
-        "prob": 0.314,
+        "prob": 0.3135,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -234,7 +234,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3177,
+        "prob": 0.3174,
         "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -262,7 +262,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3148,
+        "prob": 0.3144,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1264,7 +1264,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2482,
+        "prob": 0.2485,
         "gapVsCrowd": 0.043,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1292,7 +1292,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2141,
+        "prob": 0.2142,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1694,51 +1694,6 @@
       "composite": null
     },
     {
-      "assetId": "zec",
-      "kind": "CRYPTO",
-      "title": "ZEC",
-      "category": "crypto",
-      "horizonDays": null,
-      "crowd": {
-        "prob": null,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": false
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": "binance-fapi",
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 3.6,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": null
-    },
-    {
       "assetId": "doge",
       "kind": "CRYPTO",
       "title": "DOGE",
@@ -1782,6 +1737,51 @@
         "source": "snapshot-derived",
         "suddenMove": false,
         "move24hPp": -0.2,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": null
+    },
+    {
+      "assetId": "zec",
+      "kind": "CRYPTO",
+      "title": "ZEC",
+      "category": "crypto",
+      "horizonDays": null,
+      "crowd": {
+        "prob": null,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": false
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": "binance-fapi",
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 3.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
