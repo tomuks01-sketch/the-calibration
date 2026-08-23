@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-23T05:00:44.438804+00:00",
+  "generatedAt": "2026-08-23T05:36:37.392139+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -294,8 +294,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.082,
-        "gapVsCrowd": 0.007,
+        "prob": 0.0803,
+        "gapVsCrowd": 0.005,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -317,13 +317,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0765,
+        "prob": 0.0761,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.2,
+          "baseline": 0.1,
           "regime": 0.0
         }
       }
@@ -773,7 +773,7 @@
       "kind": "PM_MULTI",
       "title": "New \"Stranger Things\" episode released by...? ",
       "category": "Culture",
-      "horizonDays": 221.0,
+      "horizonDays": 220.9,
       "crowd": {
         "prob": 0.07,
         "spread": null,
@@ -834,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6157,
-        "gapVsCrowd": -0.003,
+        "prob": 0.6139,
+        "gapVsCrowd": -0.005,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -862,7 +862,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6179,
+        "prob": 0.6175,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -889,8 +889,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8304,
-        "gapVsCrowd": -0.005,
+        "prob": 0.8305,
+        "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1043,7 +1043,7 @@
       "kind": "PM_MULTI",
       "title": "Strait of Hormuz traffic returns to normal by...?",
       "category": "Oil",
-      "horizonDays": 9.0,
+      "horizonDays": 8.9,
       "crowd": {
         "prob": 0.0035,
         "spread": null,
@@ -1148,7 +1148,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 312.0,
+      "horizonDays": 311.9,
       "crowd": {
         "prob": 0.135,
         "spread": null,
@@ -1214,8 +1214,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2602,
-        "gapVsCrowd": 0.035,
+        "prob": 0.261,
+        "gapVsCrowd": 0.036,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1242,7 +1242,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2325,
+        "prob": 0.2327,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1332,17 +1332,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 0.0001,
-          "fundingZ": 1.17,
-          "basis": 0.000282,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 105815.023,
-          "oiDelta": -0.0026
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": -0.5263,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1382,17 +1382,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 0.0001,
-          "fundingZ": 1.13,
-          "basis": -7.4e-05,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 2370649.195,
-          "oiDelta": -0.0212
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": -0.5117,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1432,17 +1432,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 0.0001,
-          "fundingZ": 0.85,
-          "basis": -0.000269,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 339891832.9,
-          "oiDelta": -0.003
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": -0.4011,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1482,17 +1482,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 0.00011773,
-          "fundingZ": 0.62,
-          "basis": 0.000949,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 630940.4,
-          "oiDelta": 0.0122
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": -0.3004,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1532,17 +1532,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 0.0001,
-          "fundingZ": 0.92,
-          "basis": 3.7e-05,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 8045753.19,
-          "oiDelta": -0.0063
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": -0.4301,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1582,17 +1582,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 0.0001,
-          "fundingZ": 0.97,
-          "basis": -0.000516,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 275502064.0,
-          "oiDelta": -0.0316
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": -0.4502,
+          "tilt": null,
           "applied": false
         }
       },
@@ -1722,17 +1722,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": true,
+          "available": false,
           "source": "binance-fapi",
-          "fundingRate": 0.0001,
-          "fundingZ": 0.83,
-          "basis": 7.3e-05,
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
           "basisZ": null,
-          "oi": 2808782608.0,
-          "oiDelta": -0.0467
+          "oi": null,
+          "oiDelta": null
         },
         "adjustmentCandidate": {
-          "tilt": -0.3927,
+          "tilt": null,
           "applied": false
         }
       },
