@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-23T04:10:25.612485+00:00",
+  "generatedAt": "2026-08-23T05:00:44.438804+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -10,7 +10,7 @@
       "category": "United States",
       "horizonDays": 806.8,
       "crowd": {
-        "prob": 0.229,
+        "prob": 0.2285,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,13 +47,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.229,
+        "prob": 0.2285,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -65,7 +65,7 @@
       "category": "President",
       "horizonDays": 806.8,
       "crowd": {
-        "prob": 0.2285,
+        "prob": 0.2305,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -102,7 +102,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2285,
+        "prob": 0.2305,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -230,7 +230,7 @@
       "category": "Trump-Machado",
       "horizonDays": 129.8,
       "crowd": {
-        "prob": 0.8575,
+        "prob": 0.8585,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -239,7 +239,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8449,
+        "prob": 0.8456,
         "gapVsCrowd": -0.013,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -267,7 +267,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8548,
+        "prob": 0.8557,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -294,8 +294,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0803,
-        "gapVsCrowd": 0.005,
+        "prob": 0.082,
+        "gapVsCrowd": 0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -317,13 +317,13 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0761,
+        "prob": 0.0765,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.1,
+          "baseline": 0.2,
           "regime": 0.0
         }
       }
@@ -531,7 +531,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.5,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -889,7 +889,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.83,
+        "prob": 0.8304,
         "gapVsCrowd": -0.005,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -917,7 +917,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8339,
+        "prob": 0.834,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1150,7 +1150,7 @@
       "category": "putin",
       "horizonDays": 312.0,
       "crowd": {
-        "prob": 0.125,
+        "prob": 0.135,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1159,8 +1159,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.125,
-        "gapVsCrowd": 0.0,
+        "prob": 0.1315,
+        "gapVsCrowd": -0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1187,13 +1187,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.125,
+        "prob": 0.1342,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.0,
+          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -1214,7 +1214,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.26,
+        "prob": 0.2602,
         "gapVsCrowd": 0.035,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -1248,7 +1248,7 @@
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.7,
+          "baseline": 0.8,
           "regime": 0.0
         }
       }
@@ -1332,17 +1332,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": false,
+          "available": true,
           "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
+          "fundingRate": 0.0001,
+          "fundingZ": 1.17,
+          "basis": 0.000282,
           "basisZ": null,
-          "oi": null,
-          "oiDelta": null
+          "oi": 105815.023,
+          "oiDelta": -0.0026
         },
         "adjustmentCandidate": {
-          "tilt": null,
+          "tilt": -0.5263,
           "applied": false
         }
       },
@@ -1351,7 +1351,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.0,
+        "move24hPp": -2.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1382,17 +1382,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": false,
+          "available": true,
           "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
+          "fundingRate": 0.0001,
+          "fundingZ": 1.13,
+          "basis": -7.4e-05,
           "basisZ": null,
-          "oi": null,
-          "oiDelta": null
+          "oi": 2370649.195,
+          "oiDelta": -0.0212
         },
         "adjustmentCandidate": {
-          "tilt": null,
+          "tilt": -0.5117,
           "applied": false
         }
       },
@@ -1400,8 +1400,8 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": -4.0,
+        "suddenMove": true,
+        "move24hPp": -5.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1432,17 +1432,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": false,
+          "available": true,
           "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
+          "fundingRate": 0.0001,
+          "fundingZ": 0.85,
+          "basis": -0.000269,
           "basisZ": null,
-          "oi": null,
-          "oiDelta": null
+          "oi": 339891832.9,
+          "oiDelta": -0.003
         },
         "adjustmentCandidate": {
-          "tilt": null,
+          "tilt": -0.4011,
           "applied": false
         }
       },
@@ -1450,8 +1450,8 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": -4.7,
+        "suddenMove": true,
+        "move24hPp": -6.5,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1482,17 +1482,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": false,
+          "available": true,
           "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
+          "fundingRate": 0.00011773,
+          "fundingZ": 0.62,
+          "basis": 0.000949,
           "basisZ": null,
-          "oi": null,
-          "oiDelta": null
+          "oi": 630940.4,
+          "oiDelta": 0.0122
         },
         "adjustmentCandidate": {
-          "tilt": null,
+          "tilt": -0.3004,
           "applied": false
         }
       },
@@ -1501,7 +1501,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -3.3,
+        "move24hPp": -4.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1532,17 +1532,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": false,
+          "available": true,
           "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
+          "fundingRate": 0.0001,
+          "fundingZ": 0.92,
+          "basis": 3.7e-05,
           "basisZ": null,
-          "oi": null,
-          "oiDelta": null
+          "oi": 8045753.19,
+          "oiDelta": -0.0063
         },
         "adjustmentCandidate": {
-          "tilt": null,
+          "tilt": -0.4301,
           "applied": false
         }
       },
@@ -1551,7 +1551,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.0,
+        "move24hPp": -3.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1582,17 +1582,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": false,
+          "available": true,
           "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
+          "fundingRate": 0.0001,
+          "fundingZ": 0.97,
+          "basis": -0.000516,
           "basisZ": null,
-          "oi": null,
-          "oiDelta": null
+          "oi": 275502064.0,
+          "oiDelta": -0.0316
         },
         "adjustmentCandidate": {
-          "tilt": null,
+          "tilt": -0.4502,
           "applied": false
         }
       },
@@ -1601,7 +1601,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.7,
+        "move24hPp": -1.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1690,8 +1690,8 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": -3.4,
+        "suddenMove": true,
+        "move24hPp": -5.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1722,17 +1722,17 @@
       },
       "regime": {
         "descriptive": {
-          "available": false,
+          "available": true,
           "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
+          "fundingRate": 0.0001,
+          "fundingZ": 0.83,
+          "basis": 7.3e-05,
           "basisZ": null,
-          "oi": null,
-          "oiDelta": null
+          "oi": 2808782608.0,
+          "oiDelta": -0.0467
         },
         "adjustmentCandidate": {
-          "tilt": null,
+          "tilt": -0.3927,
           "applied": false
         }
       },
@@ -1740,8 +1740,8 @@
         "available": true,
         "class": "descriptive",
         "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": -2.7,
+        "suddenMove": true,
+        "move24hPp": -5.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1786,7 +1786,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": -5.0,
+        "move24hPp": -6.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
