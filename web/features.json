@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-23T21:15:45.618142+00:00",
+  "generatedAt": "2026-08-23T21:44:03.639040+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -10,7 +10,7 @@
       "category": "United States",
       "horizonDays": 806.1,
       "crowd": {
-        "prob": 0.222,
+        "prob": 0.2215,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -47,7 +47,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.222,
+        "prob": 0.2215,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -169,13 +169,13 @@
       }
     },
     {
-      "assetId": "79987",
+      "assetId": "34051",
       "kind": "PM_MULTI",
-      "title": "Next French Presidential Election",
-      "category": "French Election",
-      "horizonDays": 249.1,
+      "title": "Netanyahu out by...?",
+      "category": "Geopolitics",
+      "horizonDays": 130.3,
       "crowd": {
-        "prob": 0.3145,
+        "prob": 0.485,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -184,7 +184,57 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.318,
+        "prob": 0.4815,
+        "gapVsCrowd": -0.004,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": false,
+        "class": "descriptive",
+        "source": "snapshot-derived"
+      },
+      "composite": {
+        "prob": 0.4842,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": -0.1,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "79987",
+      "kind": "PM_MULTI",
+      "title": "Next French Presidential Election",
+      "category": "French Election",
+      "horizonDays": 249.1,
+      "crowd": {
+        "prob": 0.314,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.3177,
         "gapVsCrowd": 0.004,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -212,7 +262,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3153,
+        "prob": 0.3148,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -500,7 +550,7 @@
       "category": "fomc",
       "horizonDays": 23.1,
       "crowd": {
-        "prob": 0.685,
+        "prob": 0.675,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -509,8 +559,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.706,
-        "gapVsCrowd": 0.021,
+        "prob": 0.6995,
+        "gapVsCrowd": 0.025,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -537,13 +587,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6897,
+        "prob": 0.6805,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.5,
+          "baseline": 0.6,
           "regime": 0.0
         }
       }
@@ -619,7 +669,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8234,
+        "prob": 0.8236,
         "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -665,7 +715,7 @@
       "category": "Davos",
       "horizonDays": 129.1,
       "crowd": {
-        "prob": 0.036,
+        "prob": 0.0365,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -702,7 +752,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.036,
+        "prob": 0.0365,
         "coverage": 0.7778,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -880,7 +930,7 @@
       "category": "Formula 1",
       "horizonDays": 104.1,
       "crowd": {
-        "prob": 0.865,
+        "prob": 0.855,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -889,8 +939,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8432,
-        "gapVsCrowd": -0.022,
+        "prob": 0.8351,
+        "gapVsCrowd": -0.02,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -917,13 +967,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8604,
+        "prob": 0.8508,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.5,
+          "baseline": -0.4,
           "regime": 0.0
         }
       }
@@ -1214,8 +1264,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.2492,
-        "gapVsCrowd": 0.044,
+        "prob": 0.2481,
+        "gapVsCrowd": 0.043,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1242,63 +1292,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.2143,
+        "prob": 0.2141,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": 0.9,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "699735",
-      "kind": "PM_MULTI",
-      "title": "US announces end of Iranian blockade by...?",
-      "category": "Iran",
-      "horizonDays": 130.3,
-      "crowd": {
-        "prob": 0.716,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.7484,
-        "gapVsCrowd": 0.032,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": false,
-        "class": "descriptive",
-        "source": "snapshot-derived"
-      },
-      "composite": {
-        "prob": 0.7234,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": 0.7,
           "regime": 0.0
         }
       }
