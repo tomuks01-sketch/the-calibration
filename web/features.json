@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-23T16:18:04.098108+00:00",
+  "generatedAt": "2026-08-23T16:49:58.975528+00:00",
   "records": [
     {
       "assetId": "30829",
@@ -175,7 +175,7 @@
       "category": "French Election",
       "horizonDays": 249.3,
       "crowd": {
-        "prob": 0.321,
+        "prob": 0.3215,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -184,8 +184,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3226,
-        "gapVsCrowd": 0.002,
+        "prob": 0.3229,
+        "gapVsCrowd": 0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -212,7 +212,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3214,
+        "prob": 0.3218,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -531,7 +531,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": 0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -720,7 +720,7 @@
       "category": "Main Election",
       "horizonDays": 129.3,
       "crowd": {
-        "prob": 0.5695,
+        "prob": 0.5675,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -729,8 +729,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5586,
-        "gapVsCrowd": -0.011,
+        "prob": 0.5574,
+        "gapVsCrowd": -0.01,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -757,7 +757,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5671,
+        "prob": 0.5653,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -825,7 +825,7 @@
       "category": "Soccer",
       "horizonDays": 68.3,
       "crowd": {
-        "prob": 0.6145,
+        "prob": 0.6135,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -834,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6143,
-        "gapVsCrowd": -0.0,
+        "prob": 0.6137,
+        "gapVsCrowd": 0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -856,19 +856,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.9,
+        "move24hPp": -1.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6145,
+        "prob": 0.6135,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -889,8 +889,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8353,
-        "gapVsCrowd": -0.02,
+        "prob": 0.8356,
+        "gapVsCrowd": -0.019,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -917,7 +917,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8508,
+        "prob": 0.8509,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -990,7 +990,7 @@
       "category": "Awards",
       "horizonDays": 47.3,
       "crowd": {
-        "prob": 0.075,
+        "prob": 0.08,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -999,8 +999,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0785,
-        "gapVsCrowd": 0.004,
+        "prob": 0.0818,
+        "gapVsCrowd": 0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1027,13 +1027,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.0758,
+        "prob": 0.0804,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.1,
+          "baseline": 0.0,
           "regime": 0.0
         }
       }
@@ -1254,13 +1254,13 @@
       }
     },
     {
-      "assetId": "478277",
+      "assetId": "699735",
       "kind": "PM_MULTI",
-      "title": "NBA: 2027 Champion",
-      "category": "NBA Finals",
-      "horizonDays": 311.3,
+      "title": "US announces end of Iranian blockade by...?",
+      "category": "Iran",
+      "horizonDays": 130.5,
       "crowd": {
-        "prob": 0.215,
+        "prob": 0.7085,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1269,8 +1269,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.215,
-        "gapVsCrowd": 0.0,
+        "prob": 0.7402,
+        "gapVsCrowd": 0.032,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1287,23 +1287,18 @@
         }
       },
       "pressure": {
-        "available": true,
+        "available": false,
         "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.0,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
+        "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.215,
+        "prob": 0.7157,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.0,
+          "baseline": 0.7,
           "regime": 0.0
         }
       }
