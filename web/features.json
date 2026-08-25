@@ -1,7 +1,7 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-25T05:03:35.419241+00:00",
+  "generatedAt": "2026-08-25T05:56:49.975314+00:00",
   "records": [
     {
       "assetId": "31552",
@@ -285,7 +285,7 @@
       "category": "Trump-Machado",
       "horizonDays": 127.8,
       "crowd": {
-        "prob": 0.8525,
+        "prob": 0.852,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -294,7 +294,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8424,
+        "prob": 0.842,
         "gapVsCrowd": -0.01,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -322,7 +322,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8503,
+        "prob": 0.8498,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -531,7 +531,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.2,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -599,61 +599,6 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": -0.1,
-          "regime": 0.0
-        }
-      }
-    },
-    {
-      "assetId": "202857",
-      "kind": "PM_MULTI",
-      "title": "Pro Football: 2027 Champion",
-      "category": "Sports",
-      "horizonDays": 173.8,
-      "crowd": {
-        "prob": 0.145,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.145,
-        "gapVsCrowd": 0.0,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.5,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.145,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -775,7 +720,7 @@
       "category": "Main Election",
       "horizonDays": 127.8,
       "crowd": {
-        "prob": 0.5515,
+        "prob": 0.551,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -784,7 +729,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5443,
+        "prob": 0.544,
         "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -812,7 +757,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5499,
+        "prob": 0.5494,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -828,7 +773,7 @@
       "kind": "PM_MULTI",
       "title": "New \"Stranger Things\" episode released by...? ",
       "category": "Culture",
-      "horizonDays": 219.0,
+      "horizonDays": 218.9,
       "crowd": {
         "prob": 0.065,
         "spread": null,
@@ -889,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.6177,
-        "gapVsCrowd": 0.003,
+        "prob": 0.6169,
+        "gapVsCrowd": 0.002,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -917,7 +862,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6152,
+        "prob": 0.615,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -1098,7 +1043,7 @@
       "kind": "PM_MULTI",
       "title": "Strait of Hormuz traffic returns to normal by...?",
       "category": "Oil",
-      "horizonDays": 7.0,
+      "horizonDays": 6.9,
       "crowd": {
         "prob": 0.0025,
         "spread": null,
@@ -1203,7 +1148,7 @@
       "kind": "PM_MULTI",
       "title": "Putin out as President of Russia by...?",
       "category": "putin",
-      "horizonDays": 310.0,
+      "horizonDays": 309.9,
       "crowd": {
         "prob": 0.135,
         "spread": null,
@@ -1258,7 +1203,7 @@
       "kind": "PM_MULTI",
       "title": "What price will Bitcoin hit in August?",
       "category": "Bitcoin",
-      "horizonDays": 7.0,
+      "horizonDays": 6.9,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -1291,7 +1236,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.4,
+        "move24hPp": 0.1,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1304,6 +1249,61 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": -1.0,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "200782",
+      "kind": "PM_MULTI",
+      "title": "MLS Cup Winner 2026",
+      "category": "MLS",
+      "horizonDays": 115.8,
+      "crowd": {
+        "prob": 0.205,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.2438,
+        "gapVsCrowd": 0.039,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 0.0,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.2132,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": 0.8,
           "regime": 0.0
         }
       }
@@ -1351,7 +1351,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 4.5,
+        "move24hPp": 4.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1401,7 +1401,57 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 2.4,
+        "move24hPp": 2.5,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": null
+    },
+    {
+      "assetId": "xrp",
+      "kind": "CRYPTO",
+      "title": "XRP",
+      "category": "crypto",
+      "horizonDays": null,
+      "crowd": {
+        "prob": null,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": false
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": "binance-fapi",
+          "fundingRate": null,
+          "fundingZ": null,
+          "basis": null,
+          "basisZ": null,
+          "oi": null,
+          "oiDelta": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 3.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1459,56 +1509,6 @@
       "composite": null
     },
     {
-      "assetId": "xrp",
-      "kind": "CRYPTO",
-      "title": "XRP",
-      "category": "crypto",
-      "horizonDays": null,
-      "crowd": {
-        "prob": null,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": false
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": "binance-fapi",
-          "fundingRate": null,
-          "fundingZ": null,
-          "basis": null,
-          "basisZ": null,
-          "oi": null,
-          "oiDelta": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 2.7,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": null
-    },
-    {
       "assetId": "sol",
       "kind": "CRYPTO",
       "title": "SOL",
@@ -1551,7 +1551,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": 7.7,
+        "move24hPp": 8.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1601,7 +1601,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.1,
+        "move24hPp": 0.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1736,7 +1736,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": 1.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1781,7 +1781,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.7,
+        "move24hPp": 1.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
