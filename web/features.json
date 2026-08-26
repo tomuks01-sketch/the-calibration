@@ -1,14 +1,14 @@
 {
   "schemaVersion": "fs-v1",
   "weightsVersion": "w-v1",
-  "generatedAt": "2026-08-26T18:12:56.889685+00:00",
+  "generatedAt": "2026-08-26T20:29:04.518932+00:00",
   "records": [
     {
       "assetId": "30829",
       "kind": "PM_MULTI",
       "title": "Democratic Presidential Nominee 2028",
       "category": "United States",
-      "horizonDays": 803.2,
+      "horizonDays": 803.1,
       "crowd": {
         "prob": 0.2095,
         "spread": null,
@@ -63,7 +63,7 @@
       "kind": "PM_MULTI",
       "title": "Presidential Election Winner 2028",
       "category": "President",
-      "horizonDays": 803.2,
+      "horizonDays": 803.1,
       "crowd": {
         "prob": 0.2335,
         "spread": null,
@@ -118,7 +118,7 @@
       "kind": "PM_MULTI",
       "title": "Next Prime Minister of Ethiopia?",
       "category": "Ethiopia",
-      "horizonDays": -86.8,
+      "horizonDays": -86.9,
       "crowd": {
         "prob": 0.971,
         "spread": null,
@@ -173,7 +173,7 @@
       "kind": "PM_MULTI",
       "title": "Next French Presidential Election",
       "category": "French Election",
-      "horizonDays": 246.2,
+      "horizonDays": 246.1,
       "crowd": {
         "prob": 0.3365,
         "spread": null,
@@ -184,7 +184,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.3351,
+        "prob": 0.3355,
         "gapVsCrowd": -0.001,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -212,7 +212,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.3362,
+        "prob": 0.3363,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -228,7 +228,7 @@
       "kind": "PM_MULTI",
       "title": "Venezuela leader end of 2026?",
       "category": "Trump-Machado",
-      "horizonDays": 126.2,
+      "horizonDays": 126.1,
       "crowd": {
         "prob": 0.8625,
         "spread": null,
@@ -384,66 +384,11 @@
       }
     },
     {
-      "assetId": "0x0b4cc3b739e1dfe5d73274740e7308b6fb389c5af040c3a174923d928d134bee",
-      "kind": "PM_BINARY",
-      "title": "Will Jesus Christ return before 2027?",
-      "category": "Parent For Derivative",
-      "horizonDays": 126.2,
-      "crowd": {
-        "prob": 0.0195,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.1,
-        "overheated": true,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.0195,
-        "coverage": 0.7778,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
       "assetId": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
       "kind": "PM_BINARY",
       "title": "Will the U.S. invade Iran before 2027?",
       "category": "Military Strikes",
-      "horizonDays": 126.2,
+      "horizonDays": 126.1,
       "crowd": {
         "prob": 0.155,
         "spread": null,
@@ -498,9 +443,9 @@
       "kind": "PM_MULTI",
       "title": "Fed Decision in September?",
       "category": "fomc",
-      "horizonDays": 20.2,
+      "horizonDays": 20.1,
       "crowd": {
-        "prob": 0.645,
+        "prob": 0.665,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -509,8 +454,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.666,
-        "gapVsCrowd": 0.021,
+        "prob": 0.679,
+        "gapVsCrowd": 0.014,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -531,19 +476,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.1,
+        "move24hPp": -0.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.6497,
+        "prob": 0.6681,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": 0.5,
+          "baseline": 0.3,
           "regime": 0.0
         }
       }
@@ -553,7 +498,7 @@
       "kind": "PM_MULTI",
       "title": "How many Fed rate cuts in 2026?",
       "category": "Rewards 200, 4.5, 50 Deprec",
-      "horizonDays": 126.2,
+      "horizonDays": 126.1,
       "crowd": {
         "prob": 0.8735,
         "spread": null,
@@ -564,8 +509,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.8658,
-        "gapVsCrowd": -0.008,
+        "prob": 0.8662,
+        "gapVsCrowd": -0.007,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -586,13 +531,13 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 1.2,
+        "move24hPp": 0.9,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.8718,
+        "prob": 0.8719,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -604,66 +549,11 @@
       }
     },
     {
-      "assetId": "202857",
-      "kind": "PM_MULTI",
-      "title": "Pro Football: 2027 Champion",
-      "category": "Sports",
-      "horizonDays": 172.2,
-      "crowd": {
-        "prob": 0.145,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": true
-      },
-      "baseline": {
-        "prob": 0.145,
-        "gapVsCrowd": 0.0,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": true
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": null,
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": 0.2,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": {
-        "prob": 0.145,
-        "coverage": 1.0,
-        "weightsVersion": "w-v1",
-        "weightsCalibrated": false,
-        "label": "uncalibrated prior",
-        "contributions": {
-          "baseline": -0.0,
-          "regime": 0.0
-        }
-      }
-    },
-    {
       "assetId": "57096",
       "kind": "PM_MULTI",
       "title": "California Governor Election Winner",
       "category": "California Midterm",
-      "horizonDays": 68.2,
+      "horizonDays": 68.1,
       "crowd": {
         "prob": 0.9525,
         "spread": null,
@@ -718,7 +608,7 @@
       "kind": "PM_BINARY",
       "title": "Will Trump acquire Greenland before 2027?",
       "category": "Davos",
-      "horizonDays": 126.2,
+      "horizonDays": 126.1,
       "crowd": {
         "prob": 0.0365,
         "spread": null,
@@ -773,7 +663,7 @@
       "kind": "PM_MULTI",
       "title": "Prime Minister of Israel after the next election?",
       "category": "Main Election",
-      "horizonDays": 126.2,
+      "horizonDays": 126.1,
       "crowd": {
         "prob": 0.546,
         "spread": null,
@@ -784,7 +674,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.5554,
+        "prob": 0.5546,
         "gapVsCrowd": 0.009,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -812,7 +702,7 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.5481,
+        "prob": 0.5479,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -828,7 +718,7 @@
       "kind": "PM_MULTI",
       "title": "Ballon d'Or Winner 2026",
       "category": "Soccer",
-      "horizonDays": 65.2,
+      "horizonDays": 65.1,
       "crowd": {
         "prob": 0.6205,
         "spread": null,
@@ -861,7 +751,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.6,
+        "move24hPp": 0.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -883,7 +773,7 @@
       "kind": "PM_MULTI",
       "title": "New \"Stranger Things\" episode released by...? ",
       "category": "Culture",
-      "horizonDays": 217.4,
+      "horizonDays": 217.3,
       "crowd": {
         "prob": 0.06,
         "spread": null,
@@ -894,7 +784,7 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.0962,
+        "prob": 0.0963,
         "gapVsCrowd": 0.036,
         "signalQuality": "insufficient",
         "source": "model.py",
@@ -917,7 +807,7 @@
         "source": "snapshot-derived"
       },
       "composite": {
-        "prob": 0.0667,
+        "prob": 0.0668,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
@@ -933,7 +823,7 @@
       "kind": "PM_MULTI",
       "title": "F1 Constructors' Champion",
       "category": "Formula 1",
-      "horizonDays": 101.2,
+      "horizonDays": 101.1,
       "crowd": {
         "prob": 0.865,
         "spread": null,
@@ -944,8 +834,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.851,
-        "gapVsCrowd": -0.014,
+        "prob": 0.8592,
+        "gapVsCrowd": -0.006,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -972,13 +862,13 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.862,
+        "prob": 0.8637,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.3,
+          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -988,7 +878,7 @@
       "kind": "PM_BINARY",
       "title": "Will the Iranian regime fall before 2027?",
       "category": "Reza Pahlavi",
-      "horizonDays": 126.2,
+      "horizonDays": 126.1,
       "crowd": {
         "prob": 0.065,
         "spread": null,
@@ -1043,7 +933,7 @@
       "kind": "PM_MULTI",
       "title": "Nobel Peace Prize Winner 2026",
       "category": "Awards",
-      "horizonDays": 44.2,
+      "horizonDays": 44.1,
       "crowd": {
         "prob": 0.085,
         "spread": null,
@@ -1076,7 +966,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": 0.0,
+        "move24hPp": -0.1,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1098,7 +988,7 @@
       "kind": "PM_MULTI",
       "title": "What price will Bitcoin hit in August?",
       "category": "Bitcoin",
-      "horizonDays": 5.4,
+      "horizonDays": 5.3,
       "crowd": {
         "prob": 1.0,
         "spread": null,
@@ -1131,7 +1021,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.1,
+        "move24hPp": -0.9,
         "overheated": true,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1144,6 +1034,61 @@
         "label": "uncalibrated prior",
         "contributions": {
           "baseline": -1.0,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "31195",
+      "kind": "PM_MULTI",
+      "title": "Putin out as President of Russia by...?",
+      "category": "putin",
+      "horizonDays": 308.3,
+      "crowd": {
+        "prob": 0.135,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.1315,
+        "gapVsCrowd": -0.004,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": 0.0,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.1342,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": -0.1,
           "regime": 0.0
         }
       }
@@ -1199,13 +1144,13 @@
       }
     },
     {
-      "assetId": "31195",
+      "assetId": "699735",
       "kind": "PM_MULTI",
-      "title": "Putin out as President of Russia by...?",
-      "category": "putin",
-      "horizonDays": 308.4,
+      "title": "US announces end of Iranian blockade by...?",
+      "category": "Iran",
+      "horizonDays": 127.4,
       "crowd": {
-        "prob": 0.135,
+        "prob": 0.779,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1214,8 +1159,63 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.1315,
-        "gapVsCrowd": -0.004,
+        "prob": 0.7514,
+        "gapVsCrowd": -0.028,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": true
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": null,
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": true,
+        "move24hPp": -5.9,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": {
+        "prob": 0.7731,
+        "coverage": 1.0,
+        "weightsVersion": "w-v1",
+        "weightsCalibrated": false,
+        "label": "uncalibrated prior",
+        "contributions": {
+          "baseline": -0.6,
+          "regime": 0.0
+        }
+      }
+    },
+    {
+      "assetId": "200782",
+      "kind": "PM_MULTI",
+      "title": "MLS Cup Winner 2026",
+      "category": "MLS",
+      "horizonDays": 114.1,
+      "crowd": {
+        "prob": 0.205,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": true
+      },
+      "baseline": {
+        "prob": 0.2399,
+        "gapVsCrowd": 0.035,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1242,25 +1242,25 @@
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.1342,
+        "prob": 0.2124,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.1,
+          "baseline": 0.7,
           "regime": 0.0
         }
       }
     },
     {
-      "assetId": "699735",
+      "assetId": "478277",
       "kind": "PM_MULTI",
-      "title": "US announces end of Iranian blockade by...?",
-      "category": "Iran",
-      "horizonDays": 127.4,
+      "title": "NBA: 2027 Champion",
+      "category": "NBA Finals",
+      "horizonDays": 308.1,
       "crowd": {
-        "prob": 0.783,
+        "prob": 0.215,
         "spread": null,
         "obImbalance": null,
         "tradeVelocity": null,
@@ -1269,8 +1269,8 @@
         "available": true
       },
       "baseline": {
-        "prob": 0.7534,
-        "gapVsCrowd": -0.03,
+        "prob": 0.215,
+        "gapVsCrowd": 0.0,
         "signalQuality": "insufficient",
         "source": "model.py",
         "available": true
@@ -1291,19 +1291,19 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -2.1,
+        "move24hPp": 0.0,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
       },
       "composite": {
-        "prob": 0.7767,
+        "prob": 0.215,
         "coverage": 1.0,
         "weightsVersion": "w-v1",
         "weightsCalibrated": false,
         "label": "uncalibrated prior",
         "contributions": {
-          "baseline": -0.6,
+          "baseline": -0.0,
           "regime": 0.0
         }
       }
@@ -1351,7 +1351,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.9,
+        "move24hPp": -0.6,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1401,7 +1401,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.2,
+        "move24hPp": 0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1451,7 +1451,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -0.2,
+        "move24hPp": 0.3,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1501,7 +1501,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": true,
-        "move24hPp": -6.4,
+        "move24hPp": -5.9,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1551,7 +1551,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.4,
+        "move24hPp": -1.2,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1601,7 +1601,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.7,
+        "move24hPp": -0.7,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1646,7 +1646,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -3.1,
+        "move24hPp": -2.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1691,7 +1691,52 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -1.4,
+        "move24hPp": -0.7,
+        "overheated": false,
+        "infoEventNear": false,
+        "preResolutionVol": false
+      },
+      "composite": null
+    },
+    {
+      "assetId": "zec",
+      "kind": "CRYPTO",
+      "title": "ZEC",
+      "category": "crypto",
+      "horizonDays": null,
+      "crowd": {
+        "prob": null,
+        "spread": null,
+        "obImbalance": null,
+        "tradeVelocity": null,
+        "volumeChange": null,
+        "source": "gamma-midpoint-proxy",
+        "available": false
+      },
+      "baseline": {
+        "prob": null,
+        "gapVsCrowd": null,
+        "signalQuality": "insufficient",
+        "source": "model.py",
+        "available": false
+      },
+      "regime": {
+        "descriptive": {
+          "available": false,
+          "source": "binance-fapi",
+          "timestamp": null
+        },
+        "adjustmentCandidate": {
+          "tilt": null,
+          "applied": false
+        }
+      },
+      "pressure": {
+        "available": true,
+        "class": "descriptive",
+        "source": "snapshot-derived",
+        "suddenMove": false,
+        "move24hPp": -0.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
@@ -1741,52 +1786,7 @@
         "class": "descriptive",
         "source": "snapshot-derived",
         "suddenMove": false,
-        "move24hPp": -4.4,
-        "overheated": false,
-        "infoEventNear": false,
-        "preResolutionVol": false
-      },
-      "composite": null
-    },
-    {
-      "assetId": "zec",
-      "kind": "CRYPTO",
-      "title": "ZEC",
-      "category": "crypto",
-      "horizonDays": null,
-      "crowd": {
-        "prob": null,
-        "spread": null,
-        "obImbalance": null,
-        "tradeVelocity": null,
-        "volumeChange": null,
-        "source": "gamma-midpoint-proxy",
-        "available": false
-      },
-      "baseline": {
-        "prob": null,
-        "gapVsCrowd": null,
-        "signalQuality": "insufficient",
-        "source": "model.py",
-        "available": false
-      },
-      "regime": {
-        "descriptive": {
-          "available": false,
-          "source": "binance-fapi",
-          "timestamp": null
-        },
-        "adjustmentCandidate": {
-          "tilt": null,
-          "applied": false
-        }
-      },
-      "pressure": {
-        "available": true,
-        "class": "descriptive",
-        "source": "snapshot-derived",
-        "suddenMove": false,
-        "move24hPp": -2.1,
+        "move24hPp": -3.4,
         "overheated": false,
         "infoEventNear": false,
         "preResolutionVol": false
