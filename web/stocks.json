@@ -2,7 +2,7 @@
   "available": true,
   "source": "yahoo-finance (delayed)",
   "class": "descriptive",
-  "asOf": "2026-09-01T07:13:19.949658+00:00",
+  "asOf": "2026-09-01T12:39:42.472706+00:00",
   "items": [
     {
       "symbol": "AAPL",
@@ -384,12 +384,11 @@
       "symbol": "JPM",
       "name": "JPMorgan",
       "price": 356.02,
-      "c24": 0.51,
-      "c7": 1.26,
-      "c30": 3.28,
+      "c24": -0.45,
+      "c7": -0.1,
+      "c30": 1.47,
       "volume": 7962900,
       "spark": [
-        338.87,
         345.23,
         348.21,
         349.9,
@@ -418,12 +417,13 @@
         356.69,
         356.5,
         354.22,
+        357.62,
         356.02
       ],
       "signal": {
-        "label": "rising",
-        "dir": "up",
-        "why": "24h / 7d / 30d all higher"
+        "label": "mixed",
+        "dir": "flat",
+        "why": "timeframes disagree"
       },
       "rank": 9
     },
@@ -431,12 +431,11 @@
       "symbol": "LLY",
       "name": "Eli Lilly",
       "price": 1156.73,
-      "c24": -1.65,
-      "c7": -7.86,
-      "c30": -4.4,
+      "c24": -1.52,
+      "c7": -7.23,
+      "c30": 0.15,
       "volume": 3055800,
       "spark": [
-        1146.9,
         1175.41,
         1163.01,
         1185.87,
@@ -465,12 +464,13 @@
         1233.66,
         1189.41,
         1176.1,
+        1174.61,
         1156.73
       ],
       "signal": {
-        "label": "falling",
-        "dir": "down",
-        "why": "24h / 7d / 30d all lower"
+        "label": "mixed",
+        "dir": "flat",
+        "why": "timeframes disagree"
       },
       "rank": 10
     }
