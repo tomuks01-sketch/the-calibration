@@ -2,38 +2,38 @@
   "schemaVersion": "fs2-v1",
   "generatedFrom": "web/football_ledger.json",
   "counts": {
-    "resolved": 81,
-    "open": 3,
+    "resolved": 84,
+    "open": 0,
     "void": 13,
     "total": 97
   },
   "confidence": "ok",
   "model": {
-    "meanRps": 0.16942,
-    "accuracy": 0.691,
+    "meanRps": 0.16625,
+    "accuracy": 0.702,
     "accuracyWilson95": [
-      0.584,
-      0.781
+      0.598,
+      0.79
     ],
-    "calibrationError": 0.1146,
+    "calibrationError": 0.1167,
     "calibrationBins": [
       {
         "range": "0-10%",
-        "n": 12,
-        "predicted": 0.063,
+        "n": 13,
+        "predicted": 0.059,
         "actual": 0.0
       },
       {
         "range": "10-20%",
-        "n": 31,
-        "predicted": 0.161,
-        "actual": 0.194
+        "n": 33,
+        "predicted": 0.157,
+        "actual": 0.182
       },
       {
         "range": "20-30%",
-        "n": 104,
+        "n": 107,
         "predicted": 0.261,
-        "actual": 0.154
+        "actual": 0.15
       },
       {
         "range": "30-40%",
@@ -43,9 +43,9 @@
       },
       {
         "range": "40-50%",
-        "n": 27,
-        "predicted": 0.448,
-        "actual": 0.704
+        "n": 28,
+        "predicted": 0.449,
+        "actual": 0.714
       },
       {
         "range": "50-60%",
@@ -55,9 +55,9 @@
       },
       {
         "range": "60-70%",
-        "n": 7,
-        "predicted": 0.638,
-        "actual": 0.714
+        "n": 8,
+        "predicted": 0.642,
+        "actual": 0.75
       },
       {
         "range": "70-80%",
@@ -67,8 +67,8 @@
       },
       {
         "range": "80-90%",
-        "n": 3,
-        "predicted": 0.817,
+        "n": 4,
+        "predicted": 0.835,
         "actual": 1.0
       },
       {
@@ -80,15 +80,15 @@
     ]
   },
   "market": {
-    "meanRps": 0.15902,
-    "accuracy": 0.676,
-    "skillVsMarket": -0.0104,
-    "beatMarketRate": 0.365,
+    "meanRps": 0.15486,
+    "accuracy": 0.688,
+    "skillVsMarket": -0.01139,
+    "beatMarketRate": 0.364,
     "beatMarketWilson95": [
-      0.264,
-      0.479
+      0.265,
+      0.475
     ],
-    "n": 74
+    "n": 77
   },
   "disclaimer": "International-football W/D/L forecasts scored with RPS (lower is better). skillVsMarket = market RPS - our RPS (positive = we beat the market; shown even when negative). Calibration pooled over the three outcomes. Analytics only, not advice. Gated until enough resolved matches; market comparison needs matches with odds."
 }
