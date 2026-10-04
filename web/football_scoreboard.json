@@ -2,20 +2,20 @@
   "schemaVersion": "fs2-v1",
   "generatedFrom": "web/football_ledger.json",
   "counts": {
-    "resolved": 85,
-    "open": 7,
+    "resolved": 87,
+    "open": 5,
     "void": 13,
     "total": 105
   },
   "confidence": "ok",
   "model": {
-    "meanRps": 0.16628,
-    "accuracy": 0.706,
+    "meanRps": 0.16483,
+    "accuracy": 0.701,
     "accuracyWilson95": [
-      0.602,
-      0.792
+      0.598,
+      0.787
     ],
-    "calibrationError": 0.1194,
+    "calibrationError": 0.1186,
     "calibrationBins": [
       {
         "range": "0-10%",
@@ -25,21 +25,21 @@
       },
       {
         "range": "10-20%",
-        "n": 33,
+        "n": 34,
         "predicted": 0.157,
-        "actual": 0.182
+        "actual": 0.176
       },
       {
         "range": "20-30%",
-        "n": 109,
+        "n": 111,
         "predicted": 0.261,
-        "actual": 0.147
+        "actual": 0.153
       },
       {
         "range": "30-40%",
-        "n": 27,
+        "n": 29,
         "predicted": 0.352,
-        "actual": 0.296
+        "actual": 0.276
       },
       {
         "range": "40-50%",
@@ -55,9 +55,9 @@
       },
       {
         "range": "60-70%",
-        "n": 8,
-        "predicted": 0.642,
-        "actual": 0.75
+        "n": 9,
+        "predicted": 0.64,
+        "actual": 0.778
       },
       {
         "range": "70-80%",
@@ -80,15 +80,15 @@
     ]
   },
   "market": {
-    "meanRps": 0.15635,
-    "accuracy": 0.692,
-    "skillVsMarket": -0.00993,
-    "beatMarketRate": 0.372,
+    "meanRps": 0.15541,
+    "accuracy": 0.688,
+    "skillVsMarket": -0.00942,
+    "beatMarketRate": 0.388,
     "beatMarketWilson95": [
-      0.273,
-      0.483
+      0.288,
+      0.497
     ],
-    "n": 78
+    "n": 80
   },
   "disclaimer": "International-football W/D/L forecasts scored with RPS (lower is better). skillVsMarket = market RPS - our RPS (positive = we beat the market; shown even when negative). Calibration pooled over the three outcomes. Analytics only, not advice. Gated until enough resolved matches; market comparison needs matches with odds."
 }
