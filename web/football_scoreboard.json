@@ -2,20 +2,20 @@
   "schemaVersion": "fs2-v1",
   "generatedFrom": "web/football_ledger.json",
   "counts": {
-    "resolved": 93,
-    "open": 7,
+    "resolved": 100,
+    "open": 0,
     "void": 13,
     "total": 113
   },
   "confidence": "ok",
   "model": {
-    "meanRps": 0.16387,
-    "accuracy": 0.699,
+    "meanRps": 0.1678,
+    "accuracy": 0.68,
     "accuracyWilson95": [
-      0.599,
-      0.783
+      0.583,
+      0.763
     ],
-    "calibrationError": 0.1175,
+    "calibrationError": 0.1085,
     "calibrationBins": [
       {
         "range": "0-10%",
@@ -25,33 +25,33 @@
       },
       {
         "range": "10-20%",
-        "n": 35,
-        "predicted": 0.155,
-        "actual": 0.171
+        "n": 36,
+        "predicted": 0.156,
+        "actual": 0.167
       },
       {
         "range": "20-30%",
-        "n": 122,
-        "predicted": 0.261,
-        "actual": 0.156
+        "n": 132,
+        "predicted": 0.262,
+        "actual": 0.167
       },
       {
         "range": "30-40%",
-        "n": 29,
+        "n": 35,
         "predicted": 0.352,
-        "actual": 0.276
+        "actual": 0.286
       },
       {
         "range": "40-50%",
-        "n": 34,
+        "n": 37,
         "predicted": 0.452,
-        "actual": 0.706
+        "actual": 0.676
       },
       {
         "range": "50-60%",
-        "n": 22,
-        "predicted": 0.553,
-        "actual": 0.773
+        "n": 23,
+        "predicted": 0.552,
+        "actual": 0.783
       },
       {
         "range": "60-70%",
@@ -80,15 +80,15 @@
     ]
   },
   "market": {
-    "meanRps": 0.15268,
-    "accuracy": 0.686,
-    "skillVsMarket": -0.01119,
-    "beatMarketRate": 0.372,
+    "meanRps": 0.15411,
+    "accuracy": 0.667,
+    "skillVsMarket": -0.01369,
+    "beatMarketRate": 0.366,
     "beatMarketWilson95": [
-      0.277,
-      0.478
+      0.275,
+      0.467
     ],
-    "n": 86
+    "n": 93
   },
   "disclaimer": "International-football W/D/L forecasts scored with RPS (lower is better). skillVsMarket = market RPS - our RPS (positive = we beat the market; shown even when negative). Calibration pooled over the three outcomes. Analytics only, not advice. Gated until enough resolved matches; market comparison needs matches with odds."
 }
