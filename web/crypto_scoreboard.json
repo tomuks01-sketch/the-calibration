@@ -4,23 +4,23 @@
   "baseline": "random_walk",
   "bandTarget": 0.8,
   "counts": {
-    "resolved": 854,
+    "resolved": 861,
     "open": 7,
     "void": 0,
-    "total": 861
+    "total": 868
   },
   "confidence": "ok",
   "direction": {
-    "meanBrierUp": 0.25041,
+    "meanBrierUp": 0.25043,
     "baselineBrier": 0.25,
-    "skillVsRandomWalk": -0.00041,
-    "accuracy": 0.454,
+    "skillVsRandomWalk": -0.00043,
+    "accuracy": 0.45,
     "accuracyWilson95": [
-      0.421,
-      0.488
+      0.417,
+      0.484
     ],
-    "observedUpRate": 0.53,
-    "calibrationError": 0.0537,
+    "observedUpRate": 0.526,
+    "calibrationError": 0.0573,
     "calibrationBins": [
       {
         "range": "45-50%",
@@ -30,9 +30,9 @@
       },
       {
         "range": "50-55%",
-        "n": 467,
+        "n": 474,
         "predicted": 0.51,
-        "actual": 0.488
+        "actual": 0.481
       },
       {
         "range": "55-60%",
@@ -44,52 +44,52 @@
   },
   "band": {
     "target": 0.8,
-    "coverageRate": 0.843,
+    "coverageRate": 0.841,
     "coverageWilson95": [
-      0.817,
-      0.866
+      0.815,
+      0.864
     ],
-    "pinball": 0.446,
-    "pinballBaseline": 0.4482,
+    "pinball": 0.4456,
+    "pinballBaseline": 0.448,
     "beatsBaseline": true,
-    "baselineN": 763,
-    "n": 854
+    "baselineN": 770,
+    "n": 861
   },
   "byCoin": {
     "btc": {
-      "n": 122,
+      "n": 123,
       "confidence": "ok",
-      "coverageRate": 0.844
+      "coverageRate": 0.846
     },
     "eth": {
-      "n": 122,
+      "n": 123,
       "confidence": "ok",
-      "coverageRate": 0.902
+      "coverageRate": 0.894
     },
     "bnb": {
-      "n": 122,
+      "n": 123,
       "confidence": "ok",
-      "coverageRate": 0.852
+      "coverageRate": 0.846
     },
     "xrp": {
-      "n": 122,
+      "n": 123,
       "confidence": "ok",
-      "coverageRate": 0.811
+      "coverageRate": 0.813
     },
     "sol": {
-      "n": 122,
+      "n": 123,
       "confidence": "ok",
-      "coverageRate": 0.828
+      "coverageRate": 0.829
     },
     "trx": {
-      "n": 122,
+      "n": 123,
       "confidence": "ok",
-      "coverageRate": 0.877
+      "coverageRate": 0.878
     },
     "doge": {
-      "n": 122,
+      "n": 123,
       "confidence": "ok",
-      "coverageRate": 0.787
+      "coverageRate": 0.78
     }
   },
   "disclaimer": "Crypto 24h forecasts scored vs a random-walk baseline. Direction: lower Brier is better; skillVsRandomWalk = 0.25 - our Brier (positive = better than a coin flip; shown even when negative). Band: empirical coverage of the 80% interval (target 0.80). Analytics only, not advice. Per-coin claims need many more samples (majors are highly correlated) \u2014 read the aggregate."
