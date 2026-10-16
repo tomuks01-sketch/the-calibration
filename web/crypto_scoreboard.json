@@ -4,8 +4,8 @@
   "baseline": "random_walk",
   "bandTarget": 0.8,
   "counts": {
-    "resolved": 917,
-    "open": 14,
+    "resolved": 924,
+    "open": 7,
     "void": 0,
     "total": 931
   },
@@ -20,11 +20,11 @@
       0.491
     ],
     "observedUpRate": 0.518,
-    "calibrationError": 0.0489,
+    "calibrationError": 0.0491,
     "calibrationBins": [
       {
         "range": "45-50%",
-        "n": 437,
+        "n": 444,
         "predicted": 0.492,
         "actual": 0.561
       },
@@ -44,52 +44,52 @@
   },
   "band": {
     "target": 0.8,
-    "coverageRate": 0.844,
+    "coverageRate": 0.845,
     "coverageWilson95": [
-      0.819,
-      0.866
+      0.82,
+      0.867
     ],
-    "pinball": 0.441,
-    "pinballBaseline": 0.4419,
+    "pinball": 0.4401,
+    "pinballBaseline": 0.4407,
     "beatsBaseline": true,
-    "baselineN": 826,
-    "n": 917
+    "baselineN": 833,
+    "n": 924
   },
   "byCoin": {
     "btc": {
-      "n": 131,
+      "n": 132,
       "confidence": "ok",
-      "coverageRate": 0.855
+      "coverageRate": 0.856
     },
     "eth": {
-      "n": 131,
+      "n": 132,
       "confidence": "ok",
-      "coverageRate": 0.893
+      "coverageRate": 0.894
     },
     "bnb": {
-      "n": 131,
+      "n": 132,
       "confidence": "ok",
-      "coverageRate": 0.84
+      "coverageRate": 0.841
     },
     "xrp": {
-      "n": 131,
+      "n": 132,
       "confidence": "ok",
-      "coverageRate": 0.824
+      "coverageRate": 0.826
     },
     "sol": {
-      "n": 131,
+      "n": 132,
       "confidence": "ok",
-      "coverageRate": 0.832
+      "coverageRate": 0.833
     },
     "trx": {
-      "n": 131,
+      "n": 132,
       "confidence": "ok",
-      "coverageRate": 0.878
+      "coverageRate": 0.879
     },
     "doge": {
-      "n": 131,
+      "n": 132,
       "confidence": "ok",
-      "coverageRate": 0.786
+      "coverageRate": 0.788
     }
   },
   "disclaimer": "Crypto 24h forecasts scored vs a random-walk baseline. Direction: lower Brier is better; skillVsRandomWalk = 0.25 - our Brier (positive = better than a coin flip; shown even when negative). Band: empirical coverage of the 80% interval (target 0.80). Analytics only, not advice. Per-coin claims need many more samples (majors are highly correlated) \u2014 read the aggregate."
