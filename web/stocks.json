@@ -2,18 +2,17 @@
   "available": true,
   "source": "yahoo-finance (delayed)",
   "class": "descriptive",
-  "asOf": "2026-10-21T11:01:48.609191+00:00",
+  "asOf": "2026-10-21T16:01:36.595910+00:00",
   "items": [
     {
       "symbol": "AAPL",
       "name": "Apple",
-      "price": 339.5,
-      "c24": -1.0,
-      "c7": -0.52,
-      "c30": 1.0,
-      "volume": 35764400,
+      "price": 344.28,
+      "c24": 1.41,
+      "c7": 0.38,
+      "c30": 1.56,
+      "volume": 13588722,
       "spark": [
-        315.34,
         326.57,
         332.27,
         333.08,
@@ -42,25 +41,25 @@
         342.0,
         343.46,
         342.94,
-        339.5
+        339.5,
+        344.28
       ],
       "signal": {
-        "label": "mixed",
-        "dir": "flat",
-        "why": "timeframes disagree"
+        "label": "rising",
+        "dir": "up",
+        "why": "24h / 7d / 30d all higher"
       },
       "rank": 1
     },
     {
       "symbol": "MSFT",
       "name": "Microsoft",
-      "price": 531.87,
-      "c24": -0.31,
-      "c7": -2.13,
-      "c30": 7.71,
-      "volume": 14503700,
+      "price": 531.8,
+      "c24": -0.01,
+      "c7": -0.35,
+      "c30": 6.02,
+      "volume": 5075215,
       "spark": [
-        491.65,
         492.44,
         495.63,
         505.41,
@@ -89,7 +88,8 @@
         539.44,
         529.05,
         533.52,
-        531.87
+        531.87,
+        531.8
       ],
       "signal": {
         "label": "mixed",
@@ -101,13 +101,12 @@
     {
       "symbol": "NVDA",
       "name": "Nvidia",
-      "price": 216.47,
-      "c24": -0.29,
-      "c7": -5.27,
-      "c30": -2.61,
-      "volume": 78967900,
+      "price": 220.4,
+      "c24": 1.82,
+      "c7": -0.41,
+      "c30": -3.07,
+      "volume": 38921906,
       "spark": [
-        223.67,
         218.36,
         218.29,
         210.96,
@@ -136,25 +135,25 @@
         217.23,
         214.13,
         217.09,
-        216.47
+        216.47,
+        220.4
       ],
       "signal": {
-        "label": "falling",
-        "dir": "down",
-        "why": "24h / 7d / 30d all lower"
+        "label": "mixed",
+        "dir": "flat",
+        "why": "timeframes disagree"
       },
       "rank": 3
     },
     {
       "symbol": "GOOGL",
       "name": "Alphabet",
-      "price": 340.27,
-      "c24": -1.13,
-      "c7": -3.82,
-      "c30": -2.65,
-      "volume": 18215400,
+      "price": 333.04,
+      "c24": -2.13,
+      "c7": -4.2,
+      "c30": -6.18,
+      "volume": 15011317,
       "spark": [
-        330.65,
         332.6,
         338.5,
         349.39,
@@ -183,7 +182,8 @@
         349.22,
         340.59,
         344.18,
-        340.28
+        340.28,
+        333.04
       ],
       "signal": {
         "label": "falling",
@@ -195,13 +195,12 @@
     {
       "symbol": "AMZN",
       "name": "Amazon",
-      "price": 262.63,
-      "c24": 0.07,
-      "c7": 1.57,
-      "c30": 3.52,
-      "volume": 34767800,
+      "price": 262.16,
+      "c24": -0.18,
+      "c7": 3.18,
+      "c30": 1.44,
+      "volume": 13628398,
       "spark": [
-        252.4,
         251.89,
         256.78,
         253.54,
@@ -230,25 +229,25 @@
         254.76,
         250.0,
         262.45,
-        262.63
+        262.63,
+        262.16
       ],
       "signal": {
-        "label": "rising",
-        "dir": "up",
-        "why": "24h / 7d / 30d all higher"
+        "label": "mixed",
+        "dir": "flat",
+        "why": "timeframes disagree"
       },
       "rank": 5
     },
     {
       "symbol": "META",
       "name": "Meta",
-      "price": 694.25,
-      "c24": -1.59,
-      "c7": -8.95,
-      "c30": 4.28,
-      "volume": 16957600,
+      "price": 711.02,
+      "c24": 2.42,
+      "c7": -3.6,
+      "c30": -4.08,
+      "volume": 7107455,
       "spark": [
-        653.69,
         644.38,
         648.03,
         665.6,
@@ -277,7 +276,8 @@
         736.72,
         709.33,
         705.44,
-        694.25
+        694.25,
+        711.03
       ],
       "signal": {
         "label": "mixed",
@@ -289,13 +289,12 @@
     {
       "symbol": "AVGO",
       "name": "Broadcom",
-      "price": 334.37,
-      "c24": -0.07,
-      "c7": -6.42,
-      "c30": -6.5,
-      "volume": 15845600,
+      "price": 337.57,
+      "c24": 0.96,
+      "c7": -2.51,
+      "c30": -6.92,
+      "volume": 5761390,
       "spark": [
-        364.38,
         360.83,
         361.99,
         344.72,
@@ -324,25 +323,25 @@
         344.33,
         328.75,
         334.59,
-        334.37
+        334.37,
+        337.57
       ],
       "signal": {
-        "label": "falling",
-        "dir": "down",
-        "why": "24h / 7d / 30d all lower"
+        "label": "mixed",
+        "dir": "flat",
+        "why": "timeframes disagree"
       },
       "rank": 7
     },
     {
       "symbol": "TSLA",
       "name": "Tesla",
-      "price": 373.71,
-      "c24": 1.54,
-      "c7": -0.41,
-      "c30": 2.59,
-      "volume": 31662400,
+      "price": 386.84,
+      "c24": 3.51,
+      "c7": 5.36,
+      "c30": 3.07,
+      "volume": 22385014,
       "spark": [
-        367.81,
         363.56,
         365.44,
         358.97,
@@ -371,25 +370,25 @@
         362.44,
         354.72,
         368.06,
-        373.71
+        373.71,
+        386.84
       ],
       "signal": {
-        "label": "mixed",
-        "dir": "flat",
-        "why": "timeframes disagree"
+        "label": "rising",
+        "dir": "up",
+        "why": "24h / 7d / 30d all higher"
       },
       "rank": 8
     },
     {
       "symbol": "JPM",
       "name": "JPMorgan",
-      "price": 335.26,
-      "c24": 0.52,
-      "c7": 1.16,
-      "c30": -4.12,
-      "volume": 6157500,
+      "price": 333.8,
+      "c24": -0.44,
+      "c7": -0.44,
+      "c30": -5.18,
+      "volume": 1554283,
       "spark": [
-        354.71,
         353.56,
         356.23,
         350.13,
@@ -418,25 +417,25 @@
         335.53,
         339.72,
         333.53,
-        335.26
+        335.26,
+        333.8
       ],
       "signal": {
-        "label": "mixed",
-        "dir": "flat",
-        "why": "timeframes disagree"
+        "label": "falling",
+        "dir": "down",
+        "why": "24h / 7d / 30d all lower"
       },
       "rank": 9
     },
     {
       "symbol": "LLY",
       "name": "Eli Lilly",
-      "price": 1283.66,
-      "c24": 3.49,
-      "c7": 10.04,
-      "c30": 11.34,
-      "volume": 2966500,
+      "price": 1266.12,
+      "c24": -1.37,
+      "c7": 4.75,
+      "c30": 8.69,
+      "volume": 709154,
       "spark": [
-        1124.21,
         1123.0,
         1115.7,
         1138.28,
@@ -465,12 +464,13 @@
         1251.61,
         1257.03,
         1240.34,
-        1283.66
+        1283.66,
+        1266.12
       ],
       "signal": {
-        "label": "rising",
-        "dir": "up",
-        "why": "24h / 7d / 30d all higher"
+        "label": "mixed",
+        "dir": "flat",
+        "why": "timeframes disagree"
       },
       "rank": 10
     }
