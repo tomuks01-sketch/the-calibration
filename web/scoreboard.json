@@ -3,15 +3,15 @@
   "modelVersion": "baseline-v1",
   "sampleNote": "Snapshot-scoped: calls are logged only for markets present in the top-volume snapshot at call time. This is NOT a random sample of all Polymarket markets; the Brier figures are 'snapshot-scoped' and must be read with that selection caveat.",
   "counts": {
-    "resolved": 35,
-    "pending": 18,
+    "resolved": 36,
+    "pending": 17,
     "void": 0,
     "total": 53
   },
   "confidence": "ok",
-  "snapshotScopedModelBrier": 0.16931,
-  "snapshotScopedCrowdBrier": 0.17013,
-  "skillVsCrowd": 0.00082,
+  "snapshotScopedModelBrier": 0.167,
+  "snapshotScopedCrowdBrier": 0.16718,
+  "skillVsCrowd": 0.00018,
   "calibration": [
     {
       "range": "0-20%",
@@ -33,7 +33,7 @@
     },
     {
       "range": "60-80%",
-      "n": 4,
+      "n": 5,
       "predicted": 0.706,
       "actual": 1.0
     },
@@ -91,6 +91,15 @@
       "beatsCrowdWilson95": null
     },
     "Economy": {
+      "n": 1,
+      "confidence": "none",
+      "modelBrier": null,
+      "crowdBrier": null,
+      "skillVsCrowd": null,
+      "beatsCrowdRate": null,
+      "beatsCrowdWilson95": null
+    },
+    "Elections": {
       "n": 1,
       "confidence": "none",
       "modelBrier": null,
