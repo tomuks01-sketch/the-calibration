@@ -4,29 +4,29 @@
   "baseline": "random_walk",
   "bandTarget": 0.8,
   "counts": {
-    "resolved": 1056,
+    "resolved": 1057,
     "open": 7,
     "void": 0,
-    "total": 1063
+    "total": 1064
   },
   "confidence": "ok",
   "direction": {
     "meanBrierUp": 0.25039,
     "baselineBrier": 0.25,
     "skillVsRandomWalk": -0.00039,
-    "accuracy": 0.464,
+    "accuracy": 0.463,
     "accuracyWilson95": [
-      0.434,
+      0.433,
       0.494
     ],
     "observedUpRate": 0.508,
-    "calibrationError": 0.0446,
+    "calibrationError": 0.045,
     "calibrationBins": [
       {
         "range": "45-50%",
-        "n": 550,
+        "n": 551,
         "predicted": 0.492,
-        "actual": 0.542
+        "actual": 0.543
       },
       {
         "range": "50-55%",
@@ -44,16 +44,16 @@
   },
   "band": {
     "target": 0.8,
-    "coverageRate": 0.854,
+    "coverageRate": 0.853,
     "coverageWilson95": [
-      0.832,
-      0.874
+      0.831,
+      0.873
     ],
     "pinball": 0.4433,
-    "pinballBaseline": 0.4382,
+    "pinballBaseline": 0.4387,
     "beatsBaseline": false,
-    "baselineN": 965,
-    "n": 1056
+    "baselineN": 966,
+    "n": 1057
   },
   "byCoin": {
     "btc": {
@@ -87,9 +87,9 @@
       "coverageRate": 0.861
     },
     "doge": {
-      "n": 150,
+      "n": 151,
       "confidence": "ok",
-      "coverageRate": 0.807
+      "coverageRate": 0.801
     }
   },
   "disclaimer": "Crypto 24h forecasts scored vs a random-walk baseline. Direction: lower Brier is better; skillVsRandomWalk = 0.25 - our Brier (positive = better than a coin flip; shown even when negative). Band: empirical coverage of the 80% interval (target 0.80). Analytics only, not advice. Per-coin claims need many more samples (majors are highly correlated) \u2014 read the aggregate."
