@@ -4,35 +4,35 @@
   "baseline": "random_walk",
   "bandTarget": 0.8,
   "counts": {
-    "resolved": 1063,
+    "resolved": 1069,
     "open": 8,
     "void": 0,
-    "total": 1071
+    "total": 1077
   },
   "confidence": "ok",
   "direction": {
-    "meanBrierUp": 0.25043,
+    "meanBrierUp": 0.25041,
     "baselineBrier": 0.25,
-    "skillVsRandomWalk": -0.00043,
-    "accuracy": 0.462,
+    "skillVsRandomWalk": -0.00041,
+    "accuracy": 0.464,
     "accuracyWilson95": [
-      0.432,
-      0.492
+      0.434,
+      0.494
     ],
-    "observedUpRate": 0.51,
-    "calibrationError": 0.0467,
+    "observedUpRate": 0.507,
+    "calibrationError": 0.0446,
     "calibrationBins": [
       {
         "range": "45-50%",
-        "n": 557,
+        "n": 562,
         "predicted": 0.492,
-        "actual": 0.546
+        "actual": 0.541
       },
       {
         "range": "50-55%",
-        "n": 503,
+        "n": 504,
         "predicted": 0.509,
-        "actual": 0.471
+        "actual": 0.47
       },
       {
         "range": "55-60%",
@@ -44,47 +44,47 @@
   },
   "band": {
     "target": 0.8,
-    "coverageRate": 0.849,
+    "coverageRate": 0.846,
     "coverageWilson95": [
-      0.827,
-      0.87
+      0.823,
+      0.866
     ],
-    "pinball": 0.4469,
-    "pinballBaseline": 0.4444,
+    "pinball": 0.4525,
+    "pinballBaseline": 0.452,
     "beatsBaseline": false,
-    "baselineN": 972,
-    "n": 1063
+    "baselineN": 978,
+    "n": 1069
   },
   "byCoin": {
     "btc": {
-      "n": 152,
+      "n": 153,
       "confidence": "ok",
-      "coverageRate": 0.862
+      "coverageRate": 0.856
     },
     "eth": {
-      "n": 152,
+      "n": 153,
       "confidence": "ok",
-      "coverageRate": 0.895
+      "coverageRate": 0.889
     },
     "bnb": {
-      "n": 152,
+      "n": 153,
       "confidence": "ok",
-      "coverageRate": 0.849
+      "coverageRate": 0.843
     },
     "xrp": {
-      "n": 152,
+      "n": 153,
       "confidence": "ok",
-      "coverageRate": 0.836
+      "coverageRate": 0.83
     },
     "sol": {
-      "n": 152,
+      "n": 153,
       "confidence": "ok",
-      "coverageRate": 0.842
+      "coverageRate": 0.837
     },
     "trx": {
-      "n": 152,
+      "n": 153,
       "confidence": "ok",
-      "coverageRate": 0.862
+      "coverageRate": 0.863
     },
     "doge": {
       "n": 151,
