@@ -4,33 +4,33 @@
   "baseline": "random_walk",
   "bandTarget": 0.8,
   "counts": {
-    "resolved": 1087,
+    "resolved": 1093,
     "open": 6,
     "void": 2,
-    "total": 1095
+    "total": 1101
   },
   "confidence": "ok",
   "direction": {
-    "meanBrierUp": 0.2504,
+    "meanBrierUp": 0.25038,
     "baselineBrier": 0.25,
-    "skillVsRandomWalk": -0.0004,
-    "accuracy": 0.468,
+    "skillVsRandomWalk": -0.00038,
+    "accuracy": 0.469,
     "accuracyWilson95": [
-      0.438,
-      0.498
+      0.44,
+      0.499
     ],
-    "observedUpRate": 0.502,
-    "calibrationError": 0.0402,
+    "observedUpRate": 0.5,
+    "calibrationError": 0.0392,
     "calibrationBins": [
       {
         "range": "45-50%",
-        "n": 577,
+        "n": 582,
         "predicted": 0.492,
-        "actual": 0.532
+        "actual": 0.529
       },
       {
         "range": "50-55%",
-        "n": 507,
+        "n": 508,
         "predicted": 0.509,
         "actual": 0.469
       },
@@ -44,47 +44,47 @@
   },
   "band": {
     "target": 0.8,
-    "coverageRate": 0.846,
+    "coverageRate": 0.847,
     "coverageWilson95": [
-      0.824,
+      0.825,
       0.867
     ],
-    "pinball": 0.4524,
-    "pinballBaseline": 0.4526,
+    "pinball": 0.4518,
+    "pinballBaseline": 0.4518,
     "beatsBaseline": true,
-    "baselineN": 996,
-    "n": 1087
+    "baselineN": 1002,
+    "n": 1093
   },
   "byCoin": {
     "btc": {
-      "n": 156,
+      "n": 157,
       "confidence": "ok",
-      "coverageRate": 0.859
+      "coverageRate": 0.86
     },
     "eth": {
-      "n": 156,
+      "n": 157,
       "confidence": "ok",
       "coverageRate": 0.885
     },
     "bnb": {
-      "n": 156,
+      "n": 157,
       "confidence": "ok",
-      "coverageRate": 0.846
+      "coverageRate": 0.847
     },
     "xrp": {
-      "n": 156,
+      "n": 157,
       "confidence": "ok",
-      "coverageRate": 0.827
+      "coverageRate": 0.828
     },
     "sol": {
-      "n": 156,
+      "n": 157,
       "confidence": "ok",
-      "coverageRate": 0.84
+      "coverageRate": 0.841
     },
     "trx": {
-      "n": 156,
+      "n": 157,
       "confidence": "ok",
-      "coverageRate": 0.865
+      "coverageRate": 0.866
     },
     "doge": {
       "n": 151,
