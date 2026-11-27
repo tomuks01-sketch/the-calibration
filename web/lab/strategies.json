@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "lab-v1",
+  "testedBetween": "2026-06-14 to 2026-07-12",
+  "note": "Historical backtests with rules fixed before each run. Research only, not a recommendation. Past results do not predict future returns.",
+  "strategies": [
+    {
+      "id": "trend-filter",
+      "name": "Trend filter (10-month average)",
+      "idea": "Hold the S&P 500 while it is above its 10-month moving average, step aside into cash when it falls below.",
+      "bar": "Return within 1 point a year of the index, with a worst fall no deeper than 75% of the index's.",
+      "period": "1999–2026, US",
+      "verdict": "passed",
+      "verdictText": "Passed",
+      "compare": { "label": "Yearly return", "unit": "%/yr", "strategy": 7.83, "benchmark": 8.68, "benchmarkName": "S&P 500" },
+      "extra": { "label": "Worst fall", "unit": "%", "strategy": -23.0, "benchmark": -50.8 },
+      "finding": "It earned slightly less than the index each year, but its worst fall was less than half as deep (−23% against −51%). It passed as a way to soften crashes, not as a way to earn more.",
+      "caveats": "No trading costs or taxes modelled; one market; a pass unlocks only a paper trial, never real money."
+    },
+    {
+      "id": "spinoffs",
+      "name": "Spin-offs",
+      "idea": "Buy companies a week after they are split off from a parent, when index funds and parent shareholders often sell them regardless of price. Hold for a year.",
+      "bar": "Beat the matching sector fund by at least 10 points on average, across at least 8 cases.",
+      "period": "13 recent spin-offs",
+      "verdict": "fragile",
+      "verdictText": "Fragile",
+      "compare": { "label": "Average lead over sector fund", "unit": "pts", "strategy": 10.3, "benchmark": 0, "benchmarkName": "Sector fund" },
+      "extra": { "label": "Lead without the single best case", "unit": "pts", "strategy": 0.1, "benchmark": 0 },
+      "finding": "On paper it cleared the bar (+10.3 points), but remove the single best spin-off and the lead drops to +0.1. Five of the thirteen lost to their sector. One lucky pick carried the result.",
+      "caveats": "Very small sample; price only, dividends excluded."
+    },
+    {
+      "id": "sector-momentum",
+      "name": "Sector momentum",
+      "idea": "Each month, hold the sectors that rose most over the past year (skipping the latest month).",
+      "bar": "Beat the S&P 500 by at least 2 points a year and win in at least 55% of rolling 3-year windows.",
+      "period": "2000–2026, US",
+      "verdict": "failed",
+      "verdictText": "Did not pass",
+      "compare": { "label": "Yearly return", "unit": "%/yr", "strategy": 9.35, "benchmark": 8.22, "benchmarkName": "S&P 500" },
+      "extra": { "label": "Rolling 3-year win rate", "unit": "%", "strategy": 51.6, "benchmark": 55, "benchmarkName": "required" },
+      "finding": "It did beat the index, by about 1.1 points a year, and fell less in the worst crash. But the lead was well short of the 2 points set in advance, and it won only about half the time. Trading costs, not modelled here, would eat much of the gap.",
+      "caveats": "No costs or spreads modelled; the effect has been public since 1993 and may have faded."
+    },
+    {
+      "id": "quality",
+      "name": "Quality companies",
+      "idea": "Hold funds of profitable, low-debt companies with lasting advantages, expecting them to beat the market and hold up better in crises.",
+      "bar": "Beat a plain S&P 500 fund over 10 years.",
+      "period": "10 years, US",
+      "verdict": "failed",
+      "verdictText": "Did not pass",
+      "compare": { "label": "10-year total return", "unit": "%", "strategy": 272.7, "benchmark": 328.8, "benchmarkName": "S&P 500 fund" },
+      "extra": { "label": "Fall in the 2020 crash", "unit": "%", "strategy": -33.7, "benchmark": -33.9 },
+      "finding": "Quality funds trailed the index by about 56 points over ten years, and fell just as far in the 2020 and 2022 sell-offs. The promised protection did not show up.",
+      "caveats": "Rules-based funds, so no cherry-picking; about 10–13 years of data; mostly US."
+    },
+    {
+      "id": "small-value",
+      "name": "Cheap small companies",
+      "idea": "Hold funds of small, cheaply valued companies, a factor that beat the market in long academic histories.",
+      "bar": "Beat a plain S&P 500 fund over 20 years, including 2008.",
+      "period": "20 years, US",
+      "verdict": "failed",
+      "verdictText": "Did not pass",
+      "compare": { "label": "20-year total return", "unit": "%", "strategy": 343.5, "benchmark": 778.7, "benchmarkName": "S&P 500 fund" },
+      "extra": { "label": "Fall in 2008", "unit": "%", "strategy": -59.8, "benchmark": -55.3 },
+      "finding": "Over twenty years it returned less than half of what the index did, and fell harder in 2008 and 2020. The long-run academic premium did not appear in this window.",
+      "caveats": "US funds only; the premium has been weak since about 2010; regimes can rotate."
+    },
+    {
+      "id": "beaten-down-sectors",
+      "name": "Beaten-down sectors",
+      "idea": "Buy any sector that fell more than 10% over the past year and hold it for a year, expecting a rebound.",
+      "bar": "Average at least 3 points ahead of the S&P 500, with a median at or above zero and a win rate of 50% or more.",
+      "period": "286 cases, US",
+      "verdict": "failed",
+      "verdictText": "Did not pass",
+      "compare": { "label": "Average lead over S&P 500", "unit": "pts", "strategy": -0.6, "benchmark": 3.0, "benchmarkName": "required" },
+      "extra": { "label": "Win rate", "unit": "%", "strategy": 48, "benchmark": 50, "benchmarkName": "required" },
+      "finding": "Across 286 cases, buying the fallen sectors trailed the index slightly (−0.6 points on average) and won less than half the time. Cheap stayed cheap about as often as it bounced.",
+      "caveats": "Sector timing only, not individual stocks; overlapping windows make the sample look larger than it is."
+    },
+    {
+      "id": "holding-companies",
+      "name": "Holding companies at a discount",
+      "idea": "Buy listed investment holding companies that trade below the value of what they own, expecting the gap to close.",
+      "bar": "A basket of six European holding companies must beat a world index fund over 5 years.",
+      "period": "5 years, Europe vs world",
+      "verdict": "failed",
+      "verdictText": "Did not pass",
+      "compare": { "label": "5-year total return", "unit": "%", "strategy": 25.7, "benchmark": 73.7, "benchmarkName": "World index" },
+      "extra": null,
+      "finding": "The basket returned about a third of the world index. A discount on its own was not an edge: it can stay wide for years.",
+      "caveats": "Small, hand-picked basket; currency effects not normalised."
+    },
+    {
+      "id": "capital-cycle",
+      "name": "Capital cycle",
+      "idea": "Favour industries where years of under-investment have left supply short, and avoid ones where new capacity floods in quickly.",
+      "bar": "Industries with slow-to-build supply must beat fast ones by at least 15 points, and beat a simple average of all cases by 10, over 2 and 3 years.",
+      "period": "7 episodes tested after the rules were set",
+      "verdict": "failed",
+      "verdictText": "Did not pass",
+      "compare": { "label": "3-year return of the favoured group", "unit": "%", "strategy": 132.7, "benchmark": 145.5, "benchmarkName": "Disfavoured group" },
+      "extra": { "label": "Against the simple average of all cases", "unit": "%", "strategy": 132.7, "benchmark": 138.2 },
+      "finding": "The industries the rule favoured did worse, not better, than the ones it warned against. It stays a checklist for thinking, not a ranking to act on.",
+      "caveats": "Only 7 out-of-sample episodes; price only."
+    }
+  ]
+}
