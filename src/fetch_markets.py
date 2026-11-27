@@ -8,6 +8,7 @@ and simple derived flags. It does NOT predict outcomes or tell you to bet.
 from __future__ import annotations
 
 import ast
+import gzip
 import json
 import urllib.request
 from dataclasses import dataclass
@@ -17,6 +18,7 @@ GAMMA_MARKETS_URL = "https://gamma-api.polymarket.com/markets"
 GAMMA_EVENTS_URL = "https://gamma-api.polymarket.com/events"
 REQUEST_TIMEOUT_S = 20
 DEFAULT_LIMIT = 50
+GZIP_MAGIC = bytes((0x1F, 0x8B))
 
 
 @dataclass(frozen=True)
@@ -31,13 +33,23 @@ class MarketSignal:
 
 
 def _http_get_json(url: str) -> list[dict]:
+    # Gamma serves /events pages with limit > 50 gzip-only (HTTP 406
+    # "gzip_required" otherwise), so always offer gzip and decode it.
     headers = {
         "Accept": "application/json",
+        "Accept-Encoding": "gzip",
         "User-Agent": "polymarket-insight/0.1 (analytics; +https://example.com)",
     }
     req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_S) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+        return json.loads(_decode_body(resp.read(), resp.headers.get("Content-Encoding")))
+
+
+def _decode_body(body: bytes, content_encoding: str | None) -> str:
+    """Decode a response body, gunzipping when the server compressed it."""
+    if (content_encoding or "").lower() == "gzip" or body[:2] == GZIP_MAGIC:
+        body = gzip.decompress(body)
+    return body.decode("utf-8")
 
 
 def fetch_active_markets(limit: int = DEFAULT_LIMIT) -> list[dict]:

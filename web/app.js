@@ -493,7 +493,7 @@ function renderMacro() {
 }
 
 function renderCategoryChips() {
-  const cats = ["all", ...(DATA.categories || [])];
+  const cats = ["all", ...(DATA.sections || DATA.categories || [])];
   document.getElementById("categories").innerHTML = cats
     .map((c) => `<button class="chip${c === activeCategory ? " is-active" : ""}" data-cat="${escAttr(c)}">${c === "all" ? "All categories" : escapeHtml(c)}</button>`)
     .join("");
@@ -593,6 +593,10 @@ function pressureLine(e) {
     chips.map((c) => `<span class="pr-chip">${escapeHtml(c)}</span>`).join("") + `</p>`;
 }
 
+// "price-data-unavailable" means the 1h/24h history call came back empty,
+// not that there is no price — the bars above still show the live price.
+const FLAG_LABELS = { "price-data-unavailable": "no recent price history" };
+
 function eventCard(e) {
   const isExpired = e.daysToResolution !== null && e.daysToResolution !== undefined && e.daysToResolution < 0;
   const bars = (e.outcomes || [])
@@ -611,7 +615,7 @@ function eventCard(e) {
       : "";
 
   const flags = (e.flags || [])
-    .map((f) => `<span class="flag ${f}">${f.replace(/-/g, " ")}</span>`)
+    .map((f) => `<span class="flag ${f}">${FLAG_LABELS[f] || f.replace(/-/g, " ")}</span>`)
     .join("");
   const barNote = e.binary
     ? ""
@@ -622,7 +626,9 @@ function eventCard(e) {
       ? `<ul>${e.news.map((n) => `<li><a href="${safeUrl(n.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(n.title)} <span>${escapeHtml(n.source || "")}</span></a></li>`).join("")}</ul>`
       : `<p class="none">No recent headlines matched this event.</p>`;
 
-  const days = e.daysToResolution === null || e.daysToResolution === undefined ? "—" : `${e.daysToResolution}d`;
+  const days = e.daysToResolution === null || e.daysToResolution === undefined
+    ? "—"
+    : e.daysToResolution < 0 ? "awaiting result" : `${Math.round(e.daysToResolution)}d`;
   let flash = "";
   if (prevLead[e.id] !== undefined && e.leadPrice !== null && !REDUCED) {
     if (e.leadPrice > prevLead[e.id] + 0.0005) flash = "flash-up";
@@ -633,12 +639,13 @@ function eventCard(e) {
   return `<article class="event ${flash}${isExpired ? " expired" : ""}" data-id="${escAttr(e.id)}">
     ${isExpired ? `<p class="expired-badge">Market closed — awaiting resolution</p>` : ""}
     <div class="ehead">
-      <div><span class="cat">${escapeHtml(e.category)}</span><h3>${escapeHtml(e.title)}</h3></div>
+      <div><span class="cat">${escapeHtml(e.section || e.category)}</span><h3>${escapeHtml(e.title)}</h3></div>
       ${leadBlock(e)}
     </div>
     <div class="bars">${bars}</div>
     ${barNote}
     ${moreCount > 0 ? `<p class="more">+${moreCount} more outcomes in this event</p>` : ""}
+    ${e.resolvedCount > 0 ? `<p class="more">${e.resolvedCount} outcome${e.resolvedCount === 1 ? "" : "s"} already resolved — hidden</p>` : ""}
     ${movers}
     <div class="stats">
       <span title="$${exact.format(Math.round(e.volume))}">Volume <b>$${compact.format(e.volume)}</b></span>
@@ -661,12 +668,13 @@ function matchesQuery(e, q) {
   q = q.toLowerCase();
   if ((e.title || "").toLowerCase().includes(q)) return true;
   if ((e.category || "").toLowerCase().includes(q)) return true;
+  if ((e.section || "").toLowerCase().includes(q)) return true;
   return (e.outcomes || []).some((o) => (o.label || "").toLowerCase().includes(q));
 }
 
 function render() {
   let list = DATA.events;
-  if (activeCategory !== "all") list = list.filter((e) => e.category === activeCategory);
+  if (activeCategory !== "all") list = list.filter((e) => (e.section || e.category) === activeCategory);
   if (activeSignal !== "all") list = list.filter((e) => (e.flags || []).includes(activeSignal));
   if (activePlace !== "all") list = list.filter((e) => eventPlace(e) === activePlace);
   if (activeQuery) list = list.filter((e) => matchesQuery(e, activeQuery));
