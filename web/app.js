@@ -593,6 +593,42 @@ function pressureLine(e) {
     chips.map((c) => `<span class="pr-chip">${escapeHtml(c)}</span>`).join("") + `</p>`;
 }
 
+// Plain-language reading of the card's own numbers. Descriptive only:
+// it restates what the crowd is pricing, never what anyone should do.
+const THIN_LIQUIDITY_USD = 500000;
+
+function chanceInWords(p) {
+  if (p == null) return null;
+  if (p >= 0.95) return "close to certain";
+  if (p >= 0.5) return `about ${Math.round(p * 10)} in 10`;
+  if (p >= 0.01) return `about 1 in ${Math.round(1 / p)}`;
+  return "less than 1 in 100";
+}
+
+function readingLine(e) {
+  const top = e.outcomes && e.outcomes[0];
+  if (!top) return "";
+  const parts = [];
+  const words = chanceInWords(top.price);
+  parts.push(e.binary
+    ? `The crowd puts this at ${pct1(top.price)}%, ${words}.`
+    : `The crowd's favourite is ${escapeHtml(top.label)} at ${pct1(top.price)}%, ${words}.`);
+  const mv = e.movers && e.movers[0];
+  if (mv) {
+    const pts = (mv.weekChange * 100).toFixed(1);
+    parts.push(`Biggest move this week: ${escapeHtml(mv.label)} ${mv.weekChange > 0 ? "+" : ""}${pts} pts.`);
+  }
+  if (e.liquidity != null && e.liquidity < THIN_LIQUIDITY_USD) {
+    parts.push(`Thin market ($${compact.format(e.liquidity)} liquidity), so a single trader can move this price.`);
+  }
+  if (e.daysToResolution != null) {
+    parts.push(e.daysToResolution < 0
+      ? "Its end date has passed and it is waiting for the official result."
+      : `Due to settle in ${Math.round(e.daysToResolution)} days.`);
+  }
+  return `<p class="reading"><span class="reading-k">What the price says</span>${parts.join(" ")} <a href="learn/#card">How to read this</a></p>`;
+}
+
 // "price-data-unavailable" means the 1h/24h history call came back empty,
 // not that there is no price — the bars above still show the live price.
 const FLAG_LABELS = { "price-data-unavailable": "no recent price history" };
@@ -644,6 +680,7 @@ function eventCard(e) {
     </div>
     <div class="bars">${bars}</div>
     ${barNote}
+    ${readingLine(e)}
     ${moreCount > 0 ? `<p class="more">+${moreCount} more outcomes in this event</p>` : ""}
     ${e.resolvedCount > 0 ? `<p class="more">${e.resolvedCount} outcome${e.resolvedCount === 1 ? "" : "s"} already resolved — hidden</p>` : ""}
     ${movers}

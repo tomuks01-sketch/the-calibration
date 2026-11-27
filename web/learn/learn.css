@@ -1,0 +1,94 @@
+/* Learn page — long-form reading layout on top of crypto.css + theme.css */
+
+.learn { max-width: 860px; }
+.learn .head h1 { max-width: 18ch; line-height: 1.05; }
+
+.notice {
+  margin: 0.4rem 0 2rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid color-mix(in srgb, var(--caution, #ffc24a) 45%, transparent);
+  border-left-width: 3px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--caution, #ffc24a) 6%, transparent);
+}
+.notice h2 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--caution, #ffc24a); }
+.notice p { color: var(--ink-2, #a3b3ca); line-height: 1.6; }
+.notice b { color: var(--ink-0, #e6f1ff); }
+
+.toc {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 2.6rem;
+}
+.toc a {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--rule, #1f2d46);
+  border-radius: 2px;
+  color: var(--ink-2, #a3b3ca);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.toc a:hover, .toc a:focus-visible { border-color: var(--crowd, #38d9ff); color: var(--crowd, #38d9ff); }
+
+.lesson {
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule, #1f2d46);
+  scroll-margin-top: 4.5rem;
+}
+.lesson h2 { font-size: clamp(1.35rem, 1.1rem + 1vw, 1.8rem); margin-bottom: 0.8rem; }
+.lesson p { color: var(--ink-2, #a3b3ca); line-height: 1.7; max-width: 68ch; margin-bottom: 0.9rem; }
+.lesson p b, .lesson li b { color: var(--ink-0, #e6f1ff); }
+.lesson a { color: var(--crowd, #38d9ff); }
+.lesson .aside { font-size: 0.9rem; color: var(--ink-3, #8193ad); }
+
+/* probability meter demo, same LED look as the terminal */
+.meter-demo { display: grid; gap: 0.6rem; margin: 1.2rem 0 1.4rem; max-width: 520px; }
+.md-row { display: grid; grid-template-columns: 5.5rem 1fr 3rem; align-items: center; gap: 0.8rem; }
+.md-row span { color: var(--ink-2, #a3b3ca); font-size: 0.9rem; }
+.md-row b { font-family: var(--data, monospace); text-align: right; color: var(--ink-0, #e6f1ff); }
+.md-row i {
+  position: relative; display: block; height: 12px;
+  background: repeating-linear-gradient(90deg, #22324e 0 6px, transparent 6px 8px);
+}
+.md-row i::after {
+  content: ""; position: absolute; inset: 0; width: var(--w);
+  background: var(--crowd, #38d9ff);
+  -webkit-mask: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 8px);
+  mask: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 8px);
+  filter: drop-shadow(0 0 4px rgba(56, 217, 255, 0.55));
+}
+.md-row.no i::after { background: var(--ink-3, #8193ad); filter: none; }
+
+/* calibration figure */
+.cal-figure { margin: 1.4rem 0; display: grid; grid-template-columns: minmax(0, 300px) 1fr; gap: 1.4rem; align-items: center; }
+.cal-figure svg { width: 100%; height: auto; }
+.cal-figure .grid line { stroke: var(--rule, #1f2d46); stroke-width: 1; }
+.cal-figure .ideal { stroke: var(--ink-0, #e6f1ff); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.cal-figure .over { fill: none; stroke: var(--model, #b46cff); stroke-width: 2; }
+.cal-figure .dots circle { fill: var(--crowd, #38d9ff); }
+.cal-figure .axis text { fill: var(--ink-3, #8193ad); font-family: var(--data, monospace); font-size: 11px; }
+.cal-figure figcaption { color: var(--ink-2, #a3b3ca); font-size: 0.92rem; line-height: 1.7; }
+.cal-figure .k { display: inline-block; width: 10px; height: 10px; margin-right: 0.4rem; vertical-align: middle; }
+.cal-figure .k-good { background: var(--crowd, #38d9ff); border-radius: 50%; }
+.cal-figure .k-over { background: var(--model, #b46cff); margin-left: 0.6rem; }
+
+.worked {
+  display: grid; gap: 1px; margin: 1.1rem 0 1.3rem; max-width: 560px;
+  background: var(--rule, #1f2d46); border: 1px solid var(--rule, #1f2d46);
+}
+.worked div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.65rem 0.9rem; background: var(--card, #0b1220); }
+.worked span { color: var(--ink-2, #a3b3ca); }
+.worked b { font-family: var(--data, monospace); color: var(--ink-0, #e6f1ff); white-space: nowrap; }
+
+.pitfalls { display: grid; gap: 0.75rem; padding-left: 1.1rem; max-width: 68ch; }
+.pitfalls li { color: var(--ink-2, #a3b3ca); line-height: 1.6; }
+.pitfalls li::marker { color: var(--crowd, #38d9ff); }
+
+.anatomy { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; }
+.anatomy div { padding: 0.9rem 1rem; border: 1px solid var(--rule, #1f2d46); border-radius: 2px; background: var(--card, #0b1220); }
+.anatomy dt { font-family: var(--display, sans-serif); font-weight: 600; color: var(--crowd, #38d9ff); margin-bottom: 0.25rem; }
+.anatomy dd { margin: 0; color: var(--ink-2, #a3b3ca); line-height: 1.55; font-size: 0.94rem; }
+
+@media (max-width: 640px) {
+  .cal-figure { grid-template-columns: 1fr; }
+  .md-row { grid-template-columns: 4.5rem 1fr 2.8rem; }
+}
