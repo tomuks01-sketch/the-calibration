@@ -127,10 +127,10 @@
 .btn.ghost { background: rgba(20,24,31,0.6); color: var(--ink); border:1px solid var(--hair); }
 .btn.ghost:hover { color: var(--amber); border-color: var(--hair-bright); }
 .btn:focus-visible { outline:2px solid var(--amber); outline-offset:3px; }
-.hero-readout { display:inline-grid; grid-auto-flow:column; gap: clamp(1.4rem,1rem+1.5vw,2.6rem); padding:1.05rem 1.6rem; border-radius:13px;
+.hero-readout { display:inline-grid; grid-auto-flow:column; gap: clamp(1.4rem,1rem + 1.5vw,2.6rem); padding:1.05rem 1.6rem; border-radius:13px;
   background: rgba(10,12,16,0.72); border:1px solid var(--hair); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); opacity:0; animation: rise .8s cubic-bezier(.16,1,.3,1) .84s forwards; }
 .hero-readout > div { display:flex; flex-direction:column; gap:0.15rem; }
-.hero-readout .hs-v { font-family:var(--mono); font-variant-numeric:tabular-nums; font-weight:600; font-size:clamp(1.3rem,1rem+1vw,1.7rem); color:var(--amber); letter-spacing:-0.02em; }
+.hero-readout .hs-v { font-family:var(--mono); font-variant-numeric:tabular-nums; font-weight:600; font-size:clamp(1.3rem,1rem + 1vw,1.7rem); color:var(--amber); letter-spacing:-0.02em; }
 .hero-readout .hs-l { font-size:0.6rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.16em; }
 
 /* ---------------- Panels ---------------- */
@@ -245,10 +245,10 @@
 .skel { color:var(--ink-faint); font-style:italic; font-size:0.82rem; position:relative; overflow:hidden; }
 
 /* ---------------- Section heads ---------------- */
-.sect { max-width: var(--mx); margin-inline:auto; padding: clamp(2.2rem,1.6rem+1.8vw,3.4rem) var(--pad) 0; }
+.sect { max-width: var(--mx); margin-inline:auto; padding: clamp(2.2rem,1.6rem + 1.8vw,3.4rem) var(--pad) 0; }
 .shead { display:grid; grid-template-columns: 0.85fr 1.15fr; gap:1.4rem; align-items:end; margin-bottom:1.7rem; padding-bottom:1.2rem; border-bottom:1px solid var(--hair); }
 .stag { font-family:var(--mono); font-size:0.68rem; font-weight:600; letter-spacing:0.2em; color:var(--amber); margin-bottom:0.55rem; }
-.shead h2 { font-family:var(--sans); font-weight:800; font-size:clamp(1.7rem,1.1rem+2.2vw,2.7rem); letter-spacing:-0.035em; line-height:1.02; }
+.shead h2 { font-family:var(--sans); font-weight:800; font-size:clamp(1.7rem,1.1rem + 2.2vw,2.7rem); letter-spacing:-0.035em; line-height:1.02; }
 .ssub { color:var(--ink-dim); font-size:0.98rem; line-height:1.6; }
 .sect .snapmeta { font-family:var(--mono); font-size:0.7rem; color:var(--ink-dim); margin-top:0.7rem; }
 .sect .snapmeta .live { color:var(--ink); font-weight:600; letter-spacing:0.1em; }
@@ -297,14 +297,14 @@
 .notify-ok { font-family:var(--mono); font-size:0.82rem; color:var(--win); }
 
 /* ---------------- Footer ---------------- */
-.foot { max-width:var(--mx); margin: clamp(3rem,2rem+3vw,5rem) auto 0; padding:2.2rem var(--pad) 3.5rem; border-top:1px solid var(--hair); }
+.foot { max-width:var(--mx); margin: clamp(3rem,2rem + 3vw,5rem) auto 0; padding:2.2rem var(--pad) 3.5rem; border-top:1px solid var(--hair); }
 .foot .lead { color:var(--ink); font-size:1.05rem; line-height:1.6; max-width:66ch; margin-bottom:1rem; }
 .foot .fine { color:var(--ink-faint); font-size:0.8rem; }
 .foot .fine a { color:var(--steel); text-decoration:none; } .foot .fine a:hover { color:var(--amber); }
 
 /* board breathing under new heads (board itself styled by styles.css) */
 .sect .kpis { margin-top:0; }
-.brief-dock { max-width:var(--mx); margin-inline:auto; padding: clamp(2.4rem,1.8rem+2vw,3.4rem) var(--pad) 0; }
+.brief-dock { max-width:var(--mx); margin-inline:auto; padding: clamp(2.4rem,1.8rem + 2vw,3.4rem) var(--pad) 0; }
 .brief-dock .latest-brief { max-width:none; }
 
 /* ---------------- Responsive ---------------- */
@@ -336,6 +336,9 @@
   .home [style*="animation"], .cal-hero h1 .l1, .cal-hero h1 .l2, .cal-hero .lede, .hero-cta, .hero-readout, .hero-eyebrow, .hero-boot { opacity:1 !important; }
 }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="theme.css" />
 </head>
 <body class="home">
 <div class="refresh-scan" id="refresh-scan" aria-hidden="true"><i></i></div>
@@ -385,7 +388,7 @@
 <!-- ======= SIGNATURE LIVE BENTO ======= -->
 <section class="bento" aria-label="Live calibration record">
   <article class="panel">
-    <div class="pbar"><span class="ptag">SCOREBOARD · PULSE</span><span class="dotlive" role="img" aria-label="Live, updated every 30 minutes"></span></div>
+    <div class="pbar"><span class="ptag">Scoreboard</span><span class="dotlive" role="img" aria-label="Live, updated every 30 minutes"></span></div>
     <div class="pbody">
       <div class="statgrid" id="pr-status-grid" aria-live="polite">
         <div><span class="bignum amber" data-stat="resolved">—</span><span class="statlab">Resolved</span></div>
@@ -400,7 +403,7 @@
   </article>
 
   <article class="panel">
-    <div class="pbar"><span class="ptag">DIVERGENCE · QEST − CROWD</span><span class="dotlive" role="img" aria-label="Live"></span></div>
+    <div class="pbar"><span class="ptag">Where the model disagrees</span><span class="dotlive" role="img" aria-label="Live"></span></div>
     <div class="pbody">
       <div id="proof-divergence" class="divchart"><p class="skel">loading…</p></div>
       <p class="pfoot">One bar per open call. Left = QEST below crowd · right = above. Width = gap (pp).</p>
@@ -408,7 +411,7 @@
   </article>
 
   <article class="panel">
-    <div class="pbar"><span class="ptag">OPEN CALLS · SCORING</span><span class="dotlive" role="img" aria-label="Live"></span></div>
+    <div class="pbar"><span class="ptag">Open calls</span><span class="dotlive" role="img" aria-label="Live"></span></div>
     <div class="pbody">
       <ul id="proof-open-calls" class="calls" aria-live="polite"><li class="skel">loading…</li></ul>
       <p class="pfoot">From the public <a href="ledger.json">ledger.json</a> — timestamped, scored at resolution.</p>
@@ -419,7 +422,7 @@
 <!-- ======= TERMINAL BOARD ======= -->
 <section id="terminal" class="sect" aria-labelledby="board-h2">
   <div class="shead">
-    <div><p class="stag">LIVE TERMINAL</p><h2 id="board-h2">The board</h2>
+    <div><p class="stag">Live markets</p><h2 id="board-h2">The board</h2>
       <p class="snapmeta"><span class="live" id="board-delay-label">LOADING</span> · top-volume events, category-balanced</p></div>
     <p class="ssub">Top-volume Polymarket events, round-robin balanced across categories so no topic dominates. Every eligible card shows crowd pricing against the QEST baseline — the gap is the call.</p>
   </div>
@@ -461,7 +464,7 @@
 
 <!-- ======= SYSTEM ======= -->
 <section id="system" class="sect">
-  <div class="shead"><div><p class="stag">SYSTEM</p><h2>Three moving parts. All auditable.</h2></div>
+  <div class="shead"><div><p class="stag">How it works</p><h2>Three moving parts. All auditable.</h2></div>
     <p class="ssub">No black box. The model is documented, the ledger is public, and the briefs are scored against the same record.</p></div>
   <ol class="spec">
     <li><span class="no">01</span><div><h3>The ledger <span class="edge">edge</span></h3>
@@ -478,7 +481,7 @@
 
 <!-- ======= ON THE BENCH ======= -->
 <section id="bench" class="sect">
-  <div class="shead"><div><p class="stag">ON THE BENCH</p><h2>What gets built next</h2></div>
+  <div class="shead"><div><p class="stag">Roadmap</p><h2>What gets built next</h2></div>
     <p class="ssub">Honest roadmap. Nothing here is sold yet — the audience comes first, the features follow. Listed in the order they actually make sense to build.</p></div>
   <div class="benchgrid">
     <article class="bcard"><span class="stage next">NEXT</span><h3>Calibration alerts</h3><p>Email or webhook when a market diverges from QEST by &gt;4pp, or when a tracked call resolves.</p></article>
