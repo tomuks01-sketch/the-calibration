@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learn — how to read prediction markets · The Calibration</title>
+<meta name="description" content="A plain-language guide to prediction-market prices: what a percentage means, odds, calibration, the Brier score, and why the crowd is sometimes wrong. Education only — not investment advice." />
+<link rel="icon" href="/the-calibration/favicon.svg" type="image/svg+xml" />
+<link rel="canonical" href="https://tomuks01-sketch.github.io/the-calibration/learn/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Learn — how to read prediction markets" />
+<meta property="og:description" content="What a market price means, how calibration is measured, and why the crowd is sometimes wrong. Education only." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tomuks01-sketch.github.io/the-calibration/learn/" />
+<link rel="stylesheet" href="../crypto/crypto.css" />
+<link rel="stylesheet" href="learn.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="../theme.css" />
+</head>
+<body class="hud">
+
+<header class="rail">
+  <a class="wm" href="../">THE&nbsp;<span>CALIBRATION</span></a>
+  <nav>
+    <a href="../">Terminal</a>
+    <a href="../briefs/">Briefs</a>
+    <a href="../scoreboard/">Scoreboard</a>
+    <a href="../crypto/">Crypto</a>
+    <a href="../stocks/">Stocks</a>
+    <a href="../football/">Football</a>
+    <a href="./" aria-current="page">Learn</a>
+  </nav>
+</header>
+
+<main class="wrap learn">
+
+  <section class="head">
+    <p class="eyebrow"><span class="tick"></span>A ten-minute guide</p>
+    <h1>How to read a prediction market</h1>
+    <p class="lede">Every number on this site comes from people putting money behind what they think will happen. This page explains what those numbers mean, how we check whether they are any good, and where they tend to go wrong.</p>
+  </section>
+
+  <aside class="notice" role="note">
+    <h2>What this site is not</h2>
+    <p>The Calibration describes what markets are pricing and scores a simple model against them in public. It does <b>not</b> recommend investments, bets or trades, and nothing here takes your situation into account. Prediction markets are restricted or illegal in some countries, and you can lose everything you put into them. If you are making a financial decision, talk to a licensed adviser.</p>
+  </aside>
+
+  <nav class="toc" aria-label="On this page">
+    <a href="#price">A price is a probability</a>
+    <a href="#odds">Odds</a>
+    <a href="#calibration">Calibration</a>
+    <a href="#brier">The Brier score</a>
+    <a href="#wrong">When the crowd gets it wrong</a>
+    <a href="#card">Reading a card</a>
+    <a href="#model">Our model, QEST</a>
+  </nav>
+
+  <section id="price" class="lesson">
+    <h2>A price is a probability</h2>
+    <p>On Polymarket, a share pays $1 if something happens and $0 if it doesn't. If a share costs <b>23¢</b>, the market as a whole is saying there is roughly a <b>23% chance</b> it happens.</p>
+    <div class="meter-demo" aria-hidden="true">
+      <div class="md-row"><span>Happens</span><i style="--w:23%"></i><b>23%</b></div>
+      <div class="md-row no"><span>Doesn't</span><i style="--w:77%"></i><b>77%</b></div>
+    </div>
+    <p>A 23% outcome is not "unlikely to happen" in any comforting sense: it should happen about <b>one time in four</b>. If it never happened, that would be the market being wrong.</p>
+    <p class="aside">In events with many outcomes (an election with 20 candidates), each candidate is its own yes/no market, so the percentages need not add up to exactly 100%.</p>
+  </section>
+
+  <section id="odds" class="lesson">
+    <h2>Odds</h2>
+    <p>Cards also show odds, such as <b>4.35×</b>. That is simply 1 ÷ probability: a 23% outcome pays about 4.35 times the stake if it happens. Odds and probability are the same information in two shapes. Big odds mean a small probability, never a hidden bargain.</p>
+  </section>
+
+  <section id="calibration" class="lesson">
+    <h2>Calibration: are the percentages honest?</h2>
+    <p>A forecaster is <b>well calibrated</b> when things they call 70% happen about 70% of the time, things they call 20% happen about 20% of the time, and so on. You can only check this over many forecasts, never from one.</p>
+    <figure class="cal-figure">
+      <svg viewBox="0 0 320 320" role="img" aria-labelledby="calfig-t calfig-d">
+        <title id="calfig-t">Calibration chart</title>
+        <desc id="calfig-d">Forecast probability on the horizontal axis, how often it actually happened on the vertical axis. A perfectly calibrated forecaster sits on the diagonal. An overconfident one forms a flatter curve.</desc>
+        <g class="grid">
+          <line x1="40" y1="280" x2="300" y2="280" /><line x1="40" y1="20" x2="40" y2="280" />
+          <line x1="105" y1="20" x2="105" y2="280" /><line x1="170" y1="20" x2="170" y2="280" /><line x1="235" y1="20" x2="235" y2="280" />
+          <line x1="40" y1="215" x2="300" y2="215" /><line x1="40" y1="150" x2="300" y2="150" /><line x1="40" y1="85" x2="300" y2="85" />
+        </g>
+        <line class="ideal" x1="40" y1="280" x2="300" y2="20" />
+        <polyline class="over" points="66,232 118,198 170,150 222,108 274,74" />
+        <g class="dots">
+          <circle cx="66" cy="252" r="5" /><circle cx="118" cy="204" r="5" /><circle cx="170" cy="146" r="5" /><circle cx="222" cy="100" r="5" /><circle cx="274" cy="48" r="5" />
+        </g>
+        <g class="axis">
+          <text x="40" y="300">0%</text><text x="160" y="300">50%</text><text x="280" y="300">100%</text>
+          <text x="6" y="284">0%</text><text x="2" y="154">50%</text><text x="0" y="24">100%</text>
+        </g>
+      </svg>
+      <figcaption><span class="k k-good"></span>Well calibrated: close to the diagonal. <span class="k k-over"></span>Overconfident: says 90% when it is really closer to 75%. Illustration, not live data.</figcaption>
+    </figure>
+    <p>The site is named after this idea. Our <a href="../scoreboard/">Scoreboard</a> keeps every call so anyone can check whether our numbers, and the crowd's, are honest over time.</p>
+  </section>
+
+  <section id="brier" class="lesson">
+    <h2>The Brier score</h2>
+    <p>The Brier score turns "how good were these forecasts?" into one number. For each forecast, take the gap between the probability and what happened (1 if it happened, 0 if not), square it, and average.</p>
+    <div class="worked">
+      <div><span>Forecast 80%, it happened</span><b>(0.80 − 1)² = 0.04</b></div>
+      <div><span>Forecast 80%, it didn't</span><b>(0.80 − 0)² = 0.64</b></div>
+      <div><span>Always saying 50%</span><b>0.25 every time</b></div>
+    </div>
+    <p><b>Lower is better.</b> 0 is perfect, and 0.25 is what you get by shrugging and saying 50% on everything. On the Scoreboard, "skill vs crowd" is our model's Brier minus the crowd's on the same questions: below zero means we were closer to reality than the market.</p>
+  </section>
+
+  <section id="wrong" class="lesson">
+    <h2>When the crowd gets it wrong</h2>
+    <p>Markets are good forecasters on average, but they have known weak spots. These are the situations where a price deserves a second look:</p>
+    <ul class="pitfalls">
+      <li><b>Thin markets.</b> Little money traded (low liquidity) means one trader can move the price a lot. Check the liquidity figure on each card.</li>
+      <li><b>Long-shot bias.</b> Very unlikely outcomes, the 1–3% ones, tend to be priced a little too high, because cheap shares with big payouts attract people.</li>
+      <li><b>Distant deadlines.</b> Money locked up until 2028 earns nothing meanwhile, so long-dated prices can sit away from the true chance.</li>
+      <li><b>Fast news.</b> Right after a big headline, prices can overshoot before settling. Watch the 1h and 24h moves.</li>
+      <li><b>Unclear rules.</b> Sometimes the price reflects doubt about how the question will be resolved, not about the event itself.</li>
+    </ul>
+  </section>
+
+  <section id="card" class="lesson">
+    <h2>Reading a card on the Terminal</h2>
+    <dl class="anatomy">
+      <div><dt>Big number</dt><dd>The leading outcome's probability, as priced by the crowd right now.</dd></div>
+      <div><dt>Bars</dt><dd>The top outcomes in the event. Resolved and placeholder outcomes are hidden, and the card says how many.</dd></div>
+      <div><dt>Movers</dt><dd>Outcomes whose price moved 5 points or more in the last week.</dd></div>
+      <div><dt>Volume and liquidity</dt><dd>How much money has traded and how much is available now. Bigger is usually more reliable.</dd></div>
+      <div><dt>Resolves</dt><dd>Days until the market is due to settle, or "awaiting result" when the date has passed.</dd></div>
+      <div><dt>Crowd vs QEST</dt><dd>The market's price next to our model's estimate. Only clear disagreements are logged and scored.</dd></div>
+      <div><dt>Headlines</dt><dd>Matched by keywords from Google News for context. Not curated and not a reason on their own.</dd></div>
+    </dl>
+  </section>
+
+  <section id="model" class="lesson">
+    <h2>Our model, QEST</h2>
+    <p>QEST is a deliberately simple, documented baseline, not AI. It looks at how prices have behaved and produces its own probability. When it disagrees with the crowd by a clear margin, the call is written to a public, append-only <a href="../ledger.json">ledger</a> and scored when the market resolves. Losses stay on the record.</p>
+    <p>The point is not to beat the market on any one question. The point is a public, checkable record of whether a simple model adds anything, and the honest answer may well be "not yet".</p>
+  </section>
+
+  <footer class="foot">
+    <p class="foot-lead">Education and analytics only. Market prices come from Polymarket's public data and may be delayed.</p>
+    <p class="foot-fine">Nothing on this site is investment, betting, financial or legal advice, or a recommendation to buy or sell anything.</p>
+  </footer>
+</main>
+
+</body>
+</html>
