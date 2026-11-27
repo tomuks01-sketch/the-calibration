@@ -11,6 +11,7 @@ Analytics only — observable market state, never predictions or betting advice.
 from __future__ import annotations
 
 import json
+import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -88,9 +89,58 @@ def yes_price(market: dict) -> float | None:
     return _parse_first_price(market.get("outcomePrices"))
 
 
+def is_live_outcome(market: dict) -> bool:
+    """A sub-market worth showing as a bar.
+
+    Polymarket pads multi-outcome events with inactive placeholders
+    ('Team H', 'Other' at a flat 50%) and keeps already-resolved
+    sub-markets (closed, priced 1/0) in the list. Neither is a live
+    reading, so neither may become the card's leader.
+    """
+    if market.get("closed") is True:
+        return False
+    if market.get("active") is False:
+        return False
+    return True
+
+
+# Raw Polymarket tags are noisy ("Parent For Derivative", "Rewards 200,
+# 4.5, 50 Deprec", "Trump-Machado"). The card shows one of these instead.
+# First matching tag wins; order matters (Crypto before Economy for "Bitcoin").
+SECTION_KEYWORDS: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("Crypto", ("crypto", "bitcoin", "ethereum", "token", "fdv", "solana")),
+    ("Sports", ("sport", "soccer", "football", "nba", "nfl", "mls", "epl",
+                "ucl", "champions league", "esports", "tennis", "f1", "nhl")),
+    ("Economy", ("fed", "economy", "finance", "business", "oil", "rates",
+                 "inflation", "stocks", "tech", "ai")),
+    ("Elections", ("election", "president", "primary", "nominee")),
+    ("Geopolitics", ("geopolitics", "iran", "israel", "gaza", "ukraine",
+                     "russia", "putin", "china", "taiwan", "middle east",
+                     "military", "nato", "venezuela", "world", "shah",
+                     "pahlavi", "cuba", "serbia")),
+    ("Politics", ("politics", "trump", "starmer", "davos", "united states")),
+    ("Culture", ("culture", "aliens", "science", "climate", "weather",
+                 "pandemic", "movie", "music")),
+)
+DEFAULT_SECTION = "Other"
+
+
+def section_for(tags: list[str] | tuple[str, ...], title: str = "") -> str:
+    """Map raw tags (then the title) onto a small fixed set of sections."""
+    for text in [*tags, title]:
+        low = str(text).lower()
+        for section, keywords in SECTION_KEYWORDS:
+            # Whole-word match: plain substrings misfire ("ai" in "main").
+            if any(re.search(r"\b" + re.escape(k) + r"\b", low) for k in keywords):
+                return section
+    return DEFAULT_SECTION
+
+
 def summarize_event_outcomes(group) -> list[dict]:
     rows = []
     for m in group.markets:
+        if not is_live_outcome(m):
+            continue
         p = yes_price(m)
         if p is None:
             continue
@@ -219,12 +269,14 @@ def main() -> None:
                 "title": g.title,
                 "slug": g.slug,
                 "category": g.category,
+                "section": section_for(g.tags, g.title),
                 "tags": list(g.tags),
                 "volume": g.volume,
                 "volume24h": g.volume_24h,
                 "liquidity": g.liquidity,
                 "daysToResolution": g.days_to_resolution,
-                "marketCount": g.market_count,
+                "marketCount": len(outcomes),
+                "resolvedCount": sum(1 for m in g.markets if m.get("closed") is True),
                 "binary": bool(binary),
                 "leadPrice": lead_price,
                 "change1h": change_1h,
@@ -367,6 +419,7 @@ def main() -> None:
         annotated += 1
 
     categories = sorted({e["category"] for e in events_out})
+    sections = sorted({e["section"] for e in events_out})
     snapshot = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "disclaimer": (
@@ -374,6 +427,7 @@ def main() -> None:
             "Not predictions, not betting advice. No wallet access."
         ),
         "categories": categories,
+        "sections": sections,
         "eventCount": len(events_out),
         "events": events_out,
         "macro": macro_block,
