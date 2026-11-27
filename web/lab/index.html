@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Strategy Lab — 8 popular strategies tested against an index fund · The Calibration</title>
+<meta name="description" content="We wrote the rules first, then tested eight popular investing strategies against a plain index fund. One passed. Research only, not investment advice." />
+<link rel="icon" href="/the-calibration/favicon.svg" type="image/svg+xml" />
+<link rel="canonical" href="https://tomuks01-sketch.github.io/the-calibration/lab/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Strategy Lab — 8 strategies tested, 1 passed" />
+<meta property="og:description" content="Rules written first, then tested against an index fund. Research only, not advice." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tomuks01-sketch.github.io/the-calibration/lab/" />
+<link rel="stylesheet" href="../crypto/crypto.css" />
+<link rel="stylesheet" href="../learn/learn.css" />
+<link rel="stylesheet" href="lab.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="../theme.css" />
+</head>
+<body class="hud">
+
+<header class="rail">
+  <a class="wm" href="../">THE&nbsp;<span>CALIBRATION</span></a>
+  <nav>
+    <a href="../">Terminal</a>
+    <a href="../briefs/">Briefs</a>
+    <a href="../scoreboard/">Scoreboard</a>
+    <a href="../crypto/">Crypto</a>
+    <a href="../stocks/">Stocks</a>
+    <a href="../football/">Football</a>
+    <a href="./" aria-current="page">Lab</a>
+    <a href="../learn/">Learn</a>
+  </nav>
+</header>
+
+<main class="wrap learn lab">
+
+  <section class="head">
+    <p class="eyebrow"><span class="tick"></span>Strategy Lab</p>
+    <h1>We tested 8 popular strategies against an index fund. One passed.</h1>
+    <p class="lede">Each strategy got a pass mark written down before the test was run, and no rules were changed afterwards. The question was always the same: does it beat simply owning the whole market?</p>
+  </section>
+
+  <section class="tally" aria-label="Results at a glance">
+    <div class="tally-row" id="tally" role="img" aria-label="1 passed, 1 fragile, 6 did not pass"></div>
+    <dl class="tally-key">
+      <div><dt><i class="sw passed"></i>Passed</dt><dd id="n-passed">–</dd></div>
+      <div><dt><i class="sw fragile"></i>Fragile</dt><dd id="n-fragile">–</dd></div>
+      <div><dt><i class="sw failed"></i>Did not pass</dt><dd id="n-failed">–</dd></div>
+    </dl>
+  </section>
+
+  <aside class="notice" role="note">
+    <h2>Research, not a recommendation</h2>
+    <p>These are historical tests. They show what happened, not what will happen, and they say nothing about what you should buy. Results use public fund and index prices; trading costs and taxes are mostly not included, which would make the strategies look <b>worse</b>, not better.</p>
+  </aside>
+
+  <section class="cards" id="cards" aria-live="polite">
+    <p class="empty">Loading the test results…</p>
+  </section>
+
+  <section class="lesson method">
+    <h2>How the tests were run</h2>
+    <ul class="pitfalls">
+      <li><b>Rules first.</b> The pass mark, the time window and the comparison were fixed before any results were seen.</li>
+      <li><b>One comparison.</b> Every strategy is measured against a cheap fund that simply owns the market, because that is what any strategy has to beat to be worth the effort.</li>
+      <li><b>No second chances.</b> A strategy that fails is recorded as failed. Its settings are not tweaked until it passes.</li>
+      <li><b>Known limits.</b> Mostly US data, some samples are small, and the past is not the future. A pass is evidence, not proof.</li>
+    </ul>
+    <p>The same idea runs through the rest of this site: write the forecast down first, then keep score in public. See the <a href="../scoreboard/">Scoreboard</a> and <a href="../learn/#calibration">how calibration works</a>.</p>
+  </section>
+
+  <footer class="foot">
+    <p class="foot-lead">In these tests, a plain index fund was hard to beat.</p>
+    <p class="foot-fine">Research and education only. Nothing on this page is investment, financial or tax advice, or a recommendation to buy or sell anything. Tested <span id="tested">2026</span>.</p>
+  </footer>
+</main>
+
+<script src="lab.js"></script>
+</body>
+</html>
